@@ -1,0 +1,59 @@
+Gruppo 
+Componenti: Vincenzo Cavallo, Mattia Ciolli, Davide Giancola
+
+Scopo: L'applicazione web che si vuole realizzare è volta all'organizzazione e promozione di partite di softair.
+
+
+Legenda:
+[+] ai fini dell'esame
+[-] in un prossimo futuro
+
+Nell'applicazione sono coinvolti tre tipi di utente:
+[+] utente non registrato
+[+] utente registrato
+[+] amministratore
+
+
+Utente non registrato: 
+[+] può fare la ricerca di partite e visualizzarle, ma non può prenotarsi a una di esse
+[+] può visualizzare gli annunci di scambio, affitto e compravendita
+	
+Utente Registrato:
+[+] l'utente si registra attraverso una form immettendo nome, cognome, nickname,  password, email ed altri dati opzionali tra cui sesso, città, etc...
+    i campi nickname ed email sono univoci per ogni utente.
+[+] l'utente registrato esegue il login attraverso nickname/email e password
+[+] una volta effettuato l'accesso l'utente dispone di:
+	+ un profilo: una singola pagina contenente le informazioni sull'utente (avatar, nickname e campi opzionali in fase di registrazione), 
+	  le partite a cui è iscritto e quelle che ha creato, gli annunci che ha pubblicato con la possibilità di modificarli o eliminarli
+	+ una home page (visualizzata all'accesso): vi sono visualizzate in evidenza partite che si stanno per svolgere in cui ci sono ancora posti disponibili
+	- statistiche su preferenze sulle partite organizzate dagli utenti
+[+] l'utente può:
+	+ cercare partite in una data e una provincia indicata. Alla ricerca verranno visualizzati tutti i campi dove sono disponibili partite nel giorno e nella zona cercati. 
+	  Scelto un campo dove ci sono partite con posti disponibili può visualizzare l’elenco con i nickname dei partecipanti, il numero di posti ancora disponibili, 
+          il numero di attrezzature ancora prenotabili, il costo eventuale. 
+	+ iscriversi alla partita
+	+ prenotare uno o più posti per utenti non iscritti.
+	+ cancellare l’iscrizione alla partita
+	+ pubblicare annunci in riferimento a scambio, affitto o vendita di attrezzatura utilizzabile durante il softair attraverso una form.
+	- impostare diverse opzioni di privacy sui propri contenuti: pubblica, privata...
+	+ creare una partita
+		+ da organizzatore giocante o da organizzatore non giocante (ad esempio se sono un gestore di un campo non vorrò partecipare alla partita e quindi 
+                  non vengo inserito tra i partecipanti)
+ 		+ decidere se fornire o meno l’attrezzatura
+		+ certificare di compiere tutte le procedure legali necessarie per il softair
+		+ cambiare data della partita
+		+ annullare una partita
+		+ eliminare utenti da una partita
+
+Amministratore:
+[+] l’amministratore
+	+ gestisce utenti
+	+ gestisce partite e annunci
+		
+
+______________________________________________________________________________________________________________________________________________________________________________
+	
+Caso d'uso iniziale:
+	Un utente registrato naviga tra le pagine che mostrano le partire di softair con posti ancora disponibili. Nel caso l'utente sia 
+	interessato a partecipare a una partita, clicca sul bottone "prenotati". Il sistema notifica all'utente l'avvenuta prenotazione
+	alla partita e permette all'utente di proseguire con l'esplorazione dell'applicazione.
