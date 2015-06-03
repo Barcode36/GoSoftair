@@ -10,7 +10,28 @@ class EUtente {
     public $username;
     public $password;
     public $email;
+    
+    
+   /**
+    * Costruttore di Utente
+    *
+    * @param string $nome
+    * @param string $cognome
+    * @param string $username
+    * @param string $password
+    * @param string $email
+    *
+    */
+    public function __construct($nome,$cognome,$username,$password,$email)
+    {
+    	$this->setNome($nome);
+    	$this->setCognome($cognome);
+    	$this->setUsername($username);
+        $this->setPass($password);
+        $this->setEmail($email);
+    }
 
+    
     /**
      * @AssociationType Entity.EPrenotazione
      * @AssociationMultiplicity 0..*
@@ -56,23 +77,23 @@ class EUtente {
     }
     */
     
-    public function setNome(String $n){
+    public function setNome($n){
         $this->nome=$n;
     }
 
-    public function setCognome(String $c){
+    public function setCognome($c){
         $this->cognome=$c;
     }
 
-    public function setUsername(String $u){
+    public function setUsername($u){
         $this->username=$u;
     }
 
-    public function setPass(String $pwd){
+    public function setPass($pwd){
         $this->password=$pwd;
     }
 
-    public function setEmail(String $e){
+    public function setEmail($e){
         $this->email=$e;
     }
 
