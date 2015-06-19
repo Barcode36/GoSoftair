@@ -13,7 +13,9 @@ include_once 'EPrenotazione.php';
  * and open the template in the editor.
  */
 
-$a=new EUtente("a","b",'c','d','e');
+
+
+
 
 
 ?>

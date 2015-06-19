@@ -1,61 +1,55 @@
 <?php
 
 /**
- * @access public
+ *
+ * Classe Prenotazione che descrive l'entità Prenotazione
  * @package Entity
+ * @author Vincenzo Cavallo
+ * @author Mattia Ciolli
+ * @author Davide Giancola
+ * 
  */
 class EPrenotazione {
-    /**
-     * @AttributeType int
-     */
-    public $idpartita;
-    /**
-     * @AttributeType Date
-     */
+    public $idprenotazione;
     public $data;
-    /**
-     * @AttributeType boolean
-     */
-    public $confermato=false;
-    /**
-     * @AssociationType Entity.EUtente
-     * @AssociationMultiplicity 1
-     */
-    public $utente;
-    
+    public $confermato;
+    public $nicknameutente;
+    public $idpartita;
+
    /**
     * Costruttore di Prenotazione
     *
-    * @param string $nome
-    * @param string $cognome
-    * @param string $username
-    * @param string $password
-    * @param string $email
+    * @param string $idpartita
+    * @param string $data
+    * @param string $confermato
     *
     */
-    public function __construct($idpartita,$data,$confermato,$utente)
+    public function __construct($idprenotazione,$data,$confermato=false,EUtente $Utente, EPartita $Partita)
     {
-        $this->setNome($idpartita);
-        $this->setCognome($cognome);
-        $this->setUsername($username);
-        $this->setPass($password);
-        $this->setEmail($email);
+        $this->setIdprenotazione($idprenotazione);
+        $this->setData($data);
+        $this->nicknameutente=$Utente.getUsername();
+        $this->idpartita=$Partita.getIdpartita();
     }
 
 
+    //METODI SET
+
+
     /**
-     * @access public
-     * @param EPartita item
+     * Setta $idpartita come id della prenotazione
+     * @param string $id
      */
-    public function setidpartita(EPartita $item) {
-        $idpartita=$item->getIDpartita();
+    public function setIdprenotazione($id) {
+        $this->idprenotazione=$id;
     }
 
     /**
+    * Setta $confermato
      * @access public
      * @param $confermato boolean
      */
-    public function setconfermato($confermato) {
+    public function setConfermato($confermato) {
         $this->confermato=$confermato;
     }
 
@@ -63,41 +57,56 @@ class EPrenotazione {
      * @access public
      * @param $data string
      */
-    public function setdata($data) {
+    public function setData($data) {
         $anno=substr($data, 6);
         $mese=substr($data, 3, 2);
         $giorno=substr($data, 0, 2);
         $this->data="$anno-$mese-$giorno";
     }
 
-    /**
-     * @access public
-     * @param $utente EUtente
-     */
-    public function setutente(EUtente $utente) {
-        $this->utente=$utente;
-    }
     
-    /** restituisce l'utente relativo all'ordine
-     * @return EUtente
-     */
-    public function getutente() {
-        return $this->utente;
-    }
+
+
+    //METODI GET
+
     
      /** restituisce il booleano confermato
      * @return $confermato boolean
      */
-    public function getconfermato() {
+    public function getConfermato() {
         return $this->confermato;
     }
 
-     /** restituisce l'id partita
-     * @param EPartita item
+    /** restituisce la data 
+     * @return $data string
      */
-    public function getidpartita() {
-        return $this->getidpartita();
+    public function getData() {
+        return $this->data;
     }
+
+
+     /** restituisce l'id partita
+     * @return $idpartita string
+     */
+    public function getIdprenotazione() {
+        return $this->idprenotazione;
+    }
+
+    /** restituisce nicknameutente
+     * @return $nicknameutente string
+     */
+    public function getNicknameutente() {
+        return $this->nicknameutente;
+    }
+
+     /** restituisce l'id partita a cui ci si è prenotato
+     * @return $idpartita string
+     */
+    public function getIdpartita() {
+        return $this->idpartita;
+    }
+
+
     
 }
 ?>

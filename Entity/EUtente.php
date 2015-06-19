@@ -1,8 +1,13 @@
 <?php
 
 /**
- * @access public
+ *
+ * Classe Utente che descrive l'entità Utente
  * @package Entity
+ * @author Vincenzo Cavallo
+ * @author Mattia Ciolli
+ * @author Davide Giancola
+ * 
  */
 class EUtente {
     public $nome;
@@ -10,9 +15,10 @@ class EUtente {
     public $username;
     public $password;
     public $email;
+    public $prenotazioni = array();
+
     
-    
-   /**
+    /**
     * Costruttore di Utente
     *
     * @param string $nome
@@ -20,46 +26,219 @@ class EUtente {
     * @param string $username
     * @param string $password
     * @param string $email
-    *
+    * @param array $prenotazioni
     */
-    public function __construct($nome,$cognome,$username,$password,$email)
+    public function __construct($nome,$cognome,$username,$password,$email,$prenotazioni)
     {
-    	$this->setNome($nome);
-    	$this->setCognome($cognome);
-    	$this->setUsername($username);
+        $this->setNome($nome);
+        $this->setCognome($cognome);
+        $this->setUsername($username);
         $this->setPass($password);
         $this->setEmail($email);
+        $this->setPrenotazioni($prenotazioni);
+    }
+
+
+
+
+    //METODI SET
+
+    /**
+     * Setta $nome come nome dell'utente
+     * @param string $nome
+     *
+     */  
+    public function setNome($nome) {
+            $this->nome = ucwords($nome);
+    }
+
+
+    /**
+     * Setta $cognome come cognome dell'utente
+     * @param string $cognome
+     *
+     */  
+    public function setCognome($cognome){
+            $this->cognome = ucwords($cognome);
+    }
+
+
+    /**
+     * Setta $username come username dell'utente
+     * @param string $username
+     *
+     */  
+    public function setUsername($username)
+    {
+        $this->username=$username;
+    }
+
+
+    /**
+     * Setta $password come password dell'utente
+     * @param string $password
+     *
+     */  
+    public function setPassword($password) {
+            $this->password = $password;
+    }
+    
+
+     /**
+     * Setta $email come email associata all'utente
+     * @param string $email
+     *
+     */  
+  
+    public function setEmail($email) 
+    {
+            $this->email=$email;
+    }
+
+
+     /**
+     * Associa a $prenotazioni l'array contenuto in $prenotazioni
+     * @param array $prenotazioni
+     *
+     */  
+    public function setPrenotazioni(array $prenotazioni) {
+        $this->prenotazioni = $prenotazioni;
+    }
+
+
+
+
+
+    //METODI GET
+
+    /**
+     * 
+     * @return string Stringa contenente il nome dell'utente.
+     *
+     */
+    public function getNome()
+     {
+        return $this->nome;
+     }
+    
+
+     /**
+     * 
+     * @return string Stringa contenente il cognome dell'utente
+     *
+     */
+    public function getCognome()
+     {
+        return $this->cognome;
+     }
+    
+
+    /**
+     * 
+     * @return string Stringa contenente l'username dell'utente.
+     *
+     */    
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     
     /**
-     * @AssociationType Entity.EPrenotazione
-     * @AssociationMultiplicity 0..*
-     * @AssociationKind Aggregation
+     * 
+     * @return string Stringa contenente la password dell'utente.
      */
-    public $arrayPrenotazioni=array();
-    /**
-     * @access public
-     * @return Prenotazione
-     */
-   
-    //public function generaCodiceAttivazione() {
-    //    $this->codice_attivazione=mt_rand();
-    //}
-
-    
-    public function addPrenotazione(EPrenotazione $Prenotazione) {
-        $this->arrayPrenotazioni[]=$Prenotazione;
+    public function getPassword()
+    {
+        return $this->password;
     }
 
-    /**
-     * @access public
-     * @return array()
-     * @ReturnType array()
+
+     /**
+     * 
+     * @return string Stringa contenente l'email dell'utente.
+     *
      */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+
+     /**
+     * 
+     * @return array Array contenente le prenotazioni dell'utente
+     *
+     */    
     public function getPrenotazioni() {
-        return $this->arrayPrenotazioni;
+        return $this->prenotazioni;
     }
+
+
+
+
+
+
+
+
+
+
+
+     /**
+     * Aggiunge una prenotazione all'array $prenotazioni
+     * @param EPrenotazione $prenotazione
+     *
+     */  
+    public function addPrenotazione(EPrenotazione $prenotazione) {
+        $this->$prenotazioni[] = $prenotazione;
+
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * DA AGGIUNGERE:
+ * TIPI DI UTENTE: inserire variabile per gestire il tipo di utente tra admin, registrato e non registrato e fare metodi
+ * inserire controlli nelle funzioni set (vedere espressioni regolari)
+ * codice di attivazione???
+ * ...
+ *
+ *
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CODICE FATTO DA QUALCUNO DI VOI DA FINIRE???:
     /**
      * @access public
      * @return array()
@@ -77,44 +256,19 @@ class EUtente {
     }
     */
     
-    public function setNome($n){
-        $this->nome=$n;
-    }
 
-    public function setCognome($c){
-        $this->cognome=$c;
-    }
 
-    public function setUsername($u){
-        $this->username=$u;
-    }
 
-    public function setPass($pwd){
-        $this->password=$pwd;
-    }
 
-    public function setEmail($e){
-        $this->email=$e;
-    }
 
-    public function getNome(){
-        return $this->nome;
-    }
 
-    public function getCognome(){
-        return $this->cognome;
-    }
 
-    public function getUsername(){
-        return $this->username;
-    }
 
-    public function getPass(){
-        return $this->password;
-    }
 
-    public function getEmail(){
-        return $this->email;
-    }
-}
+
+
+
+
+
+  }
 ?>
