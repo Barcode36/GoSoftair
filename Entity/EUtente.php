@@ -247,7 +247,7 @@ class EUtente {
     /*public function getAccountAttivo() {
         if ($this->stato=='attivo')
             return true;
-        else                                        DA METTERE IN FUTURO
+        else                                        NON SO SE CE NE SIA EFFETTIVAMENTE BISOGNO
             return false;
     }
 

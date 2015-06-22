@@ -10,10 +10,10 @@
  * 
  */
 class EPrenotazione {
-    public $idprenotazione;
+    public $idpren;
     public $data;
     public $confermato;
-    public $nicknameutente;
+    public $username;
     public $idpartita;
 
    /**
@@ -24,11 +24,11 @@ class EPrenotazione {
     * @param string $confermato
     *
     */
-    public function __construct($idprenotazione,$data,$confermato=false,EUtente $Utente, EPartita $Partita)
+    public function __construct($idpren,$data,$confermato=false,EUtente $Utente, EPartita $Partita)
     {
-        $this->setIdprenotazione($idprenotazione);
+        $this->setidpren($Utente.getUsername().$Partita.getIdpartita());
         $this->setData($data);
-        $this->nicknameutente=$Utente.getUsername();
+        $this->username=$Utente.getUsername();
         $this->idpartita=$Partita.getIdpartita();
     }
 
@@ -40,8 +40,8 @@ class EPrenotazione {
      * Setta $idpartita come id della prenotazione
      * @param string $id
      */
-    public function setIdprenotazione($id) {
-        $this->idprenotazione=$id;
+    public function setidpren($id) {
+        $this->idpren=$id;
     }
 
     /**
@@ -88,15 +88,15 @@ class EPrenotazione {
      /** restituisce l'id partita
      * @return $idpartita string
      */
-    public function getIdprenotazione() {
-        return $this->idprenotazione;
+    public function getidpren() {
+        return $this->idpren;
     }
 
-    /** restituisce nicknameutente
-     * @return $nicknameutente string
+    /** restituisce username
+     * @return $username string
      */
-    public function getNicknameutente() {
-        return $this->nicknameutente;
+    public function getusername() {
+        return $this->username;
     }
 
      /** restituisce l'id partita a cui ci si è prenotato

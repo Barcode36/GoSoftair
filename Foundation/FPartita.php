@@ -24,7 +24,7 @@ class FPartita extends Fdb {
     }
     
      /**
-     * Seleziona sul database le diverse categorie esistenti per i vari libri
+     * Seleziona sul database le partite in base al luogo
      *
      * @return array
      */

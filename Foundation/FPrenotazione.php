@@ -6,8 +6,7 @@
 class FPrenotazione extends Fdb{
     public function __construct() {
         $this->_table='prenotazione';
-        $this->_key='idpartita';
-		$this->_key='username';
+        $this->_key='idpren';
         $this->_auto_increment=true;
         $this->_return_class='Eprenotazione';
         USingleton::getInstance('Fdb');
@@ -16,13 +15,13 @@ class FPrenotazione extends Fdb{
        parent::store($pren);
     
     }
-    public function load($idpar, $user){
-        $pren=parent::load($idpar, $user);
+    public function load($idpren){
+        $pren=parent::load($idpren);
         return $pren;
     }
 	
-	public function delete( $idpar, $user) {
-        parent::delete($pren);
+	public function delete( $idpren) {
+        parent::delete($idpren);
     }
 	
 	public function getPartiteDiUtente($idu){
