@@ -16,7 +16,7 @@ class EUtente {
     public $password;
     public $email;
     public $prenotazioni = array();
-
+	public $annunci = array();
     
     /**
     * Costruttore di Utente
@@ -35,7 +35,8 @@ class EUtente {
         $this->setUsername($username);
         $this->setPass($password);
         $this->setEmail($email);
-        $this->setPrenotazioni($prenotazioni);
+        $this->setPrenotazioni($prenotazioni);  //In teoria si aggiungono dopo
+		$this->setAnnunci($annunci);			// la creazione dell'oggetto, è l'utente a crearli entrambi se vuole
     }
 
 
@@ -101,11 +102,18 @@ class EUtente {
      * @param array $prenotazioni
      *
      */  
-    public function setPrenotazioni(array $prenotazioni) {
+    public function setPrenotazioni(array $prenotazioni) {				//???????????????
         $this->prenotazioni = $prenotazioni;
     }
 
-
+	 /**
+     * Associa a $annunci l'array contenuto in $annunci
+     * @param array $annunci
+     *
+     */  
+    public function setAnnunci(array $annunci) {				//???????????????
+        $this->annunci = $annunci;
+    }
 
 
 
@@ -167,6 +175,16 @@ class EUtente {
 
      /**
      * 
+     * @return array Array contenente gli annunci inseriti dall'utente
+     *
+     */    
+    public function getAnnunci() {
+        return $this->annunci;
+    }
+
+
+     /**
+     * 
      * @return array Array contenente le prenotazioni dell'utente
      *
      */    
@@ -176,10 +194,36 @@ class EUtente {
 
 
 
+	 /**
+     * Crea un annuncio
+     * @param EUtente $u
+     *
+     */  
+    public function CreaAnnuncio(EUtente $u) {
+        $a=new EAnnuncio($descr,$img,$prez,$u);
+		$this.addAnnuncio($a);
 
+    }
 
+     /**
+     * Aggiunge un annuncio
+     * @param EAnnuncio $annuncio
+     *
+     */  
+    public function addAnnuncio(EAnnuncio $annuncio) {
+        $this->$annunci[] = $annuncio;
 
+    }
 
+ /**
+     * Si prenota ad una partita
+     * @param EPartita $p
+     *
+     */  
+    public function Prenotati(EPartita $p) {
+        $p=new EPrenotazione($data,$confermato=false,EUtente $Utente, EPartita $p)
+		$this->addPrenotazione($p);
+    }
 
 
 

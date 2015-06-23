@@ -24,7 +24,7 @@ class EPrenotazione {
     * @param string $confermato
     *
     */
-    public function __construct($idpren,$data,$confermato=false,EUtente $Utente, EPartita $Partita)
+    public function __construct($data,$confermato=false,EUtente $Utente, EPartita $Partita)
     {
         $this->setidpren($Utente.getUsername().$Partita.getIdpartita());
         $this->setData($data);
