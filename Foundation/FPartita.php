@@ -61,10 +61,17 @@ class FPartita extends Fdb {
 	 * @param string $luogo
      * @return array
      */
-    public function getPartiteLuogo($luogo){
+    /**public function getPartiteLuogo($luogo){
         $query='SELECT * ' .
                 'FROM `partita` '
 				'WHERE `luogo=$luogo`';
+        $this->query($query);
+        return $this->getResultAssoc();
+    }*/
+	
+    public function getCategorie(){
+        $query='SELECT DISTINCT `categoria` ' .
+                'FROM `partita` ';
         $this->query($query);
         return $this->getResultAssoc();
     }

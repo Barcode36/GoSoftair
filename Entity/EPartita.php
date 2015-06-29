@@ -30,11 +30,11 @@ class EPartita {
     */
     public function __construct($idpartita,$postiliberi,$prezzo,$data,$descrizione,$prenotazionipartita)
     {
-        $this->setIdpartita($nome);
-        $this->setPostiliberi($cognome);
-        $this->setPrezzo($username);
-        $this->setData($password);
-        $this->setDescrizione($email);
+        $this->setIdpartita($idpartita);
+        $this->setPostiliberi($postiliberi);
+        $this->setPrezzo($prezzo);
+        $this->setData($data);
+        $this->setDescrizione($descrizione);
         $this->setPrenotazionipartita($prenotazionipartita);
     }
 
@@ -49,7 +49,7 @@ class EPartita {
      * @param string $Idpartita
      *
      */  
-    public function setNome($idpartita) {
+    public function setIdpartita($idpartita) {
             $this->idpartita = $idpartita;
     }
 
@@ -59,7 +59,7 @@ class EPartita {
      * @param string $cognome
      *
      */  
-    public function setPostiliberi(Integer $postiliberi){
+    public function setPostiliberi($postiliberi){
             $this->postiliberi = $postiliberi;
     }
 
@@ -92,7 +92,7 @@ class EPartita {
      *
      */  
   
-    public function SetDescrizione($descrizione) 
+    public function setDescrizione($descrizione) 
     {
             $this->descrizione=$descrizione;
     }
@@ -103,7 +103,7 @@ class EPartita {
      * @param array $prenotazioni
      *
      */  
-    public function setPrenotazionipartita(array $prenotazionipartita) {
+    public function setPrenotazionipartita($prenotazionipartita) {
         $this->prenotazionipartita = $prenotazionipartita;
     }
 
@@ -170,20 +170,13 @@ class EPartita {
     }
 
 
-
-
-
-
-
-
-
      /**
      * Aggiunge una prenotazione all'array $prenotazionipartita
      * @param EPrenotazione $prenotazione
      *
      */  
-    public function addPrenotazione(EPrenotazione $prenotazione) {
-        $this->$prenotazionipartita[] = $prenotazione;
+    public function addPrenotazione(ECommento $commento) {
+        array_push($this->prenotazionipartita, $prenotazione);
     }
     
 

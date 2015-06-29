@@ -129,6 +129,8 @@ class Fdb {
      *
      * @return array
      */
+	 
+	 
     public function getObjectArray() {
         $numero_righe=mysql_num_rows($this->_result);
         debug('Numero risultati:'. $numero_righe);
@@ -142,6 +144,7 @@ class Fdb {
         } else
             return false;
     }
+	
     /**
      * Effettua la connessione al database
      */
