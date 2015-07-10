@@ -126,6 +126,34 @@ INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`,
 ('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','ballo'),
 ('alex', 'Alessandro', 'Verzicco', 'tas63TAv', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','romano');
 
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `annuncio`
+--
+
+CREATE TABLE `annuncio` (
+  `IDannuncio` int(11) NOT NULL AUTO_INCREMENT,
+  `autoreusername` varchar(100) DEFAULT NULL,
+  `prezzo` float DEFAULT NULL,
+  `descrizione` varchar(2048) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `immagine` varchar(100) DEFAULT NULL,
+  `titolo` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`IDannuncio`),
+  KEY `Annuncia` (`autoreusername`),
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `partita`
+--
+
+INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `telefono`, `immagine`, `titolo`) VALUES
+('1', 'alex', 10.00, 'Gran bell''arma', '08536666', 'mia.jpg', 'Fa fico'),
+('2', 'alessandro', 29.99, 'Una bella accoppiata', '085546536666', 'coppia.jpg', '2 is meglio che one '),
+('3', 'alex', 25.00, 'La mia bambina', '08536556', 'tie.jpg', 'Adottami');
+-- --------------------------------------------------------
+
 --
 -- Limiti per le tabelle scaricate
 --
@@ -143,8 +171,11 @@ ALTER TABLE `prenotazione`
   ADD CONSTRAINT `Partita` FOREIGN KEY (`partitaID`) REFERENCES `partita` (`IDpartita`),
   ADD CONSTRAINT `Prenotazione` FOREIGN KEY (`utenteusername`) REFERENCES `utente` (`username`);
 
-
-
+--
+-- Limiti per la tabella `annuncio`
+--
+ALTER TABLE `annuncio`
+	ADD CONSTRAINT `Annuncia` FOREIGN KEY (`autoreusername`) REFERENCES `utente` (`username`);
 
 
 

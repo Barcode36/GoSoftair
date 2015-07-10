@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-09 19:16:42
+<?php /* Smarty version 2.6.26, created on 2015-07-10 15:25:08
          compiled from profilo_default.tpl */ ?>
         <div class="corner-content-1col-top"></div>
           <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
@@ -52,7 +52,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ?>  
             	<tr><td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
 </td>
-                	<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['titoloPartita']; ?>
+                	<td><a href="?controller=ricerca&task=dettagli&id_partita=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
+"><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['titoloPartita']; ?>
 </td>
                 	<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['utenteusername']; ?>
 </td>

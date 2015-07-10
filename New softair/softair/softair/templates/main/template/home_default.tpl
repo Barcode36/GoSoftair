@@ -41,25 +41,7 @@
           <h2>Negozio prenotazione softair online</h2>
         </div>
     
-        <!-- A.2 BUTTON NAVIGATION -->
-        <div class="navbutton">
-          <ul>
-            <li><a href="#" title="English"><img src="templates/main/template/img/icon_flag_us.gif" alt="Flag" /></a></li>
-            <li><a href="#" title="Deutsch"><img src="templates/main/template/img/icon_flag_de.gif" alt="Flag" /></a></li>
-            <li><a href="#" title="Svenska"><img src="templates/main/template/img/icon_flag_se.gif" alt="Flag" /></a></li>
-            <li><a href="#" title="RSS"><img src="templates/main/template/img/icon_rss.gif" alt="RSS-Button" /></a></li>
-          </ul>
-        </div>
-
-        <!-- A.3 GLOBAL NAVIGATION -->
-        <div class="navglobal">
-          <ul>
-            <li><a href="#" title="">About</a></li>
-            <li><a href="#" title="">Contact</a></li>								
-            <li><a href="#" title="">Sitemap</a></li>								                        
-            <li><a href="#" title="">Links</a></li>								            
-          </ul>
-        </div>        
+       
       </div>
     
       <!-- A.4 BREADCRUMB and SEARCHFORM -->
@@ -98,7 +80,7 @@
                 {/if}
                 </li>
         {/section}
-        <li><a href="index.php?controller=prenotazione&task=contenuto">Prenotazioni</a></li>
+        <li><a href="index.php?controller=annunci&task=vediannunci">Annunci</a></li>
       </ul>                       
     </div>    
   

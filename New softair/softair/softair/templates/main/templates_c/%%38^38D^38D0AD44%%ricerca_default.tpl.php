@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-07 15:01:35
+<?php /* Smarty version 2.6.26, created on 2015-07-10 13:20:09
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 19, false),)), $this); ?>
@@ -80,7 +80,8 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDpartita']; ?>
 " />
-              <input id="button" type="submit" name="task" value="Aggiungi alle Prenotazioni " />
+              <input id="button" onclick="location.href='?controller=ricerca&task=dettagli&id_partita=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDpartita']; ?>
+'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
             </div>
@@ -165,7 +166,8 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDpartita']; ?>
 " />
-              <input id="button" type="submit" name="task" value="Aggiungi alle Prenotazioni" />
+              <input id="button" onclick="location.href='?controller=ricerca&task=dettagli&id_partita=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDpartita']; ?>
+'" name="task" value="Prenota" />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
             </div>

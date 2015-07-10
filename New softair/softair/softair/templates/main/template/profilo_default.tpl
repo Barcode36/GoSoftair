@@ -16,7 +16,7 @@
                 	<th class="top" scope="col">Attrezzatura</th>
           		{section name=i loop=$datiPartite}  
             	<tr><td>{$datiPartite[i].partitaID}</td>
-                	<td>{$datiPartite[i].titoloPartita}</td>
+                	<td><a href="?controller=ricerca&task=dettagli&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</td>
                 	<td>{$datiPartite[i].utenteusername}</td>
             		<td>{$datiPartite[i].attrezzatura}</td>
             	{/section}

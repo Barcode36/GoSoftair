@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-07 15:01:35
+<?php /* Smarty version 2.6.26, created on 2015-07-10 14:35:22
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -45,25 +45,7 @@
           <h2>Negozio prenotazione softair online</h2>
         </div>
     
-        <!-- A.2 BUTTON NAVIGATION -->
-        <div class="navbutton">
-          <ul>
-            <li><a href="#" title="English"><img src="templates/main/template/img/icon_flag_us.gif" alt="Flag" /></a></li>
-            <li><a href="#" title="Deutsch"><img src="templates/main/template/img/icon_flag_de.gif" alt="Flag" /></a></li>
-            <li><a href="#" title="Svenska"><img src="templates/main/template/img/icon_flag_se.gif" alt="Flag" /></a></li>
-            <li><a href="#" title="RSS"><img src="templates/main/template/img/icon_rss.gif" alt="RSS-Button" /></a></li>
-          </ul>
-        </div>
-
-        <!-- A.3 GLOBAL NAVIGATION -->
-        <div class="navglobal">
-          <ul>
-            <li><a href="#" title="">About</a></li>
-            <li><a href="#" title="">Contact</a></li>								
-            <li><a href="#" title="">Sitemap</a></li>								                        
-            <li><a href="#" title="">Links</a></li>								            
-          </ul>
-        </div>        
+       
       </div>
     
       <!-- A.4 BREADCRUMB and SEARCHFORM -->
@@ -152,7 +134,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
                 <?php endif; ?>
                 </li>
         <?php endfor; endif; ?>
-        <li><a href="index.php?controller=prenotazione&task=contenuto">Prenotazioni</a></li>
+        <li><a href="index.php?controller=annunci&task=vediannunci">Annunci</a></li>
       </ul>                       
     </div>    
   

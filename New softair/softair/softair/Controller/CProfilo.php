@@ -40,7 +40,6 @@ class CProfilo {
     		$FPrenotazione=new FPrenotazione();
     		$prenotazione=$FPrenotazione->loadfromuser($username);
     		if ($prenotazione!=false) {
-/*    			$datiPartite=array();*/
     			$i=0;
     			while ($i<count($prenotazione)) {
 					$this->_array_dati_partite[$i]=get_object_vars($prenotazione[$i]);

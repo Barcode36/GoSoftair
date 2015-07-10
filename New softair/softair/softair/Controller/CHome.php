@@ -43,6 +43,9 @@ class CHome {
 			case 'profilo':
               	$CProfilo=USingleton::getInstance('CProfilo');
                	return $CProfilo->smista();
+            case 'annunci':
+               	$CAnnunci=USingleton::getInstance('CAnnunci');
+               	return $CAnnunci->smista();
             default:
                 $CRicerca=USingleton::getInstance('CRicerca');
                 return $CRicerca->ultimiArrivi();

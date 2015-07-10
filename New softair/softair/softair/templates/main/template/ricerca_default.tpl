@@ -19,7 +19,7 @@
               <p class="details"><b>Media Voti:</b> | <a href="#">{if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if}</a> | Categoria: <a href="#">{$dati[i].categoria}</a> | Prezzo: <a href="#">{$dati[i].prezzo|string_format:"%.2f"}</a> |</p>
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
-              <input id="button" type="submit" name="task" value="Aggiungi alle Prenotazioni " />
+              <input id="button" onclick="location.href='?controller=ricerca&task=dettagli&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
             </div>
@@ -47,7 +47,7 @@
               <p class="details"><b>Media Voti:</b> | <a href="#">{if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if}</a> | Categoria: <a href="#">{$dati[i].categoria}</a> | Prezzo: <a href="#">{$dati[i].prezzo|string_format:"%.2f"}</a> |</p>
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
-              <input id="button" type="submit" name="task" value="Aggiungi alle Prenotazioni" />
+              <input id="button" onclick="location.href='?controller=ricerca&task=dettagli&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota" />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
             </div>

@@ -24,8 +24,8 @@ class CRicerca {
         if ($risultato!=false) {
             $array_risultato=array();
             foreach ($risultato as $item) {
-                $tmpLibro=$FPartita->load($item->IDpartita);
-                $array_risultato[]=array_merge(get_object_vars($tmpLibro),array('media_voti'=>$tmpLibro->getMediaVoti()));
+                $tmpPartita=$FPartita->load($item->IDpartita);
+                $array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
             }
         }
         $view->impostaDati('pagine',$pagine);
@@ -59,8 +59,8 @@ class CRicerca {
         if ($risultato!=false) {
             $array_risultato=array();
             foreach ($risultato as $item) {
-                $tmpLibro=$FPartita->load($item->IDpartita);
-                $array_risultato[]=array_merge(get_object_vars($tmpLibro),array('media_voti'=>$tmpLibro->getMediaVoti()));
+                $tmpPartita=$FPartita->load($item->IDpartita);
+                $array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
             }
         }
         $view->impostaDati('pagine',$pagine);
@@ -113,7 +113,7 @@ class CRicerca {
             $ECommento = new ECommento();
             $ECommento->partitaIDpartita=$view->getIdPartita();
             $ECommento->voto=$view->getVoto();
-            $ECommento->testo=$session->leggi_valore('username')." - ".$view->getCommento();
+            $ECommento->testo=$username." : ".$view->getCommento();
             $FCommento=new FCommento();
             $FCommento->store($ECommento);
             return $this->dettagli();
