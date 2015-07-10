@@ -113,7 +113,7 @@ class CRicerca {
             $ECommento = new ECommento();
             $ECommento->partitaIDpartita=$view->getIdPartita();
             $ECommento->voto=$view->getVoto();
-            $ECommento->testo=$view->getCommento();
+            $ECommento->testo=$session->leggi_valore('username')." - ".$view->getCommento();
             $FCommento=new FCommento();
             $FCommento->store($ECommento);
             return $this->dettagli();
