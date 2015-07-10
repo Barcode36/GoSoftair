@@ -141,7 +141,7 @@ CREATE TABLE `annuncio` (
   `immagine` varchar(100) DEFAULT NULL,
   `titolo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`IDannuncio`),
-  KEY `Annuncia` (`autoreusername`),
+  KEY `Annuncia` (`autoreusername`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
