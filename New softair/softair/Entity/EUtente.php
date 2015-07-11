@@ -28,6 +28,52 @@ class EUtente {
      * @ReturnType float
      */
 
+    public function getNome() {
+    	return $this->nome;
+    }
+    
+    public function getCognome() {
+    	return $this->cognome;
+    }
+    
+    
+    public function getEmail() {
+    	return $this->email;
+    }
+    
+    public function getVia() {
+    	return $this->via;
+    }
+    
+    public function getCAP() {
+    	return $this->CAP;
+    }
+    
+    public function getCitta() {
+    	return $this->citta;
+    }
+
+    public function getPassword() {
+    	return $this->password;
+    }
+    
+    public function setUtenteMod($nome, $cognome, $username, $password, $email, $via, $CAP, $citta, $codice_attivazione, $stato, $foto )
+    {
+    	$this->nome=$nome;
+    	$this->cognome=$cognome;
+    	$this->password=$password;
+    	$this->email=$email;
+    	$this->via=$via;
+    	$this->CAP=$CAP;
+    	$this->citta=$citta;
+    	$this->username=$username;
+    	$this->codice_attivazione=$codice_attivazione;
+    	$this->stato=$stato;
+    	$this->foto=$foto;
+    }
+    
+    
+    
     /**
      * @access public
      */

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-11 13:44:02
+<?php /* Smarty version 2.6.26, created on 2015-07-11 16:34:31
          compiled from profilo_default.tpl */ ?>
         <div class="corner-content-1col-top"></div>
           <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
@@ -20,7 +20,7 @@
 <br>
 		  CAP: <?php echo $this->_tpl_vars['datiUtente']['CAP']; ?>
 <br>
-		  <a href="#"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
+		  <a href="index.php?controller=profilo&task=modprofilo"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
 		  	<?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>

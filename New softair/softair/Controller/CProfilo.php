@@ -52,6 +52,41 @@ class CProfilo {
         return $view->processaTemplate();        
     }
     
+    
+    public function modProfilo(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
+    	$username=$session->leggi_valore('username');
+		$this->setUtente($username);
+    	if ($this->_utente!=false) {
+    		$this->_array_dati_utente=get_object_vars($this->_utente);
+    		$view->impostaDati('datiUtente', $this->_array_dati_utente);
+    	}
+    	$view->setLayout('modifica');
+    	$view->impostaDati('datiUtente', $this->_array_dati_utente);
+    	return $view->processaTemplate();
+    }
+    
+    public function salvaProfilo(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$FUtente = new FUtente();
+    	$EUtente = new EUtente();
+    	$dati_modifica=$view->getDatiModProfilo();
+    	
+    	$session=USingleton::getInstance('USession');
+    	$username=$session->leggi_valore('username');
+    	$this->setUtente($username);
+    	if ($this->_utente!=false) {
+    		$this->_array_dati_utente=get_object_vars($this->_utente);
+    	}
+    	$EUtente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato'], $this->_array_dati_utente['foto']);
+    	$FUtente->update($EUtente);
+    	$view->setLayout('conferma_modifica');
+    	return $view->processaTemplate();
+    	
+    }
+    
+    
     /**
      * Imposta l'utente attuale
      * @param string
@@ -74,7 +109,10 @@ class CProfilo {
         switch ($view->getTask()){
             case 'apri':
                 return $this->apriProfilo();
-                
+            case 'modprofilo':
+                return $this->modProfilo();
+            case 'salvaprofilo':
+                return $this->salvaProfilo();
             }
         }
 }

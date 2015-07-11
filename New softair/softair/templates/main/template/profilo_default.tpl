@@ -8,7 +8,7 @@
 		  Citta: {$datiUtente.citta}<br>
 		  Via: {$datiUtente.via}<br>
 		  CAP: {$datiUtente.CAP}<br>
-		  <a href="#"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
+		  <a href="index.php?controller=profilo&task=modprofilo"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
 		  	{if $datiPartite!= false}	
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>

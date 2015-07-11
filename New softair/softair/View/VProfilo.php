@@ -49,4 +49,14 @@ class VProfilo extends View{
     		return false;
     }
     
+    public function getDatiModProfilo() {
+    	$dati_richiesti=array('password','nome','cognome','via','CAP', 'citta', 'email');
+    	$dati=array();
+    	foreach ($dati_richiesti as $dato) {
+    		if (isset($_REQUEST[$dato]))
+    			$dati[$dato]=$_REQUEST[$dato];
+    	}
+    	return $dati;
+    }
+    
 }
