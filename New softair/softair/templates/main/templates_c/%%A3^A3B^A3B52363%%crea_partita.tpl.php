@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-11 12:43:58
+<?php /* Smarty version 2.6.26, created on 2015-07-11 14:17:14
          compiled from crea_partita.tpl */ ?>
          <div class="subcontent-box">
           <h1 >Creazione partita</h1>
@@ -9,8 +9,10 @@
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" /></p>
+                <p><label for="Titolo" class="top">Categoria:</label><br />
+                  <input type="text" id="Categoria" name="Categoria" tabindex="8" class="field" /></p>
               <p><label class="top">Partecipanti:</label><br />
-                  <input type="number" id="Giocatori" tabindex="2" class="field" /></p>
+                  <input type="number" name="Giocatori" id="Giocatori" tabindex="2" class="field" /></p>
                <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" tabindex="3" size="1" value="" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
 			   <p><label for="Prezzo" class="top">Prezzo:</label><br />
                   <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" value="" /></p>

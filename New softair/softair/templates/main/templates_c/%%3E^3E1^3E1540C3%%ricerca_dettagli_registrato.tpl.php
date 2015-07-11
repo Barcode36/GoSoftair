@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-10 13:20:13
+<?php /* Smarty version 2.6.26, created on 2015-07-11 13:48:52
          compiled from ricerca_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_format', 'ricerca_dettagli_registrato.tpl', 10, false),)), $this); ?>

@@ -68,7 +68,7 @@ class Fdb {
         debug($query);
         debug(mysql_error());
         if (!$this->_result)
-            return false;
+        	return false;
         else
             return true;
     }

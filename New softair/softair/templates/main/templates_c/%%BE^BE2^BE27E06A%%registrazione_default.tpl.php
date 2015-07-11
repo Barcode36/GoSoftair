@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-07 15:41:13
+<?php /* Smarty version 2.6.26, created on 2015-07-11 13:46:43
          compiled from registrazione_default.tpl */ ?>
         <a id="anchor-login-4"></a>
         <div class="corner-subcontent-top"></div>

@@ -4,7 +4,7 @@
  * @package Entity
  */
 class EPartita {
-     public $titolo;
+    public $titolo;
     public $autore;
     public $prezzo;
     public $descrizione;              
@@ -19,6 +19,13 @@ class EPartita {
      * @AssociationKind Aggregation
      */
     public $_commento = array();
+    
+    
+    //pare che scritti così i set funzionano
+    public function setPrezzo($prezzo)
+    {
+    	$this->prezzo=$prezzo;
+    }
 
     /**
      * @access public

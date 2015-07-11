@@ -74,11 +74,11 @@ class VCreaPartita extends View {
      * @return array();
      */
     public function getDatiCreaPartita() {
-        $dati_richiesti=array('titolo','indirizzo','descrizione','data','ngiocatori','categoria','prezzo');
+        $dati_richiesti=array('Titolo','Indirizzo','Descrizione','Data','Giocatori','Prezzo', 'Categoria');
         $dati=array();
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))
-                $dati[$dato]=$_REQUEST[$dato];
+            	$dati[$dato]=$_REQUEST[$dato];
         }
         return $dati;
     }

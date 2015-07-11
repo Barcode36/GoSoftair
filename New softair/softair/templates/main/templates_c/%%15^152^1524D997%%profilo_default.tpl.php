@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-10 15:25:08
+<?php /* Smarty version 2.6.26, created on 2015-07-11 13:44:02
          compiled from profilo_default.tpl */ ?>
         <div class="corner-content-1col-top"></div>
           <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
@@ -20,12 +20,14 @@
 <br>
 		  CAP: <?php echo $this->_tpl_vars['datiUtente']['CAP']; ?>
 <br>
+		  <a href="#"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
 		  	<?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
+                	<th class="top" scope="col"></th>
           		<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['datiPartite']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -59,6 +61,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </td>
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
 </td>
+            		<td><a href="#"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+       
             	<?php endfor; endif; ?>
 		  </p>
 		  	<?php else: ?><p>Non ci sono prenotazioni a partite.</p><?php endif; ?>

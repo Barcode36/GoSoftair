@@ -22,12 +22,12 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE `commento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `partitaIDpartita` varchar(13) DEFAULT NULL,
+  `partitaIDpartita` varchar(100) NOT NULL,
   `testo` varchar(1024) DEFAULT NULL,
   `voto` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Commento` (`partitaIDpartita`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
 
 --
 -- Dump dei dati per la tabella `commento`
@@ -45,10 +45,10 @@ INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `voto`) VALUES
 --
 
 CREATE TABLE `partita` (
-  `IDpartita` varchar(13) NOT NULL,
+  `IDpartita` varchar(100) NOT NULL,
   `titolo` varchar(200) DEFAULT NULL,
   `indirizzo` varchar(200) DEFAULT NULL,
-  `giocatori` int DEFAULT NULL,
+  `ngiocatori` int DEFAULT NULL,
   `autore` varchar(100) DEFAULT NULL,
   `data` varchar(10) DEFAULT NULL,
   `prezzo` float DEFAULT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `partita` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`giocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
+INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
 ('1', 'Perdonami', 'via daqui', 10, 'Catone Luca','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', 'cacciatore.jpg'),
 ('2', 'ghd', 'via daqui', 10, 'Bruce','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', 'attacco.jpg'),
 ('3', 'Nelle fratte', 'foresta amazzonica', 10, 'Toretto','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
@@ -79,7 +79,7 @@ INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`giocatori`,`autore`, 
 
 CREATE TABLE `prenotazione` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `partitaID` varchar(16) DEFAULT NULL,
+  `partitaID` varchar(100) NOT NULL,
   `titoloPartita` varchar(40) DEFAULT NULL,
   `utenteusername` varchar(20) DEFAULT NULL,
   `attrezzatura` tinyint(1) NOT NULL,

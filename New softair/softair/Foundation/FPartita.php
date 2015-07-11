@@ -10,7 +10,7 @@ class FPartita extends Fdb {
         $this->_return_class='EPartita';
         USingleton::getInstance('Fdb');
     }
-    public function store( $partita) {
+    /*public function store( $partita) {
         parent::store($partita);
         $FCommento=new FCommento();
         $arrayCommentiEsistenti=$FCommento->loadCommenti($partita->IDpartita);
@@ -24,7 +24,7 @@ class FPartita extends Fdb {
             $commento->partitaIDpartita=$partita->IDpartita;
             $FCommento->store($commento);
         }
-    }
+    }*/
     public function load ($key) {
         $partita=parent::load($key);
         $FCommento=new FCommento();
