@@ -47,7 +47,10 @@ INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `voto`) VALUES
 CREATE TABLE `partita` (
   `IDpartita` varchar(13) NOT NULL,
   `titolo` varchar(200) DEFAULT NULL,
+  `indirizzo` varchar(200) DEFAULT NULL,
+  `giocatori` int DEFAULT NULL,
   `autore` varchar(100) DEFAULT NULL,
+  `data` varchar(10) DEFAULT NULL,
   `prezzo` float DEFAULT NULL,
   `descrizione` varchar(2048) DEFAULT NULL,
   `categoria` varchar(20) DEFAULT NULL,
@@ -59,14 +62,14 @@ CREATE TABLE `partita` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `partita` (`IDpartita`, `titolo`, `autore`, `prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
-('1', 'Perdonami', 'Fuggitivo', 11.99, 'Sembravi bip-bip', 'Rubabandiera', 'cacciatore.jpg'),
-('2', 'Fare scene. Una storia di cinema', 'Generale', 10.8, 'L''unione fa la forza ', 'Rubabandiera', 'attacco.jpg'),
-('3', 'La misura dello spazio. ', 'Granchinetor', 0, 'Come un granchio robot', 'Armageddon', 'ballo.jpg'),
-('4', 'Un colpo di vento', 'Gunmaster', 0, 'Mani in alto ', 'Rubabandiera', 'pistole.jpg'),
-('5', 'Edizione italiana e inglese', 'Menny', 33.25, 'Amici di neve.', '2 Squadre', 'pupazzo.jpg'),
-('6', 'Sbellico', 'Big Bog', 7.96, 'Ridi ridi', 'Armageddon', 'ridi.jpg'),
-('7', 'La fine', 'Cesare', 0, 'Contro i galli non c''è speranza ', 'Armageddon', 'romano.jpg');
+INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`giocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
+('1', 'Perdonami', 'via daqui', 10, 'Catone Luca','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', 'cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 'Bruce','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', 'attacco.jpg'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 'Toretto','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'sdish','Armageddon', 'pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'Obama','1/18/12', 0, 'sdish','2 Squadre', 'pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 'Clown','1/18/12', 0, 'ahaha','2 Squadre', 'ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'wwwwwww','Armageddon', 'romano.jpg');
 
 -- --------------------------------------------------------
 
