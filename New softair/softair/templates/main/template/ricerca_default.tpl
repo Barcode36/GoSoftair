@@ -7,7 +7,7 @@
             {if $smarty.section.i.iteration % 2 == 1}
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
-              <h1><a href="?controller=ricerca&task=dettagli&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
+              <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>{$dati[i].autore}</h5>
               <p><img height="120" src="copertine/{$dati[i].copertina}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
@@ -19,7 +19,7 @@
               <p class="details"><b>Media Voti:</b> | <a href="#">{if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if}</a> | Categoria: <a href="#">{$dati[i].categoria}</a> | Prezzo: <a href="#">{$dati[i].prezzo|string_format:"%.2f"}</a> |</p>
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
-              <input id="button" onclick="location.href='?controller=ricerca&task=dettagli&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
+              <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
             </div>
@@ -35,7 +35,7 @@
             {if $smarty.section.i.iteration % 2 == 0}
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
-              <h1><a href="?controller=ricerca&task=dettagli&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
+              <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>{$dati[i].autore}</h5>
               <p><img height="120" src="copertine/{$dati[i].copertina}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
@@ -47,7 +47,7 @@
               <p class="details"><b>Media Voti:</b> | <a href="#">{if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if}</a> | Categoria: <a href="#">{$dati[i].categoria}</a> | Prezzo: <a href="#">{$dati[i].prezzo|string_format:"%.2f"}</a> |</p>
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
-              <input id="button" onclick="location.href='?controller=ricerca&task=dettagli&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota" />
+              <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota" />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
             </div>

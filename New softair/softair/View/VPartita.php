@@ -1,15 +1,15 @@
 <?php
 /**
- * File VCreaPartita.php contenente la classe VCreaPartita
+ * File VPartita.php contenente la classe VCreaPartita
  *
  * @package view
  */
 /**
- * Classe VCreaPartita, estende la classe view del package System e gestisce la visualizzazione e formattazione del sito, inoltre imposta i principali contenuti della pagina, suddivisi in contenuti principali (main_content) e contenuti della barra laterale (side_content)
+ * Classe VPartita, estende la classe view del package System e gestisce la visualizzazione e formattazione del sito, inoltre imposta i principali contenuti della pagina, suddivisi in contenuti principali (main_content) e contenuti della barra laterale (side_content)
  *
  * @package View
  */
-class VCreaPartita extends View {
+class VPartita extends View {
     /**
      * @var string $_layout
      */
@@ -63,6 +63,17 @@ class VCreaPartita extends View {
         $this->assign('errore',$errore);
     }
     
+    /**
+     * Ritorna l'id della partita passato tramite GET o POST
+     *
+     * @return mixed
+     */
+    public function getIdPartita() {
+    	if (isset($_REQUEST['id_partita'])) {
+    		return $_REQUEST['id_partita'];
+    	} else
+    		return false;
+    }
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
      *

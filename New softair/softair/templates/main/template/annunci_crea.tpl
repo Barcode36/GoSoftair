@@ -4,7 +4,7 @@
           <div >
               <br />
             <form method="POST" action="index.php">
-              <input type="hidden" name="controller" value="creaannuncio" />
+              <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" /></p>           

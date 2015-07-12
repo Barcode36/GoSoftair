@@ -55,7 +55,8 @@ CREATE TABLE `partita` (
   `descrizione` varchar(2048) DEFAULT NULL,
   `categoria` varchar(20) DEFAULT NULL,
   `copertina` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`IDpartita`)
+  PRIMARY KEY (`IDpartita`),
+  KEY `Creazione` (`autore`),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -63,13 +64,13 @@ CREATE TABLE `partita` (
 --
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 'Catone Luca','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', 'cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 'Bruce','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', 'attacco.jpg'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 'Toretto','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'sdish','Armageddon', 'pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'Obama','1/18/12', 0, 'sdish','2 Squadre', 'pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 'Clown','1/18/12', 0, 'ahaha','2 Squadre', 'ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'wwwwwww','Armageddon', 'romano.jpg');
+('1', 'Perdonami', 'via daqui', 10, 'alex','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', 'cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 'alex','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', 'attacco.jpg'),
+('3', 'Nelle fratte', 'alessandro', 10, 'Toretto','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 'alessandro','1/18/54', 1, 'sdish','Armageddon', 'pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'alex','1/18/12', 0, 'sdish','2 Squadre', 'pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 'alessandro','1/18/12', 0, 'ahaha','2 Squadre', 'ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'alex','Armageddon', 'romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -166,6 +167,12 @@ INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`,
 --
 ALTER TABLE `commento`
   ADD CONSTRAINT `Commento` FOREIGN KEY (`partitaIDpartita`) REFERENCES `partita` (`IDpartita`);
+
+  --
+-- Limiti per la tabella `commento`
+--
+ALTER TABLE `partita`
+  ADD CONSTRAINT `Crezione` FOREIGN KEY (`autore`) REFERENCES `utente` (`username`);
 
 --
 -- Limiti per la tabella `prenotazione`

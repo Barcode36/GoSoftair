@@ -45,6 +45,16 @@ class FAnnuncio extends Fdb {
     	return $this->getResultAssoc();
     }*/
     //c'� qualche errore nella query'
+	
+	
+	public function loadfromuser($key) {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table.'` ' .
+    			'WHERE autoreusername = \''.$key.'\'';
+    	$this->query($query); 
+    	return $this->getObjectArray();
+    }
+	
 }
 
 ?>

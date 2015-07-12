@@ -12,6 +12,19 @@ class EAnnuncio {
     public $immagine;
     public $titolo;
     
+    
+    public function setAnnuncioMod($titolo, $prezzo, $descrizione, $telefono, $immagine, $username, $IDannuncio ){
+    	$this->titolo = $titolo;
+    	$this->prezzo = $prezzo;
+    	$this->descrizione = $descrizione;
+    	$this->telefono = $telefono;
+    	$this->immagine = $immagine;
+    	$this->autoreusername = $username;
+    	$this->IDannuncio = $IDannuncio;
+    }
+    
+    
+    
     /**
      * Imposta $descrizione nell'annuncio
      * @param string $descrizione

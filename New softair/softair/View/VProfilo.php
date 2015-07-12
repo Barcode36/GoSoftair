@@ -48,8 +48,39 @@ class VProfilo extends View{
     	else
     		return false;
     }
+
+    public function getIdprenotazione() {
+    	if (isset($_REQUEST['id_prenotazione']))
+    		return $_REQUEST['id_prenotazione'];
+    	else
+    		return false;
+    }
     
-    public function getDatiModProfilo() {
+    /**
+     * Restituisce l'id dell'annuncio passato per GET o POST
+     *
+     * @return mixed
+     */
+    public function getIdAnnuncio() {
+    	if (isset($_REQUEST['id_annuncio'])) {
+    		return $_REQUEST['id_annuncio'];
+    	} else
+    		return false;
+    }
+    
+
+    public function getDatiModAnnuncio() {
+    	$dati_richiesti=array('titolo','prezzo','descrizione', 'telefono', 'immagine');
+    	$dati=array();
+    	foreach ($dati_richiesti as $dato) {
+    		if (isset($_REQUEST[$dato]))
+    			$dati[$dato]=$_REQUEST[$dato];
+    	}
+    	return $dati;
+    }
+    
+   
+    public function getDatiModUtente() {
     	$dati_richiesti=array('password','nome','cognome','via','CAP', 'citta', 'email');
     	$dati=array();
     	foreach ($dati_richiesti as $dato) {

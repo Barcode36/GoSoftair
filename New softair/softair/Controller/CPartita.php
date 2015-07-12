@@ -3,7 +3,7 @@
  * @access public
  * @package Controller
  */
-class CCreaPartita {
+class CPartita {
     /**
      * @var string $_username
      */
@@ -14,13 +14,43 @@ class CCreaPartita {
      */
     private $_errore='';
    
+     
+    public function apriPartita() {
+    	$view=USingleton::getInstance('VPartita');
+    	$session=USingleton::getInstance('USession');
+        $id_partita=$view->getIdPartita();
+    	$FPartita=new FPartita();
+    	$partita=$FPartita->load($id_partita);
+    	$commenti=$partita->getCommenti();
+    	$arrayCommenti=array();
+    	$dati=get_object_vars($partita);
+    	if ( is_array( $commenti )  ) {
+    		foreach ($commenti as $commento){
+    			$arrayCommenti[]=get_object_vars($commento);
+    		}
+    	}
+    	$dati['commento']=$arrayCommenti;
+    	$view->impostaDati('dati',$dati);
+    	$username=$session->leggi_valore('username');
+    	if ($username!=false)
+    		$view->setLayout('dettagli_registrato');
+    	else
+    		$view->setLayout('dettagli');
+    		
+    	return $view->processaTemplate();
+    	
+    }
+     
+     
+     
+     
      /**
      * Crea una partita sul DB
      *
      * @return mixed
      */
     public function creaPartita() {
-	    $view=USingleton::getInstance('VCreaPartita');
+	    $view=USingleton::getInstance('VPartita');
 		$session=USingleton::getInstance('USession');
 
         $EPartita=new EPartita();
@@ -48,8 +78,8 @@ class CCreaPartita {
      * @return string
      */
     public function moduloCreaPartita() {
-        $VCreaPartita=USingleton::getInstance('VCreaPartita');
-        return $VCreaPartita->processaTemplate();
+        $VPartita=USingleton::getInstance('VPartita');
+        return $VPartita->processaTemplate();
     }
    
     /**
@@ -58,13 +88,14 @@ class CCreaPartita {
      * @return mixed
      */
     public function smista() {
-        $view=USingleton::getInstance('VCreaPartita');
+        $view=USingleton::getInstance('VPartita');
         switch ($view->getTask()) {
             case 'CREA PARTITA':
                 return $this->creaPartita();
 			case 'modulopartita':
                 return $this->moduloCreaPartita();
-           
+             case 'apripartita':
+                		return $this->apriPartita();           
         }
     }
 }

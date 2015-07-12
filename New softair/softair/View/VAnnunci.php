@@ -24,17 +24,7 @@ class VAnnunci extends View {
         } else
             return 0;
     }
-    /**
-     * Restituisce l'id dell'annuncio passato per GET o POST
-     *
-     * @return mixed
-     */
-    public function getIdPartita() {
-        if (isset($_REQUEST['id_annuncio'])) {
-            return $_REQUEST['id_annuncio'];
-        } else
-            return false;
-    }
+
     /**
      * Processa il layout scelto nella variabile _layout
      *

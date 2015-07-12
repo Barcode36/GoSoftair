@@ -75,30 +75,12 @@ class CRicerca {
      * @return string
      */
     public function dettagli() {
+    	$session=USingleton::getInstance('USession');
         $view = USingleton::getInstance('VRicerca');
         $id_partita=$view->getIdPartita();
-        $FPartita=new FPartita();
-        $partita=$FPartita->load($id_partita);
-        $commenti=$partita->getCommenti();
-        $arrayCommenti=array();
-        $dati=get_object_vars($partita);
-
-	if ( is_array( $commenti )  ) {
-	    foreach ($commenti as $commento){
-		$arrayCommenti[]=get_object_vars($commento);
-	    }
-        }
-
-        $dati['commento']=$arrayCommenti;
-        $view->impostaDati('dati',$dati);
-
-        $session=USingleton::getInstance('USession');
-        $username=$session->leggi_valore('username');
-        if ($username!=false)
-            $view->setLayout('dettagli_registrato');
-        else
-            $view->setLayout('dettagli');
-        return $view->processaTemplate();
+        $session->imposta_valore('id_partita',$id_partita);
+        $CPartita=new CPartita();
+        $CPartita->apriPartita();
     }
     /**
      * Inserisce un commento nel database collegandolo al relativo libro

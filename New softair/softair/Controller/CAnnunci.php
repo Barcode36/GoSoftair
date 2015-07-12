@@ -56,9 +56,8 @@ class CAnnunci {
 		$EAnnuncio->descrizione=$dati_an['Descrizione'];
 		$EAnnuncio->prezzo=$dati_an['Prezzo'];
 		$EAnnuncio->telefono=$dati_an['Numero'];
-		//$EAnnuncio->immagine=$dati_an['Immagine'];
-		$EAnnuncio->IDAnnuncio=($session->leggi_valore('username').$dati_an['Titolo']);
-		echo($EAnnuncio->titolo.$EAnnuncio->autoreusername.$EAnnuncio->descrizione.$EAnnuncio->prezzo.$EAnnuncio->IDAnnuncio.$EAnnuncio->telefono);
+		$EAnnuncio->immagine=$dati_an['Immagine'];
+		$EAnnuncio->IDannuncio=($session->leggi_valore('username').$dati_an['Titolo']);
         $FAnnuncio->store($EAnnuncio);
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();

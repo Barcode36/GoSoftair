@@ -46,10 +46,10 @@ class CHome {
             case 'annunci':
                	$CAnnunci=USingleton::getInstance('CAnnunci');
                	return $CAnnunci->smista();
-			case 'creapartita':
-               	$CCreaPartita=USingleton::getInstance('CCreaPartita');
-               	return $CCreaPartita->smista();
-			case 'creaannuncio':
+			case 'partita':
+               	$CPartita=USingleton::getInstance('CPartita');
+               	return $CPartita->smista();
+			case 'annuncio':
                	$CAnnunci=USingleton::getInstance('CAnnunci');
                	return $CAnnunci->smista();
             default:
