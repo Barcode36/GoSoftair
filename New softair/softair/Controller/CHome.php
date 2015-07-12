@@ -49,6 +49,9 @@ class CHome {
 			case 'creapartita':
                	$CCreaPartita=USingleton::getInstance('CCreaPartita');
                	return $CCreaPartita->smista();
+			case 'creaannuncio':
+               	$CAnnunci=USingleton::getInstance('CAnnunci');
+               	return $CAnnunci->smista();
             default:
                 $CRicerca=USingleton::getInstance('CRicerca');
                 return $CRicerca->ultimiArrivi();

@@ -36,6 +36,33 @@ class CAnnunci {
         $view->impostaDati('dati',$this->_array_dati_annunci);
         return $view->processaTemplate();      
     }
+	
+	
+	public function moduloCreaAnnuncio() {
+        $VAnnunci=USingleton::getInstance('VAnnunci');
+		$VAnnunci->setLayout("crea");
+        return $VAnnunci->processaTemplate();
+    }
+	
+	public function creaAnnuncio() {
+	    $view=USingleton::getInstance('VAnnunci');
+		$session=USingleton::getInstance('USession');
+
+        $EAnnuncio=new EAnnuncio();
+        $FAnnuncio=new FAnnuncio();
+		$dati_an=$view->getDatiCreaAnnuncio();	
+		$EAnnuncio->autoreusername=$session->leggi_valore('username');
+		$EAnnuncio->titolo=$dati_an['Titolo'];
+		$EAnnuncio->descrizione=$dati_an['Descrizione'];
+		$EAnnuncio->prezzo=$dati_an['Prezzo'];
+		$EAnnuncio->telefono=$dati_an['Numero'];
+		//$EAnnuncio->immagine=$dati_an['Immagine'];
+		$EAnnuncio->IDAnnuncio=($session->leggi_valore('username').$dati_an['Titolo']);
+		echo($EAnnuncio->titolo.$EAnnuncio->autoreusername.$EAnnuncio->descrizione.$EAnnuncio->prezzo.$EAnnuncio->IDAnnuncio.$EAnnuncio->telefono);
+        $FAnnuncio->store($EAnnuncio);
+		$view->setLayout('confermacrea');
+    	return $view->processaTemplate();
+     }
     
     
     
@@ -50,6 +77,10 @@ class CAnnunci {
         switch ($view->getTask()){
             case 'vediannunci':
                 return $this->vediAnnunci();
+			case 'CREA ANNUNCIO':
+                return $this->creaAnnuncio();
+			case 'moduloannuncio':
+                return $this->moduloCreaAnnuncio();
                 
             }
         }

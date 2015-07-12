@@ -7,7 +7,7 @@ class EAnnuncio {
     public $IDannuncio;
     public $descrizione;
     public $prezzo;
-    public $autore;
+    public $autoreusername;
     public $telefono;
     public $immagine;
     public $titolo;
@@ -87,7 +87,7 @@ class EAnnuncio {
      */
     public function getAutore()
     {
-    	return $this->autore;
+    	return $this->autoreusername;
     }
 }
 ?>

@@ -39,6 +39,8 @@ class CCreaPartita {
 		
 		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
         $FPartita->store($EPartita);
+		$view->setLayout('confermacrea');
+    	return $view->processaTemplate();
      }
     /**
      * Mostra il modulo di registrazione

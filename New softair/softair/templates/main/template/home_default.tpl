@@ -82,6 +82,7 @@
         {/section}
         <li><a href="index.php?controller=annunci&task=vediannunci">Annunci</a></li>
 	<li><a href="index.php?controller=creapartita&task=modulopartita">Crea partita</a></li>
+	<li><a href="index.php?controller=creaannuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       
     </div>    
   

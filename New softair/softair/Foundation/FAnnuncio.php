@@ -16,10 +16,10 @@ class FAnnuncio extends Fdb {
      * @param EAnnuncio $annuncio
      *
      */
-    public function store( $annuncio) {
+    /*public function store( $annuncio) {
     	parent::store($annuncio);
     
-    }
+    }*/
     /**
      * Funzione che cancella un annuncio dalla tabella
      *
@@ -44,7 +44,7 @@ class FAnnuncio extends Fdb {
     	$this->query($query);
     	return $this->getResultAssoc();
     }*/
-    //c'è qualche errore nella query'
+    //c'ï¿½ qualche errore nella query'
 }
 
 ?>

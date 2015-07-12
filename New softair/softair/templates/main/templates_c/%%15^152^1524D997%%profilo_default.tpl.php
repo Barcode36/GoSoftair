@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-11 16:34:31
+<?php /* Smarty version 2.6.26, created on 2015-07-12 11:55:44
          compiled from profilo_default.tpl */ ?>
-        <div class="corner-content-1col-top"></div>
           <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
+	<div class="corner-content-1col-top"></div>
           <div class="content-1col-nobox">
           <h1><?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 </h1>
@@ -70,6 +70,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 		  
 		  <?php else: ?>
 		              <p>Se vuoi visiatre il tuo profilo prima accedi .</p>
-          </div>
+          
           <?php endif; ?>
-        <div class="corner-content-1col-bottom"></div>
+</div>
+        

@@ -71,6 +71,16 @@ class VAnnunci extends View {
     public function setLayout($layout) {
         $this->_layout=$layout;
     }
+	
+	public function getDatiCreaAnnuncio() {
+        $dati_richiesti=array('Titolo','Prezzo','Descrizione','Numero', 'Immagine');
+        $dati=array();
+        foreach ($dati_richiesti as $dato) {
+            if (isset($_REQUEST[$dato]))
+            	$dati[$dato]=$_REQUEST[$dato];
+        }
+        return $dati;
+    }
 
 }
 

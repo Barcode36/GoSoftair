@@ -13,7 +13,7 @@ class VCreaPartita extends View {
     /**
      * @var string $_layout
      */
-    private $_layout='default';
+    private $_layout='crea';
      /**
      * restituisce la username passata tramite GET o POST
      *
@@ -43,12 +43,16 @@ class VCreaPartita extends View {
         else
             return false;
     }
+	
+	public function setLayout($layout) {
+        $this->_layout=$layout;
+    }
+	
     /**
      * @return string
      */
     public function processaTemplate() {
-        $contenuto=$this->fetch('crea_partita.tpl');
-        return $contenuto;
+        return $this->fetch('partita_'.$this->_layout.'.tpl');
     }
     /**
      * Imposta l'eventuale errore nel template
