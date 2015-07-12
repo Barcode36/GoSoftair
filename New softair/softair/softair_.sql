@@ -49,14 +49,13 @@ CREATE TABLE `partita` (
   `titolo` varchar(200) DEFAULT NULL,
   `indirizzo` varchar(200) DEFAULT NULL,
   `ngiocatori` int DEFAULT NULL,
-  `autore` varchar(100) DEFAULT NULL,
+  `autore` varchar(20) NOT NULL,
   `data` varchar(10) DEFAULT NULL,
   `prezzo` float DEFAULT NULL,
   `descrizione` varchar(2048) DEFAULT NULL,
   `categoria` varchar(20) DEFAULT NULL,
   `copertina` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`IDpartita`),
-  KEY `Creazione` (`autore`),
+  PRIMARY KEY (`IDpartita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -66,11 +65,11 @@ CREATE TABLE `partita` (
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
 ('1', 'Perdonami', 'via daqui', 10, 'alex','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', 'cacciatore.jpg'),
 ('2', 'ghd', 'via daqui', 10, 'alex','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', 'attacco.jpg'),
-('3', 'Nelle fratte', 'alessandro', 10, 'Toretto','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
+('3', 'Nelle fratte', 'nei boschi', 10, 'alex','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
 ('4', 'Casa', 'a casa', 2, 'alessandro','1/18/54', 1, 'sdish','Armageddon', 'pistole.jpg'),
 ('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'alex','1/18/12', 0, 'sdish','2 Squadre', 'pupazzo.jpg'),
 ('6', 'Assalto al circo', 'circo', 5, 'alessandro','1/18/12', 0, 'ahaha','2 Squadre', 'ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'alex','Armageddon', 'romano.jpg');
+('7', 'wwww', 'www', 5, 'alex','1/6/02', 0, 'www','Armageddon', 'romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -81,12 +80,13 @@ INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`,
 CREATE TABLE `prenotazione` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `partitaID` varchar(100) NOT NULL,
-  `titoloPartita` varchar(40) DEFAULT NULL,
-  `utenteusername` varchar(20) DEFAULT NULL,
+  `titoloPartita` varchar(200) NOT NULL,
+  `utenteusername` varchar(20) NOT NULL,
   `attrezzatura` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Prenotazione` (`utenteusername`),
-  KEY `Partita` (`partitaID`)
+  KEY `Partita` (`partitaID`),
+  KEY `Titola` (`titoloPartita`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
@@ -94,10 +94,10 @@ CREATE TABLE `prenotazione` (
 --
 
 INSERT INTO `prenotazione` (`id`, `partitaID`, `titoloPartita` , `utenteusername`, `attrezzatura`) VALUES
-(1, '1', 'Fuggitivo','alex', 1),
-(2, '2', 'Fare scene. Una storia di cinema', 'alex', 0),
-(3, '6', 'Big Bog','alessandro', 1),
-(4, '7', 'Cesare', 'alessandro', 0);
+(1, '1', 'Perdonami','alex', 1),
+(2, '2', 'ghd', 'alex', 0),
+(3, '6', 'Assalto al circo','alessandro', 1),
+(4, '7', 'www', 'alessandro', 0);
 
 
 
@@ -172,7 +172,7 @@ ALTER TABLE `commento`
 -- Limiti per la tabella `commento`
 --
 ALTER TABLE `partita`
-  ADD CONSTRAINT `Crezione` FOREIGN KEY (`autore`) REFERENCES `utente` (`username`);
+  ADD CONSTRAINT `Creazione` FOREIGN KEY (`autore`) REFERENCES `utente` (`username`);
 
 --
 -- Limiti per la tabella `prenotazione`
