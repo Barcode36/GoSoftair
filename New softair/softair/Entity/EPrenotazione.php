@@ -13,7 +13,7 @@ class EPrenotazione {
      * @AttributeType Date
      */
     public $partitaID;
-    public $titoloPatita;
+    public $titoloPartita;
     public $utenteusername;
     /**
      * @AttributeType boolean

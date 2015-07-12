@@ -86,6 +86,39 @@ class CPrenotazione {
         $session->imposta_valore('prenotazioni',serialize($this->_prenotazioni));
         return $view->processaTemplate();
     }
+    
+    //*********************************************************
+    public function salvaPrenotazione() {
+    	$view=USingleton::getInstance('VPrenotazione');
+    	$session=USingleton::getInstance('USession');
+    	
+    	$EPrenotazione=new EPrenotazione();
+    	$FPrenotazione=new FPrenotazione();
+    	$dati_prenotazione=$view->getDatiCreaPrenotazione();
+    	$idpartita=$view->getIdPartita();
+    	$username=$session->leggi_valore('username');
+    	
+    	$EPrenotazione->utenteusername=$username;
+    	$EPrenotazione->partitaID=$idpartita;
+    	
+    	$FPartita=new FPartita();
+    	$partita=$FPartita->load($idpartita);
+		$_array_dati_partita=get_object_vars($partita);
+		$titolopartita=$_array_dati_partita['titolo'];
+		
+		$EPrenotazione->titoloPartita=$titolopartita;
+		$EPrenotazione->attrezzatura=$dati_prenotazione['attrezzatura'];
+		$EPrenotazione->id=$username.$_array_dati_partita['titolo'];
+		
+		$FPrenotazione->store($EPrenotazione);
+		$view->setLayout('confermacrea');
+		return $view->processaTemplate();
+		
+    }
+    
+    
+    
+    
 
     /**
      * Smista le richieste ai vari metodi
@@ -101,7 +134,9 @@ class CPrenotazione {
                 return $this->aggiungi();
             case 'Aggiorna Prenotazioni':
                 return $this->aggiorna();
-
+            //********************************************
+            case 'salvaprenotazione':
+                return $this->salvaPrenotazione();
         }
     }
 }

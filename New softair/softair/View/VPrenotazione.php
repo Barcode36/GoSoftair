@@ -14,7 +14,7 @@ class VPrenotazione extends View {
      *
      * @var string $_layout
      */
-    private $_layout='prenotazioni'; 
+    private $_layout='prenotazione'; 
     /**
      * restituisce il numero della pagina (utilizzato nella visualizzazione delle partite) passato per GET o POST
      * @return int
@@ -83,17 +83,14 @@ class VPrenotazione extends View {
     public function setLayout($layout) {
         $this->_layout=$layout;
     }
-    /**
-     * restituisce i dati relativi alla carta di credito
-     *
-     * @return array
-     */
-    public function getDatiPagamento() {
-        $dati_richiesti=array('numero_carta','nome_titolare','cognome_titolare','scadenza','ccv');
+    
+    //************************************************
+    public function getDatiCreaPrenotazione() {
+        $dati_richiesti=array('attrezzatura');
         $dati=array();
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))
-                $dati[$dato]=$_REQUEST[$dato];
+            	$dati[$dato]=$_REQUEST[$dato];
         }
         return $dati;
     }

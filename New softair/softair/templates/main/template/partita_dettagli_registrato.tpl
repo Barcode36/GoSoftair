@@ -35,4 +35,24 @@
           </blockquote>
           {/section}
         </div>
-        <div class="corner-content-1col-bottom"></div>
+		<div class="corner-content-1col-bottom"></div>
+
+         <div class="corner-content-1col-top"></div>
+        <div class="content-1col-nobox">
+         <h1 >Prenotazione alla partita</h1>
+          <div >
+            <form method="POST" action="index.php">
+              <input type="hidden" name="controller" value="annuncio" />
+              <fieldset>
+                <p><label for="attrezzatura" class="top">Attrezzatura:</label><br />
+                  <input type="text" id="attrezzatura" name="attrezzatura" tabindex="1" class="field" /></p>           
+              <p>                
+                <input type="hidden" name="controller" value="prenotazione" />
+                <input type="hidden" name="task" value="salvaprenotazione" />
+                <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
+              <input type="submit" name="submit" class="button" value="prenotati" tabindex="5" /></p>
+            </fieldset>
+            </form>
+          </div>
+        </div>
+		<div class="corner-content-1col-bottom"></div>
