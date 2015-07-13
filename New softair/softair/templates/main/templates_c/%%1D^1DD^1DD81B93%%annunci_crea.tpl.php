@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-12 22:03:48
+<?php /* Smarty version 2.6.26, created on 2015-07-13 10:55:15
          compiled from annunci_crea.tpl */ ?>
  <div class="corner-content-1col-top"></div>        
         <div class="content-1col-nobox">
          <h1 >Creazione annuncio</h1>
           <div >
               <br />
-            <form method="POST" action="index.php">
+            <form method="POST" action="index.php" enctype="multipart/form-data">
               <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />

@@ -3,7 +3,11 @@
         <div class="content-1col-nobox">
           <h1 class="contact">Modulo di modifica dati del profilo</h1>
           <div class="contactform">
-            <form method="post" action="index.php">
+            <form method="post" action="index.php" enctype="multipart/form-data">
+	     <fieldset><legend>&nbsp;IMMAGINE PROFILO&nbsp;</legend>
+		<p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
+		   <input type="file" name="Immagine" size="40">
+		</fieldset>
               <fieldset><legend>&nbsp;CREDENZIALI DI ACCESSO&nbsp;</legend>
                 <p><label for="username" class="left">Nome utente:</label>
                    <input type="text" name="username" id="username" class="field" value="{$datiUtente.username}" tabindex="5" disabled/></p>

@@ -56,7 +56,20 @@ class CAnnunci {
 		$EAnnuncio->descrizione=$dati_an['Descrizione'];
 		$EAnnuncio->prezzo=$dati_an['Prezzo'];
 		$EAnnuncio->telefono=$dati_an['Numero'];
-		$EAnnuncio->immagine=$dati_an['Immagine'];
+		$file=$view->getFile();
+        if($file){
+            $nomeOriginale=basename($view->getOriginalFile());
+            $dir="./annunci/".$session->leggi_valore('username').'/';
+            $target=$dir.'profilo'.'_'.$nomeOriginale;
+            if(!is_dir($dir)){
+                mkdir($dir,0755,true);
+            }
+            if(move_uploaded_file($file, $target)){
+                $EAnnuncio->immagine=$target;               
+                
+            }
+        }
+        echo("Errore, file non pervenuto");
 		$EAnnuncio->IDannuncio=($session->leggi_valore('username').$dati_an['Titolo']);
         $FAnnuncio->store($EAnnuncio);
 		$view->setLayout('confermacrea');

@@ -95,7 +95,20 @@ class CProfilo {
     		$this->_array_dati_utente=get_object_vars($this->_utente);
     	}
     	$EUtente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato'], $this->_array_dati_utente['foto']);
-    	$FUtente->update($EUtente);
+    	$file=$view->getFile();
+		if($file){
+            $nomeOriginale=basename($view->getOriginalFile());
+            $dir="./profili/".$session->leggi_valore('username').'/';
+            $target=$dir.'profilo'.'_'.$nomeOriginale;
+            if(!is_dir($dir)){
+                mkdir($dir,0755,true);
+            }
+            if(move_uploaded_file($file, $target)){
+                $EUtente->foto=$target;               
+                unlink($this->_array_dati_utente['foto']);
+            }
+        }
+		$FUtente->update($EUtente);
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();	
     }
@@ -124,7 +137,21 @@ class CProfilo {
     	$dati_modifica=$view->getDatiModAnnuncio();
     	$username=$session->leggi_valore('username');
     	$IDannuncio=$session->leggi_valore('IDannuncio');
-    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $dati_modifica['immagine'], $username, $IDannuncio );
+    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $username, $IDannuncio );
+		$file=$view->getFile();
+		if($file){
+            $nomeOriginale=basename($view->getOriginalFile());
+            $dir="./annunci/".$session->leggi_valore('username').'/';
+            $target=$dir.'profilo'.'_'.$nomeOriginale;
+            if(!is_dir($dir)){
+                mkdir($dir,0755,true);
+            }
+            if(move_uploaded_file($file, $target)){
+                $EAnnuncio->immagine=$target;  
+				unlink($this->_array_dati_annunci['immagine']);             
+                
+            }
+        }
     	$FAnnuncio->update($EAnnuncio);
     	$session->cancella_valore('IDannuncio');
     	$view->setLayout('conferma_modifica');
@@ -150,7 +177,7 @@ class CProfilo {
     /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
      * dovute procedure affinchÃ© il compito venga eseguito. Esegue inoltre un 
-     * controllo di sessione. Se non è confermata viene visualizzato un 
+     * controllo di sessione. Se non ï¿½ confermata viene visualizzato un 
      * messaggio d'errore.
      * @return mixed
      */

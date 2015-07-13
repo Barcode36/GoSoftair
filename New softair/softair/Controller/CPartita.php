@@ -55,18 +55,29 @@ class CPartita {
 
         $EPartita=new EPartita();
         $FPartita=new FPartita();
-		$dati_registrazione=$view->getDatiCreaPartita();
-						
+		$dati_registrazione=$view->getDatiCreaPartita();					
 		$EPartita->autore=$session->leggi_valore('username');
 		$EPartita->titolo=($dati_registrazione['Titolo']);
 		$EPartita->indirizzo=($dati_registrazione['Indirizzo']);
 		$EPartita->data=($dati_registrazione['Data']);
 		$EPartita->descrizione=($dati_registrazione['Descrizione']);
 		$EPartita->ngiocatori=($dati_registrazione['Giocatori']);
-		$EPartita->categoria=($dati_registrazione['Categoria']);
-		
+		$EPartita->categoria=($dati_registrazione['Categoria']);	
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
-		
+		$file=$view->getFile();
+        if($file){
+            $nomeOriginale=basename($view->getOriginalFile());
+            $dir="./copertine/".$session->leggi_valore('username').'/';
+            $target=$dir.'partite'.'_'.$nomeOriginale;
+            if(!is_dir($dir)){
+                mkdir($dir,0755,true);
+            }
+            if(move_uploaded_file($file, $target)){
+                $EPartita->copertina=$target;               
+                
+            }
+        }
+        else {echo("Errore, file non pervenuto");}
 		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
         $FPartita->store($EPartita);
 		$view->setLayout('confermacrea');

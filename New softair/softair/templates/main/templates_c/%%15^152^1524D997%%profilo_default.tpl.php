@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-12 23:01:38
+<?php /* Smarty version 2.6.26, created on 2015-07-13 11:42:27
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 45, false),)), $this); ?>
@@ -11,7 +11,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
           <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
  <?php echo $this->_tpl_vars['datiUtente']['cognome']; ?>
 </h5> 
-          <p><img  src="copertine/<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
+          <p><img  src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
 " alt="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " title="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 ">
@@ -32,7 +32,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
-                	<th class="top" scope="col"></th></tr>
+                	<th class="top" scope="col"></th>
           		<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['datiPartite']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -67,7 +67,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
 </td>
             		<td><a href="#&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
-"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td></tr> 
+"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             	<?php endfor; endif; ?>
 				</table>
 			</div>
@@ -77,11 +77,11 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 		  
 		  <h1>Annunci pubblicati</h1>
 		  <table>
-            <tr><th class="top" >Titolo</th>
-                <th class="top" >Prezzo</th>
-                <th class="top" ">Descrizione</th>
-                <th class="top" >Telefono</th>
-                <th class="top" ></th>
+            <tr><th class="top" scope="col">Titolo</th>
+                <th class="top" scope="col">Prezzo</th>
+                <th class="top" scope="col">Descrizione</th>
+                <th class="top" scope="col">Telefono</th>
+                <th class="top" scope="col"></th>
           	<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['datiPartite']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

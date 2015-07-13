@@ -63,13 +63,13 @@ CREATE TABLE `partita` (
 --
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 'alex','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', 'cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 'alex','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', 'attacco.jpg'),
-('3', 'Nelle fratte', 'nei boschi', 10, 'alex','1/18/54', 1, 'sdish','Armageddon', 'ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 'alessandro','1/18/54', 1, 'sdish','Armageddon', 'pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'alex','1/18/12', 0, 'sdish','2 Squadre', 'pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 'alessandro','1/18/12', 0, 'ahaha','2 Squadre', 'ridi.jpg'),
-('7', 'wwww', 'www', 5, 'alex','1/6/02', 0, 'www','Armageddon', 'romano.jpg');
+('1', 'Perdonami', 'via daqui', 10, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', './copertine/ciccio/cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', './copertine/ciccio/attacco.jpg'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 'dante','1/18/54', 1, 'sdish','Armageddon', './copertine/dante/ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'cartman','Armageddon', './copertine/cartman/pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'douchebag','1/18/12', 0, 'sdish','2 Squadre', './copertine/douchebag/pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 'clown','1/18/12', 0, 'ahaha','2 Squadre', './copertine/clown/ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'agrippa','Armageddon', './copertine/agrippa/romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -127,8 +127,8 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`) VALUES
-('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','ballo'),
-('alex', 'Alessandro', 'Verzicco', 'tas63TAv', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','romano');
+('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','./profili/alessandro/ballo.jpg'),
+('alex', 'Alessandro', 'Verzicco', 'aaa', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','./profili/alex/romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,9 +153,9 @@ CREATE TABLE `annuncio` (
 --
 
 INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `telefono`, `immagine`, `titolo`) VALUES
-('1', 'alex', 10.00, 'Gran bell''arma', '08536666', 'mia.jpg', 'Fa fico'),
-('2', 'alessandro', 29.99, 'Una bella accoppiata', '085546536666', 'coppia.jpg', '2 is meglio che one '),
-('3', 'alex', 25.00, 'La mia bambina', '08536556', 'tie.jpg', 'Adottami');
+('1', 'alex', 10.00, 'Gran bell''arma', '08536666', './annunci/alex/mia.jpg', 'Fa fico'),
+('2', 'alessandro', 29.99, 'Una bella accoppiata', '085546536666', './annunci/alessandro/coppia.jpg', '2 is meglio che one '),
+('3', 'alex', 25.00, 'La mia bambina', '08536556', './annunci/alex/tie.jpg', 'Adottami');
 -- --------------------------------------------------------
 
 --
@@ -167,12 +167,6 @@ INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`,
 --
 ALTER TABLE `commento`
   ADD CONSTRAINT `Commento` FOREIGN KEY (`partitaIDpartita`) REFERENCES `partita` (`IDpartita`);
-
-  --
--- Limiti per la tabella `commento`
---
-ALTER TABLE `partita`
-  ADD CONSTRAINT `Creazione` FOREIGN KEY (`autore`) REFERENCES `utente` (`username`);
 
 --
 -- Limiti per la tabella `prenotazione`

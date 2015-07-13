@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-12 21:41:00
+<?php /* Smarty version 2.6.26, created on 2015-07-13 10:54:12
          compiled from partita_dettagli.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_format', 'partita_dettagli.tpl', 12, false),)), $this); ?>
@@ -8,7 +8,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_form
 </h1>
           <h5><?php echo $this->_tpl_vars['dati']['autore']; ?>
 </h5>
-          <p><img height="200" src="copertine/<?php echo $this->_tpl_vars['dati']['copertina']; ?>
+          <p><img height="200" src="<?php echo $this->_tpl_vars['dati']['copertina']; ?>
 " alt="<?php echo $this->_tpl_vars['dati']['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati']['titolo']; ?>
 "><?php echo $this->_tpl_vars['dati']['descrizione']; ?>

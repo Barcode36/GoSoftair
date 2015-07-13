@@ -3,7 +3,7 @@
          <h1 >Creazione annuncio</h1>
           <div >
               <br />
-            <form method="POST" action="index.php">
+            <form method="POST" action="index.php" enctype="multipart/form-data">
               <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />

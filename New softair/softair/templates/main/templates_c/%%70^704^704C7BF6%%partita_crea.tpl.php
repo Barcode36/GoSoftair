@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-12 22:03:55
+<?php /* Smarty version 2.6.26, created on 2015-07-13 10:54:43
          compiled from partita_crea.tpl */ ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Creazione partita</h1>
           <div >
               <br />
-            <form method="POST" action="index.php">
+            <form method="POST" action="index.php" enctype="multipart/form-data">
               <input type="hidden" name="controller" value="partita" />
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />

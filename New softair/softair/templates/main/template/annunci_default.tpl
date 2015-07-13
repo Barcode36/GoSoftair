@@ -8,8 +8,8 @@
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
               <h1><a href="?controller=annunci&task=vediannunci&id_partita={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
-              <h5>{$dati[i].autore}</h5>
-              <p><img height="120" src="annunci/{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
+              <h5>Inserito da {$dati[i].autoreusername}</h5>
+              <p><img height="120" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
               <p>Telefono: {$dati[i].telefono}</p>
@@ -28,8 +28,8 @@
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
                <h1><a href="?controller=annunci&task=vediannunci&id_partita={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
-              <h5>{$dati[i].autore}</h5>
-              <p><img height="120" src="annunci/{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
+              <h5>Inserito da {$dati[i].autoreusername}</h5>
+              <p><img height="120" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
               <p>Telefono: {$dati[i].telefono}</p>

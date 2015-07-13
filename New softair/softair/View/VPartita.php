@@ -83,6 +83,30 @@ class VPartita extends View {
     public function impostaDati($key,$valore){
         $this->assign($key,$valore);
     }
+	/**
+     * recupera dal vettore _FILE il nome temporaneo del file.
+     * 
+     * @return string
+     */
+	public function getFile() {
+        if(isset($_FILES['Immagine']['tmp_name'])&&($_FILES['Immagine']['type']=="image/jpeg"||$_FILES['Immagine']['type']=="image/x-png"||$_FILES['Immagine']['type']=="image/gif")){
+            return $_FILES['Immagine']['tmp_name'];
+        }else{
+            return false;
+        }
+    }
+	 /**
+     * recupera dal vettore _FILE il nome originale del file.
+     * 
+     * @return string
+     */
+    public function getOriginalFile(){
+        if(isset($_FILES['Immagine']['name'])){
+            return $_FILES['Immagine']['name'];
+        }else{
+            return false;
+        }
+    }
     /**
      * Restituisce l'array contenente i dati di creazione
      *

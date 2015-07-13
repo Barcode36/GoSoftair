@@ -13,6 +13,7 @@ class EPartita {
 	public $data;
 	public $ngiocatori;
 	public $IDpartita;
+	public $copertina;
     /**
      * @AssociationType Entity.ECommento
      * @AssociationMultiplicity 0..*
@@ -21,7 +22,7 @@ class EPartita {
     public $_commento = array();
     
     
-    //pare che scritti così i set funzionano
+    //pare che scritti cosï¿½ i set funzionano
     public function setPrezzo($prezzo)
     {
     	$this->prezzo=$prezzo;
