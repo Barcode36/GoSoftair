@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-12 20:52:52
+<?php /* Smarty version 2.6.26, created on 2015-07-13 20:08:35
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -134,7 +134,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
                 <?php endif; ?>
                 </li>
         <?php endfor; endif; ?>
-        <li><a href="index.php?controller=annunci&task=vediannunci">Annunci</a></li>
+        <li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>
 	<li><a href="index.php?controller=partita&task=modulopartita">Crea partita</a></li>
 	<li><a href="index.php?controller=annuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       

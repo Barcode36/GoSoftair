@@ -62,11 +62,11 @@ class CRicerca {
                 $tmpPartita=$FPartita->load($item->IDpartita);
                 $array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
             }
+            $view->impostaDati('dati',$array_risultato);
         }
         $view->impostaDati('pagine',$pagine);
         $view->impostaDati('task','lista');
         $view->impostaDati('parametri','categoria='.$categoria.'&stringa='.$parola);
-        $view->impostaDati('dati',$array_risultato);
         return $view->processaTemplate();
     }
     /**

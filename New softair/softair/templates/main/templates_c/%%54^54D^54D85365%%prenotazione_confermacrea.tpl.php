@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-12 22:41:55
+<?php /* Smarty version 2.6.26, created on 2015-07-13 20:39:33
          compiled from prenotazione_confermacrea.tpl */ ?>
         <a id="anchor-heading-noicon-1"></a>
         <div class="corner-content-1col-top"></div>

@@ -2,7 +2,7 @@
         <div class="content-1col-nobox">
           <h1>{$dati.titolo}</h1>
           <h5>{$dati.autore}</h5>
-          <p><img height="200" src="{$dati.copertina}" alt="{$dati.titolo}" title="{$dati.titolo}">{$dati.descrizione}</p>
+          <p><img height="200" src="{$dati.immagine}" alt="{$dati.titolo}" title="{$dati.titolo}">{$dati.descrizione}</p>
           <p>{if $dati.commento!=false}
           {section name=i loop=$dati.commento}
               {assign var="somma" value="`$dati.commento[i].votazione+$somma`"}

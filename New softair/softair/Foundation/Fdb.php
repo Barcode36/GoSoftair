@@ -230,7 +230,6 @@ class Fdb {
         }
         $arrayObject=get_object_vars($object);
         $query='UPDATE `'.$this->_table.'` SET '.$fields.' WHERE `'.$this->_key.'` = \''.$arrayObject[$this->_key].'\'';
-        print $query;
         return $this->query($query);
     }
     /**

@@ -67,17 +67,19 @@ class CPartita {
 		$file=$view->getFile();
         if($file){
             $nomeOriginale=basename($view->getOriginalFile());
-            $dir="./copertine/".$session->leggi_valore('username').'/';
+            $dir="./immagini/partite/".$session->leggi_valore('username').'/';
             $target=$dir.'partite'.'_'.$nomeOriginale;
             if(!is_dir($dir)){
                 mkdir($dir,0755,true);
             }
             if(move_uploaded_file($file, $target)){
-                $EPartita->copertina=$target;               
+                $EPartita->immagine=$target;               
                 
             }
         }
-        else {echo("Errore, file non pervenuto");}
+        /*else {echo("Errore, file non pervenuto");} da errore anche quando uno decide di non metterla propio l'immagine così
+		e comunque non mettete echo diretti, al massimo impostate il mex in qualche variabile, che passate al tamplate e da li lo
+		stampa a video o si perde la divisione tra logica di programmazione e quella di visualizzazione*/
 		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
         $FPartita->store($EPartita);
 		$view->setLayout('confermacrea');

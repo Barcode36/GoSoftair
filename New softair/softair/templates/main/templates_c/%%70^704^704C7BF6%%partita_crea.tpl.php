@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-13 10:54:43
+<?php /* Smarty version 2.6.26, created on 2015-07-13 20:18:09
          compiled from partita_crea.tpl */ ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-13 10:51:57
+<?php /* Smarty version 2.6.26, created on 2015-07-13 20:08:35
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 19, false),)), $this); ?>
@@ -39,7 +39,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </a></h1>
               <h5><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autore']; ?>
 </h5>
-              <p><img height="120" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['copertina']; ?>
+              <p><img height="120" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 "><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
@@ -125,7 +125,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </a></h1>
               <h5><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autore']; ?>
 </h5>
-              <p><img height="120" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['copertina']; ?>
+              <p><img height="120" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 "><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>

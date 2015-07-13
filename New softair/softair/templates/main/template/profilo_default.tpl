@@ -25,6 +25,7 @@
                 	<td>{$datiPartite[i].utenteusername}</td>
             		<td>{$datiPartite[i].attrezzatura}</td>
             		<td><a href="#&id_prenotazione={$datiPartite[i].id}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+            	</tr>
             	{/section}
 				</table>
 			</div>
@@ -39,12 +40,13 @@
                 <th class="top" scope="col">Descrizione</th>
                 <th class="top" scope="col">Telefono</th>
                 <th class="top" scope="col"></th>
-          	{section name=i loop=$datiPartite}  
-            <tr><td>{$datiAnnunci[i].titolo}</td>
-                <td>{$datiAnnunci[i].prezzo}</td>
-                <td>{$datiAnnunci[i].descrizione|truncate:240:" [...]"}</td>
-            	<td>{$datiAnnunci[i].telefono}</td>
-            	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio={$datiAnnunci[i].IDannuncio}""><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+          	{section name=j loop=$datiAnnunci}  
+            <tr><td>{$datiAnnunci[j].titolo}</td>
+                <td>{$datiAnnunci[j].prezzo}</td>
+                <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>
+            	<td>{$datiAnnunci[j].telefono}</td>
+            	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}""><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+            </tr>
             {/section}
 			</table>
 		  

@@ -30,6 +30,7 @@ class CAnnunci {
                 $this->_array_dati_annunci[]=get_object_vars($tmpAnnuncio);
             }
         }
+        print $pagine;
         $view->impostaDati('pagine',$pagine);
         $view->impostaDati('task','annunci');
         $view->impostaDati('utente',$username);
@@ -59,7 +60,7 @@ class CAnnunci {
 		$file=$view->getFile();
         if($file){
             $nomeOriginale=basename($view->getOriginalFile());
-            $dir="./annunci/".$session->leggi_valore('username').'/';
+            $dir="./immagini/annunci/".$session->leggi_valore('username').'/';
             $target=$dir.'profilo'.'_'.$nomeOriginale;
             if(!is_dir($dir)){
                 mkdir($dir,0755,true);
@@ -69,7 +70,6 @@ class CAnnunci {
                 
             }
         }
-        echo("Errore, file non pervenuto");
 		$EAnnuncio->IDannuncio=($session->leggi_valore('username').$dati_an['Titolo']);
         $FAnnuncio->store($EAnnuncio);
 		$view->setLayout('confermacrea');

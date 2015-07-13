@@ -54,7 +54,7 @@ CREATE TABLE `partita` (
   `prezzo` float DEFAULT NULL,
   `descrizione` varchar(2048) DEFAULT NULL,
   `categoria` varchar(20) DEFAULT NULL,
-  `copertina` varchar(100) DEFAULT NULL,
+  `immagine` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`IDpartita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -62,14 +62,14 @@ CREATE TABLE `partita` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `copertina`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', './copertine/ciccio/cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', './copertine/ciccio/attacco.jpg'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 'dante','1/18/54', 1, 'sdish','Armageddon', './copertine/dante/ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'cartman','Armageddon', './copertine/cartman/pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'douchebag','1/18/12', 0, 'sdish','2 Squadre', './copertine/douchebag/pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 'clown','1/18/12', 0, 'ahaha','2 Squadre', './copertine/clown/ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'agrippa','Armageddon', './copertine/agrippa/romano.jpg');
+INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `immagine`) VALUES
+('1', 'Perdonami', 'via daqui', 10, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', './immagini/partite/ciccio/cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', './immagini/partite/ciccio/attacco.jpg'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 'dante','1/18/54', 1, 'sdish','Armageddon', './immagini/partite/dante/ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'cartman','Armageddon', './immagini/partite/cartman/pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'douchebag','1/18/12', 0, 'sdish','2 Squadre', './immagini/partite/douchebag/pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 'clown','1/18/12', 0, 'ahaha','2 Squadre', './immagini/partite/clown/ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'agrippa','Armageddon', './immagini/partite/agrippa/romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -127,8 +127,8 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`) VALUES
-('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','./profili/alessandro/ballo.jpg'),
-('alex', 'Alessandro', 'Verzicco', 'aaa', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','./profili/alex/romano.jpg');
+('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','./immagini/profili/alessandro/ballo.jpg'),
+('alex', 'Alessandro', 'Verzicco', 'aaa', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','./immagini/profili/alex/profilo_romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,9 +153,9 @@ CREATE TABLE `annuncio` (
 --
 
 INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `telefono`, `immagine`, `titolo`) VALUES
-('1', 'alex', 10.00, 'Gran bell''arma', '08536666', './annunci/alex/mia.jpg', 'Fa fico'),
-('2', 'alessandro', 29.99, 'Una bella accoppiata', '085546536666', './annunci/alessandro/coppia.jpg', '2 is meglio che one '),
-('3', 'alex', 25.00, 'La mia bambina', '08536556', './annunci/alex/tie.jpg', 'Adottami');
+('1', 'alex', 10.00, 'Gran bell''arma', '08536666', './immagini/annunci/alex/mia.jpg', 'Fa fico'),
+('2', 'alessandro', 29.99, 'Una bella accoppiata', '085546536666', './immagini/annunci/alessandro/coppia.jpg', '2 is meglio che one '),
+('3', 'alex', 25.00, 'La mia bambina', '08536556', './immagini/annunci/alex/tie.jpg', 'Adottami');
 -- --------------------------------------------------------
 
 --

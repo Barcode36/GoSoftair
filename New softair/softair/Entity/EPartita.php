@@ -13,7 +13,7 @@ class EPartita {
 	public $data;
 	public $ngiocatori;
 	public $IDpartita;
-	public $copertina;
+	public $immagine;
     /**
      * @AssociationType Entity.ECommento
      * @AssociationMultiplicity 0..*

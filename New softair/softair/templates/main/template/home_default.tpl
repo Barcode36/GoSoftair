@@ -80,7 +80,7 @@
                 {/if}
                 </li>
         {/section}
-        <li><a href="index.php?controller=annunci&task=vediannunci">Annunci</a></li>
+        <li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>
 	<li><a href="index.php?controller=partita&task=modulopartita">Crea partita</a></li>
 	<li><a href="index.php?controller=annuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       
