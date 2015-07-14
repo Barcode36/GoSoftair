@@ -62,6 +62,7 @@ class CPartita {
 		$EPartita->data=($dati_registrazione['Data']);
 		$EPartita->descrizione=($dati_registrazione['Descrizione']);
 		$EPartita->ngiocatori=($dati_registrazione['Giocatori']);
+		$EPartita->ndisponibili=($dati_registrazione['Giocatori']);
 		$EPartita->categoria=($dati_registrazione['Categoria']);	
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
 		$file=$view->getFile();

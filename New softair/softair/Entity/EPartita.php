@@ -12,6 +12,7 @@ class EPartita {
     public $indirizzo;
 	public $data;
 	public $ngiocatori;
+	public $ndisponibili;
 	public $IDpartita;
 	public $immagine;
     /**
@@ -26,6 +27,12 @@ class EPartita {
     public function setPrezzo($prezzo)
     {
     	$this->prezzo=$prezzo;
+    }
+    
+    
+    public function setNdisponibili($ndisponibili)
+    {
+    	$this->ndisponibili=$ndisponibili;
     }
 
     /**

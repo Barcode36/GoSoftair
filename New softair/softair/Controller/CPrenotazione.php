@@ -98,22 +98,29 @@ class CPrenotazione {
     	$idpartita=$view->getIdPartita();
     	$username=$session->leggi_valore('username');
     	
-    	$EPrenotazione->utenteusername=$username;
-    	$EPrenotazione->partitaID=$idpartita;
-    	
     	$FPartita=new FPartita();
     	$partita=$FPartita->load($idpartita);
-		$_array_dati_partita=get_object_vars($partita);
-		$titolopartita=$_array_dati_partita['titolo'];
+    	$_array_dati_partita=get_object_vars($partita);
+    	$disponibili=$_array_dati_partita['ndisponibili'];
+    	if ($disponibili!=0){
+    		$EPrenotazione->utenteusername=$username;
+    		$EPrenotazione->partitaID=$idpartita;
+    	
+			$titolopartita=$_array_dati_partita['titolo'];
+			$EPrenotazione->titoloPartita=$titolopartita;
+			$EPrenotazione->attrezzatura=$dati_prenotazione['attrezzatura'];
+			$EPrenotazione->id=$username.$_array_dati_partita['titolo'];
 		
-		$EPrenotazione->titoloPartita=$titolopartita;
-		$EPrenotazione->attrezzatura=$dati_prenotazione['attrezzatura'];
-		$EPrenotazione->id=$username.$_array_dati_partita['titolo'];
-		
-		$FPrenotazione->store($EPrenotazione);
-		$view->setLayout('confermacrea');
-		return $view->processaTemplate();
-		
+			$partita->setNdisponibili($disponibili-1);	
+			$FPartita->update($partita);
+			$FPrenotazione->store($EPrenotazione);
+    	}
+    	else{ 
+    		$error='La partita &egrave al completo, impossibbile prenotarsi';
+    		$view->impostaDati('errore', $error);
+    	}
+    	$view->setLayout('confermacrea');
+    	return $view->processaTemplate();
     }
     
     

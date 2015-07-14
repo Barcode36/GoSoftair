@@ -49,6 +49,7 @@ CREATE TABLE `partita` (
   `titolo` varchar(200) DEFAULT NULL,
   `indirizzo` varchar(200) DEFAULT NULL,
   `ngiocatori` int DEFAULT NULL,
+  `ndisponibili` int DEFAULT NULL,
   `autore` varchar(20) NOT NULL,
   `data` varchar(10) DEFAULT NULL,
   `prezzo` float DEFAULT NULL,
@@ -62,14 +63,14 @@ CREATE TABLE `partita` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `immagine`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 'dante','1/18/54', 1, 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'douchebag','1/18/12', 0, 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 'clown','1/18/12', 0, 'ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg');
+INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `immagine`) VALUES
+('1', 'Perdonami', 'via daqui', 10, 5, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 8,'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'dante','1/18/54', 1, 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 0,'Asdfg','1/18/54', 1, 'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'douchebag','1/18/12', 0, 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 3,'clown','1/18/12', 0, 'ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 4,'wwww','1/6/02', 0, 'agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg');
 
 -- --------------------------------------------------------
 
