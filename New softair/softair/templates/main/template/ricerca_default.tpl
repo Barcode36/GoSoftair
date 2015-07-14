@@ -9,7 +9,7 @@
             <div class="content-2col-box">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>{$dati[i].autore}</h5>
-              <p><img height="120" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
+              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
               {section name=j loop=$dati[i].commento}
@@ -37,7 +37,7 @@
             <div class="content-2col-box">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>{$dati[i].autore}</h5>
-              <p><img height="120" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
+              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
           {section name=k loop=$dati[i].commento}

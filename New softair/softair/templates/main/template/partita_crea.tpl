@@ -8,8 +8,14 @@
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" /></p>
-                <p><label for="Titolo" class="top">Categoria:</label><br />
-                  <input type="text" id="Categoria" name="Categoria" tabindex="2" class="field" /></p>
+                <p><label for="Categoria" class="top">Categoria:</label><br />             
+		   <select name="Categoria" tabindex="2">
+                      <option value="Deathmatch a squadre">Deathmatch a squadre</option>
+                      <option value="Tutti vs tutti">Tutti vs tutti</option>
+                      <option value="Ruba la bandiera">Ruba la bandiera</option>
+                      <option value="Caccia all uomo">Caccia all uomo</option>
+                      <option value="Simulazione storica">Simulazione storica</option>
+                   </select></p>  
               <p><label class="top">Partecipanti:</label><br />
                   <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" /></p>
                <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" tabindex="3" size="1" value="" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-13 20:23:18
+<?php /* Smarty version 2.6.26, created on 2015-07-14 12:10:41
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 46, false),)), $this); ?>
@@ -11,7 +11,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
           <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
  <?php echo $this->_tpl_vars['datiUtente']['cognome']; ?>
 </h5> 
-          <p><img  src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
+          <p><img width="180px" src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
 " alt="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " title="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 ">

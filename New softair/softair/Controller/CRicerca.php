@@ -50,7 +50,7 @@ class CRicerca {
             $parametri[]=array('categoria','=',$categoria);
         }
         if ($parola!=false){
-            $parametri[]=array('descrizione','LIKE','%'.$parola.'%');
+            $parametri[]=array('titolo','LIKE','%'.$parola.'%');
         }
         $limit=$view->getPage()*$this->_partite_per_pagina.','.$this->_partite_per_pagina;
         $num_risultati=count($FPartita->search($parametri));

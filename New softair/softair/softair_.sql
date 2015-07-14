@@ -63,13 +63,13 @@ CREATE TABLE `partita` (
 --
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `immagine`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Rubabandiera', './immagini/partite/ciccio/cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Rubabandiera', './immagini/partite/ciccio/attacco.jpg'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 'dante','1/18/54', 1, 'sdish','Armageddon', './immagini/partite/dante/ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'cartman','Armageddon', './immagini/partite/cartman/pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'douchebag','1/18/12', 0, 'sdish','2 Squadre', './immagini/partite/douchebag/pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 'clown','1/18/12', 0, 'ahaha','2 Squadre', './immagini/partite/clown/ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'agrippa','Armageddon', './immagini/partite/agrippa/romano.jpg');
+('1', 'Perdonami', 'via daqui', 10, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 'dante','1/18/54', 1, 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 'Asdfg','1/18/54', 1, 'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 'douchebag','1/18/12', 0, 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 'clown','1/18/12', 0, 'ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 'wwww','1/6/02', 0, 'agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg');
 
 -- --------------------------------------------------------
 
