@@ -1,17 +1,17 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-14 12:10:41
+<?php /* Smarty version 2.6.26, created on 2015-07-14 15:57:12
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 46, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 57, false),)), $this); ?>
+<?php if ($this->_tpl_vars['datiUtente'] != false): ?>
         <div class="corner-content-1col-top"></div>
-          <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
-          <div class="content-1col-nobox">
+        <div class="content-1col-nobox">
           <a href="index.php?controller=profilo&task=modutente"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
           <h1><?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 </h1>
           <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
  <?php echo $this->_tpl_vars['datiUtente']['cognome']; ?>
 </h5> 
-          <p><img width="180px" src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
+          <p><img  src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
 " alt="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " title="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 ">
@@ -23,9 +23,11 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 <br>
 		  CAP: <?php echo $this->_tpl_vars['datiUtente']['CAP']; ?>
 <br>
+		  </div>
+		  <div class="corner-content-1col-bottom"></div>
 		  	<?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
-		    <div class="corner-content-2col-top"></div>
-            <div class="content-2col-box">
+		    <div class="corner-content-1col-top"></div>
+           <div class="content-1col-nobox">
 		    	<h1>Prenotazioni effettuate</h1>
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>
@@ -59,23 +61,32 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ?>  
             	<tr><td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
 </td>
-                	<td><a href="?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
+                	<td><a href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
 "><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['titoloPartita']; ?>
-</td>
+</a></td>
                 	<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['utenteusername']; ?>
 </td>
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
 </td>
-            		<td><a href="#&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+            		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
 "><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             	</tr>
             	<?php endfor; endif; ?>
 				</table>
-			</div>
-            <div class="corner-content-2col-bottom"></div>
+		  </div>
+		  <div class="corner-content-1col-bottom"></div>
 		  </p>
-		  <?php else: ?><p>Non ci sono prenotazioni a partite.</p><?php endif; ?>
+    <?php else: ?>
+		  		  	<div class="corner-content-1col-top"></div>
+           			<div class="content-1col-nobox">
+		              <p>Non ci sono prenotazioni a partite.</p>
+                    </div>
+        			<div class="corner-content-1col-bottom"></div>
+    <?php endif; ?>
 		  
+	<?php if ($this->_tpl_vars['datiAnnunci'] != false): ?>	
+		   <div class="corner-content-1col-top"></div>
+           <div class="content-1col-nobox">
 		  <h1>Annunci pubblicati</h1>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
@@ -107,8 +118,9 @@ $this->_sections['j']['index_next'] = $this->_sections['j']['index'] + $this->_s
 $this->_sections['j']['first']      = ($this->_sections['j']['iteration'] == 1);
 $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $this->_sections['j']['total']);
 ?>  
-            <tr><td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['titolo']; ?>
-</td>
+            <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+"><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['titolo']; ?>
+</a></td>
                 <td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['prezzo']; ?>
 </td>
                 <td><?php echo ((is_array($_tmp=$this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
@@ -116,14 +128,23 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
             	<td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['telefono']; ?>
 </td>
             	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
-""><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             </tr>
             <?php endfor; endif; ?>
 			</table>
-		  
-		  
-		  <?php else: ?>
+		  </div>
+		  <div class="corner-content-1col-bottom"></div>
+	<?php else: ?>
+		  		  	<div class="corner-content-1col-top"></div>
+           			<div class="content-1col-nobox">
+		              <p>Non ci sono annunci pubblicati.</p>
+                    </div>
+        			<div class="corner-content-1col-bottom"></div>
+     <?php endif; ?>
+<?php else: ?>
+		  		  	<div class="corner-content-1col-top"></div>
+           			<div class="content-1col-nobox">
 		              <p>Se vuoi visiatre il tuo profilo prima accedi .</p>
-          <?php endif; ?>
-          </div>
-        <div class="corner-content-1col-bottom"></div>
+                    </div>
+        			<div class="corner-content-1col-bottom"></div>
+<?php endif; ?>

@@ -27,7 +27,7 @@ class FPrenotazione extends Fdb{
         $prenotazione->id=$id;
     }*/
     
-    public function load($key){
+   /* public function load($key){
         $prenotazione=parent::load($key);
         $FUtente=new FUtente();
         $utente=$FUtente->load($prenotazione->utenteusername);
@@ -38,7 +38,7 @@ class FPrenotazione extends Fdb{
         $id = parent::store($prenotazione);
         $prenotazione->id=$id;
         return $prenotazione;
-    }
+    }*/
     
     public function loadfromuser($key) {
     	$query='SELECT * ' .

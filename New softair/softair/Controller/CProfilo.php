@@ -114,6 +114,46 @@ class CProfilo {
     }
     
     
+    
+    
+    public function modPrenotazione(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
+    	$IDprenotazione=$view->getIdprenotazione();
+    	$FPrenotazione = new FPrenotazione();
+    	$prenotazione=$FPrenotazione->load($IDprenotazione);
+    	if ($prenotazione!=false) {
+    		$dati_prenotazione=get_object_vars($prenotazione);
+    		$view->impostaDati('datiPrenotazione', $dati_prenotazione);
+    		$session->imposta_valore('IDprenotazione',$IDprenotazione);
+    		$session->imposta_valore('titolo',$dati_prenotazione['titoloPartita']);
+    		$session->imposta_valore('partitaID',$dati_prenotazione['partitaID']);
+    	}
+    	$view->setLayout('modifica_prenotazione');
+    	return $view->processaTemplate();
+    	
+    }
+    
+    
+    public function salvaPrenotazione(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
+    	$FPrenotazione = new FPrenotazione();
+    	$EPrenotazione = new EPrenotazione();
+    	$dati_modifica=$view->getDatiModPrenotazione();
+    	$username=$session->leggi_valore('username');
+    	$IDprenotazione=$session->leggi_valore('IDprenotazione');
+    	$titolo=$session->leggi_valore('titolo');
+    	$partitaID=$session->leggi_valore('partitaID');
+    	$EPrenotazione->setPrenotazioneMod($IDprenotazione, $partitaID, $titolo, $username, $dati_modifica['attrezzatura']);
+    	$FPrenotazione->update($EPrenotazione);
+    	$view->setLayout('conferma_modifica');
+    	return $view->processaTemplate();
+    }
+    
+    
+    
+    
     public function modAnnuncio(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -203,5 +243,5 @@ class CProfilo {
                 return $this->salvaAnnuncio();
         
         }
-        }
+     }
 }

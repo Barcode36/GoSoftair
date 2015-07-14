@@ -50,6 +50,15 @@ class EPrenotazione {
         }
         return $prezzo;
     }
+    
+    
+    public function setPrenotazioneMod($id, $partitaID, $titoloPartita, $utenteusername, $attrezzatura) {
+    	$this->id=$id;
+    	$this->partitaID=$partitaID;
+    	$this->titoloPartita=$titoloPartita;
+    	$this->utenteusername=$utenteusername;
+    	$this->attrezzatura=$attrezzatura;    	
+    }
 
     /**
      * @access public

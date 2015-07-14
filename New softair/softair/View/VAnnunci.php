@@ -25,6 +25,15 @@ class VAnnunci extends View {
             return 0;
     }
 
+    
+    public function getIDannuncio() {
+    	if (isset($_REQUEST['id_annuncio'])) {
+    		return $_REQUEST['id_annuncio'];
+    	} else
+    		return 0;
+    }
+    
+    
     /**
      * Processa il layout scelto nella variabile _layout
      *

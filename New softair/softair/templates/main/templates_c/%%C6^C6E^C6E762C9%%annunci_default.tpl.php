@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-14 12:15:27
+<?php /* Smarty version 2.6.26, created on 2015-07-14 15:33:22
          compiled from annunci_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'annunci_default.tpl', 12, false),array('modifier', 'string_format', 'annunci_default.tpl', 16, false),)), $this); ?>
@@ -34,7 +34,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
             <?php if ($this->_sections['i']['iteration'] % 2 == 1): ?>
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
-              <h1><a href="?controller=annuncio&task=vediannunci&id_partita=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDannuncio']; ?>
+              <h1><a href="?controller=annuncio&task=apriannuncio&id_annuncio=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDannuncio']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 </a></h1>
               <h5>Inserito da <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autoreusername']; ?>
@@ -86,7 +86,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
             <?php if ($this->_sections['i']['iteration'] % 2 == 0): ?>
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
-               <h1><a href="?controller=annuncio&task=vediannunci&id_partita=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDannuncio']; ?>
+               <h1><a href="?controller=annuncio&task=apriannuncio&id_annuncio=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDannuncio']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 </a></h1>
               <h5>Inserito da <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autoreusername']; ?>

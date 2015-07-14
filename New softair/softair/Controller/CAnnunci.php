@@ -37,6 +37,20 @@ class CAnnunci {
         $view->impostaDati('dati',$this->_array_dati_annunci);
         return $view->processaTemplate();      
     }
+    
+    
+    public function apriAnnuncio() {
+    	$view=USingleton::getInstance('VAnnunci');
+    	$IDannuncio=$view->getIDannuncio();
+    	$FAnnuncio = new FAnnuncio();
+    	$annuncio=$FAnnuncio->load($IDannuncio);
+    	if ($annuncio!=false) {
+    		$dati_annuncio=get_object_vars($annuncio);
+    		$view->impostaDati('datiAnnuncio', $dati_annuncio);
+    	}
+    	$view->setLayout('dettagli');
+    	return $view->processaTemplate();	
+    }
 	
 	
 	public function moduloCreaAnnuncio() {
@@ -93,6 +107,8 @@ class CAnnunci {
                 return $this->creaAnnuncio();
 			case 'moduloannuncio':
                 return $this->moduloCreaAnnuncio();
+            case 'apriannuncio':
+                return $this->apriAnnuncio();
                 
             }
         }

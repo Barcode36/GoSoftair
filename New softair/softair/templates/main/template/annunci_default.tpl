@@ -7,7 +7,7 @@
             {if $smarty.section.i.iteration % 2 == 1}
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
-              <h1><a href="?controller=annuncio&task=vediannunci&id_partita={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
+              <h1><a href="?controller=annuncio&task=apriannuncio&id_annuncio={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
               <h5>Inserito da {$dati[i].autoreusername}</h5>
               <p><img width="170" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
@@ -27,7 +27,7 @@
             {if $smarty.section.i.iteration % 2 == 0}
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
-               <h1><a href="?controller=annuncio&task=vediannunci&id_partita={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
+               <h1><a href="?controller=annuncio&task=apriannuncio&id_annuncio={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
               <h5>Inserito da {$dati[i].autoreusername}</h5>
               <p><img width="170" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}">{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}

@@ -92,6 +92,18 @@ class VProfilo extends View{
         }
     }
 
+    public function getDatiModPrenotazione() {
+    	$dati_richiesti=array('attrezzatura');
+    	$dati=array();
+    	foreach ($dati_richiesti as $dato) {
+    		if (isset($_REQUEST[$dato]))
+    			$dati[$dato]=$_REQUEST[$dato];
+    	}
+    	return $dati;
+    }
+   
+    
+    
     public function getDatiModAnnuncio() {
     	$dati_richiesti=array('titolo','prezzo','descrizione', 'telefono');
     	$dati=array();
