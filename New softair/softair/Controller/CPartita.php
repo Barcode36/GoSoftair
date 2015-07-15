@@ -46,7 +46,7 @@ class CPartita {
     		$view->impostaDati('utenti', $utenti);
     	}
     	
-    	//controlla se l'utente è registrato e se è gia prenotato a questa partita
+    	//controlla se l'utente ï¿½ registrato e se ï¿½ gia prenotato a questa partita
     	if ($username!=false){
     	$giaPrenotato=false;
     	$prenotazioni=$FPrenotazione->loadfromuser($username);
@@ -80,6 +80,7 @@ class CPartita {
     public function creaPartita() {
 	    $view=USingleton::getInstance('VPartita');
 		$session=USingleton::getInstance('USession');
+		$controller=USingleton::getInstance('CPrenotazione');
 
         $EPartita=new EPartita();
         $FPartita=new FPartita();
@@ -106,7 +107,10 @@ class CPartita {
                 
             }
         }
-        /*else {echo("Errore, file non pervenuto");} da errore anche quando uno decide di non metterla propio l'immagine così
+		if($dati_registrazione['Partecipazione']==1)
+		{echo("true");}
+		else{echo("false");}
+        /*else {echo("Errore, file non pervenuto");} da errore anche quando uno decide di non metterla propio l'immagine cosï¿½
 		e comunque non mettete echo diretti, al massimo impostate il mex in qualche variabile, che passate al tamplate e da li lo
 		stampa a video o si perde la divisione tra logica di programmazione e quella di visualizzazione*/
 		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);

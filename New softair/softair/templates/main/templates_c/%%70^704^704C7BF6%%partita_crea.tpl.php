@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.26, created on 2015-07-15 17:47:04
+         compiled from partita_crea.tpl */ ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Creazione partita</h1>
