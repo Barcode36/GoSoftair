@@ -34,6 +34,11 @@ class EPartita {
     {
     	$this->ndisponibili=$ndisponibili;
     }
+    
+    public function getNdisponibili() {
+    	return $this->ndisponibili;
+    }
+    
 
     /**
      * @access public

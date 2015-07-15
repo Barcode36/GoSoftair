@@ -152,13 +152,29 @@ class CProfilo {
     }
     
     
+    public function eliminaPrenotazione(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$IDprenotazione=$view->getIdprenotazione();
+    	$FPrenotazione = new FPrenotazione();
+    	$prenotazione=$FPrenotazione->load($IDprenotazione);
+    	$FPrenotazione->delete($prenotazione);
+    	$FPartita = new FPartita();
+    	$PartitaID=$prenotazione->getPartitaID();
+    	$partita=$FPartita->load($PartitaID);
+    	$ndisponibili=$partita->getNdisponibili();
+    	$partita->setNdisponibili($ndisponibili+1);
+    	$FPartita->update($partita);
+    	$view->setLayout('conferma_eliminazione');
+    	return $view->processaTemplate();
+    }
+    
     
     
     public function modAnnuncio(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
     	$IDannuncio=$view->getIdAnnuncio();
-    	$FAnnuncio = new FAnnuncio();
+    	$FPrenotazione = new FPrenotazione();
     	$annuncio=$FAnnuncio->load($IDannuncio);
     	if ($annuncio!=false) {
     		$this->_array_dati_annunci=get_object_vars($annuncio);
@@ -201,7 +217,15 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
-    
+    public function eliminaAnnuncio(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$IDannuncio=$view->getIdAnnuncio();
+    	$FAnnuncio = new FAnnuncio();
+    	$annuncio=$FAnnuncio->load($IDannuncio);
+    	$FAnnuncio->delete($annuncio);
+    	$view->setLayout('conferma_eliminazione');
+    	return $view->processaTemplate();
+    }
     
     
     
@@ -237,11 +261,14 @@ class CProfilo {
                 return $this->modPrenotazione();
             case 'salvaprenotazione':
                 return $this->salvaPrenotazione();            
+            case 'eliminaprenotazione':
+                return $this->eliminaPrenotazione();
             case 'modannuncio':
                 return $this->modAnnuncio();
             case 'salvaannuncio':
                 return $this->salvaAnnuncio();
-        
+            case 'eliminaannuncio':
+                return $this->eliminaAnnuncio();        
         }
      }
 }

@@ -51,6 +51,10 @@ class EPrenotazione {
         return $prezzo;
     }
     
+    public function getPartitaID() {
+    	return $this->partitaID;
+    }
+    
     
     public function setPrenotazioneMod($id, $partitaID, $titoloPartita, $utenteusername, $attrezzatura) {
     	$this->id=$id;

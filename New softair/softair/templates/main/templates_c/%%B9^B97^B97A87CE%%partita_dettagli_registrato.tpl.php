@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-15 12:46:04
+<?php /* Smarty version 2.6.26, created on 2015-07-15 14:46:34
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 18, false),)), $this); ?>
@@ -57,7 +57,36 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 "><?php echo $this->_tpl_vars['dati']['categoria']; ?>
 </a><br>
               <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati']['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
-</p>
+<br>
+          <b>Lista utenti prenotati a questa partita</b><br>
+          <?php unset($this->_sections['ii']);
+$this->_sections['ii']['name'] = 'ii';
+$this->_sections['ii']['loop'] = is_array($_loop=$this->_tpl_vars['utenti']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['ii']['show'] = true;
+$this->_sections['ii']['max'] = $this->_sections['ii']['loop'];
+$this->_sections['ii']['step'] = 1;
+$this->_sections['ii']['start'] = $this->_sections['ii']['step'] > 0 ? 0 : $this->_sections['ii']['loop']-1;
+if ($this->_sections['ii']['show']) {
+    $this->_sections['ii']['total'] = $this->_sections['ii']['loop'];
+    if ($this->_sections['ii']['total'] == 0)
+        $this->_sections['ii']['show'] = false;
+} else
+    $this->_sections['ii']['total'] = 0;
+if ($this->_sections['ii']['show']):
+
+            for ($this->_sections['ii']['index'] = $this->_sections['ii']['start'], $this->_sections['ii']['iteration'] = 1;
+                 $this->_sections['ii']['iteration'] <= $this->_sections['ii']['total'];
+                 $this->_sections['ii']['index'] += $this->_sections['ii']['step'], $this->_sections['ii']['iteration']++):
+$this->_sections['ii']['rownum'] = $this->_sections['ii']['iteration'];
+$this->_sections['ii']['index_prev'] = $this->_sections['ii']['index'] - $this->_sections['ii']['step'];
+$this->_sections['ii']['index_next'] = $this->_sections['ii']['index'] + $this->_sections['ii']['step'];
+$this->_sections['ii']['first']      = ($this->_sections['ii']['iteration'] == 1);
+$this->_sections['ii']['last']       = ($this->_sections['ii']['iteration'] == $this->_sections['ii']['total']);
+?>
+            - <?php echo $this->_tpl_vars['utenti'][$this->_sections['ii']['index']]; ?>
+<br>
+          <?php endfor; endif; ?></p>
+              
           <div class="contactform">
              <form action="index.php" method="post">
               <br><fieldset><legend>&nbsp;VOTA PARTITA&nbsp;</legend>
@@ -119,6 +148,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
         <?php if ($this->_tpl_vars['dati']['ndisponibili'] != 0): ?>
          <h1 >Prenotazione alla partita</h1>
           <div >
+            <?php if ($this->_tpl_vars['giaPrenotato'] != true): ?>
             <form method="POST" action="index.php">
               <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
@@ -129,9 +159,10 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
                 <input type="hidden" name="task" value="salvaprenotazione" />
                 <input type="hidden" name="id_partita" value="<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
 " />
-              <input type="submit" name="submit" class="button" value="prenotati" tabindex="5" /></p>
+              <input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
             </fieldset>
             </form>
+            <?php else: ?><p>Sei gi&agrave prenotato a questa partita</p><?php endif; ?>
           </div>
           <?php else: ?><h1>Partita al completo</h1>
           <?php endif; ?>

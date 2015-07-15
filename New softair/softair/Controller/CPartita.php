@@ -32,9 +32,37 @@ class CPartita {
     	$dati['commento']=$arrayCommenti;
     	$view->impostaDati('dati',$dati);
     	$username=$session->leggi_valore('username');
-    	if ($username!=false)
+    	$FPrenotazione=new FPrenotazione();
+    	
+    	//mette in utenti che passa alla view e quindi al template gli utenti registrati alla partita
+    	$prenotazioni=$FPrenotazione->loadfrompartita($id_partita);
+    	if ($prenotazioni!=false) {
+    		$i=0;
+    		while ($i<count($prenotazioni)) {
+    			$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
+    			$utenti[$i]=$_array_dati_partite[$i]['utenteusername'];
+    			$i++;
+    		}
+    		$view->impostaDati('utenti', $utenti);
+    	}
+    	
+    	//controlla se l'utente è registrato e se è gia prenotato a questa partita
+    	if ($username!=false){
+    	$giaPrenotato=false;
+    	$prenotazioni=$FPrenotazione->loadfromuser($username);
+    	if ($prenotazioni!=false) {
+    		$i=0;
+    		while ($i<count($prenotazioni)) {
+    			$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
+    			if ($_array_dati_partite[$i]['partitaID']==$id_partita)
+    				$giaPrenotato=true;
+    			$i++;
+    		}
+    	}
+
+    		$view->impostaDati('giaPrenotato', $giaPrenotato);
     		$view->setLayout('dettagli_registrato');
-    	else
+    	}else
     		$view->setLayout('dettagli');
     		
     	return $view->processaTemplate();

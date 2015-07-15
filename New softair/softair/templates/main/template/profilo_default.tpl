@@ -22,12 +22,14 @@
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
                 	<th class="top" scope="col"></th>
+                	<th class="top" scope="col"></th>
           		{section name=i loop=$datiPartite}  
             	<tr><td>{$datiPartite[i].partitaID}</td>
                 	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
                 	<td>{$datiPartite[i].utenteusername}</td>
             		<td>{$datiPartite[i].attrezzatura}</td>
             		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+            		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
             	</tr>
             	{/section}
 				</table>
@@ -52,12 +54,14 @@
                 <th class="top" scope="col">Descrizione</th>
                 <th class="top" scope="col">Telefono</th>
                 <th class="top" scope="col"></th>
+                <th class="top" scope="col"></th>
           	{section name=j loop=$datiAnnunci}  
             <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
                 <td>{$datiAnnunci[j].prezzo}</td>
                 <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>
             	<td>{$datiAnnunci[j].telefono}</td>
             	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+            	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
             </tr>
             {/section}
 			</table>

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-15 12:45:47
+<?php /* Smarty version 2.6.26, created on 2015-07-15 13:19:16
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 58, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 61, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -36,6 +36,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
+                	<th class="top" scope="col"></th>
                 	<th class="top" scope="col"></th>
           		<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
@@ -72,6 +73,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </td>
             		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
 "><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+            		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
             	</tr>
             	<?php endfor; endif; ?>
 				</table>
@@ -95,6 +98,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
                 <th class="top" scope="col">Prezzo</th>
                 <th class="top" scope="col">Descrizione</th>
                 <th class="top" scope="col">Telefono</th>
+                <th class="top" scope="col"></th>
                 <th class="top" scope="col"></th>
           	<?php unset($this->_sections['j']);
 $this->_sections['j']['name'] = 'j';
@@ -131,6 +135,8 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 </td>
             	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
 "><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
+            	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
             </tr>
             <?php endfor; endif; ?>
 			</table>

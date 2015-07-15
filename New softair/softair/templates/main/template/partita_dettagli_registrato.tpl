@@ -15,7 +15,12 @@
           {/section}
               <b>Media Voti:</b> | {if $dati.media_voti>0}{$dati.media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
-              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"}</p>
+              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"}<br>
+          <b>Lista utenti prenotati a questa partita:</b><br>
+          {section name=ii loop=$utenti}
+            - {$utenti[ii]}<br>
+          {/section}</p>
+              
           <div class="contactform">
              <form action="index.php" method="post">
               <br><fieldset><legend>&nbsp;VOTA PARTITA&nbsp;</legend>
@@ -50,6 +55,7 @@
         {if $dati.ndisponibili!=0}
          <h1 >Prenotazione alla partita</h1>
           <div >
+            {if $giaPrenotato!=true}
             <form method="POST" action="index.php">
               <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
@@ -59,9 +65,10 @@
                 <input type="hidden" name="controller" value="prenotazione" />
                 <input type="hidden" name="task" value="salvaprenotazione" />
                 <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
-              <input type="submit" name="submit" class="button" value="prenotati" tabindex="5" /></p>
+              <input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
             </fieldset>
             </form>
+            {else}<p>Sei gi&agrave prenotato a questa partita</p>{/if}
           </div>
           {else}<h1>Partita al completo</h1>
           {/if}

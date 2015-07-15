@@ -47,6 +47,16 @@ class FPrenotazione extends Fdb{
     	$this->query($query);
     	return $this->getObjectArray();
     }
+    
+    public function loadfrompartita($key) {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table.'` ' .
+    			'WHERE partitaID = \''.$key.'\'';
+    	$this->query($query);
+    	return $this->getObjectArray();
+    }
+    
+    
 }
 
 ?>
