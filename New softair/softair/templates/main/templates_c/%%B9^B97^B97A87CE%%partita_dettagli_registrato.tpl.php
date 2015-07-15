@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-14 21:08:29
+<?php /* Smarty version 2.6.26, created on 2015-07-15 11:16:57
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 18, false),)), $this); ?>
@@ -120,7 +120,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
          <h1 >Prenotazione alla partita</h1>
           <div >
             <form method="POST" action="index.php">
-              <input type="hidden" name="controller" value="annuncio" />
+              
               <fieldset>
                 <p><label for="attrezzatura" class="top">Attrezzatura:</label><br />
                   <input type="text" id="attrezzatura" name="attrezzatura" tabindex="1" class="field" /></p>           
