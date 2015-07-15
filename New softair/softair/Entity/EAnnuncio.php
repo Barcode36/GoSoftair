@@ -11,15 +11,17 @@ class EAnnuncio {
     public $telefono;
     public $immagine;
     public $titolo;
+    public $data;
     
     
-    public function setAnnuncioMod($titolo, $prezzo, $descrizione, $telefono, $username, $IDannuncio ){
+    public function setAnnuncioMod($titolo, $prezzo, $descrizione, $telefono, $username, $IDannuncio, $data ){
     	$this->titolo = $titolo;
     	$this->prezzo = $prezzo;
     	$this->descrizione = $descrizione;
     	$this->telefono = $telefono;
     	$this->autoreusername = $username;
     	$this->IDannuncio = $IDannuncio;
+    	$this->data = $data;
     }
     
     
@@ -52,6 +54,14 @@ class EAnnuncio {
     
 
     //METODI GET
+
+    public function getData()
+    {
+    	return $this->data;
+    }
+    
+    
+    
     /**
      *
      * @return string Stringa contenente l'id dell'annuncio.

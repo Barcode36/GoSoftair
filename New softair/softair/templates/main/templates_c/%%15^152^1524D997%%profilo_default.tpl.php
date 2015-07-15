@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-15 13:19:16
+<?php /* Smarty version 2.6.26, created on 2015-07-15 22:49:24
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 61, false),)), $this); ?>
-<?php if ($this->_tpl_vars['datiUtente'] != false): ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 62, false),)), $this); ?>
+<?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
           <a href="index.php?controller=profilo&task=modutente"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
@@ -84,7 +84,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
     <?php else: ?>
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
-		              <p>Non ci sono prenotazioni a partite.</p>
+		              <h1>Non ci sono prenotazioni a partite.</h1>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
     <?php endif; ?>
@@ -98,6 +98,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
                 <th class="top" scope="col">Prezzo</th>
                 <th class="top" scope="col">Descrizione</th>
                 <th class="top" scope="col">Telefono</th>
+                <th class="top" scope="col">Data inserimento</th>
                 <th class="top" scope="col"></th>
                 <th class="top" scope="col"></th>
           	<?php unset($this->_sections['j']);
@@ -133,6 +134,8 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 </td>
             	<td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['telefono']; ?>
 </td>
+            	<td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['data']; ?>
+</td>
             	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
 "><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
@@ -145,14 +148,87 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 	<?php else: ?>
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
-		              <p>Non ci sono annunci pubblicati.</p>
+		              <h1>Non ci sono annunci pubblicati.</h1>
+		              <h2 class="noicon">Puoi crearne uno facilmente! Clicca qui  </h2>
+                			<p><input type="button" value="Crea annuncio" onclick="location.href='index.php?controller=annuncio&task=moduloannuncio'"></p>
+          				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
      <?php endif; ?>
+     
+     <?php if ($this->_tpl_vars['datiPartiteCreate'] != false): ?>	
+		   <div class="corner-content-1col-top"></div>
+           <div class="content-1col-nobox">
+		  <h1>Partite create</h1>
+		  <table>
+            <tr><th class="top" scope="col">Titolo</th>
+                <th class="top" scope="col">Categoria</th>
+                <th class="top" scope="col">Prezzo</th>
+                <th class="top" scope="col">Indirizzo</th>
+                <th class="top" scope="col">Data</th>
+                <th class="top" scope="col">Giocatori Max</th>
+                <th class="top" scope="col">Posti liberi</th>
+          	<?php unset($this->_sections['k']);
+$this->_sections['k']['name'] = 'k';
+$this->_sections['k']['loop'] = is_array($_loop=$this->_tpl_vars['datiPartiteCreate']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['k']['show'] = true;
+$this->_sections['k']['max'] = $this->_sections['k']['loop'];
+$this->_sections['k']['step'] = 1;
+$this->_sections['k']['start'] = $this->_sections['k']['step'] > 0 ? 0 : $this->_sections['k']['loop']-1;
+if ($this->_sections['k']['show']) {
+    $this->_sections['k']['total'] = $this->_sections['k']['loop'];
+    if ($this->_sections['k']['total'] == 0)
+        $this->_sections['k']['show'] = false;
+} else
+    $this->_sections['k']['total'] = 0;
+if ($this->_sections['k']['show']):
+
+            for ($this->_sections['k']['index'] = $this->_sections['k']['start'], $this->_sections['k']['iteration'] = 1;
+                 $this->_sections['k']['iteration'] <= $this->_sections['k']['total'];
+                 $this->_sections['k']['index'] += $this->_sections['k']['step'], $this->_sections['k']['iteration']++):
+$this->_sections['k']['rownum'] = $this->_sections['k']['iteration'];
+$this->_sections['k']['index_prev'] = $this->_sections['k']['index'] - $this->_sections['k']['step'];
+$this->_sections['k']['index_next'] = $this->_sections['k']['index'] + $this->_sections['k']['step'];
+$this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
+$this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
+?>  
+            <tr><td><a href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['IDpartita']; ?>
+"><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['titolo']; ?>
+</a></td>
+                <td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['categoria']; ?>
+</td>
+            	<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['prezzo']; ?>
+</td>
+ 				<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['indirizzo']; ?>
+</td>
+            	<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['data']; ?>
+</td>
+            	<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['ngiocatori']; ?>
+</td>
+            	<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['ndisponibili']; ?>
+</td>
+            </tr>
+            <?php endfor; endif; ?>
+			</table>
+		  </div>
+		  <div class="corner-content-1col-bottom"></div>
+	<?php else: ?>
+		  		  	<div class="corner-content-1col-top"></div>
+           			<div class="content-1col-nobox">
+		              <h1>Non ci sono partite create.</h1>
+		              <h2 class="noicon">Puoi crearne una facilmente! Clicca qui  </h2>
+                			<p><input type="button" value="Crea partita" onclick="location.href='index.php?controller=partita&task=modulopartita'"></p>
+          				<p class="demo"></p>
+                    </div>
+        			<div class="corner-content-1col-bottom"></div>
+     <?php endif; ?>
+     
+     
+     
 <?php else: ?>
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
-		              <p>Se vuoi visiatre il tuo profilo prima accedi .</p>
+		              <h1>Se vuoi visiatre il tuo profilo prima accedi.</h1>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
 <?php endif; ?>

@@ -56,7 +56,8 @@ CREATE TABLE `partita` (
   `descrizione` varchar(2048) DEFAULT NULL,
   `categoria` varchar(20) DEFAULT NULL,
   `immagine` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`IDpartita`)
+  PRIMARY KEY (`IDpartita`),
+  KEY `Creatore` (`autore`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -64,13 +65,13 @@ CREATE TABLE `partita` (
 --
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`,`prezzo`, `descrizione`, `categoria`, `immagine`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 5, 'ciccio','15/18/18', 12, 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 8,'ciccio','15/18/54', 1, 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'dante','1/18/54', 1, 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 0,'Asdfg','1/18/54', 1, 'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'douchebag','1/18/12', 0, 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 3,'clown','1/18/12', 0, 'ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 4,'wwww','1/6/02', 0, 'agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg');
+('1', 'Perdonami', 'via daqui', 10, 5, 'alex','15/18/18', 12, 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg'),
+('2', 'ghd', 'via daqui', 10, 8,'alex','15/18/54', 1, 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'alessandro','1/18/54', 1, 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg'),
+('4', 'Casa', 'a casa', 2, 0,'alessandro','1/18/54', 1, 'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'alex','1/18/12', 0, 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg'),
+('6', 'Assalto al circo', 'circo', 5, 3,'alessandro','1/18/12', 0, 'ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg'),
+('7', 'wwww', 'wwwww', 5, 4,'alex','1/6/02', 0, 'agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg');
 
 -- --------------------------------------------------------
 
@@ -144,6 +145,7 @@ CREATE TABLE `annuncio` (
   `prezzo` float DEFAULT NULL,
   `descrizione` varchar(2048) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
+  `data` varchar(10) DEFAULT NULL,
   `immagine` varchar(100) DEFAULT NULL,
   `titolo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`IDannuncio`),
@@ -154,10 +156,10 @@ CREATE TABLE `annuncio` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `telefono`, `immagine`, `titolo`) VALUES
-('1', 'alex', 10.00, 'Gran bell''arma', '08536666', './immagini/annunci/alex/mia.jpg', 'Fa fico'),
-('2', 'alessandro', 29.99, 'Una bella accoppiata', '085546536666', './immagini/annunci/alessandro/coppia.jpg', '2 is meglio che one '),
-('3', 'alex', 25.00, 'La mia bambina', '08536556', './immagini/annunci/alex/tie.jpg', 'Adottami');
+INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `data`, `telefono`, `immagine`, `titolo`) VALUES
+('1', 'alex', 10.00, 'Gran bell''arma', '15/07/2015', '08536666', './immagini/annunci/alex/mia.jpg', 'Fa fico'),
+('2', 'alessandro', 29.99, 'Una bella accoppiata', '10/07/2015', '085546536666', './immagini/annunci/alessandro/coppia.jpg', '2 is meglio che one '),
+('3', 'alex', 25.00, 'La mia bambina', '28/06/2015', '08536556', './immagini/annunci/alex/tie.jpg', 'Adottami');
 -- --------------------------------------------------------
 
 --
@@ -183,5 +185,9 @@ ALTER TABLE `prenotazione`
 ALTER TABLE `annuncio`
 	ADD CONSTRAINT `Annuncia` FOREIGN KEY (`autoreusername`) REFERENCES `utente` (`username`);
 
-
+--
+-- Limiti per la tabella `partita`
+--
+ALTER TABLE `partita`
+	ADD CONSTRAINT `Creatore` FOREIGN KEY (`autore`) REFERENCES `utente` (`username`);
 

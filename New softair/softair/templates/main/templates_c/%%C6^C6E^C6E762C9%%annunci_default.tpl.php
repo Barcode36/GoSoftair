@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-15 13:17:55
+<?php /* Smarty version 2.6.26, created on 2015-07-15 22:51:21
          compiled from annunci_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'annunci_default.tpl', 12, false),array('modifier', 'string_format', 'annunci_default.tpl', 16, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'annunci_default.tpl', 12, false),array('modifier', 'string_format', 'annunci_default.tpl', 18, false),)), $this); ?>
 <div class="content-1col-box">
           <!-- Subcell LEFT -->
           <div class="content-2col-box-leftcolumn">
@@ -46,6 +46,10 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </p>
                   <?php $this->assign('somma', "`0`"); ?>
                   <?php $this->assign('max', "`0`"); ?>
+              <p>Data inserimento: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+</p>
+              <p>Data scadenza: <?php echo $this->_tpl_vars['scadenza'][$this->_sections['i']['index']]; ?>
+</p>
               <p>Telefono: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['telefono']; ?>
 </p>
               <p>Prezzo:<?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
@@ -98,6 +102,10 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </p>
                   <?php $this->assign('somma', "`0`"); ?>
                   <?php $this->assign('max', "`0`"); ?>
+              <p>Data inserimento: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+</p>
+              <p>Data scadenza: <?php echo $this->_tpl_vars['scadenza'][$this->_sections['i']['index']]; ?>
+</p>
               <p>Telefono: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['telefono']; ?>
 </p>
               <p>Prezzo:<?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>

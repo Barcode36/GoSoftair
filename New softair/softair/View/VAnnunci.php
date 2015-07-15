@@ -95,7 +95,7 @@ class VAnnunci extends View {
         }
     }
 	public function getDatiCreaAnnuncio() {
-        $dati_richiesti=array('Titolo','Prezzo','Descrizione','Numero');
+        $dati_richiesti=array('Titolo','Prezzo','Descrizione','Numero', 'Data');
         $dati=array();
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))

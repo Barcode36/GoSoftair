@@ -1,3 +1,4 @@
+  {if $username!=false}
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Creazione partita</h1>
@@ -18,8 +19,7 @@
                    </select></p>  
               <p><label class="top">Partecipanti:</label><br />
                   <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" /></p>
-               <p> <label for="Attrezzatura" class="left">Fornisci attrezzatura?</label>
-		<input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" tabindex="3" size="1" value="" /></p>
+               <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" tabindex="3" size="1" value="" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
 			   <p><label for="Prezzo" class="top">Prezzo:</label><br />
                   <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" value="" /></p>
 			  <p><label for="Indirizzo" class="top">Indirizzo:</label><br />
@@ -30,14 +30,20 @@
                   <input type="text" name="Descrizione" id="Descrizione" tabindex="7" class="field" value="" /></p>
 			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
 		  <input type="file" name="Immagine" size="40">
-			  <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzi senza partecipare?</label>
-		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" />
-		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" /></p>
               <p><input type="submit" name="task" class="button" value="CREA PARTITA" /></p>
             </fieldset>
             </form>
           </div>
-</div>
-
+	</div>
+{else}
+		  		  	<div class="corner-content-1col-top"></div>
+           			<div class="content-1col-nobox">
+		              <h1>Non puoi creare partite, senza autenticarti.</h1>
+		              <h2 class="noicon">Se non sei ancora iscritto, fallo subito &egrave facile!</h2>
+                			<p><input type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
+          				<p class="demo"></p>
+                    </div>
+        			<div class="corner-content-1col-bottom"></div>
+{/if} 
     
         

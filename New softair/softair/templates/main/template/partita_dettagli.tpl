@@ -1,11 +1,11 @@
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
-              <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
-              <h5>Autore:{$dati[i].autore}</h5>
-              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
-              <b>Indirizzo:</b> {$dati[i].indirizzo}<br>
-              <b>Data:</b> {$dati[i].data}<br>
-              <b>NMax giocatori:</b> {$dati[i].ngiocatori}<br>
+              <h1><a href="?controller=partita&task=apripartita&id_partita={$dati.IDpartita}">{$dati.titolo}</a></h1>
+              <h5>Autore:{$dati.autore}</h5>
+              <p><img width="140px" src="{$dati.immagine}" alt="{$dati.titolo}" title="{$dati.titolo}"><b>Descrizione:</b>{$dati.descrizione|truncate:240:" [...]"}<br>
+              <b>Indirizzo:</b> {$dati.indirizzo}<br>
+              <b>Data:</b> {$dati.data}<br>
+              <b>NMax giocatori:</b> {$dati.ngiocatori}<br>
               <b>NPosti disponibili:</b> {$dati.ndisponibili}<br>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
@@ -25,3 +25,11 @@
           {/section}
         </div>
         <div class="corner-content-1col-bottom"></div>
+        <div class="corner-content-1col-top"></div>
+           			<div class="content-1col-nobox">
+		              <h1>Non puoi prenotarti alla partita, senza autenticarti.</h1>
+		              <h2 class="noicon">Se non sei ancora iscritto, fallo subito &egrave facile!</h2>
+                			<p><input type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
+          				<p class="demo"></p>
+                    </div>
+       <div class="corner-content-1col-bottom"></div>

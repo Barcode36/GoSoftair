@@ -25,12 +25,21 @@ class CAnnunci {
         $pagine = ceil($num_risultati/$this->_annunci_per_pagina);
         $risultato=$FAnnuncio->search(array(), '`IDannuncio`', $limit);
         if ($risultato!=false) {
-            foreach ($risultato as $item) {
+        	$date=USingleton::getInstance('UData');
+        	foreach ($risultato as $item) {
                 $tmpAnnuncio=$FAnnuncio->load($item->IDannuncio);
-                $this->_array_dati_annunci[]=get_object_vars($tmpAnnuncio);
+                $datainserimento=$tmpAnnuncio->getData();
+                $giorni=$date->diff_daoggi($datainserimento);
+                if($giorni<=31){
+                	$this->_array_dati_annunci[]=get_object_vars($tmpAnnuncio);
+               		$scadenza[]=$date->sommaMese($datainserimento,31);
+                	$view->impostaDati('scadenza',$scadenza);
+                }
+                else{
+                	$FAnnuncio->delete($item);
+                }
             }
         }
-        print $pagine;
         $view->impostaDati('pagine',$pagine);
         $view->impostaDati('task','annunci');
         $view->impostaDati('utente',$username);
@@ -45,8 +54,15 @@ class CAnnunci {
     	$FAnnuncio = new FAnnuncio();
     	$annuncio=$FAnnuncio->load($IDannuncio);
     	if ($annuncio!=false) {
-    		$dati_annuncio=get_object_vars($annuncio);
-    		$view->impostaDati('datiAnnuncio', $dati_annuncio);
+    		$date=USingleton::getInstance('UData');
+    		$giorni=$date->diff_daoggi($annuncio->getData());
+            if($giorni<=31){
+    			$dati_annuncio=get_object_vars($annuncio);
+    			$view->impostaDati('datiAnnuncio', $dati_annuncio);
+    		}
+    		else{
+    			$FAnnuncio->delete($annuncio);
+    		}
     	}
     	$view->setLayout('dettagli');
     	return $view->processaTemplate();	
@@ -55,6 +71,9 @@ class CAnnunci {
 	
 	public function moduloCreaAnnuncio() {
         $VAnnunci=USingleton::getInstance('VAnnunci');
+        $session=USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
+        $VAnnunci->impostaDati('username', $username);
 		$VAnnunci->setLayout("crea");
         return $VAnnunci->processaTemplate();
     }
@@ -71,6 +90,7 @@ class CAnnunci {
 		$EAnnuncio->descrizione=$dati_an['Descrizione'];
 		$EAnnuncio->prezzo=$dati_an['Prezzo'];
 		$EAnnuncio->telefono=$dati_an['Numero'];
+		$EAnnuncio->data=date("d/m/Y");
 		$file=$view->getFile();
         if($file){
             $nomeOriginale=basename($view->getOriginalFile());
@@ -113,3 +133,4 @@ class CAnnunci {
             }
         }
 }
+?>

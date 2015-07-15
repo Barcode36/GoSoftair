@@ -113,7 +113,7 @@ class VPartita extends View {
      * @return array();
      */
     public function getDatiCreaPartita() {
-        $dati_richiesti=array('Titolo','Indirizzo','Descrizione','Data','Giocatori','Prezzo', 'Categoria', 'Partecipazione');
+        $dati_richiesti=array('Titolo','Indirizzo','Descrizione','Data','Giocatori','Prezzo', 'Categoria');
         $dati=array();
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))

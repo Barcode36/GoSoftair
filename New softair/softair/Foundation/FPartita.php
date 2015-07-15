@@ -42,6 +42,14 @@ class FPartita extends Fdb {
         parent::delete($partita);
     }
     
+    public function loadfromcreatore($key) {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table.'` ' .
+    			'WHERE autore = \''.$key.'\'';
+    	$this->query($query);
+    	return $this->getObjectArray();
+    }
+    
      /**
      * Seleziona sul database le diverse categorie esistenti per le varie partite
      *

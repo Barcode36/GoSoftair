@@ -22,7 +22,7 @@ class CProfilo {
      * un array contenente i degli annunci pubblicati
      * @var string[]
      */
-    private $_array_dati_annunci;
+    private $_array_dati_annunci=array();
     /**
      * variabile che contiene l'utente attuale
      * @var EUtente
@@ -56,13 +56,35 @@ class CProfilo {
     		$FAnnuncio=new FAnnuncio();
     		$annuncio=$FAnnuncio->loadfromuser($username);
     		if ($annuncio!=false) {
-				$i=0;
-    			while ($i<count($annuncio)) {
-					$this->_array_dati_annunci[$i]=get_object_vars($annuncio[$i]);
+    			$date=USingleton::getInstance('UData');
+    			foreach ($annuncio as $item) {
+					$temp=get_object_vars($item);
+					$data2=$temp['data'];
+					$giorni=$date->diff_daoggi($data2);
+					if($giorni<=31){
+						$this->_array_dati_annunci[]=$temp;
+					}
+					else{
+						$FAnnuncio->delete($item);
+					}
+    			}
+        		$view->impostaDati('datiAnnunci', $this->_array_dati_annunci);
+    		}
+    		
+    		$FPartita=new FPartita();
+    		$partita=$FPartita->loadfromcreatore($username);
+    		if ($partita!=false) {
+    			$i=0;
+    			while ($i<count($partita)) {
+    				$partite_create[$i]=get_object_vars($partita[$i]);
     				$i++;
     			}
-        		$view->impostaDati('datiAnnunci', $this->_array_dati_annunci);;
+    			$view->impostaDati('datiPartiteCreate', $partite_create);;
     		}
+    		
+    		
+    		
+    		
     	}
     	$view->impostaDati('task','apri');
         return $view->processaTemplate();
@@ -194,7 +216,7 @@ class CProfilo {
     	$dati_modifica=$view->getDatiModAnnuncio();
     	$username=$session->leggi_valore('username');
     	$IDannuncio=$session->leggi_valore('IDannuncio');
-    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $username, $IDannuncio );
+    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $username, $IDannuncio, $dati_modifica['data'] );
 		$file=$view->getFile();
 		if($file){
             $nomeOriginale=basename($view->getOriginalFile());
