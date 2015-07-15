@@ -16,6 +16,7 @@ class EUtente {
     public $codice_attivazione;
     public $stato='non_attivo';
     public $foto;
+	public $punti;
     /**
      * @AssociationType Entity.EPrenotazione
      * @AssociationMultiplicity 0..*

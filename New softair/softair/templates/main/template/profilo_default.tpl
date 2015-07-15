@@ -5,6 +5,7 @@
           <h1>{$datiUtente.username}</h1>
           <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
           <p><img  src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
+  		Punti: {$datiUtente.punti}<br>
 		  e-mail: {$datiUtente.email}<br>
 		  Citta: {$datiUtente.citta}<br>
 		  Via: {$datiUtente.via}<br>

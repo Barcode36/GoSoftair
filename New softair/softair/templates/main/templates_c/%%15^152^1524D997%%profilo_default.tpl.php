@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-14 20:24:50
+<?php /* Smarty version 2.6.26, created on 2015-07-15 12:45:47
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 57, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 58, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -15,6 +15,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 " alt="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " title="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 ">
+  		Punti: <?php echo $this->_tpl_vars['datiUtente']['punti']; ?>
+<br>
 		  e-mail: <?php echo $this->_tpl_vars['datiUtente']['email']; ?>
 <br>
 		  Citta: <?php echo $this->_tpl_vars['datiUtente']['citta']; ?>
