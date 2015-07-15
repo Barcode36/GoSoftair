@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-14 19:36:09
+<?php /* Smarty version 2.6.26, created on 2015-07-15 16:39:46
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -237,6 +237,47 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
           </div>
         </div>
         <div class="corner-subcontent-bottom"></div>
+      <div class="corner-subcontent-top"></div>
+        <div class="subcontent-box">
+          <h1 class="classifica">Classifica </h1>
+          <div class="sidemenu1">
+                	<li>
+                	<ul>
+                	<?php unset($this->_sections['k']);
+$this->_sections['k']['name'] = 'k';
+$this->_sections['k']['loop'] = is_array($_loop=$this->_tpl_vars['classifica']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['k']['show'] = true;
+$this->_sections['k']['max'] = $this->_sections['k']['loop'];
+$this->_sections['k']['step'] = 1;
+$this->_sections['k']['start'] = $this->_sections['k']['step'] > 0 ? 0 : $this->_sections['k']['loop']-1;
+if ($this->_sections['k']['show']) {
+    $this->_sections['k']['total'] = $this->_sections['k']['loop'];
+    if ($this->_sections['k']['total'] == 0)
+        $this->_sections['k']['show'] = false;
+} else
+    $this->_sections['k']['total'] = 0;
+if ($this->_sections['k']['show']):
+
+            for ($this->_sections['k']['index'] = $this->_sections['k']['start'], $this->_sections['k']['iteration'] = 1;
+                 $this->_sections['k']['iteration'] <= $this->_sections['k']['total'];
+                 $this->_sections['k']['index'] += $this->_sections['k']['step'], $this->_sections['k']['iteration']++):
+$this->_sections['k']['rownum'] = $this->_sections['k']['iteration'];
+$this->_sections['k']['index_prev'] = $this->_sections['k']['index'] - $this->_sections['k']['step'];
+$this->_sections['k']['index_next'] = $this->_sections['k']['index'] + $this->_sections['k']['step'];
+$this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
+$this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
+?>
+                	<h4> <?php echo $this->_tpl_vars['posizione'][$this->_sections['k']['index']]; ?>
+&deg) Punti <?php echo $this->_tpl_vars['classifica'][$this->_sections['k']['index']]['punti']; ?>
+ <b><?php echo $this->_tpl_vars['classifica'][$this->_sections['k']['index']]['username']; ?>
+</b></h4> <br>
+                	<?php endfor; endif; ?>
+                	</ul>
+                	</li>
+          </div>
+        </div>
+        <div class="corner-subcontent-bottom"></div>
+      
       <?php endif; ?>
       </div>
 

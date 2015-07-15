@@ -16,6 +16,8 @@ class CHome {
         $categorie=$partita->getCategorie();
         $VHome->impostaTastiCategorie($categorie);
         $VHome->impostaContenuto($contenuto);
+        $classifica=$this->classifica();
+        $VHome->impostaDati('classifica',$classifica);
         if ($registrato) {
             $VHome->impostaPaginaRegistrato();
         } else {
@@ -23,6 +25,26 @@ class CHome {
         }
         $VHome->mostraPagina();
     }
+    
+    
+    public function classifica() {
+    	$VHome= USingleton::getInstance('VHome');
+    	$FUtente=new FUtente();
+    	$risultato=$FUtente->getUtentiPunti();
+    	if ($risultato!=false) {
+    		$i=0;
+    		foreach ($risultato as $item) {
+    			$tmpUtente=$FUtente->load($item->getUsername());
+    			$classifica[]=get_object_vars($tmpUtente);
+    		}
+    	}
+    	$posizione=[1,2,3,4,5,6,7,8,9];
+    	$VHome->impostaDati('posizione',$posizione);
+		return $classifica;
+    }
+    
+    
+    
     /**
      * Smista le richieste ai vari controller
      *

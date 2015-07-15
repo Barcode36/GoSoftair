@@ -69,6 +69,11 @@ class CRicerca {
         $view->impostaDati('parametri','categoria='.$categoria.'&stringa='.$parola);
         return $view->processaTemplate();
     }
+    
+
+    
+    
+    
     /**
      * Mostra i dettagli di una partita, con la descrizione completa, i commenti e il form per l'invio di commenti, solo per utenti registrati
      *

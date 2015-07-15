@@ -116,6 +116,16 @@ class VHome extends View {
         $tasti[]=array('testo' => 'Categorie', 'link' => '#', 'submenu' => $sotto_tasti);
         $this->_main_button=$tasti;
     }
+    
+    /**
+     * Imposta i dati nel template identificati da una chiave ed il relativo valore
+     *
+     * @param string $key
+     * @param mixed $valore
+     */
+    public function impostaDati($key,$valore){
+    	$this->assign($key,$valore);
+    }
 }
 
 ?>

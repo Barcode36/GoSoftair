@@ -130,6 +130,21 @@
           </div>
         </div>
         <div class="corner-subcontent-bottom"></div>
+      <div class="corner-subcontent-top"></div>
+        <div class="subcontent-box">
+          <h1 class="classifica">Classifica </h1>
+          <div class="sidemenu1">
+                	<li>
+                	<ul>
+                	{section name=k loop=$classifica}
+                	<h4> {$posizione[k]}&deg) Punti {$classifica[k].punti} <b>{$classifica[k].username}</b></h4> <br>
+                	{/section}
+                	</ul>
+                	</li>
+          </div>
+        </div>
+        <div class="corner-subcontent-bottom"></div>
+      
       {/if}
       </div>
 

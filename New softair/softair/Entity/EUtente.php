@@ -29,6 +29,11 @@ class EUtente {
      * @ReturnType float
      */
 
+    public function getUsername() {
+    	return $this->username;
+    }
+    
+    
     public function getNome() {
     	return $this->nome;
     }
