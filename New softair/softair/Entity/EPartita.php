@@ -39,6 +39,10 @@ class EPartita {
     	return $this->ndisponibili;
     }
     
+    
+    public function getData() {
+    	return $this->data;
+    }
 
     /**
      * @access public

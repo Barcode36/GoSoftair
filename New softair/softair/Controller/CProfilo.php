@@ -58,11 +58,14 @@ class CProfilo {
     		if ($annuncio!=false) {
     			$date=USingleton::getInstance('UData');
     			foreach ($annuncio as $item) {
+    				$giorni=$date->diff_daoggi($item->getData());
 					$temp=get_object_vars($item);
 					$data2=$temp['data'];
 					$giorni=$date->diff_daoggi($data2);
 					if($giorni<=31){
 						$this->_array_dati_annunci[]=$temp;
+						$scadenza[]=$date->sommaMese($item->getData(),31);
+						$view->impostaDati('scadenza',$scadenza);
 					}
 					else{
 						$FAnnuncio->delete($item);

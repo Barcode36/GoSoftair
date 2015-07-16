@@ -8,6 +8,7 @@
 		  Prezzo: {$datiAnnuncio.prezzo}<br>
 		  Telefono: {$datiAnnuncio.telefono}<br>
 		  Data inserimento annuncio: {$datiAnnuncio.data}<br>
+		  Data scadenza: {$scadenza}<br>
         </div>
         <div class="corner-content-1col-bottom"></div>
 {else}

@@ -33,14 +33,14 @@ class FPartita extends Fdb {
         return $partita;
     }
 
-    public function delete( & $partita) {
+    /*public function delete( & $partita) {
         $arrayCommenti=& $partita->getCommenti();
         $FCommento= new FCommento();
         foreach ($arrayCommenti as &$commento) {
             $FCommento->delete($commento);
         }
         parent::delete($partita);
-    }
+    }*/
     
     public function loadfromcreatore($key) {
     	$query='SELECT * ' .

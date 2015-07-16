@@ -21,50 +21,61 @@ class CPartita {
         $id_partita=$view->getIdPartita();
     	$FPartita=new FPartita();
     	$partita=$FPartita->load($id_partita);
-    	$commenti=$partita->getCommenti();
-    	$arrayCommenti=array();
-    	$dati=get_object_vars($partita);
-    	if ( is_array( $commenti )  ) {
-    		foreach ($commenti as $commento){
-    			$arrayCommenti[]=get_object_vars($commento);
-    		}
-    	}
-    	$dati['commento']=$arrayCommenti;
-    	$view->impostaDati('dati',$dati);
-    	$username=$session->leggi_valore('username');
-    	$FPrenotazione=new FPrenotazione();
     	
-    	//mette in utenti che passa alla view e quindi al template gli utenti registrati alla partita
-    	$prenotazioni=$FPrenotazione->loadfrompartita($id_partita);
-    	if ($prenotazioni!=false) {
-    		$i=0;
-    		while ($i<count($prenotazioni)) {
-    			$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
-    			$utenti[$i]=$_array_dati_partite[$i]['utenteusername'];
-    			$i++;
-    		}
-    		$view->impostaDati('utenti', $utenti);
+    	// controlla che la data della partita non sia più vecchia di 7 giorni fa
+    	// se lo è la cancella
+    	$date=USingleton::getInstance('UData');
+    	$dataPartita=$partita->getData();
+    	$giorni=$date->diff_daoggi($dataPartita);
+    	if($date->sePrimaOggi($dataPartita) && $giorni>7){
+    		$FPartita->delete($partita);
+    		//print 'calcellata';
+    		$view->setLayout('cancellata');
     	}
+    	else{
+    		$commenti=$partita->getCommenti();
+    		$arrayCommenti=array();
+    		$dati=get_object_vars($partita);
+    		if ( is_array( $commenti )  ) {
+    			foreach ($commenti as $commento){
+    				$arrayCommenti[]=get_object_vars($commento);
+    			}
+    		}
+    		$dati['commento']=$arrayCommenti;
+    		$view->impostaDati('dati',$dati);
+    		$username=$session->leggi_valore('username');
+    		$FPrenotazione=new FPrenotazione();
     	
-    	//controlla se l'utente ï¿½ registrato e se ï¿½ gia prenotato a questa partita
-    	if ($username!=false){
-    	$giaPrenotato=false;
-    	$prenotazioni=$FPrenotazione->loadfromuser($username);
-    	if ($prenotazioni!=false) {
-    		$i=0;
-    		while ($i<count($prenotazioni)) {
-    			$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
-    			if ($_array_dati_partite[$i]['partitaID']==$id_partita)
-    				$giaPrenotato=true;
-    			$i++;
+    		//mette in utenti che passa alla view e quindi al template gli utenti registrati alla partita
+    		$prenotazioni=$FPrenotazione->loadfrompartita($id_partita);
+    		if ($prenotazioni!=false) {
+    			$i=0;
+    			while ($i<count($prenotazioni)) {
+    				$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
+    				$utenti[$i]=$_array_dati_partite[$i]['utenteusername'];
+    				$i++;
+    			}
+    			$view->impostaDati('utenti', $utenti);
     		}
+    	
+    		//controlla se l'utente è registrato e se è gia prenotato a questa partita
+    		if ($username!=false){
+    			$giaPrenotato=false;
+    			$prenotazioni=$FPrenotazione->loadfromuser($username);
+    			if ($prenotazioni!=false) {
+    				$i=0;
+    				while ($i<count($prenotazioni)) {
+    					$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
+    					if ($_array_dati_partite[$i]['partitaID']==$id_partita)
+    						$giaPrenotato=true;
+    					$i++;
+    				}
+    			}
+    			$view->impostaDati('giaPrenotato', $giaPrenotato);
+    			$view->setLayout('dettagli_registrato');
+    		}else
+    			$view->setLayout('dettagli');
     	}
-
-    		$view->impostaDati('giaPrenotato', $giaPrenotato);
-    		$view->setLayout('dettagli_registrato');
-    	}else
-    		$view->setLayout('dettagli');
-
     	return $view->processaTemplate();
     	
     }
@@ -83,11 +94,12 @@ class CPartita {
 
         $EPartita=new EPartita();
         $FPartita=new FPartita();
-		$dati_registrazione=$view->getDatiCreaPartita();					
+		$dati_registrazione=$view->getDatiCreaPartita();
+		$data=$dati_registrazione['Giorno'].'/'.$dati_registrazione['Mese'].'/'.$dati_registrazione['Anno'];
 		$EPartita->autore=$session->leggi_valore('username');
 		$EPartita->titolo=($dati_registrazione['Titolo']);
 		$EPartita->indirizzo=($dati_registrazione['Indirizzo']);
-		$EPartita->data=($dati_registrazione['Data']);
+		$EPartita->data=$data;
 		$EPartita->descrizione=($dati_registrazione['Descrizione']);
 		$EPartita->ngiocatori=($dati_registrazione['Giocatori']);
 		$EPartita->ndisponibili=($dati_registrazione['Giocatori']);
@@ -106,13 +118,20 @@ class CPartita {
                 
             }
         }
-      	$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
+        /*else {echo("Errore, file non pervenuto");} da errore anche quando uno decide di non metterla propio l'immagine così
+		e comunque non mettete echo diretti, al massimo impostate il mex in qualche variabile, che passate al tamplate e da li lo
+		stampa a video o si perde la divisione tra logica di programmazione e quella di visualizzazione*/
+		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
         $FPartita->store($EPartita);
-		if($dati_registrazione['Partecipazione']==1)
+		
+		/********************************************************** da far funzionare
+				if($dati_registrazione['Partecipazione']==1)
 		{
 			echo("PARTECIPO");
 		}
 		else {echo("NON PARTECIPO");}
+		****************************************************************************/
+		
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();
      }

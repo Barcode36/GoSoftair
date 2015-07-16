@@ -54,6 +54,7 @@
                 <th class="top" scope="col">Descrizione</th>
                 <th class="top" scope="col">Telefono</th>
                 <th class="top" scope="col">Data inserimento</th>
+                <th class="top" scope="col">Data scadenza</th>
                 <th class="top" scope="col"></th>
                 <th class="top" scope="col"></th>
           	{section name=j loop=$datiAnnunci}  
@@ -62,6 +63,7 @@
                 <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>
             	<td>{$datiAnnunci[j].telefono}</td>
             	<td>{$datiAnnunci[j].data}</td>
+            	<td>{$scadenza[j]}</td>
             	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
             </tr>

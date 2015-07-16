@@ -18,16 +18,25 @@ class CRicerca {
         $this->_partite_per_pagina=4;
         $FPartita=new FPartita();
         $limit=$view->getPage()*$this->_partite_per_pagina.','.$this->_partite_per_pagina;
-        $num_risultati=count($FPartita->search());
-        $pagine = ceil($num_risultati/$this->_partite_per_pagina);
-        $risultato=$FPartita->search(array(), '`IDpartita` DESC', $limit);
+        $risultato=$FPartita->search(array(), '`partita`.`ndisponibili` DESC ', $limit);
         if ($risultato!=false) {
             $array_risultato=array();
             foreach ($risultato as $item) {
                 $tmpPartita=$FPartita->load($item->IDpartita);
-                $array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
-            }
+                
+                $date=USingleton::getInstance('UData');
+                $dataPartita=$tmpPartita->getData();
+                $giorni=$date->diff_daoggi($dataPartita);
+                if($date->sePrimaOggi($dataPartita) && $giorni>7){
+                	$FPartita->delete($item);
+                }
+                else{
+                	$array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+                } 
+           }
         }
+        $num_risultati=count($FPartita->search());
+        $pagine = ceil($num_risultati/$this->_partite_per_pagina);
         $view->impostaDati('pagine',$pagine);
         $view->impostaDati('task','ultimi_arrivi');
         $view->impostaDati('dati',$array_risultato);
@@ -55,12 +64,21 @@ class CRicerca {
         $limit=$view->getPage()*$this->_partite_per_pagina.','.$this->_partite_per_pagina;
         $num_risultati=count($FPartita->search($parametri));
         $pagine = ceil($num_risultati/$this->_partite_per_pagina);
-        $risultato=$FPartita->search($parametri, '', $limit);
+        $risultato=$FPartita->search($parametri, '`partita`.`ndisponibili` DESC ', $limit);
         if ($risultato!=false) {
             $array_risultato=array();
             foreach ($risultato as $item) {
-                $tmpPartita=$FPartita->load($item->IDpartita);
-                $array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+                            $tmpPartita=$FPartita->load($item->IDpartita);
+                
+                $date=USingleton::getInstance('UData');
+                $dataPartita=$tmpPartita->getData();
+                $giorni=$date->diff_daoggi($dataPartita);
+                if($date->sePrimaOggi($dataPartita) && $giorni>7){
+                	$FPartita->delete($item);
+                }
+                else{
+                	$array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+                }
             }
             $view->impostaDati('dati',$array_risultato);
         }

@@ -59,6 +59,8 @@ class CAnnunci {
             if($giorni<=31){
     			$dati_annuncio=get_object_vars($annuncio);
     			$view->impostaDati('datiAnnuncio', $dati_annuncio);
+    			$scadenza=$date->sommaMese($annuncio->getData(),31);
+    			$view->impostaDati('scadenza',$scadenza);
     		}
     		else{
     			$FAnnuncio->delete($annuncio);
