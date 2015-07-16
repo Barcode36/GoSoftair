@@ -46,7 +46,7 @@ class CPartita {
     		$view->impostaDati('utenti', $utenti);
     	}
     	
-    	//controlla se l'utente è registrato e se è gia prenotato a questa partita
+    	//controlla se l'utente ï¿½ registrato e se ï¿½ gia prenotato a questa partita
     	if ($username!=false){
     	$giaPrenotato=false;
     	$prenotazioni=$FPrenotazione->loadfromuser($username);
@@ -106,11 +106,13 @@ class CPartita {
                 
             }
         }
-        /*else {echo("Errore, file non pervenuto");} da errore anche quando uno decide di non metterla propio l'immagine così
-		e comunque non mettete echo diretti, al massimo impostate il mex in qualche variabile, che passate al tamplate e da li lo
-		stampa a video o si perde la divisione tra logica di programmazione e quella di visualizzazione*/
-		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
+      	$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
         $FPartita->store($EPartita);
+		if($dati_registrazione['Partecipazione']==1)
+		{
+			echo("PARTECIPO");
+		}
+		else {echo("NON PARTECIPO");}
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();
      }
