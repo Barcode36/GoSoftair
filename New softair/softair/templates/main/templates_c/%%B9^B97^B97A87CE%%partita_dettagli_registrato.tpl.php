@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-16 12:47:44
+<?php /* Smarty version 2.6.26, created on 2015-07-16 19:00:20
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 18, false),)), $this); ?>
@@ -152,14 +152,15 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
             <form method="POST" action="index.php">
               <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
-                <p><label for="attrezzatura" class="top">Attrezzatura:</label><br />
-                  <input type="text" id="attrezzatura" name="attrezzatura" tabindex="1" class="field" /></p>           
-              <p>                
+               <?php if ($this->_tpl_vars['dati']['attrezzatura'] == 'SI'): ?>
+               <p><label for="attrezzatura" class="top">Voglio l'attrezzatura</label><br />          
+               <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" name="attreazzatura" tabindex="3" size="1" value="SI" /></p>                
+                <?php endif; ?>
                 <input type="hidden" name="controller" value="prenotazione" />
                 <input type="hidden" name="task" value="salvaprenotazione" />
                 <input type="hidden" name="id_partita" value="<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
 " />
-              <input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
+              <p><input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
             </fieldset>
             </form>
             <?php else: ?><p>Sei gi&agrave prenotato a questa partita</p><?php endif; ?>

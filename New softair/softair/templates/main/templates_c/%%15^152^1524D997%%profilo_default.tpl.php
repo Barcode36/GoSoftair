@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-16 15:47:18
+<?php /* Smarty version 2.6.26, created on 2015-07-16 19:38:59
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 63, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 65, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -69,8 +69,10 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 </a></td>
                 	<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['utenteusername']; ?>
 </td>
+                	<?php if ($this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura'] == ''): ?>
+                	<td>NO</td><?php else: ?>
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
-</td>
+</td><?php endif; ?>
             		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
 "><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>

@@ -59,13 +59,14 @@
             <form method="POST" action="index.php">
               <input type="hidden" name="controller" value="annuncio" />
               <fieldset>
-                <p><label for="attrezzatura" class="top">Attrezzatura:</label><br />
-                  <input type="text" id="attrezzatura" name="attrezzatura" tabindex="1" class="field" /></p>           
-              <p>                
+               {if $dati.attrezzatura=='SI'}
+               <p><label for="attrezzatura" class="top">Voglio l'attrezzatura</label><br />          
+               <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" name="attreazzatura" tabindex="3" size="1" value="SI" /></p>                
+                {/if}
                 <input type="hidden" name="controller" value="prenotazione" />
                 <input type="hidden" name="task" value="salvaprenotazione" />
                 <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
-              <input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
+              <p><input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
             </fieldset>
             </form>
             {else}<p>Sei gi&agrave prenotato a questa partita</p>{/if}

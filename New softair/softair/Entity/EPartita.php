@@ -15,6 +15,7 @@ class EPartita {
 	public $ndisponibili;
 	public $IDpartita;
 	public $immagine;
+	public $attrezzatura;
     /**
      * @AssociationType Entity.ECommento
      * @AssociationMultiplicity 0..*

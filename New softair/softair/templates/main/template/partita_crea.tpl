@@ -19,7 +19,8 @@
                    </select></p>  
               <p><label class="top">Partecipanti:</label><br />
                   <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" /></p>
-               <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" tabindex="3" size="1" value="" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
+               <p><input type="hidden"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="" />
+               <input type="checkbox"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="SI" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
 			   <p><label for="Prezzo" class="top">Prezzo:</label><br />
                   <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" value="" /></p>
 			  <p><label for="Indirizzo" class="top">Indirizzo:</label><br />

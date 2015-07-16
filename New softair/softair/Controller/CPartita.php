@@ -96,14 +96,16 @@ class CPartita {
         $FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
 		$data=$dati_registrazione['Giorno'].'/'.$dati_registrazione['Mese'].'/'.$dati_registrazione['Anno'];
-		$EPartita->autore=$session->leggi_valore('username');
+		$username=$session->leggi_valore('username');
+		$EPartita->autore=$username;
 		$EPartita->titolo=($dati_registrazione['Titolo']);
 		$EPartita->indirizzo=($dati_registrazione['Indirizzo']);
 		$EPartita->data=$data;
 		$EPartita->descrizione=($dati_registrazione['Descrizione']);
 		$EPartita->ngiocatori=($dati_registrazione['Giocatori']);
 		$EPartita->ndisponibili=($dati_registrazione['Giocatori']);
-		$EPartita->categoria=($dati_registrazione['Categoria']);	
+		$EPartita->categoria=($dati_registrazione['Categoria']);
+		$EPartita->attrezzatura=($dati_registrazione['Attrezzatura']);
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
 		$file=$view->getFile();
         if($file){
@@ -118,23 +120,40 @@ class CPartita {
                 
             }
         }
-        /*else {echo("Errore, file non pervenuto");} da errore anche quando uno decide di non metterla propio l'immagine così
-		e comunque non mettete echo diretti, al massimo impostate il mex in qualche variabile, che passate al tamplate e da li lo
-		stampa a video o si perde la divisione tra logica di programmazione e quella di visualizzazione*/
-		$EPartita->IDpartita=($session->leggi_valore('username').$dati_registrazione['Titolo']);
+   		//l'idpartita così definito ha delle limitazioni
+		$idpartita=$session->leggi_valore('username').$dati_registrazione['Titolo'];
+        $EPartita->IDpartita=$idpartita;
         $FPartita->store($EPartita);
 		
-		/********************************************************** da far funzionare
-				if($dati_registrazione['Partecipazione']==1)
+		//verifica se l'utente creatore vuole partecipare alla propia partita
+		if($dati_registrazione['Partecipazione']==1)
 		{
-			echo("PARTECIPO");
+			
+			$session=USingleton::getInstance('USession');
+			 
+			$EPrenotazione=new EPrenotazione();
+			$FPrenotazione=new FPrenotazione();
+			
+			$EPrenotazione->utenteusername=$username;
+			$EPrenotazione->partitaID=$idpartita;
+			 
+			$titolopartita=$dati_registrazione['Titolo'];
+			$EPrenotazione->titoloPartita=$titolopartita;
+			$EPrenotazione->attrezzatura=$dati_registrazione['Attrezzatura'];
+			//l'id così definito ha dei limiti
+			$EPrenotazione->id=$username.$titolopartita;
+			
+			$EPartita->setNdisponibili($dati_registrazione['Giocatori']-1);
+			$FPartita->update($EPartita);
+			$FPrenotazione->store($EPrenotazione);
+			
 		}
-		else {echo("NON PARTECIPO");}
-		****************************************************************************/
 		
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();
      }
+     
+     
     /**
      * Mostra il modulo di registrazione
      *

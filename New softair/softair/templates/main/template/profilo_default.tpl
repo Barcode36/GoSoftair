@@ -27,7 +27,9 @@
             	<tr><td>{$datiPartite[i].partitaID}</td>
                 	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
                 	<td>{$datiPartite[i].utenteusername}</td>
-            		<td>{$datiPartite[i].attrezzatura}</td>
+                	{if $datiPartite[i].attrezzatura==''}
+                	<td>NO</td>{else}
+            		<td>{$datiPartite[i].attrezzatura}</td>{/if}
             		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
             		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
             	</tr>

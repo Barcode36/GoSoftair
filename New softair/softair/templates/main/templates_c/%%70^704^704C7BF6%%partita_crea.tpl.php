@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-16 14:36:14
+<?php /* Smarty version 2.6.26, created on 2015-07-16 19:57:59
          compiled from partita_crea.tpl */ ?>
   <?php if ($this->_tpl_vars['username'] != false): ?>
  <div class="corner-content-1col-top"></div>            
@@ -21,7 +21,8 @@
                    </select></p>  
               <p><label class="top">Partecipanti:</label><br />
                   <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" /></p>
-               <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" tabindex="3" size="1" value="" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
+               <p><input type="hidden"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="" />
+               <input type="checkbox"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="SI" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
 			   <p><label for="Prezzo" class="top">Prezzo:</label><br />
                   <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" value="" /></p>
 			  <p><label for="Indirizzo" class="top">Indirizzo:</label><br />
@@ -94,6 +95,9 @@
                   <input type="text" name="Descrizione" id="Descrizione" tabindex="7" class="field" value="" /></p>
 			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
 		  <input type="file" name="Immagine" size="40">
+		  <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzi senza partecipare?</label>
+		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
+		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>
               <p><input type="submit" name="task" class="button" value="CREA PARTITA" /></p>
             </fieldset>
             </form>
