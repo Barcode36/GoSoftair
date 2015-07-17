@@ -22,7 +22,7 @@
           {/section}</p>
               
           <div class="contactform">
-             <form action="index.php" method="post">
+             <form action="index.php?controller=partita&task=apripartita&id_partita={$dati.IDpartita}" method="post">
               <br><fieldset><legend>&nbsp;VOTA PARTITA&nbsp;</legend>
                 <p><label for="voto" class="left">Vota:</label>
                    <!-- <input type="text" name="voto" id="voto" class="field" value="" tabindex="4" /></p> -->
@@ -37,7 +37,7 @@
                    <textarea name="commento" id="commento" cols="45" rows="10" tabindex="5"></textarea></p>
                    <input type="hidden" name="controller" value="ricerca" />
                    <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
-                <p><input type="submit" name="task" class="button" value="Inserisci" tabindex="6" onclick="index.php?controller=partita&task=apripartita&id_partita={$dati.IDpartita}"/></p>
+                <p><input type="submit" name="task" class="button" value="Inserisci" tabindex="6" /></p>
               </fieldset>
             </form>
           </div>
@@ -49,7 +49,7 @@
           {/section}
         </div>
 		<div class="corner-content-1col-bottom"></div>
-		
+{if $username!='AMMINISTRATORE'}
          <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
         {if $dati.ndisponibili!=0}
@@ -75,3 +75,4 @@
           {/if}
         </div>
 		<div class="corner-content-1col-bottom"></div>
+{/if}

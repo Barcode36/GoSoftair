@@ -18,7 +18,10 @@ class CHome {
         $VHome->impostaContenuto($contenuto);
         $classifica=$this->classifica();
         $VHome->impostaDati('classifica',$classifica);
+        $session=USingleton::getInstance('USession');
+        $username=$session->leggi_valore('username');
         if ($registrato) {
+        	$VHome->impostaDati('username',$username);
             $VHome->impostaPaginaRegistrato();
         } else {
             $VHome->impostaPaginaGuest();
@@ -32,10 +35,11 @@ class CHome {
     	$FUtente=new FUtente();
     	$risultato=$FUtente->getUtentiPunti();
     	if ($risultato!=false) {
-    		$i=0;
     		foreach ($risultato as $item) {
-    			$tmpUtente=$FUtente->load($item->getUsername());
-    			$classifica[]=get_object_vars($tmpUtente);
+    			$username=$item->getUsername();
+    			if($username!='AMMINISTRATORE'){
+    			$tmpUtente=$FUtente->load($username);
+    			$classifica[]=get_object_vars($tmpUtente);}
     		}
     	}
     	$posizione=[1,2,3,4,5,6,7,8,9];
@@ -68,6 +72,9 @@ class CHome {
 			case 'partita':
                	$CPartita=USingleton::getInstance('CPartita');
                	return $CPartita->smista();
+             case 'amministratore':
+               	$CAmministratore=USingleton::getInstance('CAmministratore');
+               	return $CAmministratore->smista();
 			case 'annuncio':
                	$CAnnunci=USingleton::getInstance('CAnnunci');
                	return $CAnnunci->smista();

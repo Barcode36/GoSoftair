@@ -57,14 +57,16 @@ class CProfilo {
     		$annuncio=$FAnnuncio->loadfromuser($username);
     		if ($annuncio!=false) {
     			$date=USingleton::getInstance('UData');
-    			foreach ($annuncio as $item) {
-    				$giorni=$date->diff_daoggi($item->getData());
-					$temp=get_object_vars($item);
+    			for($i=0; $i<count($annuncio); $i++) {
+    				$giorni=$date->diff_daoggi($annuncio[$i]->getData());
+					$temp=get_object_vars($annuncio[$i]);
 					$data2=$temp['data'];
 					$giorni=$date->diff_daoggi($data2);
 					if($giorni<=31){
 						$this->_array_dati_annunci[]=$temp;
-						$scadenza[]=$date->sommaMese($item->getData(),31);
+						$scadenza[]=$date->sommaMese($annuncio[$i]->getData(),31);
+						$start = DateTime::createFromFormat('Y-m-d',$this->_array_dati_annunci[$i]['data']);
+						$this->_array_dati_annunci[$i]['data']=$start->format('d/m/Y');
 						$view->impostaDati('scadenza',$scadenza);
 					}
 					else{
@@ -79,15 +81,32 @@ class CProfilo {
     		if ($partita!=false) {
     			$i=0;
     			while ($i<count($partita)) {
-    				$partite_create[$i]=get_object_vars($partita[$i]);
-    				$i++;
+    				
+    				$date=USingleton::getInstance('UData');
+    				$dataPartita=$partita[$i]->getData();
+    				$giorni=$date->diff_daoggi($dataPartita);
+    				
+    				if($giorni>-7){
+    					$FPrenotazione=new FPrenotazione();
+    					$prenoRelative=$FPrenotazione->loadfrompartita($partita[$i]->getId());
+    					if ($prenoRelative!='')
+    						$FPrenotazione->deleteRel($prenoRelative);
+    					$FCommento=new FCommento();
+    					$commRelative=$FCommento->loadCommenti($partita[$i]->getId());
+    					if ($commRelative!='')
+    						$FCommento->deleteRel($commRelative);
+    					$FPartita->delete($risultato[$i]);
+    				}
+    				else{
+    					$partite_create[$i]=get_object_vars($partita[$i]);
+    					$start = DateTime::createFromFormat('Y-m-d',$partita[$i]->getData());
+    					$partite_create[$i]['data']=$start->format('d/m/Y');
+    					$i++;
+    				}
     			}
     			$view->impostaDati('datiPartiteCreate', $partite_create);;
     		}
-    		
-    		
-    		
-    		
+
     	}
     	$view->impostaDati('task','apri');
         return $view->processaTemplate();
@@ -230,7 +249,6 @@ class CProfilo {
             }
             if(move_uploaded_file($file, $target)){
                 $EAnnuncio->immagine=$target; 
-                print $this->_array_dati_annunci['prezzo'];
                 $immagine=$session->leggi_valore('immagine');
                 unlink($immagine);             
                 

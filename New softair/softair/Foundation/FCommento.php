@@ -23,6 +23,17 @@ class FCommento extends Fdb {
         $arrayCommenti=parent::search($parametri);
         return $arrayCommenti;
     }
+    
+    
+    public function deleteRel($commenti) {
+    	$i=0;
+    	while ($i<count($commenti)) {
+    		$this->delete($commenti[$i]);
+    		$i++;
+    	}
+    }
+    
+    
 }
 
 ?>

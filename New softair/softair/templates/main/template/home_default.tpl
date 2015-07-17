@@ -68,7 +68,9 @@
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>
-        <li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>
+        {if $username=='AMMINISTRATORE'}
+        <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
+        {else}<li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>{/if}
 		{section name=i loop=$menu}
                 <li><a href="{$menu[i].link}">{$menu[i].testo}</a>
                 {if $menu[i].submenu !=false}
@@ -80,7 +82,9 @@
                 {/if}
                 </li>
         {/section}
-        <li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>
+        {if $username=='AMMINISTRATORE'}
+        <li><a href="index.php?controller=amministratore&task=vediannunci">Annunci</a></li>
+        {else}<li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>{/if}
 	<li><a href="index.php?controller=partita&task=modulopartita">Crea partita</a></li>
 	<li><a href="index.php?controller=annuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       

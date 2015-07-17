@@ -12,6 +12,7 @@ class ECommento {
 	 * @AttributeType string
 	 */
 	public $testo;
+	public $partitaIDpartita;
 	/**
 	 * @AttributeType float
 	 */

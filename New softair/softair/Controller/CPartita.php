@@ -32,6 +32,10 @@ class CPartita {
     		$prenoRelative=$FPrenotazione->loadfrompartita($partita->getId());
     		if ($prenoRelative!='')
     			$FPrenotazione->deleteRel($prenoRelative);
+    		$FCommento=new FCommento();
+    		$commRelative=$FCommento->loadCommenti($partita->getId());
+    		if ($commRelative!='')
+    			$FCommento->deleteRel($commRelative);
     		$FPartita->delete($partita);
     		$view->setLayout('cancellata');
     	}
@@ -76,6 +80,7 @@ class CPartita {
     					$i++;
     				}
     			}
+    			$view->impostaDati('username', $username);
     			$view->impostaDati('giaPrenotato', $giaPrenotato);
     			$view->setLayout('dettagli_registrato');
     		}else
@@ -100,7 +105,7 @@ class CPartita {
         $EPartita=new EPartita();
         $FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
-		$data=$dati_registrazione['Giorno'].'/'.$dati_registrazione['Mese'].'/'.$dati_registrazione['Anno'];
+		$data=$dati_registrazione['Anno'].'-'.$dati_registrazione['Mese'].'-'.$dati_registrazione['Giorno'];
 		$username=$session->leggi_valore('username');
 		$EPartita->autore=$username;
 		$EPartita->titolo=($dati_registrazione['Titolo']);
@@ -180,7 +185,7 @@ class CPartita {
     public function smista() {
         $view=USingleton::getInstance('VPartita');
         switch ($view->getTask()) {
-            case 'CREA PARTITA':
+            case 'Crea partita':
                 return $this->creaPartita();
 			case 'modulopartita':
                 return $this->moduloCreaPartita();

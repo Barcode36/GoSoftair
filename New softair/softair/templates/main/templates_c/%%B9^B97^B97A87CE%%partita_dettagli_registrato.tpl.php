@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-16 19:00:20
+<?php /* Smarty version 2.6.26, created on 2015-07-17 21:23:02
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 18, false),)), $this); ?>
@@ -88,7 +88,8 @@ $this->_sections['ii']['last']       = ($this->_sections['ii']['iteration'] == $
           <?php endfor; endif; ?></p>
               
           <div class="contactform">
-             <form action="index.php" method="post">
+             <form action="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
+" method="post">
               <br><fieldset><legend>&nbsp;VOTA PARTITA&nbsp;</legend>
                 <p><label for="voto" class="left">Vota:</label>
                    <!-- <input type="text" name="voto" id="voto" class="field" value="" tabindex="4" /></p> -->
@@ -104,8 +105,7 @@ $this->_sections['ii']['last']       = ($this->_sections['ii']['iteration'] == $
                    <input type="hidden" name="controller" value="ricerca" />
                    <input type="hidden" name="id_partita" value="<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
 " />
-                <p><input type="submit" name="task" class="button" value="Inserisci" tabindex="6" onclick="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
-"/></p>
+                <p><input type="submit" name="task" class="button" value="Inserisci" tabindex="6" /></p>
               </fieldset>
             </form>
           </div>
@@ -142,7 +142,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
           <?php endfor; endif; ?>
         </div>
 		<div class="corner-content-1col-bottom"></div>
-		
+<?php if ($this->_tpl_vars['username'] != 'AMMINISTRATORE'): ?>
          <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
         <?php if ($this->_tpl_vars['dati']['ndisponibili'] != 0): ?>
@@ -168,4 +168,5 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
           <?php else: ?><h1>Partita al completo</h1>
           <?php endif; ?>
         </div>
-		<div class="corner-content-1col-bottom"></div>
+		<div class="corner-content-1col-bottom"></div>
+<?php endif; ?>

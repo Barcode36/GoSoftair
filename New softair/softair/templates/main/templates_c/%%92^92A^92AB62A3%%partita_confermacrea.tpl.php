@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-16 12:15:21
+<?php /* Smarty version 2.6.26, created on 2015-07-17 21:49:43
          compiled from partita_confermacrea.tpl */ ?>
         <a id="anchor-heading-noicon-1"></a>
         <div class="corner-content-1col-top"></div>

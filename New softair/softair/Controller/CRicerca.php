@@ -33,6 +33,10 @@ class CRicerca {
                 	$prenoRelative=$FPrenotazione->loadfrompartita($risultato[$i]->getId());
                 	if ($prenoRelative!='')
                 		$FPrenotazione->deleteRel($prenoRelative);
+                	$FCommento=new FCommento();
+                	$commRelative=$FCommento->loadCommenti($risultato[$i]->getId());
+                	if ($commRelative!='')
+                		$FCommento->deleteRel($commRelative);
                 	$FPartita->delete($risultato[$i]);
                 }
                 else{
@@ -87,9 +91,12 @@ class CRicerca {
             		$FPrenotazione=new FPrenotazione();
             		$prenoRelative=$FPrenotazione->loadfrompartita($risultato[$i]->getId());
             		print $risultato[$i]->getId();
-            		print $prenoRelative[1];
             		if ($prenoRelative!='')
             			$FPrenotazione->deleteRel($prenoRelative);
+            		$FCommento=new FCommento();
+            		$commRelative=$FCommento->loadCommenti($risultato[$i]->getId());
+            		if ($commRelative!='')
+            			$FCommento->deleteRel($commRelative);
             		$FPartita->delete($risultato[$i]);
             	}
             	else{

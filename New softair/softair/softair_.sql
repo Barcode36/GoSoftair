@@ -131,6 +131,7 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`, `punti`) VALUES
+('AMMINISTRATORE', 'amministratore', '', 'pwadmin', 'email', 'via', 'codice_attivazione', 'attivo', 'citta', 'CAPP','./immagini/profili/alessandro/ballo.jpg', 0),
 ('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','./immagini/profili/alessandro/ballo.jpg', 2),
 ('alex', 'Alessandro', 'Verzicco', 'aaa', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','./immagini/profili/alex/profilo_romano.jpg', 5);
 

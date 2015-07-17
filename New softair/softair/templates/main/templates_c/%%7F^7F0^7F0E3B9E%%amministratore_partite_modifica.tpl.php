@@ -1,14 +1,16 @@
-  {if $username!=false}
+<?php /* Smarty version 2.6.26, created on 2015-07-17 20:02:34
+         compiled from amministratore_partite_modifica.tpl */ ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
-          <h1 >Creazione partita</h1>
+          <h1 >Modifica partita</h1>
           <div >
               <br />
             <form method="POST" action="index.php" enctype="multipart/form-data">
-              <input type="hidden" name="controller" value="partita" />
+              <input type="hidden" name="controller" value="amministratore" />
               <fieldset>
-                <p><label for="Titolo" class="top">Titolo:</label><br />
-                  <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" /></p>
+                <p><label for="Titolo" class="top" >Titolo:</label><br />
+                  <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" value="<?php echo $this->_tpl_vars['datiPartita']['titolo']; ?>
+" /></p>
                 <p><label for="Categoria" class="top">Categoria:</label><br />             
 		   <select name="Categoria" tabindex="2">
                       <option value="Deathmatch a squadre">Deathmatch a squadre</option>
@@ -17,14 +19,18 @@
                       <option value="Caccia all uomo">Caccia all uomo</option>
                       <option value="Simulazione storica">Simulazione storica</option>
                    </select></p>  
-              <p><label class="top">Partecipanti:</label><br />
-                  <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" min="1" value="1"/></p>
+              <p><label class="top" >Partecipanti:</label><br />
+                  <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" value="<?php echo $this->_tpl_vars['datiPartita']['ngiocatori']; ?>
+" min="<?php echo $this->_tpl_vars['nprenotati']; ?>
+"/></p>
                <p><input type="hidden"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="" />
                <input type="checkbox"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="SI" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
 			   <p><label for="Prezzo" class="top">Prezzo:</label><br />
-                  <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" min="0"/></p>
+                  <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" value="<?php echo $this->_tpl_vars['datiPartita']['prezzo']; ?>
+" min="0"/></p>
 			  <p><label for="Indirizzo" class="top">Indirizzo:</label><br />
-                  <input type="text" name="Indirizzo" id="Indirizzo" tabindex="5" class="field" value="" /></p>
+                  <input type="text" name="Indirizzo" id="Indirizzo" tabindex="5" class="field" value="<?php echo $this->_tpl_vars['datiPartita']['indirizzo']; ?>
+" /></p>
 		<p><label for="Data" id="Data" class="top">Data partita:</label><br />
 		   <select name="Giorno" tabindex="2">
                       <option value="01">1</option>
@@ -88,28 +94,14 @@
 					  <option value="2024">2024</option>	
 					  <option value="2024">2024</option>
 					</select></p>
-
+					
 			   <p><label for="Descrizione" class="top">Descrizione:</label><br />
-                  <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="45" rows="10" class="field" value="" /></textarea>
-			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
+                  <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="45" rows="10" class="field" /><?php echo $this->_tpl_vars['datiPartita']['descrizione']; ?>
+</textarea>
+			   <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
 		  <input type="file" name="Immagine" size="40">
-		  <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzi senza partecipare?</label>
-		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
-		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>
-              <p><input type="submit" name="task" class="button" value="Crea partita" /></p>
+              <p><input type="submit" name="task" class="button" value="salvapartita" /></p>
             </fieldset>
             </form>
           </div>
 	</div>
-{else}
-		  		  	<div class="corner-content-1col-top"></div>
-           			<div class="content-1col-nobox">
-		              <h1>Non puoi creare partite, senza autenticarti.</h1>
-		              <h2 class="noicon">Se non sei ancora iscritto, fallo subito &egrave facile!</h2>
-                			<p><input type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
-          				<p class="demo"></p>
-                    </div>
-        			<div class="corner-content-1col-bottom"></div>
-{/if} 
-    
-        

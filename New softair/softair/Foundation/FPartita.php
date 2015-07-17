@@ -50,6 +50,13 @@ class FPartita extends Fdb {
     	return $this->getObjectArray();
     }
     
+    public function loadall() {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table.'` ORDER BY `partita`.`data` ASC';
+    	$this->query($query);
+    	return $this->getObjectArray();
+    }
+    
      /**
      * Seleziona sul database le diverse categorie esistenti per le varie partite
      *

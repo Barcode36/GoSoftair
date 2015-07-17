@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-15 22:49:21
+<?php /* Smarty version 2.6.26, created on 2015-07-17 21:48:47
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -72,7 +72,9 @@
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>
-        <li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>
+        <?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
+        <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
+        <?php else: ?><li><a href="index.php?controller=ricerca&task=lista">Partite</a></li><?php endif; ?>
 		<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['menu']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -134,7 +136,9 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
                 <?php endif; ?>
                 </li>
         <?php endfor; endif; ?>
-        <li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>
+        <?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
+        <li><a href="index.php?controller=amministratore&task=vediannunci">Annunci</a></li>
+        <?php else: ?><li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li><?php endif; ?>
 	<li><a href="index.php?controller=partita&task=modulopartita">Crea partita</a></li>
 	<li><a href="index.php?controller=annuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       

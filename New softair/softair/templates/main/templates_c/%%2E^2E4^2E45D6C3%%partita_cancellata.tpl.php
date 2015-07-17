@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-16 13:38:01
+<?php /* Smarty version 2.6.26, created on 2015-07-17 21:11:12
          compiled from partita_cancellata.tpl */ ?>
 		<div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
