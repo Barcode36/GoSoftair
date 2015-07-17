@@ -45,6 +45,15 @@ class EPartita {
     	return $this->data;
     }
 
+    public function getId() {
+    	return $this->IDpartita;
+    }
+    
+    
+    public function getTitolo() {
+    	return $this->titolo;
+    }
+    
     /**
      * @access public
      * @param Entity.ECommento aParameter

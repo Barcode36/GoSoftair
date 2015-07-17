@@ -1,37 +1,33 @@
 <?php
 class UData {
 	
-	//fa la differenza tra due date
-	public function diff_date_ingiorni($data1,$data2){
-	/* $data1 e data2 vanno inserite
-	 * in formato gg/mm/aaaa, se nulle
-	 * prende come data di riferimento
-	 * quella di oggi.
-	 */
-		if(empty($data1)) $data1 = date('d/m/Y');
-		if(empty($data2)) $data2 = date('d/m/Y');
-		$d1 = explode('/',$data1);
-		$d2 = explode('/',$data2);
-		$timestamp1 = mktime(0, 0, 0, $d1[1], $d1[0], $d1[2]);
-		$timestamp2 = mktime(0, 0, 0, $d2[1], $d2[0], $d2[2]);
-		$seconds= $timestamp1 - $timestamp2;
-		/* (86400 = 24h*60min*60sec) */
-		$days = abs(intval($seconds / 86400));
-		return ($days);
+	//fa la differenza tra due date	
+	public  function delta_tempo($data_iniziale,$data_finale,$unita)
+	{
+		$data1 = strtotime($data_iniziale);
+		$data2 = strtotime($data_finale);
+	
+		switch($unita) {
+			case 'm': $unita = 1/60; break; //MINUTI
+			case 'h': $unita = 1; break;	//ORE
+			case 'g': $unita = 24; break;	//GIORNI
+			case 'a': $unita = 8760; break; //ANNI
+		}
+	
+		$differenza = (($data2-$data1)/3600)/$unita;
+		return floor($differenza);
 	}
 	
 	//calcola i giorni di differenza da oggi
-	public function diff_daoggi($data2){
-		$data1=date("d/m/Y");
-		return $this->diff_date_ingiorni($data1,$data2);	
+	public function diff_daoggi($data1){
+		$data2=date("Y-m-d");
+		return $this->delta_tempo($data1,$data2, 'g');	
 	}
 	
 	
 	//calcola la data tra $giorni con data in ingresso in formato d/m/Y
 	public function sommaMese($data, $giorni){
-		$start = DateTime::createFromFormat('d/m/Y', $data);
-		$temp=$start->format('Y-m-d');
-		$temp=$this->sommaGiorniYmd($temp,'-',$giorni);
+		$temp=$this->sommaGiorniYmd($data,'-',$giorni);
 		$start = DateTime::createFromFormat('Y-m-d', $temp);
 		$data=$start->format('d/m/Y');
 		return $data;

@@ -26,17 +26,23 @@ class CAnnunci {
         $risultato=$FAnnuncio->search(array(), '`IDannuncio`', $limit);
         if ($risultato!=false) {
         	$date=USingleton::getInstance('UData');
-        	foreach ($risultato as $item) {
-                $tmpAnnuncio=$FAnnuncio->load($item->IDannuncio);
+        	$j=0;
+        	for($i=0; $i<count($risultato);$i++) {
+        		
+                $tmpAnnuncio=$FAnnuncio->load($risultato[$i]->IDannuncio);
                 $datainserimento=$tmpAnnuncio->getData();
                 $giorni=$date->diff_daoggi($datainserimento);
                 if($giorni<=31){
-                	$this->_array_dati_annunci[]=get_object_vars($tmpAnnuncio);
-               		$scadenza[]=$date->sommaMese($datainserimento,31);
+                	$this->_array_dati_annunci[$j]=get_object_vars($tmpAnnuncio);
+               		$scadenza[$j]=$date->sommaMese($datainserimento,31);
                 	$view->impostaDati('scadenza',$scadenza);
+                	//2 righe sotto ritrasformano la data nel formato voluto
+                	$start = DateTime::createFromFormat('Y-m-d',$this->_array_dati_annunci[$j]['data']);
+                	$this->_array_dati_annunci[$j]['data']=$start->format('d/m/Y'); 
+                	$j++;
                 }
                 else{
-                	$FAnnuncio->delete($item);
+                	$FAnnuncio->delete($risultato[$i]);
                 }
             }
         }
@@ -58,6 +64,9 @@ class CAnnunci {
     		$giorni=$date->diff_daoggi($annuncio->getData());
             if($giorni<=31){
     			$dati_annuncio=get_object_vars($annuncio);
+    			//2 righe sotto ritrasformano la data nel formato voluto
+    			$start = DateTime::createFromFormat('Y-m-d',$dati_annuncio['data']);
+    			$dati_annuncio['data']=$start->format('d/m/Y');
     			$view->impostaDati('datiAnnuncio', $dati_annuncio);
     			$scadenza=$date->sommaMese($annuncio->getData(),31);
     			$view->impostaDati('scadenza',$scadenza);
@@ -92,7 +101,7 @@ class CAnnunci {
 		$EAnnuncio->descrizione=$dati_an['Descrizione'];
 		$EAnnuncio->prezzo=$dati_an['Prezzo'];
 		$EAnnuncio->telefono=$dati_an['Numero'];
-		$EAnnuncio->data=date("d/m/Y");
+		$EAnnuncio->data=date("Y-m-d");
 		$file=$view->getFile();
         if($file){
             $nomeOriginale=basename($view->getOriginalFile());

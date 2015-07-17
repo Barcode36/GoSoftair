@@ -91,6 +91,8 @@ class VPrenotazione extends View {
         foreach ($dati_richiesti as $dato) {
             if (isset($_REQUEST[$dato]))
             	$dati[$dato]=$_REQUEST[$dato];
+            else 
+            	$dati=FALSE;
         }
         return $dati;
     }

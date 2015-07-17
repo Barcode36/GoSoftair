@@ -18,20 +18,29 @@ class CRicerca {
         $this->_partite_per_pagina=4;
         $FPartita=new FPartita();
         $limit=$view->getPage()*$this->_partite_per_pagina.','.$this->_partite_per_pagina;
-        $risultato=$FPartita->search(array(), '`partita`.`ndisponibili` DESC ', $limit);
+        $risultato=$FPartita->search(array(), '`partita`.`data` ASC, `partita`.`ndisponibili` DESC ', $limit);
         if ($risultato!=false) {
             $array_risultato=array();
-            foreach ($risultato as $item) {
-                $tmpPartita=$FPartita->load($item->IDpartita);
+            $j=0;
+            for ($i=0; $i<count($risultato); $i++) {
+                $tmpPartita=$FPartita->load($risultato[$i]->IDpartita);
                 
                 $date=USingleton::getInstance('UData');
                 $dataPartita=$tmpPartita->getData();
                 $giorni=$date->diff_daoggi($dataPartita);
-                if($date->sePrimaOggi($dataPartita) && $giorni>7){
-                	$FPartita->delete($item);
+                if($giorni>-7){
+                	$FPrenotazione=new FPrenotazione();
+                	$prenoRelative=$FPrenotazione->loadfrompartita($risultato[$i]->getId());
+                	if ($prenoRelative!='')
+                		$FPrenotazione->deleteRel($prenoRelative);
+                	$FPartita->delete($risultato[$i]);
                 }
                 else{
-                	$array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+                	$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+                	//2 righe sotto ritrasformano la data nel formato voluto
+                	$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
+                	$array_risultato[$j]['data']=$start->format('d/m/Y');
+                	$j++;
                 } 
            }
         }
@@ -64,21 +73,32 @@ class CRicerca {
         $limit=$view->getPage()*$this->_partite_per_pagina.','.$this->_partite_per_pagina;
         $num_risultati=count($FPartita->search($parametri));
         $pagine = ceil($num_risultati/$this->_partite_per_pagina);
-        $risultato=$FPartita->search($parametri, '`partita`.`ndisponibili` DESC ', $limit);
+        $risultato=$FPartita->search($parametri, '`partita`.`data` ASC, `partita`.`ndisponibili` DESC ', $limit);
         if ($risultato!=false) {
             $array_risultato=array();
-            foreach ($risultato as $item) {
-                            $tmpPartita=$FPartita->load($item->IDpartita);
-                
-                $date=USingleton::getInstance('UData');
-                $dataPartita=$tmpPartita->getData();
-                $giorni=$date->diff_daoggi($dataPartita);
-                if($date->sePrimaOggi($dataPartita) && $giorni>7){
-                	$FPartita->delete($item);
-                }
-                else{
-                	$array_risultato[]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
-                }
+            $j=0;
+            for ($i=0; $i<count($risultato); $i++) {
+            	$tmpPartita=$FPartita->load($risultato[$i]->IDpartita);
+            
+            	$date=USingleton::getInstance('UData');
+            	$dataPartita=$tmpPartita->getData();
+            	$giorni=$date->diff_daoggi($dataPartita);
+            	if($giorni>-7){
+            		$FPrenotazione=new FPrenotazione();
+            		$prenoRelative=$FPrenotazione->loadfrompartita($risultato[$i]->getId());
+            		print $risultato[$i]->getId();
+            		print $prenoRelative[1];
+            		if ($prenoRelative!='')
+            			$FPrenotazione->deleteRel($prenoRelative);
+            		$FPartita->delete($risultato[$i]);
+            	}
+            	else{
+            		$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+            		//2 righe sotto ritrasformano la data nel formato voluto
+            		$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
+            		$array_risultato[$j]['data']=$start->format('d/m/Y');
+            		$j++;
+            	}
             }
             $view->impostaDati('dati',$array_risultato);
         }

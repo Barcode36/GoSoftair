@@ -40,6 +40,19 @@ class FPrenotazione extends Fdb{
         return $prenotazione;
     }*/
     
+
+    public function deleteRel($prenotazioni) {
+    			$i=0;
+    			while ($i<count($prenotazioni)) {
+    				$this->delete($prenotazioni[$i]);
+    				$i++;
+    			}
+    }
+    
+    
+    
+    
+    
     public function loadfromuser($key) {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ' .

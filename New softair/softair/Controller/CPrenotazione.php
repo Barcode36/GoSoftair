@@ -32,7 +32,8 @@ class CPrenotazione {
     	
 			$titolopartita=$_array_dati_partita['titolo'];
 			$EPrenotazione->titoloPartita=$titolopartita;
-			$EPrenotazione->attrezzatura=$dati_prenotazione['attrezzatura'];
+			if($dati_prenotazione['attrezzatura']==FALSE){$EPrenotazione->attrezzatura='';}
+			else{$EPrenotazione->attrezzatura=$dati_prenotazione['attrezzatura'];}
 			$EPrenotazione->id=$username.$_array_dati_partita['titolo'];
 		
 			$partita->setNdisponibili($disponibili-1);	

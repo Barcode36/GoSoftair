@@ -27,9 +27,12 @@ class CPartita {
     	$date=USingleton::getInstance('UData');
     	$dataPartita=$partita->getData();
     	$giorni=$date->diff_daoggi($dataPartita);
-    	if($date->sePrimaOggi($dataPartita) && $giorni>7){
+    	if($giorni>-7){
+    		$FPrenotazione=new FPrenotazione();
+    		$prenoRelative=$FPrenotazione->loadfrompartita($partita->getId());
+    		if ($prenoRelative!='')
+    			$FPrenotazione->deleteRel($prenoRelative);
     		$FPartita->delete($partita);
-    		//print 'calcellata';
     		$view->setLayout('cancellata');
     	}
     	else{
@@ -42,6 +45,8 @@ class CPartita {
     			}
     		}
     		$dati['commento']=$arrayCommenti;
+    		$start = DateTime::createFromFormat('Y-m-d',$dati['data']);
+    		$dati['data']=$start->format('d/m/Y');
     		$view->impostaDati('dati',$dati);
     		$username=$session->leggi_valore('username');
     		$FPrenotazione=new FPrenotazione();
