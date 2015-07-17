@@ -2,8 +2,9 @@
         <div class="corner-content-1col-top"></div>        
         <div class="content-1col-nobox">
           <h1 class="contact">Modulo di registrazione</h1>
+	<script type="text/javascript" src="JS/CRegistrazione.js"></script>
           <div class="contactform">
-            <form method="post" action="index.php">
+            <form method="post" action="index.php" id="formreg">
               <fieldset><legend>&nbsp;CREDENZIALI DI ACCESSO&nbsp;</legend>
                 <p><label for="username" class="left">Nome utente:</label>
                    <input type="text" name="username" id="username" class="field" value="" tabindex="5" /></p>
@@ -27,7 +28,7 @@
                    <input type="text" name="email" id="email" class="field" value="" tabindex="14" /></p>
                 <input type="hidden" name="controller" value="registrazione" />
                 <input type="hidden" name="task" value="salva" />
-                <p><input type="submit" name="submit" id="submit_1" class="button" value="Registrati" tabindex="15" /></p>
+                <p><input type="button" class="button" value="Registrati" onClick="Modulo()"/></p>
                </fieldset>
             </form>
           </div>
