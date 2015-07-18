@@ -19,15 +19,15 @@
 .main h1.pagetitle {margin:0 0 0.5em 0; padding:1px 0 1px 32px; background: url(../img/icon_pagetitle.gif) no-repeat; background-position:center left; color:rgb(255,255,255); font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
 
 /* HEADING -- Standard icon (1-Column / 2-Column) */
-.content h1 {margin:0; padding:5px 50px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background: url(../img/icon_celltitle_level1.gif) no-repeat; background-position:632px 5px; color:rgb(75,75,75); font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
-.content-2col-box-leftcolumn h1, .content-2col-box-rightcolumn h1 {margin:0; padding:5px 50px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background: url(../img/icon_celltitle_level1.gif) no-repeat; background-position:289px 3px; color:rgb(75,75,75); font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
+.content h1 {margin:0; padding:5px 50px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background: url(../img/rosso.jpg) repeat-x; color:#fff; font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
+.content-2col-box-leftcolumn h1, .content-2col-box-rightcolumn h1 {margin:0; padding:5px 50px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background: url(../img/rosso.jpg) repeat-x; color:#fff; font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
 
-.content h2 {clear:both; /*Start IE Hack*/ position:relative; z-index:1; top:-1px /* End IE Hack to remove vertical -1px margin bug otherwise produced by margin*/; margin: 0 20px 0 20px; padding:15px 35px 5px 0; border-top:solid 1px rgb(215,215,215); background: url(../img/icon_celltitle_level2.gif) no-repeat;  background-position:right 15px; color:rgb(75,75,75); font-weight:bold; font-size:180% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
-.content h3 {margin:1.0em 0 -0.3em 0; padding:0 20px 0 20px; color:rgb(75,75,75); font-weight:bold; font-size:180% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
+.content h2 {clear:both; /*Start IE Hack*/ position:relative; z-index:1; top:-1px /* End IE Hack to remove vertical -1px margin bug otherwise produced by margin*/; margin: 0 20px 0 20px; padding:15px 35px 5px 0; border-top:solid 1px rgb(215,215,215); background: url(../img/icon_celltitle_level2.gif) no-repeat;  background-position:right 15px; color:#fff; font-weight:bold; font-size:180% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
+.content h3 {margin:1.0em 0 -0.3em 0; padding:0 20px 0 20px; color:#fff; font-weight:bold; font-size:180% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
 .content h3.line {/*Start IE Hack*/ position:relative; z-index:1; top:-1px; /* End IE Hack vertical alignment to blend top border with h1, if directly after each other*/ margin:0 20px -0.3em 20px; padding:1.0em 0 0 0; border-top:solid 1px rgb(215,215,215);}
 .content h5.line {/*Start IE Hack*/ position:relative; z-index:1; top:-1px; /* End IE Hack vertical alignment to blend top border with h1, if directly after each other*/ margin:0 20px -0.3em 20px; padding:1.0em 0 0 0; border-top:solid 1px rgb(215,215,215);}
 .content h4 {margin:1.0em 0 -0.3em 0; padding:0 20px 0 20px; color:rgb(75,75,75); font-weight:bold; font-size:160% !important /*Non-IE6*/; font-size:140% /*IE6*/;}
-.content h5 {margin:1.0em 0 -0.5em 0; padding:0 20px 0 20px; color:rgb(75,75,75); font-weight:bold; font-size:140% !important /*Non-IE6*/; font-size:125% /*IE6*/;}
+.content h5 {margin:1.0em 0 -0.5em 0; padding:0 20px 0 20px; color:#fff; font-weight:bold; font-size:140% !important /*Non-IE6*/; font-size:125% /*IE6*/;}
 .content h6 {margin:0.4em 0 0.5em 0; padding:0 20px 0 20px; color:rgb(50,50,50); font-weight:normal; font-size:130% !important /*Non-IE6*/; font-size:115% /*IE6*/;}
 
 /* HEADING -- Special icon (1-Column / 2-Column) */
@@ -57,7 +57,7 @@
 .content h2.noicon {background:none;}
 .content h2.pages {background:none; border-width: 0px;}
 /* PARAGRAPH TEXT */
-.content p {margin:1.0em 0 1.0em 0; color:rgb(0,0,0); line-height:1.3em; padding: 0 20px 0 20px; font-size:131% !important /*Non-IE6*/; font-size:115% /*IE6*/;}
+.content p {margin:1.0em 0 1.0em 0; color:#fff; line-height:1.3em; padding: 0 20px 0 20px; font-size:131% !important /*Non-IE6*/; font-size:115% /*IE6*/;}
 .content p.details {margin:-0.2em 0 1.0em 0; line-height:1.0em; font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
 .content blockquote {clear:both; margin:0 30px 0.6em 30px; font-size:90%;}
 
@@ -70,12 +70,12 @@
 .content ol.indent {padding:0 20px 0 70px !important /*Non-IE6*/; padding:0 20px 0 80px /*IE6*/;}
 
 /* TABLE (1-Column / 2-Column) */
-.content table {clear:both; width:600px; margin:2.0em 0 0.2em 20px; table-layout:fixed; border-collapse:collapse; empty-cells:show; background-color:rgb(233,232,244);}
+.content table {clear:both; width:625px; margin:2.0em 0 0.2em 20px; table-layout:fixed; border-collapse:collapse; empty-cells:show; background-color:rgb(233,232,244);}
 .content-2col-nobox-leftcolumn table, .content-2col-nobox-rightcolumn table, .content-2col-box-leftcolumn table, .content-2col-box-rightcolumn table {clear:both; width:290px; margin:2.0em 0 0.2em 20px; table-layout:fixed; border-collapse:collapse; empty-cells:show; background-color:rgb(233,232,244);}
 
-.content table th.top {height:3.5em; padding:0 7px 0 7px; empty-cells:show; background-color:rgb(175,175,175); text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
-.content table th {wiheight:3.0em; padding:2px 20px 2px 7px; border:solid 2px rgb(245,245,245); background-color:rgb(225,225,225); text-align:left; color:rgb(80,80,80); font-weight:bold; font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
-.content table td {height:3.0em; padding:2px 7px 2px 7px; border:solid 2px rgb(245,245,245); background-color:rgb(225,225,225); text-align:left; font-weight:normal; color:rgb(80,80,80); font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
+.content table th.top {height:3.5em; padding:0 7px 0 7px; empty-cells:show; background-color:#808080; text-align:left; color:rgb(255,255,255); font-weight:bold; font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
+.content table th {height:3.0em; padding:2px 20px 2px 7px; border:solid 2px #303030; background-color:rgb(225,225,225); text-align:left; color:rgb(80,80,80); font-weight:bold; font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
+.content table td {height:3.0em; padding:2px 7px 2px 7px; border:solid 2px #303030; background-color:rgb(225,225,225); text-align:left; font-weight:normal; color:rgb(80,80,80); font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
 .content p.caption {clear:both; margin:0.5em 0 2.0em 0; text-align:left; color:rgb(80,80,80); font-size:120% !important /*Non-IE6*/; font-size:110% /*IE6*/;}
 .content img.mod:hover
 
@@ -134,17 +134,17 @@
 /****************/
 
 /* HEADING -- Standard icon */
-.subcontent h1 {margin:0; padding:5px 20px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background:url(../img/icon_celltitle_level1.gif) no-repeat; background-position:225px 5px; color:rgb(75,75,75); font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
+.subcontent h1 {margin:0; padding:5px 20px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background:url(../img/rosso.jpg) repeat-x; color:white; font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
 .subcontent h2 {/*Start IE Hack*/ position:relative; z-index:1; top:-1px; /* End IE Hack to remove vertical -1px margin bug otherwise produced by margin*/ margin:0 20px 0 20px; padding:15px 35px 5px 0; border-top:solid 1px rgb(215,215,215); background:url(../img/icon_celltitle_level2.gif) no-repeat;  background-position:right 15px; color:rgb(75,75,75); font-weight:bold; font-size:180% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
 .subcontent h3 {margin:1.0em 0 -0.3em 0; padding:0 20px 0 20px; color:rgb(75,75,75); font-weight:bold; font-size:180% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
 .subcontent h3.line {/*Start IE Hack*/ position:relative; z-index:1; top:-1px; /* End IE Hack vertical alignment to blend top border with h1, if directly after each other*/ margin:0 20px -0.3em 20px; padding:1.0em 0 0 0; border-top:solid 1px rgb(215,215,215);}
-.subcontent h4 {margin:1.0em 0 -0.3em 0; padding:0 20px 0 20px; color:rgb(75,75,75); font-weight:bold; font-size:160% !important /*Non-IE6*/; font-size:140% /*IE6*/;}
+.subcontent h4 {margin:1.0em 0 -0.3em 0; padding:0 20px 0 20px; color:#fff; font-weight:bold; font-size:160% !important /*Non-IE6*/; font-size:140% /*IE6*/;}
 .subcontent h5 {margin:1.0em 0 -0.6em 0; padding:0 20px 0 20px; color:rgb(75,75,75); font-weight:bold; font-size:140% !important /*Non-IE6*/; font-size:125% /*IE6*/;}
 .subcontent h6 {margin:0.4em 0 0.5em 0; padding:0 20px 0 20px; color:rgb(50,50,50); font-weight:normal; font-size:130% !important /*Non-IE6*/; font-size:115% /*IE6*/;}
 
 /* HEADING - Special icon */
-.subcontent h1.menu {background: url(../img/icon_celltitle_menu.gif) no-repeat; background-position:225px 5px;}
-.subcontent h1.login {background: url(../img/icon_celltitle_login.gif) no-repeat; background-position:229px 5px;}
+.subcontent h1.menu {background: url(../img/rosso.jpg) repeat-x; }
+.subcontent h1.login {background: url(../img/rosso.jpg) repeat-x; }
 .subcontent h1.search {background: url(../img/icon_celltitle_search.gif) no-repeat; background-position:225px 5px;}
 .subcontent h1.video {background: url(../img/icon_celltitle_video.gif) no-repeat; background-position:231px 5px;}
 .subcontent h1.audio {background: url(../img/icon_celltitle_audio.gif) no-repeat; background-position:225px 5px;}
@@ -190,14 +190,14 @@
 
 /* LOGIN FORM */
 .subcontent .loginform {width:230px; margin:10px 20px 0 20px;}
-.subcontent .loginform p {clear:both; margin:0; padding:0;}
+.subcontent .loginform p {clear:both; margin:0; padding:0; color:white;}
 .subcontent .loginform fieldset {width:160px; border:none;}
 .subcontent .loginform label.top {float:left; width:125px; margin:0 0 2px 0; font-size:110%;}
 .subcontent .loginform label.right {float:left; width:125px; margin:5px 0 0 0; padding:0 0 0 3px; /*IE6*/; font-size:110%;}
 .subcontent .loginform input.field {width:158px; margin:0 0 5px 0; padding:0.1em 0 0.2em 0 !important /*Non-IE6*/; padding:0.2em 0 0.3em 0 /*IE6*/; border:solid 1px rgb(200,200,200); font-size:110%;}
 .subcontent .loginform input.checkbox {float:left; margin:5px 0 0 0 !important /*Non-IE6*/; margin:2px 0 0 -3px /*IE6*/; border:none;}
-.subcontent .loginform input.button {float:left; width:5.0em; margin:10px 0 5px 0; padding:1px; background:rgb(230,230,230); border:solid 1px rgb(150,150,150); text-align:center; color:rgb(150,150,150); font-size:110%;}
-.subcontent .loginform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background:rgb(220,220,220); color:rgb(80,80,80);}
+.subcontent .loginform input.button {float:left; width:5.0em; margin:10px 0 5px 0; padding:1px; background-image:url(../img/rosso.jpg); border:solid 1px rgb(150,150,150); text-align:center; color:#fff; font-size:110%;}
+.subcontent .loginform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background-image:url(../img/rosso2.jpg);; color:#fff;}
 
 /* SEARCH FORM */
 .subcontent .searchform {width:230px; margin:10px 20px 0 20px;}
@@ -210,12 +210,12 @@
 .sidemenu1 {clear:both; width:270px; margin:0; padding:0;}
 .sidemenu1 ul {width:270px; margin:0; margin-top:-1px; padding:0; border-bottom:solid 1px rgb(200,200,200);}	
 .sidemenu1 ul li {margin:0; padding:0; background:none; font-size:131% !important /*Non-IE6*/; font-size:115% /*IE6*/;}
-.sidemenu1 li a {display:block; min-height:1.5em; height:auto !important /*Non-IE6*/; height:1.5em /*IE-6*/; line-height:1.5em; margin:0; padding:5px 20px 5px 20px; border-top:solid 1px rgb(200,200,200); color:rgb(75,75,75); font-weight:bold;}
+.sidemenu1 li a {display:block; min-height:1.5em; height:auto !important /*Non-IE6*/; height:1.5em /*IE-6*/; line-height:1.5em; margin:0; padding:5px 20px 5px 20px; border-top:solid 1px rgb(200,200,200); color:r#fff; font-weight:bold;}
 .sidemenu1 ul li ul {margin:0 0 5px 0; border:none;}
 .sidemenu1 ul li ul li {margin:0; padding:0; background:none; font-size:100% !important /*Non-IE6*/; font-size:100% /*IE6*/;}
-.sidemenu1 ul li ul li a {display:block; min-height:1.5em; height:auto !important /*Non-IE6*/; height:1.5em /*IE-6*/; line-height:1.5em; margin:0; padding:0 0 0 30px; border:none; color:rgb(75,75,75); font-weight:normal;}
-.sidemenu1 li a:hover {background-color:rgb(240,240,240); color:rgb(75,75,75); text-decoration:none;}
-.sidemenu1 li a:visited {color:rgb(75,75,75); text-decoration:none;}
+.sidemenu1 ul li ul li a {display:block; min-height:1.5em; height:auto !important /*Non-IE6*/; height:1.5em /*IE-6*/; line-height:1.5em; margin:0; padding:0 0 0 30px; border:none; color:#fff; font-weight:normal;}
+.sidemenu1 li a:hover {background-color:#202020; color:#fff; text-decoration:none;}
+.sidemenu1 li a:visited {color:#fff; text-decoration:none;}
 
 /* SIDE MENU #2 */
 .sidemenu2 {clear:both; margin:0; padding:0;}
@@ -251,9 +251,9 @@
 /*********/
 
 /* Text links */
-.main a {color:rgb(70,122,167); font-weight:bold; text-decoration:none;}
-.main a:hover {color:rgb(42,90,138); text-decoration:underline;}
-.main a:visited {color:rgb(42,90,138);}
+.main a {color:#fff; font-weight:bold; text-decoration:none;}
+.main a:hover {color:#fff; text-decoration:underline;}
+.main a:visited {color:#fff;}
 
 /*Image links */
 .main a img {border:solid 3px rgb(200,200,200);}
@@ -266,5 +266,5 @@
 /*  a mixup with the default styles.      */
 /******************************************/
 
-#button {float:right; margin:10px 22px 5px 0; padding:1px; background:rgb(230,230,230); border:solid 1px rgb(80,80,80); text-align:center; color:rgb(80,80,80); font-size:110%;}
-#button:hover {cursor:pointer; border:solid 1px rgb(50,50,50); background:rgb(220,220,220); color:rgb(50,50,50);}
+#button {float:right; margin:10px 22px 5px 0; padding:1px; background-image:url(../img/rosso.jpg); border:solid 1px rgb(80,80,80); text-align:center; color:#fff; font-size:110%;}
+#button:hover {cursor:pointer; border:solid 1px rgb(50,50,50); background-image:url(../img/rosso2.jpg); color:#fff;}
