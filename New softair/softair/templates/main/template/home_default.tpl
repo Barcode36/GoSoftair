@@ -35,7 +35,8 @@
       <div class="header-top">
         
         <!-- A.1 SITENAME -->      
-        <a class="sitelogo" href="index.php" title="Home"></a>
+        {if $username!='AMMINISTRATORE'}
+        <a class="sitelogo" href="index.php" title="Home"></a>{/if}
         <div class="sitename">
           <h1><a href="index.php" title="Home">Go Softair</a></h1>
           <h2>Negozio prenotazione softair online</h2>
@@ -45,6 +46,7 @@
       </div>
     
       <!-- A.4 BREADCRUMB and SEARCHFORM -->
+      {if $username!='AMMINISTRATORE'}
       <div class="header-bottom">
         <!-- Search form -->                  
         <div class="searchform">
@@ -56,7 +58,7 @@
             </fieldset>
           </form>
         </div>
-      </div>
+      </div>{/if}
     </div>
     <div class="corner-page-bottom"></div>    
     
@@ -66,11 +68,17 @@
 	
       <!-- Navigation item -->
       <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>
+        {if $username!='AMMINISTRATORE'}
+        <li><a href="index.php">Home</a></li>{/if}
+        {if $username=='AMMINISTRATORE'}
+        <li><a href="index.php?controller=amministratore&task=vediprofili">Profili</a></li>
+        {else}<li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>{/if}
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
         {else}<li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>{/if}
+		{if $username=='AMMINISTRATORE'}
+		<li><a href="index.php?controller=amministratore&task=vediprenotazioni">Prenotazioni</a></li>
+		{else}
 		{section name=i loop=$menu}
                 <li><a href="{$menu[i].link}">{$menu[i].testo}</a>
                 {if $menu[i].submenu !=false}
@@ -81,7 +89,7 @@
                     </ul>
                 {/if}
                 </li>
-        {/section}
+        {/section}{/if}
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vediannunci">Annunci</a></li>
         {else}<li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>{/if}

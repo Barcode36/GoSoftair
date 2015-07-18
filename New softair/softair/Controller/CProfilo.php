@@ -116,11 +116,12 @@ class CProfilo {
     public function modUtente(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
-    	$username=$session->leggi_valore('username');
+    	$username=$view->getUsername();
 		$this->setUtente($username);
     	if ($this->_utente!=false) {
     		$this->_array_dati_utente=get_object_vars($this->_utente);
     	}
+    	$session->imposta_valore('utente',$username);
     	$view->setLayout('modifica_utente');
     	$view->impostaDati('datiUtente', $this->_array_dati_utente);
     	return $view->processaTemplate();
@@ -128,12 +129,13 @@ class CProfilo {
     
     public function salvaUtente(){
     	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
     	$FUtente = new FUtente();
     	$EUtente = new EUtente();
     	$dati_modifica=$view->getDatiModUtente();
     	
     	$session=USingleton::getInstance('USession');
-    	$username=$session->leggi_valore('username');
+    	$username=$session->leggi_valore('utente');
     	$this->setUtente($username);
     	if ($this->_utente!=false) {
     		$this->_array_dati_utente=get_object_vars($this->_utente);
@@ -153,6 +155,10 @@ class CProfilo {
             }
         }
 		$FUtente->update($EUtente);
+		$username=$session->leggi_valore('username');
+		if($username=='AMMINISTRATORE'){
+			$anam=$session->leggi_valore('profiliamministratore');
+			$view->impostaDati('anam', $anam);}
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();	
     }
@@ -169,6 +175,7 @@ class CProfilo {
     	if ($prenotazione!=false) {
     		$dati_prenotazione=get_object_vars($prenotazione);
     		$view->impostaDati('datiPrenotazione', $dati_prenotazione);
+    		$session->imposta_valore('utenteusername',$dati_prenotazione['utenteusername']);
     		$session->imposta_valore('IDprenotazione',$IDprenotazione);
     		$session->imposta_valore('titolo',$dati_prenotazione['titoloPartita']);
     		$session->imposta_valore('partitaID',$dati_prenotazione['partitaID']);
@@ -189,8 +196,13 @@ class CProfilo {
     	$IDprenotazione=$session->leggi_valore('IDprenotazione');
     	$titolo=$session->leggi_valore('titolo');
     	$partitaID=$session->leggi_valore('partitaID');
-    	$EPrenotazione->setPrenotazioneMod($IDprenotazione, $partitaID, $titolo, $username, $dati_modifica['attrezzatura']);
+    	$utente=$session->leggi_valore('utenteusername');
+    	$EPrenotazione->setPrenotazioneMod($IDprenotazione, $partitaID, $titolo, $utente, $dati_modifica['attrezzatura']);
     	$FPrenotazione->update($EPrenotazione);
+    	$username=$session->leggi_valore('username');
+    	if($username=='AMMINISTRATORE'){
+    		$anam=$session->leggi_valore('prenotazioniamministratore');
+    		$view->impostaDati('anam', $anam);}
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();
     }
@@ -198,6 +210,7 @@ class CProfilo {
     
     public function eliminaPrenotazione(){
     	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
     	$IDprenotazione=$view->getIdprenotazione();
     	$FPrenotazione = new FPrenotazione();
     	$prenotazione=$FPrenotazione->load($IDprenotazione);
@@ -208,6 +221,10 @@ class CProfilo {
     	$ndisponibili=$partita->getNdisponibili();
     	$partita->setNdisponibili($ndisponibili+1);
     	$FPartita->update($partita);
+    	$username=$session->leggi_valore('username');
+    	if($username=='AMMINISTRATORE'){
+    		$anam=$session->leggi_valore('prenotazioniamministratore');
+    		$view->impostaDati('anam', $anam);}
     	$view->setLayout('conferma_eliminazione');
     	return $view->processaTemplate();
     }
@@ -218,12 +235,13 @@ class CProfilo {
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
     	$IDannuncio=$view->getIdAnnuncio();
-    	$FPrenotazione = new FPrenotazione();
+    	$FAnnuncio = new FAnnuncio();
     	$annuncio=$FAnnuncio->load($IDannuncio);
     	if ($annuncio!=false) {
     		$this->_array_dati_annunci=get_object_vars($annuncio);
     		$view->impostaDati('datiAnnuncio', $this->_array_dati_annunci);
     		$session->imposta_valore('IDannuncio',$IDannuncio);
+    		$session->imposta_valore('data',$this->_array_dati_annunci['data']);
     		$session->imposta_valore('immagine',$this->_array_dati_annunci['immagine']);
     	}
     	$view->setLayout('modifica_annuncio');
@@ -236,9 +254,9 @@ class CProfilo {
     	$FAnnuncio = new FAnnuncio();
     	$EAnnuncio = new EAnnuncio();
     	$dati_modifica=$view->getDatiModAnnuncio();
-    	$username=$session->leggi_valore('username');
     	$IDannuncio=$session->leggi_valore('IDannuncio');
-    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $username, $IDannuncio, $dati_modifica['data'] );
+    	$data=$session->leggi_valore('data');
+    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $dati_modifica['autoreusername'], $IDannuncio, $data );
 		$file=$view->getFile();
 		if($file){
             $nomeOriginale=basename($view->getOriginalFile());
@@ -255,17 +273,25 @@ class CProfilo {
             }
         }
     	$FAnnuncio->update($EAnnuncio);
-    	$session->cancella_valore('IDannuncio');
+    	$username=$session->leggi_valore('username');
+    	if($username=='AMMINISTRATORE'){
+    		$anam=$session->leggi_valore('annunciamministratore');
+    		$view->impostaDati('anam', $anam);}
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();
     }
     
     public function eliminaAnnuncio(){
     	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
     	$IDannuncio=$view->getIdAnnuncio();
     	$FAnnuncio = new FAnnuncio();
     	$annuncio=$FAnnuncio->load($IDannuncio);
     	$FAnnuncio->delete($annuncio);
+    	$username=$session->leggi_valore('username');
+    	if($username=='AMMINISTRATORE'){
+    		$anam=$session->leggi_valore('annunciamministratore');
+    		$view->impostaDati('anam', $anam);}
     	$view->setLayout('conferma_eliminazione');
     	return $view->processaTemplate();
     }

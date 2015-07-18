@@ -6,6 +6,8 @@
             <form method="post" action="index.php" enctype="multipart/form-data">
               <fieldset>
               <p><label for="titolo" class="top">Titolo:</label><br />
+                    <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="{$datiAnnuncio.autoreusername}" />
+              <p><label for="titolo" class="top">Titolo:</label><br />
                   <input type="text" id="titolo" name="titolo" tabindex="1" class="field" value="{$datiAnnuncio.titolo}"/></p>           
 			  <p><label for="prezzo" class="top">Prezzo:</label><br />
                    <input type="number" name="prezzo" id="prezzo" tabindex="2" class="field" value="{$datiAnnuncio.prezzo}" /></p>

@@ -26,9 +26,9 @@ class FAnnuncio extends Fdb {
      * @param string $idannuncio
      *
      */
-    public function delete( & $idannuncio) {
+    /*public function delete( & $idannuncio) {
     	parent::delete($idannuncio);
-    }
+    }*/
     
     
     /**
@@ -46,13 +46,26 @@ class FAnnuncio extends Fdb {
     }*/
     //c'� qualche errore nella query'
 	
-	
+
+    public function loadall() {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table.'` ORDER BY `annuncio`.`data` ASC';
+    	$this->query($query);
+    	return $this->getObjectArray();
+    }
+    
 	public function loadfromuser($key) {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ' .
     			'WHERE autoreusername = \''.$key.'\'';
     	$this->query($query); 
     	return $this->getObjectArray();
+    }
+    
+    public function deleterel($annunci){
+    	for($i=0; $i<count($annunci); $i++)
+    		$this->delete($annunci[$i]);
+    	
     }
 	
 }

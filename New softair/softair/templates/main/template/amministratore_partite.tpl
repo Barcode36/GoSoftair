@@ -4,8 +4,9 @@
 		  <h1>Partite</h1>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
+            	<th class="top" scope="col">Autore</th>
                 <th class="top" scope="col">Categoria</th>
-                <th class="top" scope="col" class="stretto">Prezzo</th>
+                <th class="top" scope="col" >Prezzo</th>
                 <th class="top" scope="col">Indirizzo</th>
                 <th class="top" scope="col">Data</th>
                 <th class="top" scope="col" class="stretto">Giocatori Max</th>
@@ -14,6 +15,7 @@
                 <th class="top" scope="col"></th>
           	{section name=i loop=$datiPartite}  
             <tr><td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].IDpartita}">{$datiPartite[i].titolo}</a></td>
+                <td>{$datiPartite[i].autore}</td>
                 <td>{$datiPartite[i].categoria}</td>
             	<td class="stretto">{$datiPartite[i].prezzo}</td>
  				<td>{$datiPartite[i].indirizzo}</td>

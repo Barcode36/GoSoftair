@@ -61,7 +61,7 @@
               <fieldset>
                {if $dati.attrezzatura=='SI'}
                <p><label for="attrezzatura" class="top">Voglio l'attrezzatura</label><br />          
-               <p><input type="checkbox" name="checkbox" id="checkbox2" class="checkbox" name="attreazzatura" tabindex="3" size="1" value="SI" /></p>                
+               <p><input type="checkbox" id="checkbox2" class="checkbox" name="attrezzatura" tabindex="3" size="1" value="SI" /></p>                
                 {/if}
                 <input type="hidden" name="controller" value="prenotazione" />
                 <input type="hidden" name="task" value="salvaprenotazione" />

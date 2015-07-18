@@ -26,6 +26,14 @@ class VAmministratore extends View {
 		else
 			return false;
 	}
+	
+	
+	public function getUtente() {
+		if (isset($_REQUEST['utente']))
+			return $_REQUEST['utente'];
+		else
+			return false;
+	}
 	/**
 	 * Restituisce l'id della partita passato per GET o POST
 	 *
@@ -46,7 +54,7 @@ class VAmministratore extends View {
 	 * @return string
 	 */
 	public function processaTemplate() {
-		return $this->fetch('amministratore_'.$this->_layout.'.tpl');
+		return $this->fetch($this->_layout.'.tpl');
 	}
 	/**
 	 * Imposta i dati nel template identificati da una chiave ed il relativo valore

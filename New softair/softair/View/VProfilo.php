@@ -49,6 +49,17 @@ class VProfilo extends View{
     		return false;
     }
 
+
+    public function getUsername() {
+    	if (isset($_REQUEST['username']))
+    		return $_REQUEST['username'];
+    	else
+    		return false;
+    }
+    
+    
+    
+    
     public function getIdprenotazione() {
     	if (isset($_REQUEST['id_prenotazione']))
     		return $_REQUEST['id_prenotazione'];
@@ -105,7 +116,7 @@ class VProfilo extends View{
     
     
     public function getDatiModAnnuncio() {
-    	$dati_richiesti=array('titolo','prezzo','descrizione', 'telefono');
+    	$dati_richiesti=array('titolo','prezzo','descrizione', 'telefono', 'autoreusername');
     	$dati=array();
     	foreach ($dati_richiesti as $dato) {
     		if (isset($_REQUEST[$dato]))

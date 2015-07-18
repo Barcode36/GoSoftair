@@ -79,8 +79,11 @@ class CHome {
                	$CAnnunci=USingleton::getInstance('CAnnunci');
                	return $CAnnunci->smista();
             default:
+                $session=USingleton::getInstance('USession');
+        		$username=$session->leggi_valore('username');
+        		if($username!='AMMINISTRATORE'){
                 $CRicerca=USingleton::getInstance('CRicerca');
-                return $CRicerca->ultimiArrivi();
+                return $CRicerca->ultimiArrivi();}
         }
     }
 }

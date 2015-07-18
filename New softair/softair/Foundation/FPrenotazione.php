@@ -40,7 +40,7 @@ class FPrenotazione extends Fdb{
         return $prenotazione;
     }*/
     
-
+	//cancella tutte le prenotazioni relative a una partita o un utente passandogli l'array di prenotazioni relative
     public function deleteRel($prenotazioni) {
     			$i=0;
     			while ($i<count($prenotazioni)) {
@@ -48,9 +48,15 @@ class FPrenotazione extends Fdb{
     				$i++;
     			}
     }
+
     
     
-    
+    public function loadall() {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table;
+    	$this->query($query);
+    	return $this->getObjectArray();
+    }    
     
     
     public function loadfromuser($key) {

@@ -22,6 +22,13 @@ class FUtente extends Fdb{
     	return $this->getObjectArray();
     }
     
+    public function loadall() {
+    	$query='SELECT * ' .
+    			'FROM `'.$this->_table.'` WHERE `username` !='."'AMMINISTRATORE'" ;
+    	$this->query($query);
+    	return $this->getObjectArray();
+    }
+    
 }
 /*'SELECT * ' .
 'FROM `'.$this->_table.'` ' .
