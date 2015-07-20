@@ -327,7 +327,6 @@ class CProfilo {
     		}
     	}
     	$view->impostaDati('votata',$votata);
-    	print $votata;
     	$view->setLayout('assegna_punti');
     	return $view->processaTemplate();
     }
@@ -342,9 +341,9 @@ class CProfilo {
     	$voti=$view->getVoti($listaUtenti);
     	$FUtente = new FUtente();
     	for($i=0; $i<$nprenotati; $i++){
-    		print 'a'.$voti[$i].'b';
     		$utente[$i]=$FUtente->load($listaUtenti[$i]);
-    		$utente[$i]->setPunti($voti[$i]);
+    		$punti=$utente[$i]->getPunti();
+    		$utente[$i]->setPunti($voti[$i]+$punti);
     		$FUtente->update($utente[$i]);
     	}
     	$FPartita = new FPartita();

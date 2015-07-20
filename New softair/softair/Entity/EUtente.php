@@ -43,6 +43,10 @@ class EUtente {
     }
     
     
+    public function getPunti() {
+    	return $this->punti;
+    }
+    
     public function getEmail() {
     	return $this->email;
     }
