@@ -16,7 +16,7 @@
 /*************/
 #error {color: red;}
 /* PAGETITLE */
-.main h1.pagetitle {margin:0 0 0.5em 0; padding:1px 0 1px 32px; background: url(../img/icon_pagetitle.gif) no-repeat; background-position:center left; color:rgb(255,255,255); font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
+.main h1.pagetitle {margin:0 0 0.5em 0; padding:1px 0 1px 32px; background: url(../img/tr.jpg) no-repeat; background-position:center left; color:rgb(255,255,255); font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
 
 /* HEADING -- Standard icon (1-Column / 2-Column) */
 .content h1 {margin:0; padding:5px 50px 12px 20px; border-bottom:solid 1px rgb(215,215,215); background: url(../img/rosso.jpg) repeat-x; color:#fff; font-weight:bold; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
@@ -31,7 +31,7 @@
 .content h6 {margin:0.4em 0 0.5em 0; padding:0 20px 0 20px; color:rgb(50,50,50); font-weight:normal; font-size:130% !important /*Non-IE6*/; font-size:115% /*IE6*/;}
 
 /* HEADING -- Special icon (1-Column / 2-Column) */
-.content h1.contact {background: url(../img/icon_celltitle_contact.gif) no-repeat; background-position:616px 5px;}
+/*.content h1.contact {background: url(../img/icon_celltitle_contact.gif) no-repeat; background-position:616px 5px;}
 .content h1.login {background: url(../img/icon_celltitle_login.gif) no-repeat; background-position:635px 5px;}
 .content h1.search {background: url(../img/icon_celltitle_search.gif) no-repeat; background-position:631px 5px;}
 .content h1.video {background: url(../img/icon_celltitle_video.gif) no-repeat; background-position:637px 5px;}
@@ -50,7 +50,7 @@
 .content-2col-box-leftcolumn h1.document, .content-2col-box-rightcolumn h1.document {background: url(../img/icon_celltitle_document.gif) no-repeat; background-position:292px 5px;}
 .content-2col-box-leftcolumn h1.blog, .content-2col-box-rightcolumn h1.blog {background: url(../img/icon_celltitle_blog.gif) no-repeat; background-position:296px 5px;}
 .content-2col-box-leftcolumn h1.forum, .content-2col-box-rightcolumn h1.forum {background: url(../img/icon_celltitle_forum.gif) no-repeat; background-position:292px 5px;}
-
+*/
 /* HEADING -- No icon */
 .main h1.pagetitle-noicon {margin:0 0 0.5em 0; padding:1px 0 1px 0; background:none; color:rgb(255,255,255); font-weight:normal; font-size:220% !important /*Non-IE6*/; font-size:200% /*IE6*/;}
 .content h1.noicon {background:none;}
@@ -85,17 +85,17 @@
 /* CONTACT FORM (1-Column / 2-Column) */
 .contactform {width:636px; margin:1.0em 10px 0 20px;}
 .contactform fieldset {padding:10px 0 10px 0 !important /*Non-IE6*/; padding:0 /*IE6*/; margin:0 0 20px 0; border:solid 1px rgb(220,220,220);}
-.contactform fieldset legend {margin:0 0 0 5px !important /*Non-IE*/; margin:0 0 20px 5px /*IE6*/; padding:0 2px 0 2px; color:rgb(80,80,80); font-weight:bold;  font-size:131%;}
+.contactform fieldset legend {margin:0 0 0 5px !important /*Non-IE*/; margin:0 0 20px 5px /*IE6*/; padding:0 2px 0 2px; color:#fff; font-weight:bold;  font-size:131%;}
 .contactform label.left {float:left; width:100px; margin:0 0 0 10px; padding:2px; font-size:100%;}
 .contactform select.combo {width:175px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .contactform input.field {width:275px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .contactform textarea {width:275px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
-.contactform input.button {float:left; width:9.0em; margin-left:115px !important /*Non-IE6*/; margin-left:118px /*IE6*/; padding:3px !important /*Non-IE6*/; padding:2px /*IE6*/; background:rgb(230,230,230); border:solid 1px rgb(150,150,150); text-align:center; color:rgb(150,150,150); font-size:100%;}
-.contactform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background:rgb(220,220,220); color:rgb(80,80,80);}
+.contactform input.button {float:left; width:9.0em; margin-left:115px !important /*Non-IE6*/; margin-left:118px /*IE6*/; padding:3px !important /*Non-IE6*/; padding:2px /*IE6*/; background-image:url(../img/rosso.jpg); border:solid 1px rgb(150,150,150); text-align:center; color:#fff; font-size:100%;}
+.contactform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background-image:url(../img/rosso2.jpg); color:#fff;}
 
 .content-2col-nobox-leftcolumn .contactform, .content-2col-nobox-rightcolumn .contactform, .content-2col-box-leftcolumn .contactform, .content-2col-box-rightcolumn .contactform  {width:297px; margin:1.0em 10px 0 20px;}
 .content-2col-nobox-leftcolumn .contactform fieldset, .content-2col-nobox-rightcolumn .contactform fieldset, .content-2col-box-leftcolumn .contactform fieldset, .content-2col-box-rightcolumn .contactform fieldset {padding:10px 0 10px 0 !important /*Non-IE6*/; padding:0 /*IE6*/; margin:0 0 20px 0; border:solid 1px rgb(220,220,220);}
-.content-2col-nobox-leftcolumn .contactform fieldset legend, .content-2col-nobox-rightcolumn .contactform fieldset legend, .content-2col-box-leftcolumn .contactform fieldset legend, .content-2col-box-rightcolumn .contactform fieldset legend {margin:0 0 0 5px !important /*Non-IE*/; margin:0 0 20px 5px /*IE6*/; padding:0 2px 0 2px; color:rgb(80,80,80); font-weight:bold;  font-size:131%;}
+.content-2col-nobox-leftcolumn .contactform fieldset legend, .content-2col-nobox-rightcolumn .contactform fieldset legend, .content-2col-box-leftcolumn .contactform fieldset legend, .content-2col-box-rightcolumn .contactform fieldset legend {margin:0 0 0 5px !important /*Non-IE*/; margin:0 0 20px 5px /*IE6*/; padding:0 2px 0 2px; color:#fff; font-weight:bold;  font-size:131%;}
 .content-2col-nobox-leftcolumn .contactform label.left, .content-2col-nobox-rightcolumn .contactform label.left, .content-2col-box-leftcolumn .contactform label.left, .content-2col-box-rightcolumn .contactform label.left {float:left; width:100px; margin:0; padding:2px; font-size:100%;}
 .content-2col-nobox-leftcolumn .contactform select.combo, .content-2col-nobox-rightcolumn .contactform select.combo, .content-2col-box-leftcolumn .contactform select.combo, .content-2col-box-rightcolumn .contactform select.combo {width:140px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .content-2col-nobox-leftcolumn .contactform input.field, .content-2col-nobox-rightcolumn .contactform input.field, .content-2col-box-leftcolumn .contactform input.field, .content-2col-box-rightcolumn .contactform input.field {width:135px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
@@ -122,8 +122,8 @@
 
 .content .searchform fieldset {border:none;}
 .content .searchform input.field {float:left; width:158px; padding:3px 0 3px 0; border:1px solid rgb(200,200,200); font-size:120%;}
-.content .searchform input.button {clear:both; float:left; width:3.0em; margin-top:0.5em; padding:1px; background:rgb(230,230,230); border:solid 1px rgb(150,150,150); text-align:center; color:rgb(150,150,150); font-size:120%;}
-.content .searchform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background:rgb(220,220,220); color:rgb(80,80,80);}
+.content .searchform input.button {clear:both; float:left; width:3.0em; margin-top:0.5em; padding:1px; background:rgb(230,230,230); border:solid 1px rgb(150,150,150); text-align:center; color:#fff; font-size:120%;}
+.content .searchform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background:rgb(220,220,220); color:#fff;}
 
 /* MEDIA PLAYER (1-Column / 2-Column)*/
 .content .videoplayer {width:626px; height:367px; margin:10px 20px 10px 20px; border:solid 5px rgb(175,175,175);}
@@ -269,5 +269,10 @@
 /*  a mixup with the default styles.      */
 /******************************************/
 
-#button {float:right; margin:10px 22px 5px 0; padding:1px; background-image:url(../img/rosso.jpg); border:solid 1px rgb(80,80,80); text-align:center; color:#fff; font-size:110%;}
+#button {float:left; margin:10px 22px 5px 0; padding:1px; background-image:url(../img/rosso.jpg); border:solid 1px rgb(80,80,80); text-align:center; color:#fff; font-size:110%;}
 #button:hover {cursor:pointer; border:solid 1px rgb(50,50,50); background-image:url(../img/rosso2.jpg); color:#fff;}
+
+.button {float:right; padding:1px; background-image:url(../img/rosso.jpg); border:solid 1px rgb(80,80,80); text-align:center; color:#fff; font-size:110%;}
+.button:hover {cursor:pointer; border:solid 1px rgb(50,50,50); background-image:url(../img/rosso2.jpg); color:#fff;}
+
+

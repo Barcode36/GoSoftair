@@ -1,4 +1,6 @@
-  {if $username!=false}
+<?php /* Smarty version 2.6.26, created on 2015-07-20 12:33:27
+         compiled from partita_crea.tpl */ ?>
+  <?php if ($this->_tpl_vars['username'] != false): ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Creazione partita</h1>
@@ -101,7 +103,7 @@
             </form>
           </div>
 	</div>
-{else}
+<?php else: ?>
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
 		              <h1>Non puoi creare partite, senza autenticarti.</h1>
@@ -110,6 +112,6 @@
           				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
-{/if} 
+<?php endif; ?> 
     
         

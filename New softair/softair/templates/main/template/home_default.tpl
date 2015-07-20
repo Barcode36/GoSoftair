@@ -39,7 +39,7 @@
         <a class="sitelogo" href="index.php" title="Home"></a>{/if}
         <div class="sitename">
           <h1><a href="index.php" title="Home">Go Softair</a></h1>
-          <h2>Negozio prenotazione softair online</h2>
+          <h2>Portale per giocatori di softair</h2>
         </div>
     
        
@@ -149,7 +149,7 @@
                 	<li>
                 	<ul>
                 	{section name=k loop=$classifica}
-                	<h4> {$posizione[k]}&deg) Punti {$classifica[k].punti} <b>{$classifica[k].username}</b></h4> <br>
+                	<h4> {$posizione[k]}) <b>{$classifica[k].username}</b>: {$classifica[k].punti} punti</h4> <br>
                 	{/section}
                 	</ul>
                 	</li>

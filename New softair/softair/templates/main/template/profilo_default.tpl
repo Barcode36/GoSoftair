@@ -21,8 +21,8 @@
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
-                	<th class="top" scope="col"></th>
-                	<th class="top" scope="col"></th>
+                	<th class="top" scope="col">Modifica</th>
+                	<th class="top" scope="col">Elimina</th>
           		{section name=i loop=$datiPartite}  
             	<tr><td>{$datiPartite[i].partitaID}</td>
                 	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
@@ -57,8 +57,8 @@
                 <th class="top" scope="col">Telefono</th>
                 <th class="top" scope="col">Data inserimento</th>
                 <th class="top" scope="col">Data scadenza</th>
-                <th class="top" scope="col"></th>
-                <th class="top" scope="col"></th>
+                <th class="top" scope="col">Modifica</th>
+                <th class="top" scope="col">Elimina</th>
           	{section name=j loop=$datiAnnunci}  
             <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
                 <td>{$datiAnnunci[j].prezzo}</td>
@@ -116,7 +116,7 @@
            			<div class="content-1col-nobox">
 		              <h1>Non ci sono partite create.</h1>
 		              <h2 class="noicon">Puoi crearne una facilmente! Clicca qui  </h2>
-                			<p><input type="button" value="Crea partita" onclick="location.href='index.php?controller=partita&task=modulopartita'"></p>
+                			<p><input type="button" id="button" value="Crea partita" onclick="location.href='index.php?controller=partita&task=modulopartita'"></p>
           				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>

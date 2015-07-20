@@ -67,7 +67,7 @@
                 <input type="hidden" name="controller" value="prenotazione" />
                 <input type="hidden" name="task" value="salvaprenotazione" />
                 <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
-              <p><input type="submit" name="submit" class="button" value="Prenotati" tabindex="5" /></p>
+              <p><input type="submit" name="submit" id="button" value="Prenotati" tabindex="5" /></p>
             </fieldset>
             </form>
             {else}<p>Sei gi&agrave prenotato a questa partita</p>{/if}

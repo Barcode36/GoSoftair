@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.26, created on 2015-07-20 12:05:05
+         compiled from annunci_confermacrea.tpl */ ?>
         <a id="anchor-heading-noicon-1"></a>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">

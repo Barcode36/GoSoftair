@@ -28,7 +28,7 @@
            			<div class="content-1col-nobox">
 		              <h1>Non puoi creare annunci, senza autenticarti.</h1>
 		              <h2 class="noicon">Se non sei ancora iscritto, fallo subito &egrave facile!</h2>
-                			<p><input type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
+                			<p><input type="button" id="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
           				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>

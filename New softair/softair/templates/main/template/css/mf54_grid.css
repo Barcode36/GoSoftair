@@ -15,8 +15,14 @@
 /******************/
 /* GLOBAL LAYOUT  */
 /******************/
-
- body {font-size:62.5%; background-image:url(../img/mim.jpg); background-size: 100%;
+html { 
+  background: url(../img/mim.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+ body {font-size:62.5%;
 font-family:arial,sans-serif;} /*Font-size: 1.0em = 10px when browser default size is 16px*/
 .container {width:978px; padding-top:10px; padding-bottom:20px; margin:0 auto; font-size:1.0em;}
 .header {width:958px; min-height:130px /*Non-IE6*/; height:auto !important /*Non-IE6*/; height:130px /*IE6*/;  background-image:url(../img/airsoft.jpg); background-size: 100% 100%;
@@ -34,10 +40,10 @@ font-size:1.0em;}
 /****************/
 
 /* SITENAME AND SLOGAN */
-.sitelogo {width:70px; height:70px; position:absolute; z-index:1; margin:15px 0 0 15px; background:url(../img/bg_logo.gif);}
-.sitename {width:300px; height:70px; position:absolute; z-index:1; margin:27px 0 0 95px; overflow:hidden;}
-.sitename h1 {font-family:"trebuchet ms",arial,sans serif; font-weight:normal; font-size:320% !important /*Non-IE6*/; font-size:290% /*IE6*/;color:#fff;}
-.sitename h2 {font-family:verdana,arial,sans serif; margin-top:-5px; padding-bottom:2px; color:#fff; height:25px; font-weight:normal; font-size:150% !important /*Non-IE6*/; font-size:140% /*IE6*/;}
+/*.sitelogo {width:70px; height:70px; position:absolute; z-index:1; margin:15px 0 0 15px; background:url(../img/bg_logo.gif);}*/
+.sitename {width:400px; height:120px; position:absolute; z-index:1; margin:8px 0 0 27px; overflow:hidden;}
+.sitename h1 {font-family:"trebuchet ms",arial,sans serif; font-weight:bold; font-size:750% !important /*Non-IE6*/; font-size:750% /*IE6*/;color:#fff; text-shadow: 3px 3px #000;}
+.sitename h2 {font-family:verdana,arial,sans serif; margin-top:5px; padding-bottom:2px; color:#fff; height:25px; font-weight:normal; font-size:160% !important /*Non-IE6*/; font-size:160% /*IE6*/;}
 .sitename a{text-decoration:none; color:#fff;;}
 .sitename a:hover {text-decoration:none;}
 
@@ -71,8 +77,8 @@ font-size:1.0em;}
 .header-bottom .searchform {float:right; width:430px;}
 .header-bottom .searchform form fieldset {float:right; border:none; padding-top:5px; padding-right:10px;}
 .header-bottom .searchform input.field {width:15.0em; height:1.2em; padding:1px !important /*Non-IE6*/; padding:2px /*IE6*/; border:solid 1px rgb(200,200,200); background-color:rgb(255,255,255); font-size:110% !important /*Non-IE6*/; font-size:100% /*IE6*/;}
-.header-bottom .searchform input.button {width:4.5em; height:1.6em; background-color:rgb(240,240,240); border:solid 1px rgb(150,150,150); text-align:center; color:rgb(100,100,100); font-size:110% !important /*Non-IE6*/; font-size:100% /*IE6*/;}
-.header-bottom .searchform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background-color:rgb(220,220,220); color:rgb(80,80,80);}
+.header-bottom .searchform input.button {width:4.5em; height:1.6em; background-color:rgb(240,240,240); border:solid 1px rgb(150,150,150); text-align:center; color:#fff; font-size:110% !important /*Non-IE6*/; font-size:100% /*IE6*/;}
+.header-bottom .searchform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background-color:rgb(220,220,220); color:#fff;}
 
 /********************/
 /*  NAVIGATION BAR  */
@@ -103,7 +109,7 @@ font-size:1.0em;}
 /************/
 
 /* CONTAINER (NO BOXES) */
-.content-1col-nobox {width:676px; background-color:#383838;}
+.content-1col-nobox {width:676px; background-color:#383838; color:#fff;}
 .content-2col-nobox-leftcolumn {display:inline; float:left; width:337px; border-right:solid 1px rgb(215,215,215) /*Use this statement if left column is longer than the right column. Activate by removing "xx_" from property name*/; background-color:#003000;}
 .content-2col-nobox-rightcolumn {display:inline; float:right; width:337px; border-left:solid 1px rgb(215,215,215)/*Use this statement if right columnn is longer than the left column. De-activate by adding "xx_" to propery name*/; background-color:#003000;}
 
