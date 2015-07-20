@@ -66,18 +66,18 @@ class CAmministratore {
 		$dati_registrazione=$view->getDatiCreaPartita();
 		$data=$dati_registrazione['Anno'].'-'.$dati_registrazione['Mese'].'-'.$dati_registrazione['Giorno'];
 		$username=$session->leggi_valore('username');
-		$EPartita->autore=$username;
-		$EPartita->titolo=($dati_registrazione['Titolo']);
-		$EPartita->indirizzo=($dati_registrazione['Indirizzo']);
-		$EPartita->data=$data;
-		$EPartita->descrizione=($dati_registrazione['Descrizione']);
-		$EPartita->ngiocatori=($dati_registrazione['Giocatori']);
-		$EPartita->ndisponibili=($dati_registrazione['Giocatori']);
-		$EPartita->categoria=($dati_registrazione['Categoria']);
-		$EPartita->attrezzatura=($dati_registrazione['Attrezzatura']);
+		$EPartita->setAutore($username);
+		$EPartita->setTitolo($dati_registrazione['Titolo']);
+		$EPartita->setIndirizzo($dati_registrazione['Indirizzo']);
+		$EPartita->setData($data);
+		$EPartita->setDescrizione($dati_registrazione['Descrizione']);
+		$EPartita->setNgiocatori($dati_registrazione['Giocatori']);
+		$EPartita->setNdisponibili($dati_registrazione['Giocatori']);
+		$EPartita->setCategoria($dati_registrazione['Categoria']);
+		$EPartita->setAttrezzatura($dati_registrazione['Attrezzatura']);
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
 		$idpartita=$session->leggi_valore('idpartita');
-		$EPartita->IDpartita=$idpartita;
+		$EPartita->setIDpartita($idpartita);
 		$file=$view->getFile();
 		if($file){
 			$nomeOriginale=basename($view->getOriginalFile());
@@ -87,7 +87,7 @@ class CAmministratore {
 				mkdir($dir,0755,true);
 			}
 			if(move_uploaded_file($file, $target)){
-				$EPartita->immagine=$target;
+				$EPartita->setImmagine($target);
 		
 			}
 		}

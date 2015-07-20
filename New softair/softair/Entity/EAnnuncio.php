@@ -25,49 +25,61 @@ class EAnnuncio {
     }
     
     
+    public function setIDannuncio($IDannuncio){
+    	$this->IDannuncio = $IDannuncio;
+    }
     
     /**
      * Imposta $descrizione nell'annuncio
      * @param string $descrizione
      *
      */
-    public function setDescrizione($descr){
-    	$this->descrizione = $descr;
+    public function setDescrizione($descrizione){
+    	$this->descrizione = $descrizione;
+    }
+    /**
+     * Imposta $prezzo come prezzo dell'annuncio
+     * @param string $prezzo
+     *
+     */
+    public function setPrezzo($prezzo) {
+    	$this->prezzo = $prezzo;
+    }
+    
+    public function setAutoreusername($autoreusername) {
+    	$this->autoreusername = $autoreusername;
+    }
+    
+    public function setTelefono($telefono) {
+    	$this->telefono = $telefono;
     }
     /**
      * Inserisce le immagini dell'annuncio
      * @param array $img
      *
      */
-    public function setIMG($img)
+    public function setImmagine($immagine)
     {
-    	$this->immagine=$img;
+    	$this->immagine=$immagine;
     }
-    /**
-     * Imposta $p come prezzo dell'annuncio
-     * @param string $p
-     *
-     */
-    public function setPrezzo($p) {
-    	$this->prezzo = $p;
+
+    public function setTitolo($titolo) {
+    	$this->titolo= $titolo;
+    }
+    
+    public function setData($data) {
+    	$this->data= $data;
     }
     
 
     //METODI GET
 
-    public function getData()
-    {
-    	return $this->data;
-    }
-    
-    
-    
     /**
      *
      * @return string Stringa contenente l'id dell'annuncio.
      *
      */
-    public function getIDan()
+    public function getIDannuncio()
     {
     	return $this->IDannuncio;
     }
@@ -84,32 +96,49 @@ class EAnnuncio {
     
     /**
      *
-     * @return array Ritorna le immagini
-     *
-     */
-    public function getIMG()
-    {
-    	return $this->immagine;
-    }
-    
-    /**
-     *
      * @return string Stringa contenente il prezzo.
      */
     public function getPrezzo()
     {
     	return $this->prezzo;
     }
-
-    
-    /**
-     *
-     * @return string Restituisce l'username dell'autore.
-     *
-     */
-    public function getAutore()
+	
+    /*
+    * @return string Restituisce l'username dell'autore.
+    *
+    */
+    public function getAutoreusername()
     {
     	return $this->autoreusername;
     }
+    
+    public function getTelefono()
+    {
+    	return $this->telefono;
+    }
+    
+    /**
+     *
+     * @return array Ritorna le immagini
+     *
+     */
+    public function getImmagine()
+    {
+    	return $this->immagine;
+    }
+    
+    public function getTitolo()
+    {
+    	return $this->titolo;
+    }
+    
+    public function getData()
+    {
+    	return $this->data;
+    }
+
+    
+    
+
 }
 ?>

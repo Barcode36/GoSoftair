@@ -24,16 +24,46 @@ class EPartita {
      */
     public $_commento = array();
     
+
+    public function setTitolo($titolo)
+    {
+    	$this->titolo=$titolo;
+    }
     
-    //pare che scritti cosï¿½ i set funzionano
+    public function setAutore($autore)
+    {
+    	$this->autore=$autore;
+    }
+    
+    //pare che scritti così i set funzionano
     public function setPrezzo($prezzo)
     {
     	$this->prezzo=$prezzo;
     }
 
-    public function setVotata($votata)
+    public function setDescrizione($descrizione)
     {
-    	$this->votata=$votata;
+    	$this->descrizione=$descrizione;
+    }
+    
+    public function setCategoria($cotegoria)
+    {
+    	$this->categoria=$categoria;
+    }
+    
+    public function setIndirizzo($indirizzo)
+    {
+    	$this->indirizzo=$indirizzo;
+    }
+    
+    public function setData($data)
+    {
+    	$this->data=$data;
+    }
+    
+    public function setNgiocatori($ngiocatori)
+    {
+    	$this->ngiocatori=$ngiocatori;
     }
     
     public function setNdisponibili($ndisponibili)
@@ -41,26 +71,83 @@ class EPartita {
     	$this->ndisponibili=$ndisponibili;
     }
     
-    public function getNdisponibili() {
-    	return $this->ndisponibili;
+    public function setIDpartita($IDpartita)
+    {
+    	$this->IDpartita=$IDpartita;
     }
     
-    public function getVotata() {
-    	return $this->votata;
+    public function setImmagine($immagine)
+    {
+    	$this->immagine=$immagine;
     }
     
+    public function setAttrezzatura($attrezzatura)
+    {
+    	$this->attrezzatura=$attrezzatura;
+    }
+    
+    public function setVotata($votata)
+    {
+    	$this->votata=$votata;
+    }
+    
+    public function setCommento($commento)
+    {
+    	$this->_commento=$commento;
+    }
+
+    public function getPrezzo() {
+    	return $this->prezzo;
+    }
+    
+    public function getDescizione() {
+    	return $this->descrizione;
+    }
+	
+    public function getCategoria() {
+    	return $this->categoria;
+    }
+    
+    public function getIndirizzo() {
+    	return $this->indirizzo;
+    }
     
     public function getData() {
     	return $this->data;
     }
-
+    
+    public function getNgiocatori() {
+    	return $this->ngiocatori;
+    }
+    
+    public function getNdisponibili() {
+    	return $this->ndisponibili;
+    }
+    
     public function getId() {
     	return $this->IDpartita;
     }
     
     
+    public function getVotata() {
+    	return $this->votata;
+    }
+
+    public function getImmagine() {
+    	return $this->immagine;
+    }
+    
+    public function getAttrezzatura() {
+    	return $this->attrezzatura;
+    }
+    
+    
     public function getTitolo() {
     	return $this->titolo;
+    }
+    
+    public function getAutore() {
+    	return $this->autore;
     }
     
     /**
@@ -86,7 +173,7 @@ class EPartita {
         $voti=count($this->_commento);
         if ($voti>1) {
             foreach ($this->_commento as $commento) {
-                $somma+=$commento->voto;
+                $somma+=$commento->getVoto();
             }
             return $somma/$voti;
         }

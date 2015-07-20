@@ -148,7 +148,7 @@ class CProfilo {
                 mkdir($dir,0755,true);
             }
             if(move_uploaded_file($file, $target)){
-                $EUtente->foto=$target;               
+                $EUtente->setFoto($target);               
                 unlink($this->_array_dati_utente['foto']);
             }
         }
@@ -264,7 +264,7 @@ class CProfilo {
                 mkdir($dir,0755,true);
             }
             if(move_uploaded_file($file, $target)){
-                $EAnnuncio->immagine=$target; 
+                $EAnnuncio->setImmagine($target); 
                 $immagine=$session->leggi_valore('immagine');
                 unlink($immagine);             
                 

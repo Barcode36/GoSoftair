@@ -27,14 +27,14 @@ class CPrenotazione {
     	$_array_dati_partita=get_object_vars($partita);
     	$disponibili=$_array_dati_partita['ndisponibili'];
     	if ($disponibili!=0){
-    		$EPrenotazione->utenteusername=$username;
-    		$EPrenotazione->partitaID=$idpartita;
+    		$EPrenotazione->setUtenteusername($username);
+    		$EPrenotazione->setPartitaID($idpartita);
     	
 			$titolopartita=$_array_dati_partita['titolo'];
-			$EPrenotazione->titoloPartita=$titolopartita;
-			if($dati_prenotazione['attrezzatura']==FALSE){$EPrenotazione->attrezzatura='';}
-			else{$EPrenotazione->attrezzatura=$dati_prenotazione['attrezzatura'];}
-			$EPrenotazione->id=$username.$_array_dati_partita['titolo'];
+			$EPrenotazione->setTitoloPartita($titolopartita);
+			if($dati_prenotazione['attrezzatura']==FALSE){$EPrenotazione->setAttrezzatura('');}
+			else{$EPrenotazione->setAttrezzatura($dati_prenotazione['attrezzatura']);}
+			$EPrenotazione->setId($username.$_array_dati_partita['titolo']);
 		
 			$partita->setNdisponibili($disponibili-1);	
 			$FPartita->update($partita);

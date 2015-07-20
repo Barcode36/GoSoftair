@@ -1,3 +1,5 @@
+<?php /* Smarty version 2.6.26, created on 2015-07-20 18:21:09
+         compiled from registrazione_modulo.tpl */ ?>
         <a id="anchor-contact-1"></a>
         <div class="corner-content-1col-top"></div>        
         <div class="content-1col-nobox">

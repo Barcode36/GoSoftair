@@ -28,8 +28,8 @@ class FPartita extends Fdb {
     public function load ($key) {
         $partita=parent::load($key);
         $FCommento=new FCommento();
-        $arrayCommenti=$FCommento->loadCommenti($partita->IDpartita);
-        $partita->_commento=$arrayCommenti;
+        $arrayCommenti=$FCommento->loadCommenti($partita->getId());
+        $partita->setCommento($arrayCommenti);
         return $partita;
     }
 

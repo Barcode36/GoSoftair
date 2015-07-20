@@ -5,7 +5,7 @@
  * @package Entity
  */
 class EUtente {
-    public $nome;
+	public $nome;
     public $cognome;
     public $username;
     public $password;
@@ -17,6 +17,7 @@ class EUtente {
     public $stato='non_attivo';
     public $foto;
 	public $punti;
+    
     /**
      * @AssociationType Entity.EPrenotazione
      * @AssociationMultiplicity 0..*
@@ -29,11 +30,6 @@ class EUtente {
      * @ReturnType float
      */
 
-    public function getUsername() {
-    	return $this->username;
-    }
-    
-    
     public function getNome() {
     	return $this->nome;
     }
@@ -42,15 +38,22 @@ class EUtente {
     	return $this->cognome;
     }
     
+    public function getUsername() {
+    	return $this->username;
+    }
     
-    public function getPunti() {
-    	return $this->punti;
+    public function getPassword() {
+    	return $this->password;
     }
     
     public function getEmail() {
     	return $this->email;
     }
     
+    public function getPunti() {
+    	return $this->punti;
+    }
+   
     public function getVia() {
     	return $this->via;
     }
@@ -62,9 +65,27 @@ class EUtente {
     public function getCitta() {
     	return $this->citta;
     }
-
-    public function getPassword() {
-    	return $this->password;
+    
+    public function getCodiceattivazione() {
+    	return $this->codice_attivazione;
+    }
+    
+    public function getStato() {
+    	return $this->stato;
+    }
+    
+    public function getFoto() {
+    	return $this->foto;
+    }
+    
+    
+    /**
+     * @access public
+     * @return array()
+     * @ReturnType array()
+     */
+    public function getPrenotazioni() {
+    	return $this->_prenotazioni;
     }
     
     public function setUtenteMod($nome, $cognome, $username, $password, $email, $via, $CAP, $citta, $codice_attivazione, $stato, $foto )
@@ -82,12 +103,58 @@ class EUtente {
     	$this->foto=$foto;
     }
     
+    
+    public function setNome($nome){
+    	$this->nome=$nome;
+    }
+    
+    public function setCognome($cognome){
+    	$this->cognome=$cognome;
+    }
+    
+    public function setUsername($username){
+    	$this->username=$username;
+    }
+    
+    public function setPassword($password){
+    	$this->password=$password;
+    }
+    
+    public function setEmail($email){
+    	$this->email=$email;
+    }
+    
+    public function setVia($via){
+    	$this->via=$via;
+    }
+    
     public function setPunti($punti){
     	$this->punti=$punti;
     }
     
+    public function setCAP($CAP){
+    	$this->CAP=$CAP;
+    }
     
+    public function setCitta($citta){
+    	$this->citta=$citta;
+    }
     
+    public function setCodiceattivazione($codice_attivazione){
+    	$this->codice_attivazione=$codice_attivazione;
+    }
+    
+    public function setStato($stato){
+    	$this->stato=$stato;
+    }
+    
+    public function setFoto($foto){
+    	$this->foto=$foto;
+    }
+    
+    public function setPrenotazioni($prenotazioni){
+    	$this->prenotazioni=$prenotazioni;
+    }
     /**
      * @access public
      */
@@ -109,14 +176,6 @@ class EUtente {
      * @return array()
      * @ReturnType array()
      */
-    public function getPrenotazioni() {
-        return $this->_prenotazioni;
-    }
-    /**
-     * @access public
-     * @return array()
-     * @ReturnType array()
-     */
     public function getAccountAttivo() {
         if ($this->stato=='attivo')
             return true;
@@ -124,9 +183,6 @@ class EUtente {
             return false;
     }
 
-    public function getCodiceAttivazione() {
-        return $this->codice_attivazione;
-    }
     
 }
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-20 15:51:37
+<?php /* Smarty version 2.6.26, created on 2015-07-20 22:41:18
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 25, false),)), $this); ?>

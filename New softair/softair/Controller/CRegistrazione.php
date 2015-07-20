@@ -58,10 +58,10 @@ class CRegistrazione {
         if ($utente!=false) {
             if ($utente->getAccountAttivo()) {
                 //account attivo
-                if ($username==$utente->username && $password==$utente->password) {
+                if ($username==$utente->getUsername() && $password==$utente->getPassword()) {
                     $session=USingleton::getInstance('USession');
                     $session->imposta_valore('username',$username);
-                    $session->imposta_valore('nome_cognome',$utente->nome.' '.$utente->cognome);
+                    $session->imposta_valore('nome_cognome',$utente->getNome().' '.$utente->getCognome());
                     return true;
                 } else {
                     $this->_errore='Username o password errati';
@@ -135,14 +135,14 @@ class CRegistrazione {
         global $config;
         $view=USingleton::getInstance('VRegistrazione');
         $view->setLayout('email_attivazione');
-        $view->impostaDati('username',$utente->username);
-        $view->impostaDati('nome_cognome',$utente->nome.' '.$utente->cognome);
+        $view->impostaDati('username',$utente->getUsername());
+        $view->impostaDati('nome_cognome',$utente->getNome().' '.$utente->getCognome());
         $view->impostaDati('codice_attivazione',$utente->getCodiceAttivazione());
         $view->impostaDati('email_webmaster',$config['email_webmaster']);
         $view->impostaDati('url',$config['url_softair']);
         $corpo_email=$view->processaTemplate();
         $email=USingleton::getInstance('UEmail');
-        return $email->invia_email($utente->email,$utente->nome.' '.$utente->cognome,'Attivazione account softair',$corpo_email);
+        return $email->invia_email($utente->getEmail(),$utente->getNome().' '.$utente->getCognome(),'Attivazione account softair',$corpo_email);
     }
     /**
      * Attiva un utente che inserisce un codice di attivazione valido oppure clicca sul link di autenticazione nell'email
@@ -156,7 +156,7 @@ class CRegistrazione {
         $utente=$FUtente->load($dati_attivazione['username']);
         if ($dati_attivazione!=false) {
             if ($utente->getCodiceAttivazione()==$dati_attivazione['codice']) {
-                $utente->stato='attivo';
+                $utente->setStato('attivo');
                 $FUtente->update($utente);
                 $view->setLayout('conferma_attivazione');
             } else {

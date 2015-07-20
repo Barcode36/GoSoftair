@@ -112,15 +112,15 @@ class CPartita {
 		$dati_registrazione=$view->getDatiCreaPartita();
 		$data=$dati_registrazione['Anno'].'-'.$dati_registrazione['Mese'].'-'.$dati_registrazione['Giorno'];
 		$username=$session->leggi_valore('username');
-		$EPartita->autore=$username;
-		$EPartita->titolo=($dati_registrazione['Titolo']);
-		$EPartita->indirizzo=($dati_registrazione['Indirizzo']);
-		$EPartita->data=$data;
-		$EPartita->descrizione=($dati_registrazione['Descrizione']);
-		$EPartita->ngiocatori=($dati_registrazione['Giocatori']);
-		$EPartita->ndisponibili=($dati_registrazione['Giocatori']);
-		$EPartita->categoria=($dati_registrazione['Categoria']);
-		$EPartita->attrezzatura=($dati_registrazione['Attrezzatura']);
+		$EPartita->setAutore($username);
+		$EPartita->setTitolo($dati_registrazione['Titolo']);
+		$EPartita->setIndirizzo($dati_registrazione['Indirizzo']);
+		$EPartita->setData($data);
+		$EPartita->setDescrizione($dati_registrazione['Descrizione']);
+		$EPartita->setNgiocatori($dati_registrazione['Giocatori']);
+		$EPartita->setNdisponibili($dati_registrazione['Giocatori']);
+		$EPartita->setCategoria($dati_registrazione['Categoria']);
+		$EPartita->setAttrezzatura($dati_registrazione['Attrezzatura']);
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
 		$EPartita->setVotata('non_votata');
 		$file=$view->getFile();
@@ -132,13 +132,13 @@ class CPartita {
                 mkdir($dir,0755,true);
             }
             if(move_uploaded_file($file, $target)){
-                $EPartita->immagine=$target;               
+                $EPartita->setImmagine($target);               
                 
             }
         }
    		//l'idpartita così definito ha delle limitazioni
 		$idpartita=$session->leggi_valore('username').$dati_registrazione['Titolo'];
-        $EPartita->IDpartita=$idpartita;
+        $EPartita->setIDpartita($idpartita);
         $FPartita->store($EPartita);
 		
 		//verifica se l'utente creatore vuole partecipare alla propia partita
@@ -150,14 +150,14 @@ class CPartita {
 			$EPrenotazione=new EPrenotazione();
 			$FPrenotazione=new FPrenotazione();
 			
-			$EPrenotazione->utenteusername=$username;
-			$EPrenotazione->partitaID=$idpartita;
+			$EPrenotazione->setUtenteusername($username);
+			$EPrenotazione->setPartitaID($idpartita);
 			 
 			$titolopartita=$dati_registrazione['Titolo'];
-			$EPrenotazione->titoloPartita=$titolopartita;
-			$EPrenotazione->attrezzatura=$dati_registrazione['Attrezzatura'];
+			$EPrenotazione->setTitoloPartita($titolopartita);
+			$EPrenotazione->setAttrezzatura($dati_registrazione['Attrezzatura']);
 			//l'id così definito ha dei limiti
-			$EPrenotazione->id=$username.$titolopartita;
+			$EPrenotazione->setId($username.$titolopartita);
 			
 			$EPartita->setNdisponibili($dati_registrazione['Giocatori']-1);
 			$FPartita->update($EPartita);

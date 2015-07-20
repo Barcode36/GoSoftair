@@ -19,42 +19,7 @@ class EPrenotazione {
      * @AttributeType boolean
      */
     public $attrezzatura=false;
-  /*
-     * @AssociationType Entity.EUtente
-     * @AssociationMultiplicity 1
-     */
-/*    public $_utente;
-    /**
-     * 
-     * @AssociationMultiplicity 1..*
-     * @AssociationKind Aggregation
-     */
-  /*  public $_item = array();
-    /**
-     * @AssociationType Entity.ECartaCredito
-     * @AssociationMultiplicity 1
-     */
-    /*public $_cartacredito;
-*/
-    /**
-     * @access public
-     * @return float
-     */
-    public function getPrezzoTotale() {
-        $prezzo=0;
-        if (count($this->_item)>0) {
-            foreach($this->_item as $item) {
-                $libro=$item->getLibro();
-                $prezzo += $libro->prezzo*$item->quantita;
-            }
-        }
-        return $prezzo;
-    }
-    
-    public function getPartitaID() {
-    	return $this->partitaID;
-    }
-    
+  
     
     public function setPrenotazioneMod($id, $partitaID, $titoloPartita, $utenteusername, $attrezzatura) {
     	$this->id=$id;
@@ -64,81 +29,44 @@ class EPrenotazione {
     	$this->attrezzatura=$attrezzatura;    	
     }
 
-    /**
-     * @access public
-     * @param $pagato boolean
-     */
-    public function setPagato($pagato) {
-        $this->pagato=$pagato;
-    }
-
-    /**
-     * @access public
-     * @param $confermato boolean
-     */
-    public function setConfermato($confermato) {
-        $this->confermato=$confermato;
-    }
-
-    /**
-     * @access public
-     * @return array()
-     */
-    public function getItems() {
-        return $this->_item;
-    }
-    /**
-     * @access public
-     * @param $data string
-     */
-    public function setData($data) {
-        $anno=substr($data, 6);
-        $mese=substr($data, 3, 2);
-        $giorno=substr($data, 0, 2);
-        $this->data="$anno-$mese-$giorno";
-    }
-    /**
-     * @access public
-     * @param $cartaCredito ECartaCredito
-     */
-    public function setCartaCredito(ECartaCredito $cartaCredito) {
-        $this->_cartacredito=$cartaCredito;
-    }
-    /**
-     * @access public
-     * @param $utente EUtente
-     */
-    public function setUtente(EUtente $utente) {
-        $this->_utente=$utente;
+    public function setId($id) {
+    	$this->id = $id;
     }
     
-    /**
-     * @access public
-     * @param EPartita item
-     */
-    public function addItem(EPartita $item) {
-    	$itemPartita=$item;
-		$this->_item=merge($this->_item,$itemPartita);
-    	
+    public function setPartitaID($partitaID) {
+    	$this->partitaID = $partitaID;
     }
     
-    
-    
-    /**
-     * rimuovo l'item nella posizione $pos dell'array
-     *
-     * @param int $pos
-     */
-    public function removeItem($pos) {
-        unset($this->_item[$pos]);
-        $this->_item=array_values($this->_item);
+    public function setTitoloPartita($titoloPartita) {
+    	$this->titoloPartita = $titoloPartita;
     }
-    /** restituisce l'utente relativo all'prenotazione
-     * @return EUtente
-     */
-    public function getUtente() {
-        return $this->_utente;
+    
+    public function setUtenteusername($utenteusername) {
+    	$this->utenteusername = $utenteusername;
     }
-
+    
+    public function setAttrezzatura($attrezzatura) {
+    	$this->attrezzatura = $attrezzatura;
+    }
+    
+    public function getId() {
+    	return $this->id;
+    }
+    
+    public function getPartitaID() {
+    	return $this->partitaID;
+    }
+    
+    public function getTitoloPartita() {
+    	return $this->titoloPartita;
+    }
+    
+    public function getUtenteusername() {
+    	return $this->utenteusername;
+    }
+    
+    public function getAttrezzatura() {
+    	return $this->attrezzatura;
+    }
 }
 ?>

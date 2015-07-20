@@ -23,7 +23,7 @@ class CRicerca {
             $array_risultato=array();
             $j=0;
             for ($i=0; $i<count($risultato); $i++) {
-                $tmpPartita=$FPartita->load($risultato[$i]->IDpartita);
+                $tmpPartita=$FPartita->load($risultato[$i]->getId());
                 
                 $date=USingleton::getInstance('UData');
                 $dataPartita=$tmpPartita->getData();
@@ -87,7 +87,7 @@ class CRicerca {
             $array_risultato=array();
             $j=0;
             for ($i=0; $i<count($risultato); $i++) {
-            	$tmpPartita=$FPartita->load($risultato[$i]->IDpartita);
+            	$tmpPartita=$FPartita->load($risultato[$i]->getId());
        
             	$date=USingleton::getInstance('UData');
             	$dataPartita=$tmpPartita->getData();
@@ -152,9 +152,9 @@ class CRicerca {
         if ($username!=false) {
             $view = USingleton::getInstance('VRicerca');
             $ECommento = new ECommento();
-            $ECommento->partitaIDpartita=$view->getIdPartita();
-            $ECommento->voto=$view->getVoto();
-            $ECommento->testo=$username." : ".$view->getCommento();
+            $ECommento->setPartitaIDpartita($view->getIdPartita());
+            $ECommento->setVoto($view->getVoto());
+            $ECommento->setTesto($username." : ".$view->getCommento());
             $FCommento=new FCommento();
             $FCommento->store($ECommento);
             return $this->dettagli();

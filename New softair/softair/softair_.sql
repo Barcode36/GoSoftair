@@ -70,7 +70,7 @@ INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponi
 ('1', 'Perdonami', 'via daqui', 10, 5, 'alex','2018-10-15', 12, 'SI' , 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg', 'non_votata'),
 ('2', 'ghd', 'via daqui', 10, 8,'alex','2015-07-18', 1, 'SI', 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg', 'non_votata'),
 ('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'alessandro','2016-01-01', 1, '', 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg', 'non_votata'),
-('4', 'Casa', 'a casa', 2, 0,'alessandro','2016-08-02', 1, '' ,'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg', 'non_votata'),
+('4', 'Casa', 'a casa', 2, 5,'alessandro','2016-08-02', 1, '' ,'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg', 'non_votata'),
 ('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'alex','2015-09-11', 0, 'SI', 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg', 'non_votata'),
 ('6', 'Assalto al circo', 'circo', 5, 3,'alessandro','2016-08-09', 0,'SI','ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg', 'non_votata'),
 ('7', 'wwww', 'wwwww', 5, 4,'alex','2016-08-01', 0, '','agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg', 'non_votata');

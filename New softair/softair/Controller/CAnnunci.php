@@ -96,11 +96,11 @@ class CAnnunci {
         $EAnnuncio=new EAnnuncio();
         $FAnnuncio=new FAnnuncio();
 		$dati_an=$view->getDatiCreaAnnuncio();	
-		$EAnnuncio->autoreusername=$session->leggi_valore('username');
-		$EAnnuncio->titolo=$dati_an['Titolo'];
-		$EAnnuncio->descrizione=$dati_an['Descrizione'];
-		$EAnnuncio->prezzo=$dati_an['Prezzo'];
-		$EAnnuncio->telefono=$dati_an['Numero'];
+		$EAnnuncio->setAutoreusername($session->leggi_valore('username'));
+		$EAnnuncio->setTitolo($dati_an['Titolo']);
+		$EAnnuncio->setDescrizione($dati_an['Descrizione']);
+		$EAnnuncio->setPrezzo($dati_an['Prezzo']);
+		$EAnnuncio->setTelefono($dati_an['Numero']);
 		$EAnnuncio->data=date("Y-m-d");
 		$file=$view->getFile();
         if($file){
@@ -111,11 +111,11 @@ class CAnnunci {
                 mkdir($dir,0755,true);
             }
             if(move_uploaded_file($file, $target)){
-                $EAnnuncio->immagine=$target;               
+                $EAnnuncio->setImmagine($target);               
                 
             }
         }
-		$EAnnuncio->IDannuncio=($session->leggi_valore('username').$dati_an['Titolo']);
+		$EAnnuncio->setId($session->leggi_valore('username').$dati_an['Titolo']);
         $FAnnuncio->store($EAnnuncio);
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();
