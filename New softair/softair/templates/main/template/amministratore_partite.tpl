@@ -13,7 +13,7 @@
                 <th class="top" scope="col">Modifica</th>
                 <th class="top" scope="col">Elimina</th>
           	{section name=i loop=$datiPartite}  
-            <tr><td><a style="color:#303030" href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].IDpartita}">{$datiPartite[i].titolo}</a></td>
+            <tr><td><a  href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].IDpartita}">{$datiPartite[i].titolo}</a></td>
                 <td>{$datiPartite[i].autore}</td>
                 <td>{$datiPartite[i].categoria}</td>
             	

@@ -78,6 +78,10 @@ class EUtente {
     	$this->foto=$foto;
     }
     
+    public function setPunti($punti){
+    	$this->punti=$punti;
+    }
+    
     
     
     /**

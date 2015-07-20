@@ -57,6 +57,7 @@ CREATE TABLE `partita` (
   `descrizione` varchar(2048) DEFAULT NULL,
   `categoria` varchar(20) DEFAULT NULL,
   `immagine` varchar(100) DEFAULT NULL,
+  `votata` enum('votata','non_votata') DEFAULT NULL,
   PRIMARY KEY (`IDpartita`),
   KEY `Creatore` (`autore`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -65,14 +66,14 @@ CREATE TABLE `partita` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`,`prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 5, 'alex','2018-10-15', 12, 'SI' , 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg'),
-('2', 'ghd', 'via daqui', 10, 8,'alex','2015-08-15', 1, 'SI', 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'alessandro','2016-01-01', 1, '', 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg'),
-('4', 'Casa', 'a casa', 2, 0,'alessandro','2016-08-02', 1, '' ,'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'alex','2015-09-11', 0, 'SI', 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg'),
-('6', 'Assalto al circo', 'circo', 5, 3,'alessandro','2016-08-09', 0,'SI','ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg'),
-('7', 'wwww', 'wwwww', 5, 4,'alex','2016-08-01', 0, '','agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg');
+INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`,`prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`, `votata`) VALUES
+('1', 'Perdonami', 'via daqui', 10, 5, 'alex','2018-10-15', 12, 'SI' , 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg', 'non_votata'),
+('2', 'ghd', 'via daqui', 10, 8,'alex','2015-08-15', 1, 'SI', 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg', 'non_votata'),
+('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'alessandro','2016-01-01', 1, '', 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg', 'non_votata'),
+('4', 'Casa', 'a casa', 2, 0,'alessandro','2016-08-02', 1, '' ,'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg', 'non_votata'),
+('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'alex','2015-09-11', 0, 'SI', 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg', 'non_votata'),
+('6', 'Assalto al circo', 'circo', 5, 3,'alessandro','2016-08-09', 0,'SI','ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg', 'non_votata'),
+('7', 'wwww', 'wwwww', 5, 4,'alex','2016-08-01', 0, '','agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg', 'non_votata');
 
 -- --------------------------------------------------------
 

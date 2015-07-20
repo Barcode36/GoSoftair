@@ -27,7 +27,7 @@ class CPartita {
     	$date=USingleton::getInstance('UData');
     	$dataPartita=$partita->getData();
     	$giorni=$date->diff_daoggi($dataPartita);
-    	if($giorni>-7){
+    	if($giorni>7){
     		$FPrenotazione=new FPrenotazione();
     		$prenoRelative=$FPrenotazione->loadfrompartita($partita->getId());
     		if ($prenoRelative!='')
@@ -40,6 +40,10 @@ class CPartita {
     		$view->setLayout('cancellata');
     	}
     	else{
+    		$prenota=TRUE;
+    		if($giorni>0){
+    			$prenota=FALSE;
+    		}
     		$commenti=$partita->getCommenti();
     		$arrayCommenti=array();
     		$dati=get_object_vars($partita);
@@ -80,6 +84,7 @@ class CPartita {
     					$i++;
     				}
     			}
+    			$view->impostaDati('prenota', $prenota);
     			$view->impostaDati('username', $username);
     			$view->impostaDati('giaPrenotato', $giaPrenotato);
     			$view->setLayout('dettagli_registrato');
@@ -117,6 +122,7 @@ class CPartita {
 		$EPartita->categoria=($dati_registrazione['Categoria']);
 		$EPartita->attrezzatura=($dati_registrazione['Attrezzatura']);
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
+		$EPartita->setVotata('non_votata');
 		$file=$view->getFile();
         if($file){
             $nomeOriginale=basename($view->getOriginalFile());

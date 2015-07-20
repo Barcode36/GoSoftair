@@ -25,7 +25,7 @@
                 	<th class="top" scope="col"></th>
           		{section name=i loop=$datiPartite}  
             	<tr><td>{$datiPartite[i].partitaID}</td>
-                	<td><a style="color:#303030" href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
+                	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
                 	<td>{$datiPartite[i].utenteusername}</td>
                 	{if $datiPartite[i].attrezzatura==''}
                 	<td>NO</td>{else}
@@ -60,7 +60,7 @@
                 <th class="top" scope="col"></th>
                 <th class="top" scope="col"></th>
           	{section name=j loop=$datiAnnunci}  
-            <tr><td><a style="color:#303030" href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
+            <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
                 <td>{$datiAnnunci[j].prezzo}</td>
                 <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>
             	<td>{$datiAnnunci[j].telefono}</td>
@@ -96,14 +96,16 @@
                 <th class="top" scope="col">Data</th>
                 <th class="top" scope="col">Giocatori Max</th>
                 <th class="top" scope="col">Posti liberi</th>
+                <th class="top" scope="col">Assegna Punti</th>
           	{section name=k loop=$datiPartiteCreate}  
-            <tr><td><a style="color:#303030" href="index.php?controller=partita&task=apripartita&id_partita={$datiPartiteCreate[k].IDpartita}">{$datiPartiteCreate[k].titolo}</a></td>
+            <tr><td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartiteCreate[k].IDpartita}">{$datiPartiteCreate[k].titolo}</a></td>
                 <td>{$datiPartiteCreate[k].categoria}</td>
             	<td>{$datiPartiteCreate[k].prezzo}</td>
  				<td>{$datiPartiteCreate[k].indirizzo}</td>
             	<td>{$datiPartiteCreate[k].data}</td>
             	<td>{$datiPartiteCreate[k].ngiocatori}</td>
             	<td>{$datiPartiteCreate[k].ndisponibili}</td>
+            	<td><a href="index.php?controller=profilo&task=assegnapunti&id_partita={$datiPartiteCreate[k].IDpartita}"><img title="Assegna Punti" class="mod" height="20" src="templates/main/template/img/p1.jpg"></a></td> 
             </tr>
             {/section}
 			</table>

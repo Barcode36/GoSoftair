@@ -47,6 +47,7 @@ class FPrenotazione extends Fdb{
     				$this->delete($prenotazioni[$i]);
     				$i++;
     			}
+    			print 'okpren';
     }
 
     

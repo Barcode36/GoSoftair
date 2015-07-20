@@ -13,7 +13,7 @@
                 <th class="top" scope="col">Modifica</th>
                 <th class="top" scope="col">Elimina</th>
           	{section name=j loop=$datiAnnunci}  
-            <tr><td><a style="color:#303030" href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
+            <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
                 <td>{$datiAnnunci[j].autoreusername}</td>
                 <td>{$datiAnnunci[j].prezzo}</td>
                 <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>

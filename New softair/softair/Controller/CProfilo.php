@@ -79,14 +79,13 @@ class CProfilo {
     		$FPartita=new FPartita();
     		$partita=$FPartita->loadfromcreatore($username);
     		if ($partita!=false) {
-    			$i=0;
-    			while ($i<count($partita)) {
+    			for ($i=0; $i<count($partita); $i++) {
     				
     				$date=USingleton::getInstance('UData');
     				$dataPartita=$partita[$i]->getData();
     				$giorni=$date->diff_daoggi($dataPartita);
     				
-    				if($giorni>-7){
+    				if($giorni>7){
     					$FPrenotazione=new FPrenotazione();
     					$prenoRelative=$FPrenotazione->loadfrompartita($partita[$i]->getId());
     					if ($prenoRelative!='')
@@ -95,16 +94,15 @@ class CProfilo {
     					$commRelative=$FCommento->loadCommenti($partita[$i]->getId());
     					if ($commRelative!='')
     						$FCommento->deleteRel($commRelative);
-    					$FPartita->delete($risultato[$i]);
+    					$FPartita->delete($partita[$i]);
     				}
     				else{
     					$partite_create[$i]=get_object_vars($partita[$i]);
     					$start = DateTime::createFromFormat('Y-m-d',$partita[$i]->getData());
     					$partite_create[$i]['data']=$start->format('d/m/Y');
-    					$i++;
     				}
     			}
-    			$view->impostaDati('datiPartiteCreate', $partite_create);;
+    			$view->impostaDati('datiPartiteCreate', $partite_create);
     		}
 
     	}
@@ -296,9 +294,68 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
+    public function assegnaPunti(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$date=USingleton::getInstance('UData');
+    	$session=USingleton::getInstance('USession');
+    	$idpartita=$view->getIdPartita();
+    	$FPartita = new FPartita();
+    	$partita=$FPartita->load($idpartita);
+    	$votata=$partita->getVotata();
+    	if($votata=='non_votata')
+    	{
+    		$datiPartita=get_object_vars($partita);
+    		$giorni=$date->diff_daoggi($datiPartita['data']);
+    		if($giorni>0){
+    			$start = DateTime::createFromFormat('Y-m-d',$partita->getData());
+   		 		$datiPartita['data']=$start->format('d/m/Y');
+    	
+    			$FPrenotazione = new FPrenotazione();
+    			$prenotazioni=$FPrenotazione->loadfrompartita($idpartita);
+    			if($prenotazioni!=''){
+    				for($i=0; $i<count($prenotazioni); $i++){
+    					$datiPrenotazioni[$i]=get_object_vars($prenotazioni[$i]);
+    					$listaUtenti[$i]=$datiPrenotazioni[$i]['utenteusername'];
+    					$numero[$i]=$i;
+    				}
+    				$session->imposta_valore('idpartita',$idpartita);
+    				$session->imposta_valore('nprenotati',count($prenotazioni));
+    				$session->imposta_valore('utenti',$listaUtenti);
+    				$view->impostaDati('utenti',$listaUtenti);
+    			} 
+    			$view->impostaDati('datiPartita',$datiPartita);
+    		}
+    	}
+    	$view->impostaDati('votata',$votata);
+    	print $votata;
+    	$view->setLayout('assegna_punti');
+    	return $view->processaTemplate();
+    }
     
     
     
+    public function salvaVoti(){
+    	$view = USingleton::getInstance('VProfilo');
+    	$session=USingleton::getInstance('USession');
+    	$nprenotati=$session->leggi_valore('nprenotati');
+    	$listaUtenti=$session->leggi_valore('utenti');
+    	$voti=$view->getVoti($listaUtenti);
+    	$FUtente = new FUtente();
+    	for($i=0; $i<$nprenotati; $i++){
+    		print 'a'.$voti[$i].'b';
+    		$utente[$i]=$FUtente->load($listaUtenti[$i]);
+    		$utente[$i]->setPunti($voti[$i]);
+    		$FUtente->update($utente[$i]);
+    	}
+    	$FPartita = new FPartita();
+    	$idpartita=$session->leggi_valore('idpartita');
+    	$partita=$FPartita->load($idpartita);
+    	$partita->setVotata('votata');
+    	$FPartita->update($partita);
+    	$view->setLayout('conferma_punti');
+    	return $view->processaTemplate();
+    	
+    }
     
     /**
      * Imposta l'utente attuale
@@ -337,7 +394,11 @@ class CProfilo {
             case 'salvaannuncio':
                 return $this->salvaAnnuncio();
             case 'eliminaannuncio':
-                return $this->eliminaAnnuncio();        
+                return $this->eliminaAnnuncio(); 
+            case 'assegnapunti':
+                return $this->assegnaPunti();
+            case 'salvavoti':
+                	return $this->salvaVoti();
         }
      }
 }

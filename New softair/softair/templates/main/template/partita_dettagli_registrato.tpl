@@ -34,7 +34,7 @@
                       <option value="5">5</option>
                    </select>
                 <p><label for="commento" class="left">Commento:</label>
-                   <textarea name="commento" id="commento" cols="45" rows="10" tabindex="5"></textarea></p>
+                   <textarea name="commento" id="commento" cols="20" rows="10" tabindex="5"></textarea></p>
                    <input type="hidden" name="controller" value="ricerca" />
                    <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
                 <p><input type="submit" name="task" class="button" value="Inserisci" tabindex="6" /></p>
@@ -50,6 +50,7 @@
         </div>
 		<div class="corner-content-1col-bottom"></div>
 {if $username!='AMMINISTRATORE'}
+	{if $prenota==TRUE}
          <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
         {if $dati.ndisponibili!=0}
@@ -71,8 +72,8 @@
             </form>
             {else}<p>Sei gi&agrave prenotato a questa partita</p>{/if}
           </div>
-          {else}<h1>Partita al completo</h1>
-          {/if}
+          {else}<h1>Partita al completo</h1>{/if}
         </div>
 		<div class="corner-content-1col-bottom"></div>
+	{else}<h1>Partita gia svolta</h1>{/if}
 {/if}

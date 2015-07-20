@@ -11,7 +11,7 @@
                 	<th class="top" scope="col"></th>
           		{section name=i loop=$datiPartite}  
             	<tr><td>{$datiPartite[i].partitaID}</td>
-                	<td><a style="color:#303030" href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
+                	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
                 	<td>{$datiPartite[i].utenteusername}</td>
                 	{if $datiPartite[i].attrezzatura==''}
                 	<td>NO</td>{else}

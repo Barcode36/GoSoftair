@@ -18,7 +18,7 @@ class CAmministratore {
 				$dataPartita=$partite[$i]->getData();
 				$giorni=$date->diff_daoggi($dataPartita);
 				
-				if($giorni>-7){
+				if($giorni>7){
 					$FPrenotazione=new FPrenotazione();
 					$prenoRelative=$FPrenotazione->loadfrompartita($partite[$i]->getId());
 					if ($prenoRelative!='')

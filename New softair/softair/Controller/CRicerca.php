@@ -28,7 +28,7 @@ class CRicerca {
                 $date=USingleton::getInstance('UData');
                 $dataPartita=$tmpPartita->getData();
                 $giorni=$date->diff_daoggi($dataPartita);
-                if($giorni>-7){
+                if($giorni>7){
                 	$FPrenotazione=new FPrenotazione();
                 	$prenoRelative=$FPrenotazione->loadfrompartita($risultato[$i]->getId());
                 	if ($prenoRelative!='')
@@ -40,6 +40,10 @@ class CRicerca {
                 	$FPartita->delete($risultato[$i]);
                 }
                 else{
+                	$prenota=TRUE;
+                	if($giorni>0){
+                		$prenota=FALSE;
+                	}
                 	$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
                 	//2 righe sotto ritrasformano la data nel formato voluto
                 	$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
@@ -83,14 +87,13 @@ class CRicerca {
             $j=0;
             for ($i=0; $i<count($risultato); $i++) {
             	$tmpPartita=$FPartita->load($risultato[$i]->IDpartita);
-            
+       
             	$date=USingleton::getInstance('UData');
             	$dataPartita=$tmpPartita->getData();
             	$giorni=$date->diff_daoggi($dataPartita);
-            	if($giorni>-7){
+            	if($giorni>7){
             		$FPrenotazione=new FPrenotazione();
             		$prenoRelative=$FPrenotazione->loadfrompartita($risultato[$i]->getId());
-            		print $risultato[$i]->getId();
             		if ($prenoRelative!='')
             			$FPrenotazione->deleteRel($prenoRelative);
             		$FCommento=new FCommento();
@@ -100,6 +103,10 @@ class CRicerca {
             		$FPartita->delete($risultato[$i]);
             	}
             	else{
+            		$prenota=TRUE;
+            		if($giorni>0){
+            			$prenota=FALSE;
+            		}
             		$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
             		//2 righe sotto ritrasformano la data nel formato voluto
             		$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);

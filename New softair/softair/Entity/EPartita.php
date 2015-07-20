@@ -16,6 +16,7 @@ class EPartita {
 	public $IDpartita;
 	public $immagine;
 	public $attrezzatura;
+	public $votata;
     /**
      * @AssociationType Entity.ECommento
      * @AssociationMultiplicity 0..*
@@ -29,7 +30,11 @@ class EPartita {
     {
     	$this->prezzo=$prezzo;
     }
-    
+
+    public function setVotata($votata)
+    {
+    	$this->votata=$votata;
+    }
     
     public function setNdisponibili($ndisponibili)
     {
@@ -38,6 +43,10 @@ class EPartita {
     
     public function getNdisponibili() {
     	return $this->ndisponibili;
+    }
+    
+    public function getVotata() {
+    	return $this->votata;
     }
     
     

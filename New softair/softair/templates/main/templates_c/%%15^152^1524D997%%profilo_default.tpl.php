@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-19 12:23:26
+<?php /* Smarty version 2.6.26, created on 2015-07-20 02:45:12
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 65, false),)), $this); ?>
@@ -65,7 +65,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 ?>  
             	<tr><td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
 </td>
-                	<td><a style="color:#303030" href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
+                	<td><a href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['partitaID']; ?>
 "><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['titoloPartita']; ?>
 </a></td>
                 	<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['utenteusername']; ?>
@@ -129,7 +129,7 @@ $this->_sections['j']['index_next'] = $this->_sections['j']['index'] + $this->_s
 $this->_sections['j']['first']      = ($this->_sections['j']['iteration'] == 1);
 $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $this->_sections['j']['total']);
 ?>  
-            <tr><td><a style="color:#303030" href="index.php?controller=annuncio&task=apriannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+            <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
 "><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['titolo']; ?>
 </a></td>
                 <td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['prezzo']; ?>
@@ -174,6 +174,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
                 <th class="top" scope="col">Data</th>
                 <th class="top" scope="col">Giocatori Max</th>
                 <th class="top" scope="col">Posti liberi</th>
+                <th class="top" scope="col">Assegna Punti</th>
           	<?php unset($this->_sections['k']);
 $this->_sections['k']['name'] = 'k';
 $this->_sections['k']['loop'] = is_array($_loop=$this->_tpl_vars['datiPartiteCreate']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -198,7 +199,7 @@ $this->_sections['k']['index_next'] = $this->_sections['k']['index'] + $this->_s
 $this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
 $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
 ?>  
-            <tr><td><a style="color:#303030" href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['IDpartita']; ?>
+            <tr><td><a href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['IDpartita']; ?>
 "><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['titolo']; ?>
 </a></td>
                 <td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['categoria']; ?>
@@ -213,6 +214,8 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 </td>
             	<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['ndisponibili']; ?>
 </td>
+            	<td><a href="index.php?controller=profilo&task=assegnapunti&id_partita=<?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['IDpartita']; ?>
+"><img title="Assegna Punti" class="mod" height="20" src="templates/main/template/img/p1.jpg"></a></td> 
             </tr>
             <?php endfor; endif; ?>
 			</table>

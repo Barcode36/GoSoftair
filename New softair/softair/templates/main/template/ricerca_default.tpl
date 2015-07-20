@@ -23,12 +23,14 @@
               <b>Media Voti:</b> | {if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
               <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"}</p>
+               {if $prenota==TRUE}
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
               <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
+              {/if}
               {/if}
             </div>
             <div class="corner-content-2col-bottom"></div>
@@ -59,12 +61,14 @@
               <b>Media Voti:</b> | {if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
               <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"}</p>
+               {if $prenota==TRUE}
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
               <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
+              {/if}
               {/if}
             </div>
             <div class="corner-content-2col-bottom"></div>

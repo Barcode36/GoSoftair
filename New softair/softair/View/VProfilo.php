@@ -49,6 +49,16 @@ class VProfilo extends View{
     		return false;
     }
 
+    
+    
+    public function getVoti($listaUtenti) {
+    	for($i=0; $i<count($listaUtenti); $i++){
+    		if (isset($_REQUEST[$listaUtenti[$i]]))
+    			 $dati=$_REQUEST[$listaUtenti[$i]];
+    	}
+    	return $dati;
+    }
+    
 
     public function getUsername() {
     	if (isset($_REQUEST['username']))
@@ -78,6 +88,20 @@ class VProfilo extends View{
     	} else
     		return false;
     }
+    
+    
+    /**
+     * Restituisce l'id della partita passato per GET o POST
+     *
+     * @return mixed
+     */
+    public function getIdPartita() {
+    	if (isset($_REQUEST['id_partita'])) {
+    		return $_REQUEST['id_partita'];
+    	} else
+    		return false;
+    }
+    
     /**
      * recupera dal vettore _FILE il nome temporaneo del file.
      * 
