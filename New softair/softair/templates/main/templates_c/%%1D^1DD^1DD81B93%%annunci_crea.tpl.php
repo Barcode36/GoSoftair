@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-20 12:33:59
+<?php /* Smarty version 2.6.26, created on 2015-07-20 16:21:39
          compiled from annunci_crea.tpl */ ?>
  <?php if ($this->_tpl_vars['username'] != false): ?>
  <div class="corner-content-1col-top"></div>        

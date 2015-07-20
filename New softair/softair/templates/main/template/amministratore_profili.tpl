@@ -9,7 +9,7 @@
                 <th class="top" scope="col">Modifica</th>
                 <th class="top" scope="col">Elimina</th>
           	{section name=i loop=$datiUtente}  
-            <tr><td>{$datiUtente[i].username}</td>
+            <tr><td><a href="index.php?controller=profilo&task=apri&username={$datiUtente[i].username}">{$datiUtente[i].username}</a></td>
                 
             	<td>{$datiUtente[i].email}</td>
                 <td><a href="index.php?controller=profilo&task=modutente&username={$datiUtente[i].username}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 

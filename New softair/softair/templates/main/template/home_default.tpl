@@ -46,7 +46,6 @@
       </div>
     
       <!-- A.4 BREADCRUMB and SEARCHFORM -->
-      {if $username!='AMMINISTRATORE'}
       <div class="header-bottom">
         <!-- Search form -->                  
         <div class="searchform">
@@ -58,7 +57,7 @@
             </fieldset>
           </form>
         </div>
-      </div>{/if}
+      </div>
     </div>
     <div class="corner-page-bottom"></div>    
     
@@ -70,26 +69,23 @@
       <ul>
         {if $username!='AMMINISTRATORE'}
         <li><a href="index.php">Home</a></li>{/if}
+        <li><a href="index.php?controller=profilo&task=apri&username={$username}">Profilo</a></li>
         {if $username=='AMMINISTRATORE'}
-        <li><a href="index.php?controller=amministratore&task=vediprofili">Profili</a></li>
-        {else}<li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>{/if}
+        <li><a href="index.php?controller=amministratore&task=vediprofili">Profili</a></li>{/if}
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
         {else}<li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>{/if}
 		{if $username=='AMMINISTRATORE'}
 		<li><a href="index.php?controller=amministratore&task=vediprenotazioni">Prenotazioni</a></li>
 		{else}
-		{section name=i loop=$menu}
-                <li><a href="{$menu[i].link}">{$menu[i].testo}</a>
-                {if $menu[i].submenu !=false}
-                    <ul>
-                    {section name=j loop=$menu[i].submenu}
-                        <li><a href="{$menu[i].submenu[j].link}">{$menu[i].submenu[j].testo}</a></li>
-                    {/section}
-                    </ul>
-                {/if}
-                </li>
-        {/section}{/if}
+		<li><a href="#">Categorie</a>
+			<ul><li><a href="index.php?controller=ricerca&task=lista&categoria=Ruba la bandiera">Ruba la bandiera</a><li>
+			<li><a href="index.php?controller=ricerca&task=lista&categoria=Deathmatch a squadre">Deathmatch a squadre</a><li>
+			<li><a href="index.php?controller=ricerca&task=lista&categoria=Tutti contro tutti">Tutti contro tutti</a><li>
+			<li><a href="index.php?controller=ricerca&task=lista&categoria=Simulazione storica">Simulazione storica</a><li>
+			<li><a href="index.php?controller=ricerca&task=lista&categoria=Caccia all uomo">Caccia all uomo</a><li></ul>
+		</li>
+		{/if}
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vediannunci">Annunci</a></li>
         {else}<li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>{/if}

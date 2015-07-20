@@ -36,7 +36,7 @@ class CProfilo {
     public function apriProfilo(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
-    	$username=$session->leggi_valore('username');
+    	$username=$view->getUsername();
 		$this->setUtente($username);
     	if ($this->_utente!=false) {
     		$this->_array_dati_utente=get_object_vars($this->_utente);

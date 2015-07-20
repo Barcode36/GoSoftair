@@ -40,9 +40,9 @@ class CRicerca {
                 	$FPartita->delete($risultato[$i]);
                 }
                 else{
-                	$prenota=TRUE;
+                	$prenota[$i]='prenotabile';
                 	if($giorni>0){
-                		$prenota=FALSE;
+                		$prenota[$i]='non_prenotabile';
                 	}
                 	$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
                 	//2 righe sotto ritrasformano la data nel formato voluto
@@ -51,12 +51,13 @@ class CRicerca {
                 	$j++;
                 } 
            }
+           $view->impostaDati('prenota', $prenota);
+           $view->impostaDati('dati',$array_risultato);
         }
         $num_risultati=count($FPartita->search());
         $pagine = ceil($num_risultati/$this->_partite_per_pagina);
         $view->impostaDati('pagine',$pagine);
         $view->impostaDati('task','ultimi_arrivi');
-        $view->impostaDati('dati',$array_risultato);
         return $view->processaTemplate();
     }
     /**
@@ -103,10 +104,10 @@ class CRicerca {
             		$FPartita->delete($risultato[$i]);
             	}
             	else{
-            		$prenota=TRUE;
-            		if($giorni>0){
-            			$prenota=FALSE;
-            		}
+            	    $prenota[$i]='prenotabile';
+                	if($giorni>0){
+                		$prenota[$i]='non_prenotabile';
+                	}
             		$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
             		//2 righe sotto ritrasformano la data nel formato voluto
             		$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
@@ -114,6 +115,7 @@ class CRicerca {
             		$j++;
             	}
             }
+            $view->impostaDati('prenota', $prenota);
             $view->impostaDati('dati',$array_risultato);
         }
         $view->impostaDati('pagine',$pagine);
