@@ -1,0 +1,9 @@
+se apri il nostro progetto nella cartella Foundation/Utility/Umail
+ trovi la classe per l invio della mail
+
+abbiamo usato pear mail una libreria gi? fatta scaricata dal web e
+nn abbiamo usato php mail perch? deprecata
+
+la stessa cosa la trovi se apri il progetto di bookstore,
+l unica differenza in bookstore che usa ancora la libreria 
+ phpmailer ormai deprecata in php 5.6
