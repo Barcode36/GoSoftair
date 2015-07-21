@@ -19,14 +19,14 @@ $config['mysql']['host'] = 'localhost';
 $config['mysql']['database'] = 'softair';
 
 //configurazione server smtp per invio email
-$config['smtp']['host'] = 'smtp.cheapnet.it';
-$config['smtp']['port'] = '25';
-$config['smtp']['smtpauth'] = false;
-$config['smtp']['username'] = '';
-$config['smtp']['password'] = '';
+$config['smtp']['host']= 'ssl://smtp.gmail.com';
+$config['smtp']['port']='465';
+$config['smtp']['smtpauth']=true;
+$config['smtp'] ['username']='webmasterachieved@gmail.com';
+$config['smtp']['password']='password';
+$config['email_webmaster']='webmasterachieved@gmail.com';
+$config['url_achieved']='http://localhost/softair';
 
-$config['email_webmaster']='perora.accontentati@gmai.com';
-$config['url_softair']='http://localhost/softair/softair';
 
 function debug($var){
     global $config;
