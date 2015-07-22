@@ -275,4 +275,5 @@
 .button {float:right; padding:1px; background-image:url(../img/rosso.jpg); border:solid 1px rgb(80,80,80); text-align:center; color:#fff; font-size:110%;}
 .button:hover {cursor:pointer; border:solid 1px rgb(50,50,50); background-image:url(../img/rosso2.jpg); color:#fff;}
 
+#ut {width:260px;}
 

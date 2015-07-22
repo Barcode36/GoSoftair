@@ -4,7 +4,7 @@
           <a href="index.php?controller=profilo&task=modutente&username={$datiUtente.username}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
           <h1>{$datiUtente.username}</h1>
           <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
-          <p><img  src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
+          <p><img  id="ut" src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
   		Punti: {$datiUtente.punti}<br>
 		  e-mail: {$datiUtente.email}<br>
 		  Citta: {$datiUtente.citta}<br>

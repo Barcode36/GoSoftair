@@ -67,13 +67,13 @@ CREATE TABLE `partita` (
 --
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`,`prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`, `votata`) VALUES
-('1', 'Perdonami', 'via daqui', 10, 5, 'alex','2018-10-15', 12, 'SI' , 'scappate tutti senno vi ammazzo','Ruba la bandiera', './immagini/partite/ciccio/cacciatore.jpg', 'non_votata'),
-('2', 'ghd', 'via daqui', 10, 8,'alex','2015-07-18', 1, 'SI', 'la pampuia futa all ebba','Ruba la bandiera', './immagini/partite/ciccio/attacco.jpg', 'non_votata'),
-('3', 'Nelle fratte', 'foresta amazzonica', 10, 7,'alessandro','2016-01-01', 1, '', 'sdish','Deathmatch a squadre', './immagini/partite/dante/ballo.jpg', 'non_votata'),
-('4', 'Casa', 'a casa', 2, 5,'alessandro','2016-08-02', 1, '' ,'cartman','Simulazione storica', './immagini/partite/cartman/pistole.jpg', 'non_votata'),
-('5', 'Assalto alla casa bianca', 'casa bianca', 5, 4, 'alex','2015-09-11', 0, 'SI', 'sdish','Tutti contro tutti', './immagini/partite/douchebag/pupazzo.jpg', 'non_votata'),
-('6', 'Assalto al circo', 'circo', 5, 3,'alessandro','2016-08-09', 0,'SI','ahaha','Caccia all uomo', './immagini/partite/clown/ridi.jpg', 'non_votata'),
-('7', 'wwww', 'wwwww', 5, 4,'alex','2016-08-01', 0, '','agrippa','Deathmatch a squadre', './immagini/partite/agrippa/romano.jpg', 'non_votata');
+('1', 'Convento', 'via del convento 2', 10, 9, 'Rambittu89','2015-10-15', 0, 'SI' , 'Partita 5 vs 5 in un convento abbandonato. Si gioca dalle 10 alle 17 con pausa pranzo','Deathmatch a squadre', './immagini/partite/Rambittu89/convento.jpg', 'non_votata'),
+('2', 'Quartiere abbandonato', 'via garibaldi 56', 10, 5,'SnAkE','2015-09-18', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
+('3', 'Simulazione ww2', 'Piazza arischia', 20, 18,'viulenza93','2015-10-10', 5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5€.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
+('4', 'Foresta', 'Bosco di Pizzoli', 8, 7,'micidial','2015-11-02', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
+('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 4, 'terminator','2015-10-11', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
+('6', 'Mezzi utilizzabili', 'via della campagna Arischia', 20, 20,'cartman','2015-08-09', 0,'SI','Un fuggitivo, tutti all inseguimento. Il fuggitivo verra selezionato a caso e avra un ora di vantaggio. Gli altri inseguiranno anche con veicoli. Incontro alle 17','Caccia all uomo', './immagini/partite/cartman/veicoli.jpg', 'non_votata'),
+('7', 'Campo attrezzato', 'Softgun AQ', 6, 4,'Softgun AQ','2016-02-01', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/Softgun AQ/campo.jpg', 'non_votata');
 
 -- --------------------------------------------------------
 
@@ -98,10 +98,18 @@ CREATE TABLE `prenotazione` (
 --
 
 INSERT INTO `prenotazione` (`id`, `partitaID`, `titoloPartita` , `utenteusername`, `attrezzatura`) VALUES
-(1, '1', 'Perdonami','alex', 'SI'),
-(2, '2', 'ghd', 'alex', ''),
-(3, '6', 'Assalto al circo','alessandro', 'SI'),
-(4, '7', 'www', 'alessandro', '');
+(1, '1', 'Convento','Rambittu89', 'SI'),
+(2, '2', 'Quartiere abbandonato', 'Rambittu89', ''),
+(3, '2', 'Quartiere abbandonato', 'viulenza93', ''),
+(4, '2', 'Quartiere abbandonato', 'terminator', 'SI'),
+(5, '2', 'Quartiere abbandonato', 'SnAkE', ''),
+(6, '2', 'Quartiere abbandonato', 'micidial', ''),
+(7, '5', 'Assalto al forte','micidial', 'SI'),
+(8, '3', 'Simulazione ww2', 'cartman',''),
+(9, '3', 'Simulazione ww2', 'viulenza93',''),
+(10, '4', 'Foresta','micidial', ''),
+(11, '7', 'Campo attrezzato','Rambittu89', 'SI'),
+(12, '7', 'Campo attrezzato','SnAkE', '');
 
 
 
@@ -132,10 +140,14 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`, `punti`) VALUES
-('AMMINISTRATORE', 'amministratore', '', 'pwadmin', 'email', 'via', 'codice_attivazione', 'attivo', 'citta', 'CAPP','./immagini/profili/alessandro/ballo.jpg', 0),
-('alessandro', 'aless', 'verzicco', 'passws', '', 'via', 'ciao', 'non_attivo', 'citta', 'CAPPP','./immagini/profili/alessandro/ballo.jpg', 2),
-('alex', 'Alessandro', 'Verzicco', 'aaa', 'averzicco@hotmail.com', 'c.da covatta 8', '732876922', 'attivo', 'Ripalimosani', '86025','./immagini/profili/alex/profilo_romano.jpg', 5);
-
+('AMMINISTRATORE', 'Amministratore', '', 'pwadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0),
+('SnAkE', 'Mario', 'Serpente', 'passsnake', 'snake@hotmail.com', 'via delle vie', 'ciao', 'attivo', 'L Aquila', '67010','./immagini/profili/SnAkE/snake.jpg', 2),
+('terminator', 'John', 'Connor', 'passterminator', 'jc@hotmail.com', 'via delle macchine', '732876922', 'attivo', 'Monticchio (AQ)', '67011','./immagini/profili/terminator/terminator.jpg', 5),
+('cartman', 'Eric', 'Cartman', 'passcartman', 'ec@hotmail.com', 'via southpark 15', '722876922', 'attivo', 'Barete (AQ)', '67012','./immagini/profili/cartman/cartman.jpg', 6),
+('viulenza93', 'Francesco', 'Delle Botte', 'passviulenza93', 'viul93@hotmail.com', 'via dei coppini 37', '712876922', 'attivo', 'Cesaproba (AQ)', '67009','./immagini/profili/viulenza93/viol.jpg', 4),
+('rambittu89', 'John', 'Rambo', 'passrambittu89', 'jr@hotmail.com', 'via delle mitragliatrici gigantesche 9', '702876922', 'attivo', 'Pizzoli (AQ)', '67017','./immagini/profili/rambittu89/rambo.jpg', 11),
+('micidial', 'Enzo', 'Micidiali', 'passmicidial', 'mic@hotmail.com', 'via delle banche 7', '731876922', 'attivo', 'Coppito (AQ)', '67010','./immagini/profili/micidial/maccio.jpg', 9),
+('Softgun AQ', 'Guido', 'Dei Campi', 'passsoftgunaq', 'softgunaq@hotmail.com', 'via dei campi 21', '732876920', 'attivo', 'Bazzano (AQ)', '67010','./immagini/profili/Softgun AQ/campo.jpg', 0);
 -- --------------------------------------------------------
 
 --
@@ -160,9 +172,9 @@ CREATE TABLE `annuncio` (
 --
 
 INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `data`, `telefono`, `immagine`, `titolo`) VALUES
-('1', 'alex', 10.00, 'Gran bell''arma', '2015-07-15', '08536666', './immagini/annunci/alex/mia.jpg', 'Fa fico'),
-('2', 'alessandro', 29.99, 'Una bella accoppiata', '2015-07-10', '085546536666', './immagini/annunci/alessandro/coppia.jpg', '2 is meglio che one '),
-('3', 'alex', 25.00, 'La mia bambina', '2015-06-28', '08536556', './immagini/annunci/alex/tie.jpg', 'Adottami');
+('1', 'SnAkE', 10.00, 'G36k nuovo di zecca, pallini inclusi', '2015-07-15', '08536666', './immagini/annunci/SnAkE/mia.jpg', 'Fa fico'),
+('2', 'micidial', 29.99, 'Una bella accoppiata, gerabox in metallo e accessori vari inclusi', '2015-07-10', '085546536666', './immagini/annunci/micidial/coppia.jpg', '2 is meglio che one '),
+('3', 'cartman', 25.00, 'Come nuova, vendo causa inutilizzo', '2015-06-28', '08536556', './immagini/annunci/cartman/tie.jpg', 'Adottami');
 -- --------------------------------------------------------
 
 --
