@@ -1,10 +1,18 @@
 <?php
 /**
+ * Descrizione di CHome
+ * La classe imposta la pagina.
+ * 
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Controller
  */
 class CHome {
+    
     /**
+     * @access public
      * Imposta la pagina, controlla l'autenticazione
      */
     public function impostaPagina () {
@@ -30,6 +38,10 @@ class CHome {
     }
     
     
+    /**
+     * Imposta la classifica dei giocatori.
+     * @access public
+     */
     public function classifica() {
     	$VHome= USingleton::getInstance('VHome');
     	$FUtente=new FUtente();
@@ -49,9 +61,11 @@ class CHome {
     
     
     
-    /**
-     * Smista le richieste ai vari controller
-     *
+     /**
+     * Esegue un controllo sul compito che viene richiesto e quindi esegue le
+     * dovute procedure affinchè il compito venga eseguito. Inoltre compie 
+     * un controllo di sessione.
+     * @access public
      * @return mixed
      */
     public function smista() {

@@ -5,6 +5,9 @@
  * dell'utente nel database e le relative pagine che permettono questi servizi
  * 
  * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
  */
 class CProfilo {
@@ -28,9 +31,15 @@ class CProfilo {
      * @var EUtente
      */
     private $_utente;
+
     /**
-     * Passa i dati relativi all'utente partire prenotazte che restituisce una pagina contenente
-     * la pagina profilo
+     * La funzione imposta la pagina del profilo dell'utente mostrandogli i suoi dati e un resoconto
+     * delle attività compiute,
+     * In particolare prende l'username dell'utente dalla view, e grazie a questa prende da DB e
+     * carica in array i dati dell'utente, le partite prenotate, gli annunci postati e le 
+     * partite create. I dati negli array sono passati al template 'profilo_default'che li organizza,
+     * principalmente in tabelle in cui è consentito all'utente di fare opportune modifiche.
+     * @access public
      * @return mixed
      */
     public function apriProfilo(){
@@ -39,9 +48,12 @@ class CProfilo {
     	$username=$view->getUsername();
 		$this->setUtente($username);
     	if ($this->_utente!=false) {
+    		
+    		//in un array vengono caricati tutti i dati personali dell'utente
     		$this->_array_dati_utente=get_object_vars($this->_utente);
     		$view->impostaDati('datiUtente', $this->_array_dati_utente);
     		
+    		//in un array vengono caricate tutte le prenotazioni fatte
     		$FPrenotazione=new FPrenotazione();
     		$prenotazione=$FPrenotazione->loadfromuser($username);
     		if ($prenotazione!=false) {
@@ -53,6 +65,7 @@ class CProfilo {
         		$view->impostaDati('datiPartite', $this->_array_dati_partite);
     		}
     		
+    		//in un array vengono caricati tutti gli annunci pubblicati non scaduti
     		$FAnnuncio=new FAnnuncio();
     		$annuncio=$FAnnuncio->loadfromuser($username);
     		if ($annuncio!=false) {
@@ -76,6 +89,7 @@ class CProfilo {
         		$view->impostaDati('datiAnnunci', $this->_array_dati_annunci);
     		}
     		
+    		//in un array vengono caricate tutte le partite create non più vecchie di 7 giorni fa
     		$FPartita=new FPartita();
     		$partita=$FPartita->loadfromcreatore($username);
     		if ($partita!=false) {
@@ -110,7 +124,13 @@ class CProfilo {
         return $view->processaTemplate();
     }
     
-    
+    /**
+	 * La funzione viene richiamata da profilo quando l'utente decide di modificare i dati 
+	 * personali di registrazione. Prepara una forma analoga a quella utilizzata 
+	 * per la registrazione precompilata con i dati premodifica.
+     * @access public
+     * @return mixed
+     */
     public function modUtente(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -125,6 +145,13 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
+    /**
+     * La funzione viene richiamata quando l'utente conferma di aver terminato di modificare i
+     * dati relativi alla registrazione. Fa semplicemente un aggiornamento sul database con i dati
+     * inseriti nella modifica
+     * @access public
+     * @return mixed
+     */
     public function salvaUtente(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -161,9 +188,12 @@ class CProfilo {
     	return $view->processaTemplate();	
     }
     
-    
-    
-    
+    /**
+     * La funzione viene richiamata dal profilo quando l'utente decide di modificare una delle
+     *  prenotazioni effettuare. Prepara una form analoga a quella di prenotazione. 
+     * @access public
+     * @return mixed
+     */
     public function modPrenotazione(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -183,7 +213,13 @@ class CProfilo {
     	
     }
     
-    
+    /**
+     * La funzione viene richiamata quando l'utente conferma di aver terminato di modificare i
+     * dati relativi alla prenotazione. Fa semplicemente un aggiornamento sul database con i dati
+     * inseriti nella modifica.
+     * @access public
+     * @return mixed
+     */
     public function salvaPrenotazione(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -205,7 +241,14 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
-    
+    /**
+     * La funzione viene chiamata da profilori quando l'utente decide di cancellarsi da una 
+     * prenotazione precedentemente effettuta. Viene effettuata una cancellazione dal DB e 
+     * aggiornato il contatore che definisce il numero di posti liberi nella partita 
+     * a cui era prenotato.
+     * @access public
+     * @return mixed
+     */
     public function eliminaPrenotazione(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -227,8 +270,13 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
-    
-    
+    /**
+     * La funzione viene richiamata dal profilo quando l'utente decide di modificare uno degli
+     * annunci pubblicati. Prepara una form analoga a quella di creazione dell'annuncio precompilata
+     * con i dati premodifica.
+     * @access public
+     * @return mixed
+     */
     public function modAnnuncio(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -246,6 +294,13 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
+    /**
+     * La funzione viene richiamata quando l'utente conferma di aver terminato di modificare i
+     * dati relativi all'annuncio. Fa semplicemente un aggiornamento sul database con i dati
+     * inseriti nella modifica.
+     * @access public
+     * @return mixed
+     */
     public function salvaAnnuncio(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -279,6 +334,12 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
+    /**
+     * La funzione viene richiamata da profilo quando l'utente decide di cancellare un
+     * annuncio precedentemente pubblicato. Viene effettuata una cancellazione dal DB.
+     * @access public
+     * @return mixed
+     */
     public function eliminaAnnuncio(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -294,6 +355,15 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
+    /**
+     * La funzione viene richiamata dal profilo quando un utente  vuole assegnare 
+     * un punteggio ai giocatori che hanno partecipato a una partita da lui creata. 
+     * L'operazione viene permessa solo dopo lo svolgimento della partita e solo una volta.
+     * La funzione prepara una form dove per ogni utente prenotato alla partita si può assegnare
+     * un punteggio da 1 a 5.
+     * @access public
+     * @return mixed
+     */
     public function assegnaPunti(){
     	$view = USingleton::getInstance('VProfilo');
     	$date=USingleton::getInstance('UData');
@@ -331,8 +401,13 @@ class CProfilo {
     	return $view->processaTemplate();
     }
     
-    
-    
+    /**
+     * La funzione viene richiamata quando l'utente conferma di aver terminato di inserire i
+     * voti ai giocatori della partita creata. Fa semplicemente un aggiornamento sul database 
+     * sommando per ogni utente partecipante il voto assegnato.
+     * @access public
+     * @return mixed
+     */
     public function salvaVoti(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
@@ -358,6 +433,7 @@ class CProfilo {
     
     /**
      * Imposta l'utente attuale
+     * @access public
      * @param string
      */
     public function setUtente($username){
@@ -368,9 +444,8 @@ class CProfilo {
     
     /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
-     * dovute procedure affinchÃ© il compito venga eseguito. Esegue inoltre un 
-     * controllo di sessione. Se non ï¿½ confermata viene visualizzato un 
-     * messaggio d'errore.
+     * dovute procedure affinchè il compito venga eseguito.
+     * @access public
      * @return mixed
      */
     public function smista() {

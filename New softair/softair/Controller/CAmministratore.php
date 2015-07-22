@@ -1,12 +1,23 @@
 <?php
 /**
+ * Descrizione di CAmministratore
+ * La classe da all'amministatore la capacità di visualizzare, modificare e eliminare
+ * le partite, gli annunci, le prenotazioni e gli utenti 
  * 
  * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
  */
 class CAmministratore {
 	
-	
+	/**
+	 * La funzione imposta la pagina che permette all'amministratore di gestire tutte le partite
+	 * presenti sul database non più vecchie di 7 giorni mostrandole in tabelle.
+	 * @access public
+	 * @return mixed
+	 */
 	public function vediPartite(){
 		$view = USingleton::getInstance('VAmministratore');
 		$FPartita=new FPartita();
@@ -42,6 +53,13 @@ class CAmministratore {
 		return $view->processaTemplate();
 	}
 
+	/**
+	 * La funzione viene richiamata dalla pagine delle partite quando l'amministaratore decide 
+	 * di modificare una partita preparando una forma analoga a quella di creazione della 
+	 * partita precompilata con i dati attuali. 
+	 * @access public
+	 * @return mixed
+	 */
 	public function modPartita(){
 		$view = USingleton::getInstance('VAmministratore');
 		$idpartita=$view->getIdPartita();
@@ -57,10 +75,15 @@ class CAmministratore {
 		return $view->processaTemplate();	
 	}
 	
+	/**
+	 * La funzione viene richiamata quando l'amministratatore conferma di aver finito 
+	 * di modificare la partita. La funzione semplicemente aggiorna la partita sul DB.
+	 * @access public
+	 * @return mixed
+	 */
 	public function salvaPartita(){
 		$view=USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
-		
 		$EPartita=new EPartita();
 		$FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
@@ -96,6 +119,13 @@ class CAmministratore {
 		return $view->processaTemplate();
 	}
 	
+	/**
+	 * La funzione viene richiamata della pagine delle partite dall'amministratore quando decide 
+	 * di eliminare una partita. Vengono automaticamente elimitati anche i commenti associati
+	 * alla partite e le prenotazioni relative.
+	 * @access public
+	 * @return mixed
+	 */
 	public function eliminaPartita(){
 		$view = USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
@@ -117,7 +147,12 @@ class CAmministratore {
 		return $view->processaTemplate();
 	}
 	
-	
+	/**
+	 * La funzione imposta la pagina che permette all'amministratore di gestire tutti gli annunci
+	 * presenti sul database non scaduti. 
+	 * @access public
+	 * @return mixed
+	 */
 	public function vediAnnunci(){
 		$view = USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
@@ -149,6 +184,12 @@ class CAmministratore {
 		
 	}
 	
+	/**
+	 * La funzione imposta la pagina che permette all'amministratore di gestire tutti òe prenotazioni
+	 * presenti sul database.
+	 * @access public
+	 * @return mixed
+	 */
 	public function vediPrenotazioni(){
 		$view = USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
@@ -168,7 +209,12 @@ class CAmministratore {
 		
 	}
 	
-	
+	/**
+	 * La funzione imposta la pagina che permette all'amministratore di gestire tutti i profili
+	 * presenti sul database.
+	 * @access public
+	 * @return mixed
+	 */
 	public function vediProfili(){
 		$view = USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
@@ -186,7 +232,13 @@ class CAmministratore {
 		return $view->processaTemplate();
 	}
 	
-	
+	/**
+	 * La funzione viene richiamata quando l'amministratore dalla pagina dei profili decide di 
+	 * eliminarne uno, cancellando automaticamente anche tutte le prenotazioni effettuate, 
+	 * gli annunci pubblicati e le partite create.
+	 * @access public
+	 * @return mixed
+	 */
 	public function eliminaProfilo(){
 		$view = USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
@@ -226,7 +278,12 @@ class CAmministratore {
 		$FUtente->delete($utente);
 	}
 	
-	
+	/**
+	 * Esegue un controllo sul compito che viene richiesto e quindi esegue le
+	 * dovute procedure affinchè il compito venga eseguito.
+	 * @access public
+	 * @return mixed
+	 */
 	public function smista() {
 		$view=USingleton::getInstance('VAmministratore');
 		switch ($view->getTask()){

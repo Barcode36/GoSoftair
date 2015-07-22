@@ -1,20 +1,24 @@
 <?php
 /**
+ * Descrizione di CPartita
+ * La classe gestisce le partite, permettendone la visualizzazione, la modifica e la crezione.
+ * 
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Controller
  */
 class CPartita {
+	
     /**
-     * @var string $_username
+     * La funzione viene richiamata quando si decide di vedere i dettagli di una partita.
+     * Carica i dati relativi all'annuncio dal Database sfruttando l'id della partita
+     * se la partita non è più vecchia di 7 giorni fa altrimenti procede alla sua cancellazione
+     * con tutto cio che la riguarda.
+     * @access public
+     * @return mixed
      */
-    private $_username=null;
-    
-    /**
-     * @var string $_errore
-     */
-    private $_errore='';
-   
-     
     public function apriPartita() {
     	$view=USingleton::getInstance('VPartita');
     	$session=USingleton::getInstance('USession');
@@ -95,12 +99,24 @@ class CPartita {
     	
     }
      
+    /**
+     * La funzione imposta la pagina che permette la creazione di una partita attraverso una form.
+     * @access public
+     * @return mixed
+     */
+    public function moduloCreaPartita() {
+    	$VPartita=USingleton::getInstance('VPartita');
+    	$session=USingleton::getInstance('USession');
+    	$username=$session->leggi_valore('username');
+    	$VPartita->impostaDati('username', $username);
+    	return $VPartita->processaTemplate();
+    }
      
-     
-     
-     /**
-     * Crea una partita sul DB
-     *
+    /**
+     * La funzione viene ruchiamato quando l'utente conferma di aver finito di creare l'annuncio.
+     * Salva sul Database la partita e nel caso l'utente lo abbia richiesto fa anche una prenotazione
+     * a suo nome.
+     * @access public
      * @return mixed
      */
     public function creaPartita() {
@@ -136,7 +152,6 @@ class CPartita {
                 
             }
         }
-   		//l'idpartita così definito ha delle limitazioni
 		$idpartita=$session->leggi_valore('username').$dati_registrazione['Titolo'];
         $EPartita->setIDpartita($idpartita);
         $FPartita->store($EPartita);
@@ -156,7 +171,6 @@ class CPartita {
 			$titolopartita=$dati_registrazione['Titolo'];
 			$EPrenotazione->setTitoloPartita($titolopartita);
 			$EPrenotazione->setAttrezzatura($dati_registrazione['Attrezzatura']);
-			//l'id così definito ha dei limiti
 			$EPrenotazione->setId($username.$titolopartita);
 			
 			$EPartita->setNdisponibili($dati_registrazione['Giocatori']-1);
@@ -169,23 +183,11 @@ class CPartita {
     	return $view->processaTemplate();
      }
      
-     
-    /**
-     * Mostra il modulo di registrazione
-     *
-     * @return string
-     */
-    public function moduloCreaPartita() {
-        $VPartita=USingleton::getInstance('VPartita');
-        $session=USingleton::getInstance('USession');
-        $username=$session->leggi_valore('username');
-        $VPartita->impostaDati('username', $username);
-        return $VPartita->processaTemplate();
-    }
    
     /**
-     * Smista le richieste ai relativi metodi della classe
-     * 
+     * Esegue un controllo sul compito che viene richiesto e quindi esegue le
+     * dovute procedure affinchè il compito venga eseguito.
+     * @access public
      * @return mixed
      */
     public function smista() {

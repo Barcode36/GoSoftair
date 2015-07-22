@@ -1,19 +1,32 @@
 <?php
 /**
  * Descrizione di CAnnunci
+ * La classe gestisce gli annunci, permettendone la visualizzazione, la modifica e la crezione.
  * 
  * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
  */
 class CAnnunci {
-    private $_array_dati_annunci;
-
+	/**
+	 * un array contenente gli annunci 
+	 * @var string[]
+	 */
+	private $_array_dati_annunci;
+	/**
+	 * un intero contenenti il numero di annunci da visualizzare per pagina
+	 * @var int
+	 */
     private $_annunci_per_pagina=6;
-    /**
-     * Passa i dati relativi all'utente partire prenotazte che restituisce una pagina contenente
-     * la pagina profilo
-     * @return mixed
-     */
+    
+	/**
+	 * La funzione imposta la pagina che visualizza tutti gli annunci non scaduti 6 per volta, 
+	 * mostrandonone un'anteprima.
+	 * @access public
+	 * @return mixed
+	 */
     public function vediAnnunci(){
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('username');
@@ -53,7 +66,12 @@ class CAnnunci {
         return $view->processaTemplate();      
     }
     
-    
+    /**
+     * La funzione viene richiamata quando si decide di vedere i dettagli di un annuncio.
+     * Carica i dati relativi all'annuncio dal Database sfruttando l'id dell'annuncio.
+     * @access public
+     * @return mixed
+     */
     public function apriAnnuncio() {
     	$view=USingleton::getInstance('VAnnunci');
     	$IDannuncio=$view->getIDannuncio();
@@ -79,7 +97,11 @@ class CAnnunci {
     	return $view->processaTemplate();	
     }
 	
-	
+    /**
+     * La funzione imposta la pagina che permette la creazione di annuncio attraverso una form.
+     * @access public
+     * @return mixed
+     */
 	public function moduloCreaAnnuncio() {
         $VAnnunci=USingleton::getInstance('VAnnunci');
         $session=USingleton::getInstance('USession');
@@ -89,6 +111,12 @@ class CAnnunci {
         return $VAnnunci->processaTemplate();
     }
 	
+    /**
+     * La funzione viene ruchiamato quando l'utente conferma di aver finito di creare l'annuncio.
+     * Salva sul Database l'annuncio
+     * @access public
+     * @return mixed
+     */
 	public function creaAnnuncio() {
 	    $view=USingleton::getInstance('VAnnunci');
 		$session=USingleton::getInstance('USession');
@@ -125,8 +153,8 @@ class CAnnunci {
     
     /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
-     * dovute procedure affinchÃ© il compito venga eseguito. Esegue inoltre un 
-     * controllo di sessione.
+     * dovute procedure affinchè il compito venga eseguito.
+     * @access public
      * @return mixed
      */
     public function smista() {

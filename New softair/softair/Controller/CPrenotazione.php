@@ -1,17 +1,22 @@
 <?php
 /**
+ * Descrizione di CAnnunci
+ * La classe permette il salvataggio di una prenotazione.
+ * 
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Controller
  */
 class CPrenotazione {
-    /**
-     * Variabile contenente lo stato attuale dell'prenotazione/prenotazioni
-     *
-     * @var EPrenotazione
-     */
-    private $_prenotazioni;
- 
-    //*********************************************************
+	
+	/**
+	 * La funzione viene richiamata quando l'utente conferma di volersi prenotare
+	 * a una partita. La funzione aggiorna il numero di posti liberi nella partita.
+	 * @access public
+	 * @return mixed
+	 */
     public function salvaPrenotazione() {
     	$view=USingleton::getInstance('VPrenotazione');
     	$session=USingleton::getInstance('USession');
@@ -53,15 +58,14 @@ class CPrenotazione {
     
 
     /**
-     * Smista le richieste ai vari metodi
-     * 
+     * Esegue un controllo sul compito che viene richiesto e quindi esegue le
+     * dovute procedure affinchè il compito venga eseguito.
+     * @access public
      * @return mixed
      */
     public function smista() {
         $view=USingleton::getInstance('VPrenotazione');
         switch ($view->getTask()) {
-
-            //********************************************
             case 'salvaprenotazione':
                 return $this->salvaPrenotazione();
         }

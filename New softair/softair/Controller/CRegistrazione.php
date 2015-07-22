@@ -1,7 +1,13 @@
 <?php
 /**
+ * Descrizione di CRegistrazione
+ * La classe permette la gestione della registrazione di un utente.
+ * 
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Controller
  */
 class CRegistrazione {
     /**
@@ -16,9 +22,10 @@ class CRegistrazione {
      * @var string $_errore
      */
     private $_errore='';
+    
     /**
-     * Controlla se l'utente Ã¨ registrato ed autenticato
-     *
+     * Controlla se l'utente è registrato ed autenticato
+     * @access public
      * @return boolean
      */
     public function getUtenteRegistrato() {
@@ -45,9 +52,10 @@ class CRegistrazione {
         $this->_errore='';
         return $autenticato;
     }
+    
     /**
      * Controlla se una coppia username e password corrispondono ad un utente regirtrato ed in tal caso impostano le variabili di sessione relative all'autenticazione
-     *
+     * @access public
      * @param string $username
      * @param string $password
      * @return boolean
@@ -77,9 +85,10 @@ class CRegistrazione {
         }
         return false;
     }
+    
     /**
-     * Crea un utente sul database controllando che non esista giÃ 
-     *
+     * Crea un utente sul database controllando che non esista già 
+     * @access public
      * @return mixed
      */
     public function creaUtente() {
@@ -124,9 +133,10 @@ class CRegistrazione {
             return $view->processaTemplate();
         }
     }
+    
     /**
      * Invia un email contenente il codice di attivazione per un utente appena registrato
-     *
+     * @access public
      * @global array $config
      * @param EUtente $utente
      * @return boolean
@@ -144,9 +154,11 @@ class CRegistrazione {
         $email=USingleton::getInstance('UEmail');
         return $email->invia_email($utente->getEmail(),$utente->getNome().' '.$utente->getCognome(),'Attivazione account softair',$corpo_email);
     }
+    
     /**
-     * Attiva un utente che inserisce un codice di attivazione valido oppure clicca sul link di autenticazione nell'email
-     *
+     * Attiva un utente che inserisce un codice di attivazione valido oppure clicca 
+     * sul link di autenticazione nell'email
+     * @access public
      * @return string
      */
     public function attivazione() {
@@ -168,9 +180,10 @@ class CRegistrazione {
         }
         return $view->processaTemplate();
     }
+    
     /**
      * Mostra il modulo di registrazione
-     *
+     * @access public
      * @return string
      */
     public function moduloRegistrazione() {
@@ -178,7 +191,9 @@ class CRegistrazione {
         $VRegistrazione->setLayout('modulo');
         return $VRegistrazione->processaTemplate();
     }
+    
     /**
+     * @access public
      * EfFettua il logout
      */
     public function logout() {
@@ -186,9 +201,11 @@ class CRegistrazione {
         $session->cancella_valore('username');
         $session->cancella_valore('nome_cognome');
     }
-    /**
-     * Smista le richieste ai relativi metodi della classe
-     * 
+     
+     /**
+     * Esegue un controllo sul compito che viene richiesto e quindi esegue le
+     * dovute procedure affinchè il compito venga eseguito.
+     * @access public
      * @return mixed
      */
     public function smista() {

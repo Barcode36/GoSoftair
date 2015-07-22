@@ -1,17 +1,29 @@
 <?php
 /**
+ * Descrizione di CRicerca
+ * La classe permette la visualizzazione  delle partite in base alla loro data 
+ * o in base alla categoria, inoltre richiama la funzione di visualizzazione 
+ * dei dettagli della partita e permette l'insermento dei commenti a una partita
+ * se l'utente e registrato.
+ * 
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Controller
  */
 class CRicerca {
     /**
+     * variabile che contiene il numero di partite per pagine
      * @var int
      */
     private $_partite_per_pagina=6;
+
     /**
-     * Seleziona sul database le partite con id piÃ¹ alto e li mostra nella pagina principale
-     *
-     * @return string contenuto del template processato
+     * La funzione imposta la pagina principale mostrando tutte le partite non più vecchie di
+     * 7 giorni, ordinate per data.
+     * @access public
+     * @return mixed
      */
     public function ultimiArrivi() {
         $view = USingleton::getInstance('VRicerca');
@@ -61,10 +73,9 @@ class CRicerca {
         return $view->processaTemplate();
     }
     /**
-     * Seleziona sul database le partite per mostrarli all'utente e li filtra 
-     * in base alle variabili passate
-     * es categorie o stringhe di ricerca
-     *
+     * Seleziona sul database le partite non più vecchie di 7 giorni per mostrarli all'utente 
+     * e li filtra in base alle variabili passate ad esempio categorie o stringhe di ricerca.
+     * @access public
      * @return string
      */
     public function lista(){
@@ -129,8 +140,9 @@ class CRicerca {
     
     
     /**
-     * Mostra i dettagli di una partita, con la descrizione completa, i commenti e il form per l'invio di commenti, solo per utenti registrati
-     *
+     * Mostra i dettagli di una partita, con la descrizione completa, i commenti e 
+     * il form per l'invio di commenti e la registrazione solo per utenti registrati.
+     * @access public
      * @return string
      */
     public function dettagli() {
@@ -142,8 +154,8 @@ class CRicerca {
         $CPartita->apriPartita();
     }
     /**
-     * Inserisce un commento nel database collegandolo al relativo libro
-     *
+     * Inserisce un commento nel database collegandolo alla relativa partita.
+     * @access public
      * @return string
      */
     public function inserisciCommento() {
@@ -160,9 +172,11 @@ class CRicerca {
             return $this->dettagli();
         }
     }
+    
     /**
-     * Smista le richieste ai vari metodi
-     *
+     * Esegue un controllo sul compito che viene richiesto e quindi esegue le
+     * dovute procedure affinchè il compito venga eseguito.
+     * @access public
      * @return mixed
      */
     public function smista() {
