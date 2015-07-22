@@ -1,33 +1,26 @@
 <?php
 /**
- * File VHome.php contenente la classe VHome
- *
- * @package view
- */
-/**
- * Classe VHome, estende la classe view del package System e gestisce la visualizzazione e formattazione del sito, inoltre imposta i principali contenuti della pagina, suddivisi in contenuti principali (main_content) e contenuti della barra laterale (side_content)
+ * Descrizione di VPrenotazione
+ * Classe VPrenotazione, estende la classe view del package System e gestisce la visualizzazione 
+ * e formattazione della pagina di prenotazione.
  *
  * @package View
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class VPrenotazione extends View {
+    
     /**
-     *
+     * @access private
      * @var string $_layout
      */
     private $_layout='prenotazione'; 
-    /**
-     * restituisce il numero della pagina (utilizzato nella visualizzazione delle partite) passato per GET o POST
-     * @return int
-     */
-    public function getPage() {
-        if (isset($_REQUEST['page'])) {
-            return $_REQUEST['page'];
-        } else
-            return 0;
-    }
+    
     /**
      * Restituisce l'id della partita passato per GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getIdPartita() {
@@ -36,26 +29,29 @@ class VPrenotazione extends View {
         } else
             return false;
     }
+    
     /**
      * Processa il layout scelto nella variabile _layout
-     *
+     * @access public
      * @return string
      */
     public function processaTemplate() {
         return $this->fetch('prenotazione_'.$this->_layout.'.tpl');
     }
+    
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
-     *
+     * @access public
      * @param string $key
      * @param mixed $valore
      */
     public function impostaDati($key,$valore) {
         $this->assign($key,$valore);
     }
+    
     /**
      * Restituisce il nome del task richiesto tramite GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getTask() {
@@ -64,27 +60,21 @@ class VPrenotazione extends View {
         else
             return false;
     }
-    /**
-     * Restituisce l'array delle quantità per gli oggetti nel carrello
-     *
-     * @return mixed
-     */
-    public function getArrayQuantita() {
-        if (isset($_REQUEST['quantita'])) {
-            return $_REQUEST['quantita'];
-        } else
-            return false;
-    }
+    
     /**
      * Imposta il layout
-     *
+     * @access public
      * @param string $layout
      */
     public function setLayout($layout) {
         $this->_layout=$layout;
     }
     
-    //************************************************
+    /**
+     * Restituisce l'array contenente i dati necessari per fare la  prenotazione
+     * @access public
+     * @return mixed
+     */
     public function getDatiCreaPrenotazione() {
         $dati_richiesti=array('attrezzatura');
         $dati=array();

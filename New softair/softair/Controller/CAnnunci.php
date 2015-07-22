@@ -12,11 +12,13 @@
 class CAnnunci {
 	/**
 	 * un array contenente gli annunci 
+	 * @access private
 	 * @var string[]
 	 */
 	private $_array_dati_annunci;
 	/**
 	 * un intero contenenti il numero di annunci da visualizzare per pagina
+	 * @access private
 	 * @var int
 	 */
     private $_annunci_per_pagina=6;

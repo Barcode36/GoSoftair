@@ -1,8 +1,11 @@
 <?php
 require('lib/smarty/Smarty.class.php');
 /**
- * @access public
  * @package View
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 
 class View extends Smarty {

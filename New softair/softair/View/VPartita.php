@@ -1,22 +1,26 @@
 <?php
 /**
- * File VPartita.php contenente la classe VCreaPartita
- *
- * @package view
- */
-/**
- * Classe VPartita, estende la classe view del package System e gestisce la visualizzazione e formattazione del sito, inoltre imposta i principali contenuti della pagina, suddivisi in contenuti principali (main_content) e contenuti della barra laterale (side_content)
+ * Descrizione di VPartita
+ * Classe VPartita, estende la classe view del package System e gestisce la visualizzazione 
+ * e formattazione della pagina di visualizzazione delle partite.
  *
  * @package View
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class VPartita extends View {
+    
     /**
+     * @access private
      * @var string $_layout
      */
     private $_layout='crea';
+     
      /**
      * restituisce la username passata tramite GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function gettitolo() {
@@ -25,7 +29,9 @@ class VPartita extends View {
         else
             return false;
     }
+    
     /**
+     * @access public
      * @return mixed
      */
     public function getTask() {
@@ -34,7 +40,10 @@ class VPartita extends View {
         else
             return false;
     }
+    
     /**
+     * restituisce il controller
+     * @access public
      * @return mixed
      */
     public function getController() {
@@ -44,19 +53,27 @@ class VPartita extends View {
             return false;
     }
 	
+    /**
+     * Imposta il layout
+     * @access public
+     * @param string $layout
+     */
 	public function setLayout($layout) {
         $this->_layout=$layout;
     }
 	
-    /**
+   /**
+     * Processa il layout scelto nella variabile _layout
+     * @access public
      * @return string
      */
     public function processaTemplate() {
         return $this->fetch('partita_'.$this->_layout.'.tpl');
     }
+    
     /**
      * Imposta l'eventuale errore nel template
-     *
+     * @access public
      * @param string $errore
      */
     public function impostaErrore($errore){
@@ -65,7 +82,7 @@ class VPartita extends View {
     
     /**
      * Ritorna l'id della partita passato tramite GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getIdPartita() {
@@ -74,18 +91,20 @@ class VPartita extends View {
     	} else
     		return false;
     }
+    
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
-     *
+     * @access public
      * @param string $key
      * @param mixed $valore
      */
     public function impostaDati($key,$valore){
         $this->assign($key,$valore);
     }
+	
 	/**
      * recupera dal vettore _FILE il nome temporaneo del file.
-     * 
+     * @access public
      * @return string
      */
 	public function getFile() {
@@ -95,9 +114,10 @@ class VPartita extends View {
             return false;
         }
     }
+	 
 	 /**
      * recupera dal vettore _FILE il nome originale del file.
-     * 
+     * @access public
      * @return string
      */
     public function getOriginalFile(){
@@ -107,9 +127,10 @@ class VPartita extends View {
             return false;
         }
     }
+    
     /**
-     * Restituisce l'array contenente i dati di creazione
-     *
+     * Restituisce l'array contenente i dati necessari per la creazione della partita
+     * @access public
      * @return array();
      */
     public function getDatiCreaPartita() {

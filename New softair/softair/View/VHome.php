@@ -1,36 +1,50 @@
 <?php
 /**
- * File VHome.php contenente la classe VHome
- *
- * @package view
- */
-/**
- * Classe VHome, estende la classe view e gestisce la visualizzazione e formattazione del sito, inoltre imposta i principali contenuti della pagina, suddivisi in contenuti principali (main_content) e contenuti della barra laterale (side_content)
+ * Classe VHome, estende la classe view e gestisce la visualizzazione 
+ * e formattazione del sito, inoltre imposta i principali contenuti 
+ * della pagina, suddivisi in contenuti principali (main_content) e 
+ * contenuti della barra laterale (side_content)
  *
  * @package View
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class VHome extends View {
+    
     /**
+     * @access private
      * @var string $_main_content
      */
     private $_main_content;
+    
     /**
+     * @access private
      * @var array $_main_button
      */
     private $_main_button=array();
+    
     /**
+     * @access private
      * @var string $_side_content
      */
     private $_side_content;
+    
     /**
+     * @access private
      * @var array $_side_button
      */
     private $_side_button=array();
+    
     /**
+     * @access private
      * @var string $_layout
      */
     private $_layout='default';
+    
     /**
+     * @access private
      * Aggiunge il modulo di login nella pagina principale, per gli utenti non autenticato
      */
     public function aggiungiModuloLogin() {
@@ -40,7 +54,9 @@ class VHome extends View {
         $this->_side_content.=$modulo_login;
 
     }
+    
     /**
+     * @access private
      * Assegna il contenuto al template e lo manda in output
      */
     public function mostraPagina() {
@@ -48,15 +64,18 @@ class VHome extends View {
         $this->assign('tasti_laterali',$this->_side_button);
         $this->display('home_'.$this->_layout.'.tpl');
     }
+    
     /**
+     * @access private
      * imposta il contenuto principale alla variabile privata della classe
      */
     public function impostaContenuto($contenuto) {
         $this->_main_content=$contenuto;
     }
+    
     /**
      * Restituisce il controller passato tramite richiesta GET o POST
-     *
+     * @access private
      * @return mixed
      */
     public function getController() {
@@ -65,7 +84,9 @@ class VHome extends View {
         else
             return false;
     }
+    
     /**
+     * @access private
      * Imposta la pagina per gli utenti registrati/autenticati
      */
     public function impostaPaginaRegistrato() {
@@ -77,7 +98,9 @@ class VHome extends View {
         $this->assign('menu',$this->_main_button);
         $this->aggiungiTastoLogout();
     }
-    /*
+    
+    /**
+     * @access private
      * imposta la pagina per gli utenti non registrati/autenticati
      */
     public function impostaPaginaGuest() {
@@ -88,7 +111,9 @@ class VHome extends View {
         $this->aggiungiModuloLogin();
         $this->aggiungiTastoRegistrazione();
     }
+    
     /**
+     * @access private
      * aggiunge il tasto logout al menu laterale
      */
     public function aggiungiTastoLogout() {
@@ -96,7 +121,9 @@ class VHome extends View {
         $tasto_logout[]=array('testo' => 'Logout', 'link' => '?controller=registrazione&task=esci');
         $this->_side_button=array_merge($tasto_logout,$this->_side_button);
     }
+    
     /**
+     * @access private
      * aggiunge il tasto per la registrazione nel menu laterale (per gli utenti non autenticati)
      */
     public function aggiungiTastoRegistrazione() {
@@ -104,7 +131,9 @@ class VHome extends View {
         $menu_registrazione[]=array('testo' => 'Attivati', 'link' => '?controller=registrazione&task=attivazione');
         $this->_side_button[]=array_merge(array('testo' => 'Registrati', 'link' => '?controller=registrazione&task=registra', 'submenu' => $menu_registrazione),$this->_side_button);
     }
+    
     /**
+     * @access private
      * imposta i tasti per le categorie nel menu principale
      */
     public function impostaTastiCategorie($categorie){
@@ -119,7 +148,7 @@ class VHome extends View {
     
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
-     *
+     * @access private
      * @param string $key
      * @param mixed $valore
      */

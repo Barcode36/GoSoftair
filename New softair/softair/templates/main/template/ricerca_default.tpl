@@ -22,7 +22,7 @@
           {/section}
               <b>Media Voti:</b> | {if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
-              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"}</p>
+              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
                {if $prenota[i]=='prenotabile'}
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">
@@ -60,7 +60,7 @@
           {/section}
               <b>Media Voti:</b> | {if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
-              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"}</p>
+              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
                {if $prenota[i]=='prenotabile'}
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">

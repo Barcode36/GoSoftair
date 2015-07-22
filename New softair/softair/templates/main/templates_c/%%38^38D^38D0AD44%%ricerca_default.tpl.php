@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-20 22:41:18
+<?php /* Smarty version 2.6.26, created on 2015-07-22 20:29:58
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 25, false),)), $this); ?>
@@ -87,7 +87,7 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
               <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
-</p>
+ &#8364</p>
                <?php if ($this->_tpl_vars['prenota'][$this->_sections['i']['index']] == 'prenotabile'): ?>
                <?php if ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili'] != 0): ?>
               <form action="index.php" method="post">
@@ -188,7 +188,7 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
               <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
-</p>
+ &#8364</p>
                <?php if ($this->_tpl_vars['prenota'][$this->_sections['i']['index']] == 'prenotabile'): ?>
                <?php if ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili'] != 0): ?>
               <form action="index.php" method="post">

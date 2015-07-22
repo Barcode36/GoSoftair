@@ -1,28 +1,36 @@
 <?php
-
 /**
  * Descrizione di VProfilo
- * VProfilo gestisce la comunicazione tra le richieste del client e 
- * la CProfilo, inoltre imposta le pagine del profilo utente e profilo esterno
- * @access public
+ * Classe VProfilo, estende la classe view del package System e gestisce la visualizzazione
+ * e formattazione della pagina del profilo dell'utente.
+ *
  * @package View
- * @author Achieved Team
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class VProfilo extends View{
+    
     /**
      * contiene il nome del layout della pagina di risposta
+     * @access private
      * @var string
      */
     private $_layout='default';
+    
     /**
      * Recupera il contenuto di un template e lo restituisce alla control
+     * @access public
      * @return mixed
      */
     public function processaTemplate(){        
         return $this->fetch('profilo_'.$this->_layout.'.tpl');
     }
+     
      /**
       * Imposta il layout       
+      * @access public
       * @param string $layout
       */
       public function setLayout($layout) {
@@ -31,7 +39,7 @@ class VProfilo extends View{
 
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
-     *
+     * @access public
      * @param string $key
      * @param mixed $valore
      */
@@ -40,6 +48,7 @@ class VProfilo extends View{
     }
     
     /**
+     * @access public
      * @return mixed
      */
     public function getTask() {
@@ -49,8 +58,11 @@ class VProfilo extends View{
     		return false;
     }
 
-    
-    
+    /**
+     * Restituisce i voti della lista di utenti passati
+     * @access public
+     * @return mixed
+     */
     public function getVoti($listaUtenti) {
     	for($i=0; $i<count($listaUtenti); $i++){
     		if (isset($_REQUEST[$listaUtenti[$i]]))
@@ -59,7 +71,11 @@ class VProfilo extends View{
     	return $dati;
     }
     
-
+    /**
+     * Restituisce username passato per GET o POST
+     * @access public
+     * @return mixed
+     */
     public function getUsername() {
     	if (isset($_REQUEST['username']))
     		return $_REQUEST['username'];
@@ -67,9 +83,11 @@ class VProfilo extends View{
     		return false;
     }
     
-    
-    
-    
+    /**
+     * Restituisce id_prenotazione passato per GET o POST
+     * @access public
+     * @return mixed
+     */
     public function getIdprenotazione() {
     	if (isset($_REQUEST['id_prenotazione']))
     		return $_REQUEST['id_prenotazione'];
@@ -79,7 +97,7 @@ class VProfilo extends View{
     
     /**
      * Restituisce l'id dell'annuncio passato per GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getIdAnnuncio() {
@@ -88,11 +106,10 @@ class VProfilo extends View{
     	} else
     		return false;
     }
-    
-    
+     
     /**
      * Restituisce l'id della partita passato per GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getIdPartita() {
@@ -104,8 +121,8 @@ class VProfilo extends View{
     
     /**
      * recupera dal vettore _FILE il nome temporaneo del file.
-     * 
-     * @return string
+     * @access public
+     * @return mixed
      */
 	public function getFile() {
         if(isset($_FILES['Immagine']['tmp_name'])&&($_FILES['Immagine']['type']=="image/jpeg"||$_FILES['Immagine']['type']=="image/x-png"||$_FILES['Immagine']['type']=="image/gif")){
@@ -114,10 +131,11 @@ class VProfilo extends View{
             return false;
         }
     }
+	 
 	 /**
      * recupera dal vettore _FILE il nome originale del file.
-     * 
-     * @return string
+     * @access public
+     * @return mixed
      */
     public function getOriginalFile(){
         if(isset($_FILES['Immagine']['name'])){
@@ -127,6 +145,11 @@ class VProfilo extends View{
         }
     }
 
+    /**
+     * recupera i dati necessari per la modifica della prenotazione.
+     * @access public
+     * @return mixed
+     */
     public function getDatiModPrenotazione() {
     	$dati_richiesti=array('attrezzatura');
     	$dati=array();
@@ -137,8 +160,11 @@ class VProfilo extends View{
     	return $dati;
     }
    
-    
-    
+    /**
+     * recupera i dati necessari per la modifica dell'annuncio.
+     * @access public
+     * @return mixed
+     */
     public function getDatiModAnnuncio() {
     	$dati_richiesti=array('titolo','prezzo','descrizione', 'telefono', 'autoreusername');
     	$dati=array();
@@ -149,7 +175,11 @@ class VProfilo extends View{
     	return $dati;
     }
     
-   
+    /**
+     * recupera i dati necessari per la modifica dell'utente.
+     * @access public
+     * @return mixed
+     */
     public function getDatiModUtente() {
     	$dati_richiesti=array('password','nome','cognome','via','CAP', 'citta', 'email');
     	$dati=array();

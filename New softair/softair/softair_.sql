@@ -34,8 +34,8 @@ CREATE TABLE `commento` (
 --
 
 INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `voto`) VALUES
-('1','2','questo Ã¨ un commento','4'),
-('2','2','questo Ã¨ un commento nuovo','3');
+('1','2','questo è un commento','4'),
+('2','2','questo è un commento nuovo','3');
 
 
 -- --------------------------------------------------------

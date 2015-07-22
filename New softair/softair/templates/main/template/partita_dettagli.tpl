@@ -15,7 +15,7 @@
           {/section}
               <b>Media Voti:</b> | {if $dati[i].media_voti>0}{$dati[i].media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
-              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"}</p>
+              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
           {section name=j loop=$dati.commento}
           <h5 class="line">{$dati.commento[j].autore_username}</h5>
           <blockquote>

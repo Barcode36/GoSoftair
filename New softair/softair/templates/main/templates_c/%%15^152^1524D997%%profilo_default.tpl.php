@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-22 16:35:30
+<?php /* Smarty version 2.6.26, created on 2015-07-22 16:58:43
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 65, false),)), $this); ?>

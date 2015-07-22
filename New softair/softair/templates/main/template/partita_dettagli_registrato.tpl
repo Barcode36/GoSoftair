@@ -15,7 +15,7 @@
           {/section}
               <b>Media Voti:</b> | {if $dati.media_voti>0}{$dati.media_voti}{else}-{/if} <br>
               <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
-              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"}<br>
+              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"} &#8364<br>
           <b>Lista utenti prenotati a questa partita:</b><br>
           {section name=ii loop=$utenti}
             - {$utenti[ii]}<br>

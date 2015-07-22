@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-20 22:41:32
+<?php /* Smarty version 2.6.26, created on 2015-07-22 20:30:03
          compiled from partita_dettagli.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli.tpl', 18, false),)), $this); ?>
@@ -57,7 +57,7 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
               <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
-</p>
+ &#8364</p>
           <?php unset($this->_sections['j']);
 $this->_sections['j']['name'] = 'j';
 $this->_sections['j']['loop'] = is_array($_loop=$this->_tpl_vars['dati']['commento']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

@@ -1,22 +1,26 @@
 <?php
 /**
- * File VHome.php contenente la classe VHome
- *
- * @package view
- */
-/**
- * Classe VHome, estende la classe view del package System e gestisce la visualizzazione e formattazione del sito, inoltre imposta i principali contenuti della pagina, suddivisi in contenuti principali (main_content) e contenuti della barra laterale (side_content)
+ * Descrizione di VRegistrazione
+ * Classe VProfilo, estende la classe view del package System e gestisce la visualizzazione
+ * e formattazione della pagina di registrazione.
  *
  * @package View
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class VRegistrazione extends View {
+    
     /**
+     * @access private
      * @var string $_layout
      */
     private $_layout='default';
+    
     /**
      * restituisce la password passata tramite GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getPassword() {
@@ -25,9 +29,10 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
     /**
      * restituisce la username passata tramite GET o POST
-     *
+     * @access public
      * @return mixed
      */
     public function getUsername() {
@@ -37,6 +42,7 @@ class VRegistrazione extends View {
             return false;
     }
     /**
+     * @access public
      * @return mixed
      */
     public function getTask() {
@@ -45,7 +51,10 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
     /**
+     * restituisce il controller
+     * @access public
      * @return mixed
      */
     public function getController() {
@@ -54,41 +63,48 @@ class VRegistrazione extends View {
         else
             return false;
     }
+    
     /**
-     * @return string
+     * Recupera il contenuto di un template e lo restituisce alla control
+     * @access public
+     * @return mixed
      */
     public function processaTemplate() {
         $contenuto=$this->fetch('registrazione_'.$this->_layout.'.tpl');
         return $contenuto;
     }
+    
     /**
      * Imposta l'eventuale errore nel template
-     *
+     * @access public
      * @param string $errore
      */
     public function impostaErrore($errore){
         $this->assign('errore',$errore);
     }
+    
     /**
      * imposta il layout
-     *
+     * @access public
      * @param string $layout
      */
     public function setLayout($layout){
         $this->_layout=$layout;
     }
+    
     /**
      * Imposta i dati nel template identificati da una chiave ed il relativo valore
-     *
+     * @access public
      * @param string $key
      * @param mixed $valore
      */
     public function impostaDati($key,$valore){
         $this->assign($key,$valore);
     }
+    
     /**
      * Restituisce l'array contenente i dati di registrazione
-     *
+     * @access public
      * @return array();
      */
     public function getDatiRegistrazione() {
@@ -100,9 +116,10 @@ class VRegistrazione extends View {
         }
         return $dati;
     }
+    
     /**
      * Restituisce un array contenente i dati di attivazione
-     *
+     * @access public
      * @return mixed
      */
     public function getDatiAttivazione() {
