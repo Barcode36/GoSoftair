@@ -8,41 +8,41 @@ class EAnnuncio {
 	 * @var $IDannuncio Variabile contenente l'identificativo dell'annuncio
 	 * @AttributeType string
 	 */
-	public $IDannuncio;
+	private $IDannuncio;
 	/**
 	 * @var descrizione Variabile contenente la descrizione dell'annuncio
 	 * @AttributeType string
 	 */
-	public $descrizione;
+	private $descrizione;
 	/**
 	 * @var $prezzo Variabile contenente il prezzo relativo all'annuncio
 	 * @AttributeType int
 	 */
-	public $prezzo;
+	private $prezzo;
 	/**
 	 * @var $autoreusername Variabile contenente l'autore dell'annuncio
 	 * @AttributeType string
 	 */
-    public $autoreusername;
+    private $autoreusername;
     /**
      * @var $telefono Variabile contenente il numero di telefono da chiamare per l'annuncio
      * @AttributeType int
      */
-    public $telefono;
+    private $telefono;
     /**
      * @var $immagine Variabile contenente l'immagine associata all'annuncio
      * @AttributeType array
      */    
-    public $immagine;
+    private $immagine;
     /**
      * @var $titolo  Variabile contenente il titolo dato all'annuncio
      * @AttributeType string
      */
-    public $titolo;
+    private $titolo;
     /**
      * @var $data  Variabile contenente la data di inserimento dell'annuncio
      */
-    public $data;
+    private $data;
     
     /**
      * Imposta i dati dell'annuncio.
@@ -148,9 +148,25 @@ class EAnnuncio {
     	$this->data= $data;
     }
     
+    /**
+     * restituisce un array contenente tutti gli attributi dell'oggetto
+     * @access public
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto 
+     *
+     */
+    public function getAllArray() {
+    	$dati=array('IDannuncio'=> $this->IDannuncio,
+    			'descrizione'=> $this->descrizione,
+    			'prezzo'=> $this->prezzo,
+    			'autoreusername'=> $this->autoreusername,
+    			'telefono'=> $this->telefono,
+    			'immagine'=> $this->immagine,
+    			'titolo'=> $this->titolo,
+    			'data'=> $this->data);
+    	return $dati;
+    }
     
     
-
     /**
      * @access public
      * @return string Stringa contenente l'id dell'annuncio.

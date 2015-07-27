@@ -18,6 +18,8 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_grid.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
+
+  
   <title>{$title}</title>
 </head>
 
@@ -69,12 +71,18 @@
       <ul>
         {if $username!='AMMINISTRATORE'}
         <li><a href="index.php">Home</a></li>{/if}
-        <li><a href="index.php?controller=profilo&task=apri&username={$username}">Profilo</a></li>
+        
+        {if $username!='AMMINISTRATORE'}
+        <li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>
+        {else}<li><a href="index.php?controller=profilo&task=apri&profilo=mio">Profilo</a></li>{/if}
+        
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vediprofili">Profili</a></li>{/if}
+        
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
         {else}<li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>{/if}
+        
 		{if $username=='AMMINISTRATORE'}
 		<li><a href="index.php?controller=amministratore&task=vediprenotazioni">Prenotazioni</a></li>
 		{else}
@@ -86,9 +94,11 @@
 			<li><a href="index.php?controller=ricerca&task=lista&categoria=Caccia all uomo">Caccia all uomo</a><li></ul>
 		</li>
 		{/if}
+		
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vediannunci">Annunci</a></li>
         {else}<li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li>{/if}
+        
 	<li><a href="index.php?controller=partita&task=modulopartita">Crea partita</a></li>
 	<li><a href="index.php?controller=annuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       

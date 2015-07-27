@@ -1,8 +1,13 @@
 {if $datiUtente.username!= false}
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
-          <a href="index.php?controller=profilo&task=modutente&username={$datiUtente.username}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
-          <h1>{$datiUtente.username}</h1>
+        <h1>{$datiUtente.username}</h1>
+        <form action="index.php" method="post">
+    		<input type="hidden" name="controller" value="profilo">
+    		<input type="hidden" name="task" value="modutente">
+    		<input type="hidden" name="username" value={$datiUtente.username}>
+   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+   		</form>
           <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
           <p><img  id="ut" src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
   		Punti: {$datiUtente.punti}<br>
@@ -30,14 +35,27 @@
                 	{if $datiPartite[i].attrezzatura==''}
                 	<td>NO</td>{else}
             		<td>{$datiPartite[i].attrezzatura}</td>{/if}
-            		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+            		<td>
+            		<form action="index.php" method="post">
+    					<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="modprenotazione">
+    					<input type="hidden" name="id_prenotazione" value={$datiPartite[i].id}>
+    					<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+					</form>
+					</td>
+					<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="eliminaprenotazione">
+    					<input type="hidden" name="id_prenotazione" value="{$datiPartite[i].id}">
+    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+					</form>	
+					</td>
             	</tr>
             	{/section}
 				</table>
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
-		  </p>
     {else}
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
@@ -62,12 +80,26 @@
           	{section name=j loop=$datiAnnunci}  
             <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
                 <td>{$datiAnnunci[j].prezzo}</td>
-                <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>
+                <td>{$datiAnnunci[j].descrizione|truncate:20:" [...]"}</td>
             	<td>{$datiAnnunci[j].telefono}</td>
             	<td>{$datiAnnunci[j].data}</td>
             	<td>{$scadenza[j]}</td>
-            	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+            	<td>
+            	<form action="index.php" method="post">
+    				<input type="hidden" name="controller" value="profilo">
+    				<input type="hidden" name="task" value="modannuncio">
+    				<input type="hidden" name="id_annuncio" value={$datiAnnunci[j].IDannuncio}>
+    				<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+				</form>
+				</td>
+				<td>
+				<form action="index.php" id="form" method="post">
+					<input type="hidden" name="controller" value="profilo">
+    				<input type="hidden" name="task" value="eliminaannuncio">
+    				<input type="hidden" name="id_annuncio" value="{$datiAnnunci[j].IDannuncio}">
+    				<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+				</form>
+				</td>		
             </tr>
             {/section}
 			</table>
@@ -78,7 +110,7 @@
            			<div class="content-1col-nobox">
 		              <h1>Non ci sono annunci pubblicati.</h1>
 		              <h2 class="noicon">Puoi crearne uno facilmente! Clicca qui  </h2>
-                			<p><input type="button" value="Crea annuncio" onclick="location.href='index.php?controller=annuncio&task=moduloannuncio'"></p>
+                			<p><input type="button" id="button" value="Crea annuncio" onclick="location.href='index.php?controller=annuncio&task=moduloannuncio'"></p>
           				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
@@ -105,7 +137,14 @@
             	<td>{$datiPartiteCreate[k].data}</td>
             	<td>{$datiPartiteCreate[k].ngiocatori}</td>
             	<td>{$datiPartiteCreate[k].ndisponibili}</td>
-            	<td><a href="index.php?controller=profilo&task=assegnapunti&id_partita={$datiPartiteCreate[k].IDpartita}"><img title="Assegna Punti" class="mod" height="20" src="templates/main/template/img/p1.jpg"></a></td> 
+            	<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="assegnapunti">
+    					<input type="hidden" name="id_partita" value={$datiPartiteCreate[k].IDpartita}>
+    					<input type="image" height="20" class="mod" title="Assegna Punti" src="templates/main/template/img/p1.jpg" >
+					</form>	
+				</td>
             </tr>
             {/section}
 			</table>

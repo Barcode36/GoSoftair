@@ -29,7 +29,7 @@ class CPrenotazione {
     	
     	$FPartita=new FPartita();
     	$partita=$FPartita->load($idpartita);
-    	$_array_dati_partita=get_object_vars($partita);
+    	$_array_dati_partita=$partita->getAllArray() ;
     	$disponibili=$_array_dati_partita['ndisponibili'];
     	if ($disponibili!=0){
     		$EPrenotazione->setUtenteusername($username);
@@ -44,6 +44,7 @@ class CPrenotazione {
 			$partita->setNdisponibili($disponibili-1);	
 			$FPartita->update($partita);
 			$FPrenotazione->store($EPrenotazione);
+			$view->impostaDati('username', $username);
     	}
     	else{ 
     		$error='La partita &egrave al completo, impossibbile prenotarsi';

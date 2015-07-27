@@ -4,22 +4,42 @@
           <h1 class="noicon">Conferma Modifica</h1>
           {if $anam=='am'}
           <h2 class="noicon">La Modifica all'annuncio &egrave stata effettuata correttamente </h2>
-                <p><input type="button" value="Torna agli annunci" onclick="location.href='index.php?controller=amministratore&task=vediannunci'"></p>
-          <p class="demo"></p>
-		{/if}
-		 {if $anam=='pm'}
-          <h2 class="noicon">La Modifica alla prenotazione &egrave stata effettuata correttamente </h2>
-                <p><input type="button" value="Torna alle prenotazioni" onclick="location.href='index.php?controller=amministratore&task=vediprenotazioni'"></p>
-          <p class="demo"></p>
-          {/if}
-          {if $anam=='pa'}
-          <h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
-                <p><input type="button" value="Torna ai profili" onclick="location.href='index.php?controller=amministratore&task=vediprofili'"></p>
+               <form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="amministratore">
+    				<input type="hidden" name="task" value="vediannunci">
+    				<p><input type="submit" id="button" value="Torna agli annunci" title="Torna agli annunci" ></p>
+				</form>
           <p class="demo"></p>
           {else}
-          <h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
-                <p><input type="button" value="Torna al profilo" onclick="location.href='index.php?controller=profilo&task=apri'"></p>
-          <p class="demo"></p>
+		 	
+		 	{if $anam=='pm'}
+          		<h2 class="noicon">La Modifica alla prenotazione &egrave stata effettuata correttamente </h2>
+          		<form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="amministratore">
+    				<input type="hidden" name="task" value="vediprenotazioni">
+    				<p><input type="submit" id="button" value="Torna alle prenotazioni" title="Torna alle prenotazioni" ></p>
+				</form>
+          		<p class="demo"></p>
+          	{else}
+          		{if $anam=='pa'}
+          		<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
+          		<form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="amministratore">
+    				<input type="hidden" name="task" value="vediprofili">
+    				<p><input type="submit" id="button" value="Torna ai profili" title="Torna ai profili" ></p>
+				</form>
+          		<p class="demo"></p>
+          		{else}
+          			<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
+          		<form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="profilo">
+    				<input type="hidden" name="task" value="apri">
+    				<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
+				</form>
+          		<p class="demo"></p>
+          	{/if}
+        	{/if}
+        	
         {/if}
         </div>
         <div class="corner-content-1col-bottom"></div> 

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-22 16:58:02
+<?php /* Smarty version 2.6.26, created on 2015-07-27 13:50:58
          compiled from annunci_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'annunci_default.tpl', 12, false),array('modifier', 'string_format', 'annunci_default.tpl', 18, false),)), $this); ?>

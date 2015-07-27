@@ -44,11 +44,11 @@ class CAnnunci {
         	$j=0;
         	for($i=0; $i<count($risultato);$i++) {
         		
-                $tmpAnnuncio=$FAnnuncio->load($risultato[$i]->IDannuncio);
+                $tmpAnnuncio=$FAnnuncio->load($risultato[$i]->getIDannuncio());
                 $datainserimento=$tmpAnnuncio->getData();
                 $giorni=$date->diff_daoggi($datainserimento);
                 if($giorni<=31){
-                	$this->_array_dati_annunci[$j]=get_object_vars($tmpAnnuncio);
+                	$this->_array_dati_annunci[$j]=$tmpAnnuncio->getAllArray();
                		$scadenza[$j]=$date->sommaMese($datainserimento,31);
                 	$view->impostaDati('scadenza',$scadenza);
                 	//2 righe sotto ritrasformano la data nel formato voluto
@@ -83,7 +83,7 @@ class CAnnunci {
     		$date=USingleton::getInstance('UData');
     		$giorni=$date->diff_daoggi($annuncio->getData());
             if($giorni<=31){
-    			$dati_annuncio=get_object_vars($annuncio);
+    			$dati_annuncio=$annuncio->getAllArray();
     			//2 righe sotto ritrasformano la data nel formato voluto
     			$start = DateTime::createFromFormat('Y-m-d',$dati_annuncio['data']);
     			$dati_annuncio['data']=$start->format('d/m/Y');
@@ -131,7 +131,7 @@ class CAnnunci {
 		$EAnnuncio->setDescrizione($dati_an['Descrizione']);
 		$EAnnuncio->setPrezzo($dati_an['Prezzo']);
 		$EAnnuncio->setTelefono($dati_an['Numero']);
-		$EAnnuncio->data=date("Y-m-d");
+		$EAnnuncio->setData(date("Y-m-d"));
 		$file=$view->getFile();
         if($file){
             $nomeOriginale=basename($view->getOriginalFile());
@@ -145,7 +145,7 @@ class CAnnunci {
                 
             }
         }
-		$EAnnuncio->setId($session->leggi_valore('username').$dati_an['Titolo']);
+		$EAnnuncio->setIDannuncio($session->leggi_valore('username').$dati_an['Titolo']);
         $FAnnuncio->store($EAnnuncio);
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();

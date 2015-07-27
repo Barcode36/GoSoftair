@@ -5,25 +5,25 @@
  */
 class ECommento {
 	/**
-	 * @var $IDannuncio Variabile contenente l'identificativo del commento
+	 * @var $id Variabile contenente l'identificativo del commento
 	 * @AttributeType string
 	 */
-	public $id;
+	private $id;
 	/**
 	 * @var $testo Variabile contenente il testo dell'annuncio
 	 * @AttributeType string
 	 */
-	public $testo;
+	private $testo;
 	/**
 	 * @var $partitaIDpartita Variabile contenente l'identificativo della partita dove è inserito il commento
 	 * @AttributeType string
 	 */
-	public $partitaIDpartita;
+	private $partitaIDpartita;
 	/**
 	 * @var $voto Variabile contenente il voto assegnato alla partita
 	 * @AttributeType int
 	 */
-	public $voto;
+	private $voto;
 	
 	/**
 	 * Imposta $id come  l'identificatico del commento
@@ -62,9 +62,24 @@ class ECommento {
 	 * @param int $voto
 	 *
 	 */
-	public function setVota($voto) {
+	public function setVoto($voto) {
 		$this->voto = $voto;
 	}
+	
+	/**
+	 * restituisce un array contenente tutti gli attributi dell'oggetto
+	 * @access public
+	 * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+	 *
+	 */
+	public function getAllArray() {
+		$dati=array('id'=> $this->id,
+				'testo'=> $this->testo,
+				'partitaIDpartita'=> $this->partitaIDpartita,
+				'voto'=> $this->voto);
+		return $dati;
+	}
+	
 	
 	/**
 	 * @access public

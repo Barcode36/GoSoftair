@@ -29,7 +29,7 @@
            			<div class="content-1col-nobox">
 		              <h1>Non puoi prenotarti alla partita, senza autenticarti.</h1>
 		              <h2 class="noicon">Se non sei ancora iscritto, fallo subito &egrave facile!</h2>
-                			<p><input type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
+                			<p><input id="button" type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
           				<p class="demo"></p>
                     </div>
        <div class="corner-content-1col-bottom"></div>

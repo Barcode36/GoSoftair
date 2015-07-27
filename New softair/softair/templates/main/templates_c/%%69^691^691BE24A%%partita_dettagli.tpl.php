@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-22 20:30:03
+<?php /* Smarty version 2.6.26, created on 2015-07-27 11:51:23
          compiled from partita_dettagli.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli.tpl', 18, false),)), $this); ?>
@@ -97,7 +97,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
            			<div class="content-1col-nobox">
 		              <h1>Non puoi prenotarti alla partita, senza autenticarti.</h1>
 		              <h2 class="noicon">Se non sei ancora iscritto, fallo subito &egrave facile!</h2>
-                			<p><input type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
+                			<p><input id="button" type="button" value="Iscriviti" onclick="location.href='index.php?controller=registrazione&task=registra'"></p>
           				<p class="demo"></p>
                     </div>
        <div class="corner-content-1col-bottom"></div>

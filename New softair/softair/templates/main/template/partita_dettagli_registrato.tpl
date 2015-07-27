@@ -51,7 +51,7 @@
 		<div class="corner-content-1col-bottom"></div>
 {if $username!='AMMINISTRATORE'}
 	{if $prenota==TRUE}
-         <div class="corner-content-1col-top"></div>
+         <div id="prenotazione" class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
         {if $dati.ndisponibili!=0}
          <h1 >Prenotazione alla partita</h1>

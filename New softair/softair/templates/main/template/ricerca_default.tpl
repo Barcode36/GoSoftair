@@ -27,7 +27,7 @@
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
-              <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
+              <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}#prenotazione'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
               {/if}
@@ -65,7 +65,7 @@
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">
               <input type="hidden" name="id_partita" value="{$dati[i].IDpartita}" />
-              <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}'" name="task" value="Prenota " />
+              <input id="button" onclick="location.href='?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}#prenotazione'" name="task" value="Prenota " />
               <input type="hidden" name="controller" value="prenotazione" />
               </form>
               {/if}

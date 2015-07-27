@@ -50,10 +50,10 @@ class CPartita {
     		}
     		$commenti=$partita->getCommenti();
     		$arrayCommenti=array();
-    		$dati=get_object_vars($partita);
+    		$dati=$partita->getAllArray() ;
     		if ( is_array( $commenti )  ) {
     			foreach ($commenti as $commento){
-    				$arrayCommenti[]=get_object_vars($commento);
+    				$arrayCommenti[]=$commento->getAllArray() ;
     			}
     		}
     		$dati['commento']=$arrayCommenti;
@@ -68,7 +68,7 @@ class CPartita {
     		if ($prenotazioni!=false) {
     			$i=0;
     			while ($i<count($prenotazioni)) {
-    				$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
+    				$_array_dati_partite[$i]=$prenotazioni[$i]->getAllArray() ;
     				$utenti[$i]=$_array_dati_partite[$i]['utenteusername'];
     				$i++;
     			}
@@ -82,7 +82,7 @@ class CPartita {
     			if ($prenotazioni!=false) {
     				$i=0;
     				while ($i<count($prenotazioni)) {
-    					$_array_dati_partite[$i]=get_object_vars($prenotazioni[$i]);
+    					$_array_dati_partite[$i]=$prenotazioni[$i]->getAllArray() ;
     					if ($_array_dati_partite[$i]['partitaID']==$id_partita)
     						$giaPrenotato=true;
     					$i++;

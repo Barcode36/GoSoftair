@@ -9,27 +9,27 @@ class EPrenotazione {
 	 * @var $id Variabile contenente l'identificativo della prenotazione
 	 * @AttributeType string
 	 */
-    public $id;
+    private $id;
 	/**
 	 * @var $partitaID Variabile contenente l'identificativo della partita associatata alla prenotazione
 	 * @AttributeType string
 	 */
-    public $partitaID;
+    private $partitaID;
     /**
      * @var $titoloPartita Variabile contenente il titolo della prenotazione
      * @AttributeType string
      */
-    public $titoloPartita;
+    private $titoloPartita;
     /**
      * @var $utenteusername Variabile contenente l'usernme dell'utente prenotante
      * @AttributeType string
      */
-    public $utenteusername;
+    private $utenteusername;
 	/**
 	 * @var $attrezzatura Variabile contenente se è richiesta attrezzatura
 	 * @AttributeType boolean
 	 */
-    public $attrezzatura=false;
+    private $attrezzatura=false;
   
     /**
      * Imposta i dati della prenotazione.
@@ -99,6 +99,22 @@ class EPrenotazione {
     public function setAttrezzatura($attrezzatura) {
     	$this->attrezzatura = $attrezzatura;
     }
+    
+    /**
+     * restituisce un array contenente tutti gli attributi dell'oggetto
+     * @access public
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+     *
+     */
+    public function getAllArray() {
+    	$dati=array('id'=> $this->id, 
+    				'partitaID'=> $this->partitaID, 
+    				'titoloPartita'=> $this->titoloPartita, 
+    				'utenteusername'=> $this->utenteusername,
+    				'attrezzatura'=> $this->attrezzatura);
+    	return $dati;
+    }
+    
     
     /**
      * @access public

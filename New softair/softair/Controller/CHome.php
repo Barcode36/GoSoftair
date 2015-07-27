@@ -51,7 +51,7 @@ class CHome {
     			$username=$item->getUsername();
     			if($username!='AMMINISTRATORE'){
     			$tmpUtente=$FUtente->load($username);
-    			$classifica[]=get_object_vars($tmpUtente);}
+    			$classifica[]=$tmpUtente->getAllArray();}
     		}
     	}
     	$posizione=[1,2,3,4,5,6,7,8,9];

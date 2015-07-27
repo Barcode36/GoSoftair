@@ -16,12 +16,26 @@
             <tr><td><a href="index.php?controller=annuncio&task=apriannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}">{$datiAnnunci[j].titolo}</a></td>
                 <td>{$datiAnnunci[j].autoreusername}</td>
                 <td>{$datiAnnunci[j].prezzo}</td>
-                <td>{$datiAnnunci[j].descrizione|truncate:240:" [...]"}</td>
+                <td>{$datiAnnunci[j].descrizione|truncate:20:" [...]"}</td>
             	
             	<td>{$datiAnnunci[j].data}</td>
             	<td>{$scadenza[j]}</td>
-            	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio={$datiAnnunci[j].IDannuncio}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+					<td>
+            		<form action="index.php" method="post">
+    					<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="modannuncio">
+    					<input type="hidden" name="id_annuncio" value={$datiAnnunci[j].IDannuncio}>
+    					<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+					</form>
+					</td>
+					<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="eliminaannuncio">
+    					<input type="hidden" name="id_annuncio" value={$datiAnnunci[j].IDannuncio}>
+    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+					</form>	
+					</td>	 
             </tr>
             {/section}
 			</table>

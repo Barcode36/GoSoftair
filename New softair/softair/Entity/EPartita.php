@@ -8,73 +8,73 @@ class EPartita {
 	 * @var $titolo Variabile contenente il titolo della partita
 	 * @AttributeType string
 	 */
-	public $titolo;
+	private $titolo;
 	/**
 	 * @var $autore Variabile contenente l'autore della partita
 	 * @AttributeType string
 	 */
-    public $autore;
+    private $autore;
     /**
      * @var $prezzo Variabile contenente il prezzo della partita
      * @AttributeType int
      */
-    public $prezzo;
+   private $prezzo;
     /**
      * @var $descrizione Variabile contenente la descrizione della partita
      * @AttributeType string
      */
-    public $descrizione;
+    private $descrizione;
     /**
      * @var $categoria Variabile la categoria della partita
      * @AttributeType string
      */
-    public $categoria;
+    private $categoria;
     /**
      * @var $indirizzo Variabile contenente l'indirizzo della partita
      * @AttributeType string
      */
-    public $indirizzo;
+    private $indirizzo;
 	/**
 	 * @var $data Variabile contenente la data di svolgimento della partita
 	 */
-	public $data;
+	private $data;
 	/**
 	 * @var $ngiocatori Variabile contenente il numero massimo di giocatori della partita
 	 * @AttributeType int
 	 */
-	public $ngiocatori;
+	private $ngiocatori;
 	/**
 	 * @var $ndisponibili Variabile contenente il numero di posti ancora disponibili nella partita
 	 * @AttributeType int
 	 */
-	public $ndisponibili;
+	private $ndisponibili;
 	/**
 	 * @var $IDpartita Variabile contenente l'identificativo della partita
 	 * @AttributeType string
 	 */
-	public $IDpartita;
+	private $IDpartita;
 	/**
 	 * @var $titolo Variabile contenente l'immagine associata alla partita
 	 * @AttributeType array
 	 */
-	public $immagine;
+	private $immagine;
 	/**
 	 * @var $attrezzatura Variabile che specifica se è disponibile attrezzatuta
 	 * @AttributeType string
 	 */
-	public $attrezzatura;
+	private $attrezzatura;
 	/**
 	 * @var $titolo Variabile che specifica se è stato assegnato un punteggio ai giocatori
 	 * che hanno partecipato alla partita 
 	 * @AttributeType string
 	 */
-	public $votata;
+	private $votata;
     /**
      * @AssociationType Entity.ECommento
      * @AssociationMultiplicity 0..*
      * @AssociationKind Aggregation
      */
-    public $_commento = array();
+    private $_commento = array();
     
     /**
      * Imposta $titolo come titolo della partita 
@@ -126,7 +126,7 @@ class EPartita {
      * @param string $categoria
      *
      */
-    public function setCategoria($cotegoria)
+    public function setCategoria($categoria)
     {
     	$this->categoria=$categoria;
     }
@@ -228,6 +228,30 @@ class EPartita {
     	$this->_commento=$commento;
     }
 
+    /**
+     * restituisce un array contenente tutti gli attributi dell'oggetto
+     * @access public
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+     *
+     */
+    public function getAllArray() {
+    	$dati=array('titolo'=> $this->titolo,
+    			'autore'=> $this->autore,
+    			'prezzo'=> $this->prezzo,
+    			'descrizione'=> $this->descrizione,
+    			'categoria'=> $this->categoria,
+    			'indirizzo'=> $this->indirizzo,
+    			'data'=> $this->data,
+    			'ngiocatori'=> $this->ngiocatori,
+    			'ndisponibili'=> $this->ndisponibili,
+    			'IDpartita'=> $this->IDpartita,
+    			'immagine'=> $this->immagine,
+    			'attrezzatura'=> $this->attrezzatura,
+    			'votata'=> $this->votata,
+    			'_commento'=> $this->_commento);
+    	return $dati;
+    }
+    
     /**
      * @access public
      * @return int Intero contenente il prezzo della partita.

@@ -156,7 +156,8 @@ class Fdb {
      * @return boolean
      */
     public function store($object) {
-        $i=0;
+        $object=$object->getAllArray(); 
+    	$i=0;
         $values='';
         $fields='';
         foreach ($object as $key=>$value) {
@@ -202,7 +203,7 @@ class Fdb {
      * @return boolean
      */
     public function delete(& $object) {
-        $arrayObject=get_object_vars($object);
+        $arrayObject=$object->getAllArray();
         $query='DELETE ' .
                 'FROM `'.$this->_table.'` ' .
                 'WHERE `'.$this->_key.'` = \''.$arrayObject[$this->_key].'\'';
@@ -216,7 +217,8 @@ class Fdb {
      * @return boolean
      */
     public function update($object) {
-        $i=0;
+        $object=$object->getAllArray(); 
+    	$i=0;
         $fields='';
         foreach ($object as $key=>$value) {
             if (!($key == $this->_key) && substr($key, 0, 1)!='_') {
@@ -228,8 +230,7 @@ class Fdb {
                 $i++;
             }
         }
-        $arrayObject=get_object_vars($object);
-        $query='UPDATE `'.$this->_table.'` SET '.$fields.' WHERE `'.$this->_key.'` = \''.$arrayObject[$this->_key].'\'';
+        $query='UPDATE `'.$this->_table.'` SET '.$fields.' WHERE `'.$this->_key.'` = \''.$object[$this->_key].'\'';
         return $this->query($query);
     }
     /**

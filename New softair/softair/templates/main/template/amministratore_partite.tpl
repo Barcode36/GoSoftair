@@ -20,8 +20,22 @@
             	<td>{$datiPartite[i].data}</td>
             	<td class="stretto">{$datiPartite[i].ngiocatori}</td>
             	<td class="stretto">{$datiPartite[i].ndisponibili}</td>
-            	<td><a href="index.php?controller=amministratore&task=modpartita&id_partita={$datiPartite[i].IDpartita}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            	<td><a href="index.php?controller=amministratore&task=eliminapartita&id_partita={$datiPartite[i].IDpartita}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+            	<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="amministratore">
+    					<input type="hidden" name="task" value="modpartita">
+    					<input type="hidden" name="id_partita" value={$datiPartite[i].IDpartita}>
+            			<input type="image" title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg">
+            		</form>
+            	</td>
+            	<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="amministratore">
+    					<input type="hidden" name="task" value="eliminapartita">
+    					<input type="hidden" name="id_partita" value={$datiPartite[i].IDpartita}>
+    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+					</form>	 
+            	</td>
             </tr>
             {/section}
 			</table>

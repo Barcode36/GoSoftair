@@ -56,7 +56,7 @@ class CRicerca {
                 	if($giorni>0){
                 		$prenota[$i]='non_prenotabile';
                 	}
-                	$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+                	$array_risultato[$j]=array_merge($tmpPartita->getAllArray() ,array('media_voti'=>$tmpPartita->getMediaVoti()));
                 	//2 righe sotto ritrasformano la data nel formato voluto
                 	$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
                 	$array_risultato[$j]['data']=$start->format('d/m/Y');
@@ -119,7 +119,7 @@ class CRicerca {
                 	if($giorni>0){
                 		$prenota[$i]='non_prenotabile';
                 	}
-            		$array_risultato[$j]=array_merge(get_object_vars($tmpPartita),array('media_voti'=>$tmpPartita->getMediaVoti()));
+            		$array_risultato[$j]=array_merge($tmpPartita->getAllArray(),array('media_voti'=>$tmpPartita->getMediaVoti()));
             		//2 righe sotto ritrasformano la data nel formato voluto
             		$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
             		$array_risultato[$j]['data']=$start->format('d/m/Y');

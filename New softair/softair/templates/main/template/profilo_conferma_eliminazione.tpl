@@ -4,16 +4,28 @@
           <h1 class="noicon">Conferma dell'eliminazione</h1>
           {if $anam=='am'}
                     <h2 class="noicon">L'eliminazione dell'annuncio &egrave stata effettuata correttamente </h2>
-                <p><input type="button" id="button" value="Torna agli annunci" onclick="location.href='index.php?controller=amministratore&task=vediannunci'"></p>
+                 <form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="amministratore">
+    				<input type="hidden" name="task" value="vediannunci">
+    				<p><input type="submit" id="button" value="Torna agli annunci" title="Torna agli annunci" ></p>
+				</form>
           <p class="demo"></p>
           {else}
           	{if $anam=='pm'}
           	<h2 class="noicon">L'eliminazione della prenotazione &egrave stata effettuata correttamente </h2>
-                <p><input type="button" id="button" value="Torna alle prenotazioni" onclick="location.href='index.php?controller=amministratore&task=vediprenotazioni'"></p>
+          	     <form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="amministratore">
+    				<input type="hidden" name="task" value="vediprenotazioni">
+    				<p><input type="submit" id="button" value="Torna alle prenotazioni" title="Torna alle prenotazioni" ></p>
+				</form>
           	<p class="demo"></p>
           	{else}
           	<h2 class="noicon">L'eliminazione &egrave stata effettuata correttamente </h2>
-                <p><input type="button" id="button" value="Torna al profilo" onclick="location.href='index.php?controller=profilo&task=apri'"></p>
+          	    <form action="index.php"  method="get">
+					<input type="hidden" name="controller" value="profilo">
+    				<input type="hidden" name="task" value="apri">
+    				<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
+				</form>
           	<p class="demo"></p>
           	{/if}
           {/if}

@@ -71,6 +71,33 @@ class VProfilo extends View{
     	return $dati;
     }
     
+    
+    /**
+     * Restituisce utente passato per GET o POST, metodo usato solo dall'amministatore
+     * @access public
+     * @return mixed
+     */
+    public function getUtenteUsername() {
+    	if (isset($_REQUEST['utenteusername']))
+    		return $_REQUEST['utenteusername'];
+    	else
+    		return false;
+    }
+    
+    /**
+     * Restituisce utente passato per GET o POST, metodo usato solo dall'amministatore
+     * @access public
+     * @return mixed
+     */
+    public function getProfilo() {
+    	if (isset($_REQUEST['profilo']))
+    		return $_REQUEST['profilo'];
+    	else
+    		return false;
+    }
+    
+    
+    
     /**
      * Restituisce username passato per GET o POST
      * @access public

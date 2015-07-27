@@ -42,7 +42,7 @@ class CAmministratore {
 					$FPartita->delete($partite[$i]);
 				}
 				else{
-				$array_partite[$i]=get_object_vars($partite[$i]);
+				$array_partite[$i]=$partite[$i]->getAllArray();
 				$start = DateTime::createFromFormat('Y-m-d',$array_partite[$i]['data']);
 				$array_partite[$i]['data']=$start->format('d/m/Y');
 				}
@@ -67,12 +67,12 @@ class CAmministratore {
 		$session->imposta_valore('idpartita',$idpartita);
 		$FPartita=new FPartita();
 		$partita=$FPartita->load($idpartita);
-		$dati_partita=get_object_vars($partita);
+		$dati_partita=$partita->getAllArray();
 		$view->impostaDati('datiPartita', $dati_partita);
 		$nprenotati=$dati_partita['ngiocatori']-$dati_partita['ndisponibili'];
 		$view->impostaDati('nprenotati', $nprenotati);
 		$view->setLayout('amministratore_partite_modifica');
-		return $view->processaTemplate();	
+		return $view->processaTemplate();
 	}
 	
 	/**
@@ -162,7 +162,7 @@ class CAmministratore {
 			$date=USingleton::getInstance('UData');
 			for($i=0; $i<count($annuncio); $i++) {
 				$giorni=$date->diff_daoggi($annuncio[$i]->getData());
-				$temp=get_object_vars($annuncio[$i]);
+				$temp=$annuncio[$i]->getAllArray();
 				$data2=$temp['data'];
 				$giorni=$date->diff_daoggi($data2);
 				if($giorni<=31){
@@ -198,7 +198,7 @@ class CAmministratore {
 		if ($prenotazione!=false) {
 			$i=0;
 			while ($i<count($prenotazione)) {
-				$this->_array_dati_partite[$i]=get_object_vars($prenotazione[$i]);
+				$this->_array_dati_partite[$i]=$prenotazione[$i]->getAllArray();
 				$i++;
 			}
 			$view->impostaDati('datiPartite', $this->_array_dati_partite);
@@ -223,7 +223,7 @@ class CAmministratore {
         $utenti= $FUtente->loadall();
 		if ($utenti!=false) {
 			for($i=0; $i<count($utenti); $i++){
-				$dati_utente[$i]=get_object_vars($utenti[$i]);
+				$dati_utente[$i]=$utenti[$i]->getAllArray();
 			}
 			$view->impostaDati('datiUtente', $dati_utente);
 		}
@@ -261,7 +261,7 @@ class CAmministratore {
 		//elimina tutte le partite create dell'utente con tutte le relative prenotazioni associate
 		$partite=$FPartita->loadfromcreatore($username);
 		for($i=0; $i<count($partite) && $partite!=''; $i++){
-			$array_partite[$i]=get_object_vars($partite[$i]);
+			$array_partite[$i]=$partite[$i]->getAllArray();
 			$session->imposta_valore('idpartita', $array_partite[$i]['IDpartita']);
 			$this->eliminaPartita();
 		}

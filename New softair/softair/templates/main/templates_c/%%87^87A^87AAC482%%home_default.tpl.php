@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-22 16:56:24
+<?php /* Smarty version 2.6.26, created on 2015-07-27 12:48:24
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -20,6 +20,8 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_grid.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
+
+  
   <title><?php echo $this->_tpl_vars['title']; ?>
 </title>
 </head>
@@ -73,13 +75,18 @@
       <ul>
         <?php if ($this->_tpl_vars['username'] != 'AMMINISTRATORE'): ?>
         <li><a href="index.php">Home</a></li><?php endif; ?>
-        <li><a href="index.php?controller=profilo&task=apri&username=<?php echo $this->_tpl_vars['username']; ?>
-">Profilo</a></li>
+        
+        <?php if ($this->_tpl_vars['username'] != 'AMMINISTRATORE'): ?>
+        <li><a href="index.php?controller=profilo&task=apri">Profilo</a></li>
+        <?php else: ?><li><a href="index.php?controller=profilo&task=apri&profilo=mio">Profilo</a></li><?php endif; ?>
+        
         <?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
         <li><a href="index.php?controller=amministratore&task=vediprofili">Profili</a></li><?php endif; ?>
+        
         <?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
         <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
         <?php else: ?><li><a href="index.php?controller=ricerca&task=lista">Partite</a></li><?php endif; ?>
+        
 		<?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
 		<li><a href="index.php?controller=amministratore&task=vediprenotazioni">Prenotazioni</a></li>
 		<?php else: ?>
@@ -91,9 +98,11 @@
 			<li><a href="index.php?controller=ricerca&task=lista&categoria=Caccia all uomo">Caccia all uomo</a><li></ul>
 		</li>
 		<?php endif; ?>
+		
         <?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
         <li><a href="index.php?controller=amministratore&task=vediannunci">Annunci</a></li>
         <?php else: ?><li><a href="index.php?controller=annuncio&task=vediannunci">Annunci</a></li><?php endif; ?>
+        
 	<li><a href="index.php?controller=partita&task=modulopartita">Crea partita</a></li>
 	<li><a href="index.php?controller=annuncio&task=moduloannuncio">Crea annuncio</a></li>
       </ul>                       

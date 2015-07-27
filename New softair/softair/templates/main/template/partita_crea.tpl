@@ -19,7 +19,7 @@
                    </select></p>  
               <p><label class="top">Partecipanti:</label><br />
                   <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" min="1" value="1"/></p>
-               <p><input type="hidden"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="" />
+               <p><input type="hidden"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="1" />
                <input type="checkbox"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="SI" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
 			   <p><label for="Prezzo" class="top">Prezzo:</label><br />
                   <input type="number" name="Prezzo" id="Prezzo" tabindex="4" class="field" min="0"/></p>
@@ -92,7 +92,7 @@
 			   <p><label for="Descrizione" class="top">Descrizione:</label><br />
                   <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="45" rows="10" class="field" value="" /></textarea>
 			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		  <input type="file" name="Immagine" size="40">
+		  <input type="file" id="button" name="Immagine" size="40">
 		  <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzi senza partecipare?</label>
 		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
 		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>

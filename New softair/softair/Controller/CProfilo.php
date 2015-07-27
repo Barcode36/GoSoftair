@@ -45,22 +45,26 @@ class CProfilo {
     public function apriProfilo(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
-    	$username=$view->getUsername();
+    	$username=$session->leggi_valore('username');
+    	if($username=='AMMINISTRATORE'){
+    		$mio=$view->getProfilo();
+    		if($mio!='mio'){
+    			$username=$view->getUtenteUsername();
+    		}
+    	}    		
 		$this->setUtente($username);
     	if ($this->_utente!=false) {
     		
     		//in un array vengono caricati tutti i dati personali dell'utente
-    		$this->_array_dati_utente=get_object_vars($this->_utente);
+    		$this->_array_dati_utente=$this->_utente->getAllArray();
     		$view->impostaDati('datiUtente', $this->_array_dati_utente);
     		
     		//in un array vengono caricate tutte le prenotazioni fatte
     		$FPrenotazione=new FPrenotazione();
     		$prenotazione=$FPrenotazione->loadfromuser($username);
     		if ($prenotazione!=false) {
-    			$i=0;
-    			while ($i<count($prenotazione)) {
-					$this->_array_dati_partite[$i]=get_object_vars($prenotazione[$i]);
-    				$i++;
+    			for ($i=0; $i<count($prenotazione); $i++) {
+					$this->_array_dati_partite[$i]=$prenotazione[$i]->getAllArray();
     			}
         		$view->impostaDati('datiPartite', $this->_array_dati_partite);
     		}
@@ -72,7 +76,7 @@ class CProfilo {
     			$date=USingleton::getInstance('UData');
     			for($i=0; $i<count($annuncio); $i++) {
     				$giorni=$date->diff_daoggi($annuncio[$i]->getData());
-					$temp=get_object_vars($annuncio[$i]);
+					$temp=$annuncio[$i]->getAllArray();
 					$data2=$temp['data'];
 					$giorni=$date->diff_daoggi($data2);
 					if($giorni<=31){
@@ -111,7 +115,7 @@ class CProfilo {
     					$FPartita->delete($partita[$i]);
     				}
     				else{
-    					$partite_create[$i]=get_object_vars($partita[$i]);
+    					$partite_create[$i]=$partita[$i]->getAllArray();
     					$start = DateTime::createFromFormat('Y-m-d',$partita[$i]->getData());
     					$partite_create[$i]['data']=$start->format('d/m/Y');
     				}
@@ -134,10 +138,16 @@ class CProfilo {
     public function modUtente(){
     	$view = USingleton::getInstance('VProfilo');
     	$session=USingleton::getInstance('USession');
-    	$username=$view->getUsername();
+    	$username=$session->leggi_valore('username');
+        if($username=='AMMINISTRATORE'){
+    		$mio=$view->getProfilo();
+    		if($mio!='mio'){
+    			$username=$view->getUtenteUsername();
+    		}
+    	}
 		$this->setUtente($username);
     	if ($this->_utente!=false) {
-    		$this->_array_dati_utente=get_object_vars($this->_utente);
+    		$this->_array_dati_utente=$this->_utente->getAllArray();
     	}
     	$session->imposta_valore('utente',$username);
     	$view->setLayout('modifica_utente');
@@ -161,9 +171,15 @@ class CProfilo {
     	
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('utente');
+        if($username=='AMMINISTRATORE'){
+    		$mio=$view->getProfilo();
+    		if($mio!='mio'){
+    			$username=$view->getUtenteUsername();
+    		}
+    	}
     	$this->setUtente($username);
     	if ($this->_utente!=false) {
-    		$this->_array_dati_utente=get_object_vars($this->_utente);
+    		$this->_array_dati_utente=$this->_utente->getAllArray();
     	}
     	$EUtente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato'], $this->_array_dati_utente['foto']);
     	$file=$view->getFile();
@@ -184,6 +200,7 @@ class CProfilo {
 		if($username=='AMMINISTRATORE'){
 			$anam=$session->leggi_valore('profiliamministratore');
 			$view->impostaDati('anam', $anam);}
+		$view->impostaDati('username', $username);
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();	
     }
@@ -201,7 +218,7 @@ class CProfilo {
     	$FPrenotazione = new FPrenotazione();
     	$prenotazione=$FPrenotazione->load($IDprenotazione);
     	if ($prenotazione!=false) {
-    		$dati_prenotazione=get_object_vars($prenotazione);
+    		$dati_prenotazione=$prenotazione->getAllArray();
     		$view->impostaDati('datiPrenotazione', $dati_prenotazione);
     		$session->imposta_valore('utenteusername',$dati_prenotazione['utenteusername']);
     		$session->imposta_valore('IDprenotazione',$IDprenotazione);
@@ -266,6 +283,7 @@ class CProfilo {
     	if($username=='AMMINISTRATORE'){
     		$anam=$session->leggi_valore('prenotazioniamministratore');
     		$view->impostaDati('anam', $anam);}
+    	$view->impostaDati('username', $username);
     	$view->setLayout('conferma_eliminazione');
     	return $view->processaTemplate();
     }
@@ -284,7 +302,7 @@ class CProfilo {
     	$FAnnuncio = new FAnnuncio();
     	$annuncio=$FAnnuncio->load($IDannuncio);
     	if ($annuncio!=false) {
-    		$this->_array_dati_annunci=get_object_vars($annuncio);
+    		$this->_array_dati_annunci=$annuncio->getAllArray();
     		$view->impostaDati('datiAnnuncio', $this->_array_dati_annunci);
     		$session->imposta_valore('IDannuncio',$IDannuncio);
     		$session->imposta_valore('data',$this->_array_dati_annunci['data']);
@@ -330,6 +348,7 @@ class CProfilo {
     	if($username=='AMMINISTRATORE'){
     		$anam=$session->leggi_valore('annunciamministratore');
     		$view->impostaDati('anam', $anam);}
+    	$view->impostaDati('username', $username);
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();
     }
@@ -351,6 +370,7 @@ class CProfilo {
     	if($username=='AMMINISTRATORE'){
     		$anam=$session->leggi_valore('annunciamministratore');
     		$view->impostaDati('anam', $anam);}
+    	$view->impostaDati('username', $username);
     	$view->setLayout('conferma_eliminazione');
     	return $view->processaTemplate();
     }
@@ -374,7 +394,7 @@ class CProfilo {
     	$votata=$partita->getVotata();
     	if($votata=='non_votata')
     	{
-    		$datiPartita=get_object_vars($partita);
+    		$datiPartita=$partita->getAllArray();
     		$giorni=$date->diff_daoggi($datiPartita['data']);
     		if($giorni>0){
     			$start = DateTime::createFromFormat('Y-m-d',$partita->getData());
@@ -384,7 +404,7 @@ class CProfilo {
     			$prenotazioni=$FPrenotazione->loadfrompartita($idpartita);
     			if($prenotazioni!=''){
     				for($i=0; $i<count($prenotazioni); $i++){
-    					$datiPrenotazioni[$i]=get_object_vars($prenotazioni[$i]);
+    					$datiPrenotazioni[$i]=$prenotazioni[$i]->getAllArray();
     					$listaUtenti[$i]=$datiPrenotazioni[$i]['utenteusername'];
     					$numero[$i]=$i;
     				}

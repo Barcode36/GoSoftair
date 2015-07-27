@@ -9,70 +9,93 @@ class EUtente {
 	 * @var $nome Variabile contenente il nome dell'utente
 	 * @AttributeType string
 	 */
-	public $nome;
+	private $nome;
 	/**
 	 * @var $cognome Variabile contenente il cognome dell'utente
 	 * @AttributeType string
 	 */
-    public $cognome;
+    private $cognome;
     /**
      * @var $username Variabile contenente l'username dell'utente
      * @AttributeType string
      */
-    public $username;
+    private $username;
     /**
      * @var $password Variabile contenente la password dell'utente
      * @AttributeType string
      */
-    public $password;
+    private $password;
     /**
      * @var $email Variabile contenente l'email dell'utente
      * @AttributeType string
      */
-    public $email;
+    private $email;
     /**
      * @var $via Variabile contenente la via di residenza dell'utente
      * @AttributeType string
      */
-    public $via;
+    private $via;
     /**
      * @var $CAP Variabile contenente il CAP di residenza dell'utente
      * @AttributeType string
      */
-    public $CAP;
+    private $CAP;
     /**
      * @var $citta Variabile contenente la citta di residenza dell'utente
      * @AttributeType string
      */
-    public $citta;
+    private $citta;
     /**
      * @var $codice_attivazione Variabile contenente il codice di attivazione necessario per
      * la registrazione  dell'utente
      * @AttributeType string
      */
-    public $codice_attivazione;
+    private $codice_attivazione;
     /**
      * @var $stato Variabile contenente se l'utente ha completato la registrazione
      * @AttributeType string
      */
-    public $stato='non_attivo';
+    private $stato='non_attivo';
     /**
      * @var $foto Variabile contenente la foto relativa all'utente
      */
-    public $foto;
+    private $foto;
     /**
      * @var $punti Variabile contenente il punteggio cumulativo assegnato all'utente 
      * @AttributeType string
      */
-	public $punti;
+	private $punti;
     
     /**
      * @AssociationType Entity.EPrenotazione
      * @AssociationMultiplicity 0..*
      * @AssociationKind Aggregation
      */
-    public $_prenotazioni = array();
+    private $_prenotazioni = array();
 
+    /**
+     * restituisce un array contenente tutti gli attributi dell'oggetto
+     * @access public
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+     *
+     */
+    public function getAllArray() {
+    	$dati=array('username'=> $this->username,
+    				'password'=> $this->password,
+    				'codice_attivazione'=> $this->codice_attivazione,
+    				'stato'=> $this->stato,
+    				'_prenotazioni'=> $this->_prenotazioni,
+    				'nome'=> $this->nome, 
+    				'cognome'=> $this->cognome, 
+    				'foto'=> $this->foto,
+    				'punti'=> $this->punti,
+    				'email'=> $this->email,
+    				'citta'=> $this->citta,
+    				'via'=> $this->via,
+    				'CAP'=> $this->CAP);
+    	return $dati;
+    }
+    
     /**
      * @access public
      * @return string Stringa contenente il nome dell'utente.

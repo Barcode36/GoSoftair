@@ -1,14 +1,19 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-22 16:58:43
+<?php /* Smarty version 2.6.26, created on 2015-07-27 14:36:22
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 65, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 83, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
-          <a href="index.php?controller=profilo&task=modutente&username=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
-"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a>
-          <h1><?php echo $this->_tpl_vars['datiUtente']['username']; ?>
+        <h1><?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 </h1>
+        <form action="index.php" method="post">
+    		<input type="hidden" name="controller" value="profilo">
+    		<input type="hidden" name="task" value="modutente">
+    		<input type="hidden" name="username" value=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
+>
+   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+   		</form>
           <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
  <?php echo $this->_tpl_vars['datiUtente']['cognome']; ?>
 </h5> 
@@ -74,16 +79,29 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
                 	<td>NO</td><?php else: ?>
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
 </td><?php endif; ?>
-            		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
-"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
-"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+            		<td>
+            		<form action="index.php" method="post">
+    					<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="modprenotazione">
+    					<input type="hidden" name="id_prenotazione" value=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+>
+    					<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+					</form>
+					</td>
+					<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="eliminaprenotazione">
+    					<input type="hidden" name="id_prenotazione" value="<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+">
+    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+					</form>	
+					</td>
             	</tr>
             	<?php endfor; endif; ?>
 				</table>
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
-		  </p>
     <?php else: ?>
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
@@ -134,7 +152,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 </a></td>
                 <td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['prezzo']; ?>
 </td>
-                <td><?php echo ((is_array($_tmp=$this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
+                <td><?php echo ((is_array($_tmp=$this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 20, " [...]") : smarty_modifier_truncate($_tmp, 20, " [...]")); ?>
 </td>
             	<td><?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['telefono']; ?>
 </td>
@@ -142,10 +160,24 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 </td>
             	<td><?php echo $this->_tpl_vars['scadenza'][$this->_sections['j']['index']]; ?>
 </td>
-            	<td><a href="index.php?controller=profilo&task=modannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
-"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            	<td><a href="index.php?controller=profilo&task=eliminaannuncio&id_annuncio=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
-"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+            	<td>
+            	<form action="index.php" method="post">
+    				<input type="hidden" name="controller" value="profilo">
+    				<input type="hidden" name="task" value="modannuncio">
+    				<input type="hidden" name="id_annuncio" value=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+>
+    				<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+				</form>
+				</td>
+				<td>
+				<form action="index.php" id="form" method="post">
+					<input type="hidden" name="controller" value="profilo">
+    				<input type="hidden" name="task" value="eliminaannuncio">
+    				<input type="hidden" name="id_annuncio" value="<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+">
+    				<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+				</form>
+				</td>		
             </tr>
             <?php endfor; endif; ?>
 			</table>
@@ -156,7 +188,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
            			<div class="content-1col-nobox">
 		              <h1>Non ci sono annunci pubblicati.</h1>
 		              <h2 class="noicon">Puoi crearne uno facilmente! Clicca qui  </h2>
-                			<p><input type="button" value="Crea annuncio" onclick="location.href='index.php?controller=annuncio&task=moduloannuncio'"></p>
+                			<p><input type="button" id="button" value="Crea annuncio" onclick="location.href='index.php?controller=annuncio&task=moduloannuncio'"></p>
           				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
@@ -214,8 +246,15 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 </td>
             	<td><?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['ndisponibili']; ?>
 </td>
-            	<td><a href="index.php?controller=profilo&task=assegnapunti&id_partita=<?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['IDpartita']; ?>
-"><img title="Assegna Punti" class="mod" height="20" src="templates/main/template/img/p1.jpg"></a></td> 
+            	<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="assegnapunti">
+    					<input type="hidden" name="id_partita" value=<?php echo $this->_tpl_vars['datiPartiteCreate'][$this->_sections['k']['index']]['IDpartita']; ?>
+>
+    					<input type="image" height="20" class="mod" title="Assegna Punti" src="templates/main/template/img/p1.jpg" >
+					</form>	
+				</td>
             </tr>
             <?php endfor; endif; ?>
 			</table>

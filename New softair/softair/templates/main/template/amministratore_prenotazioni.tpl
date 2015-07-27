@@ -16,8 +16,22 @@
                 	{if $datiPartite[i].attrezzatura==''}
                 	<td>NO</td>{else}
             		<td>{$datiPartite[i].attrezzatura}</td>{/if}
-            		<td><a href="index.php?controller=profilo&task=modprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Modifica" class="mod" height="20" src="templates/main/template/img/mm.jpg"></a></td> 
-            		<td><a href="index.php?controller=profilo&task=eliminaprenotazione&id_prenotazione={$datiPartite[i].id}"><img title="Elimina" class="mod" height="20" src="templates/main/template/img/el4.jpg"></a></td> 
+					<td>
+            		<form action="index.php" method="post">
+    					<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="modprenotazione">
+    					<input type="hidden" name="id_prenotazione" value={$datiPartite[i].id}>
+    					<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+					</form>
+					</td>
+					<td>
+					<form action="index.php" id="form" method="post">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="eliminaprenotazione">
+    					<input type="hidden" name="id_prenotazione" value={$datiPartite[i].id}>
+    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
+					</form>	
+					</td> 
             	</tr>
             	{/section}
 				</table>

@@ -3,7 +3,11 @@
         <div class="content-1col-nobox">
           <h1 class="noicon">Conferma eliminazione</h1>
           <h2 class="noicon">L'eliminazione della  partita &egrave stata effettuata correttamente. Sono state cancellate automaticamente anche le prenotazioni relative alla partita </h2>
-                <p><input type="button" id="button" value="Torna alle partite" onclick="location.href='index.php?controller=amministratore&task=vedipartite'"></p>
+                <form action="index.php" method="get">
+					<input type="hidden" name="controller" value="amministratore">
+    				<input type="hidden" name="task" value="vedipartite">
+    				<p><input type="submit" id="button" value="Torna alle partite" title="Torna alle partite" ></p>
+				</form>
           <p class="demo"></p>
         </div>
         <div class="corner-content-1col-bottom"></div> 
