@@ -7,46 +7,29 @@
               <b>Data:</b> {$dati.data}<br>
               <b>NMax giocatori:</b> {$dati.ngiocatori}<br>
               <b>NPosti disponibili:</b> {$dati.ndisponibili}<br>
-                  {assign var="somma" value="`0`"}
-                  {assign var="max" value="`0`"}
-          {section name=k loop=$dati.commento}
-              {assign var="somma" value="`$dati.commento[k].votazione+$somma`"}
-              {assign var="max" value="`$smarty.section.k.max`"}
-          {/section}
-              <b>Media Voti:</b> | {if $dati.media_voti>0}{$dati.media_voti}{else}-{/if} <br>
-              <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
-              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"} &#8364<br>
+			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
+              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"} &#8364<br><br>
           <b>Lista utenti prenotati a questa partita:</b><br>
+          {if $utenti!=FALSE}
           {section name=ii loop=$utenti}
             - {$utenti[ii]}<br>
-          {/section}</p>
-              
+          {/section}
+          <h5><b>{$dati.ndisponibili}</b> posti ancora disponibili!</h5></p>
+          {else}Nessun utente si &egrave ancora prenotato. <h5><b>{$dati.ndisponibili}</b> posti disponibili.</h5>{/if}
+          {section name=j loop=$dati.commento}
+            <p>{$dati.commento[j].testo}</p>
+          {/section}   
           <div class="contactform">
-             <form action="index.php?controller=partita&task=apripartita&id_partita={$dati.IDpartita}" method="post">
-              <br><fieldset><legend>&nbsp;VOTA PARTITA&nbsp;</legend>
-                <p><label for="voto" class="left">Vota:</label>
-                   <!-- <input type="text" name="voto" id="voto" class="field" value="" tabindex="4" /></p> -->
-                   <select name="voto" tabindex="4">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                   </select>
+             <form action="index.php" method="post">
+              <br><fieldset><legend>&nbsp;COMMENTA PARTITA&nbsp;</legend>
                 <p><label for="commento" class="left">Commento:</label>
-                   <textarea name="commento" id="commento" cols="20" rows="10" tabindex="5"></textarea></p>
+                   <textarea name="commento" id="commento" cols="10" rows="2" tabindex="5"></textarea></p>
                    <input type="hidden" name="controller" value="ricerca" />
                    <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />
                 <p><input type="submit" name="task" class="button" value="Inserisci" tabindex="6" /></p>
               </fieldset>
             </form>
           </div>
-          {section name=j loop=$dati.commento}
-          <blockquote>
-            <p>{$dati.commento[j].testo}</p>
-            <p>voto: {$dati.commento[j].voto}</p>
-          </blockquote>
-          {/section}
         </div>
 		<div class="corner-content-1col-bottom"></div>
 {if $username!='AMMINISTRATORE'}

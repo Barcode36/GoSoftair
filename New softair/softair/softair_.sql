@@ -24,7 +24,6 @@ CREATE TABLE `commento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `partitaIDpartita` varchar(100) NOT NULL,
   `testo` varchar(1024) DEFAULT NULL,
-  `voto` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Commento` (`partitaIDpartita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
@@ -33,9 +32,9 @@ CREATE TABLE `commento` (
 -- Dump dei dati per la tabella `commento`
 --
 
-INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `voto`) VALUES
-('1','2','questo è un commento','4'),
-('2','2','questo è un commento nuovo','3');
+INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`) VALUES
+('1','2','questo è un commento'),
+('2','2','questo è un commento nuovo');
 
 
 -- --------------------------------------------------------

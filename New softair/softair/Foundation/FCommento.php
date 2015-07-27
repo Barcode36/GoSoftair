@@ -12,11 +12,11 @@ class FCommento extends Fdb {
         USingleton::getInstance('Fdb');
     }
 
-    public function store( $object){
+   /* public function store( $object){
         $id = parent::store($object);
         $object->id=$id;
     }
-
+*/
     public function loadCommenti($partitaIDpartita){
         $parametri=array();
         $parametri[]=array('partitaIDpartita','=',$partitaIDpartita);

@@ -70,18 +70,6 @@ class VRicerca extends View {
     }
     
     /**
-     * restituisce il voto passato tramite GET o POST
-     * @access public
-     * @return mixed
-     */
-    public function getVoto() {
-        if (isset($_REQUEST['voto'])) {
-            return $_REQUEST['voto'];
-        } else
-            return false;
-    }
-    
-    /**
      * Restituisce il commento
      * @access public
      * @return mixed

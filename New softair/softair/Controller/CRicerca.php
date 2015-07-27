@@ -56,7 +56,7 @@ class CRicerca {
                 	if($giorni>0){
                 		$prenota[$i]='non_prenotabile';
                 	}
-                	$array_risultato[$j]=array_merge($tmpPartita->getAllArray() ,array('media_voti'=>$tmpPartita->getMediaVoti()));
+                	$array_risultato[$j]=$tmpPartita->getAllArray();
                 	//2 righe sotto ritrasformano la data nel formato voluto
                 	$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
                 	$array_risultato[$j]['data']=$start->format('d/m/Y');
@@ -149,9 +149,12 @@ class CRicerca {
     	$session=USingleton::getInstance('USession');
         $view = USingleton::getInstance('VRicerca');
         $id_partita=$view->getIdPartita();
+        if($id_partita==FALSE){
+        	$id_partita=$session->leggi_valore('id_partita');
+        }
         $session->imposta_valore('id_partita',$id_partita);
         $CPartita=new CPartita();
-        $CPartita->apriPartita();
+        return $CPartita->apriPartita();
     }
     /**
      * Inserisce un commento nel database collegandolo alla relativa partita.
@@ -163,12 +166,13 @@ class CRicerca {
         $username=$session->leggi_valore('username');
         if ($username!=false) {
             $view = USingleton::getInstance('VRicerca');
+            $id_partita=$view->getIdPartita();
             $ECommento = new ECommento();
-            $ECommento->setPartitaIDpartita($view->getIdPartita());
-            $ECommento->setVoto($view->getVoto());
+            $ECommento->setPartitaIDpartita($id_partita);
             $ECommento->setTesto($username." : ".$view->getCommento());
             $FCommento=new FCommento();
             $FCommento->store($ECommento);
+            $session->imposta_valore('id_partita',$id_partita);
             return $this->dettagli();
         }
     }

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-27 11:50:29
+<?php /* Smarty version 2.6.26, created on 2015-07-27 20:07:57
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 25, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 18, false),)), $this); ?>
         <div class="content-1col-box">
           <!-- Subcell LEFT -->
           <div class="content-2col-box-leftcolumn">
@@ -52,38 +52,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 <br>
               <b>NPosti disponibili:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
 <br>
-                  <?php $this->assign('somma', "`0`"); ?>
-                  <?php $this->assign('max', "`0`"); ?>
-          <?php unset($this->_sections['k']);
-$this->_sections['k']['name'] = 'k';
-$this->_sections['k']['loop'] = is_array($_loop=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['commento']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$this->_sections['k']['show'] = true;
-$this->_sections['k']['max'] = $this->_sections['k']['loop'];
-$this->_sections['k']['step'] = 1;
-$this->_sections['k']['start'] = $this->_sections['k']['step'] > 0 ? 0 : $this->_sections['k']['loop']-1;
-if ($this->_sections['k']['show']) {
-    $this->_sections['k']['total'] = $this->_sections['k']['loop'];
-    if ($this->_sections['k']['total'] == 0)
-        $this->_sections['k']['show'] = false;
-} else
-    $this->_sections['k']['total'] = 0;
-if ($this->_sections['k']['show']):
-
-            for ($this->_sections['k']['index'] = $this->_sections['k']['start'], $this->_sections['k']['iteration'] = 1;
-                 $this->_sections['k']['iteration'] <= $this->_sections['k']['total'];
-                 $this->_sections['k']['index'] += $this->_sections['k']['step'], $this->_sections['k']['iteration']++):
-$this->_sections['k']['rownum'] = $this->_sections['k']['iteration'];
-$this->_sections['k']['index_prev'] = $this->_sections['k']['index'] - $this->_sections['k']['step'];
-$this->_sections['k']['index_next'] = $this->_sections['k']['index'] + $this->_sections['k']['step'];
-$this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
-$this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
-?>
-              <?php $this->assign('somma', ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['commento'][$this->_sections['k']['index']]['votazione']+$this->_tpl_vars['somma'])); ?>
-              <?php $this->assign('max', ($this->_sections['k']['max'])); ?>
-          <?php endfor; endif; ?>
-              <b>Media Voti:</b> | <?php if ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['media_voti'] > 0): ?><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['media_voti']; ?>
-<?php else: ?>-<?php endif; ?> <br>
-              <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
+			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
               <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
@@ -153,38 +122,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 <br>
               <b>NPosti disponibili:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
 <br>
-                  <?php $this->assign('somma', "`0`"); ?>
-                  <?php $this->assign('max', "`0`"); ?>
-          <?php unset($this->_sections['k']);
-$this->_sections['k']['name'] = 'k';
-$this->_sections['k']['loop'] = is_array($_loop=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['commento']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
-$this->_sections['k']['show'] = true;
-$this->_sections['k']['max'] = $this->_sections['k']['loop'];
-$this->_sections['k']['step'] = 1;
-$this->_sections['k']['start'] = $this->_sections['k']['step'] > 0 ? 0 : $this->_sections['k']['loop']-1;
-if ($this->_sections['k']['show']) {
-    $this->_sections['k']['total'] = $this->_sections['k']['loop'];
-    if ($this->_sections['k']['total'] == 0)
-        $this->_sections['k']['show'] = false;
-} else
-    $this->_sections['k']['total'] = 0;
-if ($this->_sections['k']['show']):
-
-            for ($this->_sections['k']['index'] = $this->_sections['k']['start'], $this->_sections['k']['iteration'] = 1;
-                 $this->_sections['k']['iteration'] <= $this->_sections['k']['total'];
-                 $this->_sections['k']['index'] += $this->_sections['k']['step'], $this->_sections['k']['iteration']++):
-$this->_sections['k']['rownum'] = $this->_sections['k']['iteration'];
-$this->_sections['k']['index_prev'] = $this->_sections['k']['index'] - $this->_sections['k']['step'];
-$this->_sections['k']['index_next'] = $this->_sections['k']['index'] + $this->_sections['k']['step'];
-$this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
-$this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
-?>
-              <?php $this->assign('somma', ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['commento'][$this->_sections['k']['index']]['votazione']+$this->_tpl_vars['somma'])); ?>
-              <?php $this->assign('max', ($this->_sections['k']['max'])); ?>
-          <?php endfor; endif; ?>
-              <b>Media Voti:</b> | <?php if ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['media_voti'] > 0): ?><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['media_voti']; ?>
-<?php else: ?>-<?php endif; ?> <br>
-              <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
+			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
               <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>

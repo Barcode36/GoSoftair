@@ -19,11 +19,6 @@ class ECommento {
 	 * @AttributeType string
 	 */
 	private $partitaIDpartita;
-	/**
-	 * @var $voto Variabile contenente il voto assegnato alla partita
-	 * @AttributeType int
-	 */
-	private $voto;
 	
 	/**
 	 * Imposta $id come  l'identificatico del commento
@@ -42,7 +37,7 @@ class ECommento {
 	 *
 	 */
 	public function setTesto($testo) {
-		$this->testi = $testo;
+		$this->testo = $testo;
 	}
 	
 	/**
@@ -55,16 +50,7 @@ class ECommento {
 	public function setPartitaIDpartita($partitaIDpartita) {
 		$this->partitaIDpartita= $partitaIDpartita;
 	}
-	
-	/**
-	 * Imposta $voto come  voto alla partita
-	 * @access public
-	 * @param int $voto
-	 *
-	 */
-	public function setVoto($voto) {
-		$this->voto = $voto;
-	}
+
 	
 	/**
 	 * restituisce un array contenente tutti gli attributi dell'oggetto
@@ -75,8 +61,7 @@ class ECommento {
 	public function getAllArray() {
 		$dati=array('id'=> $this->id,
 				'testo'=> $this->testo,
-				'partitaIDpartita'=> $this->partitaIDpartita,
-				'voto'=> $this->voto);
+				'partitaIDpartita'=> $this->partitaIDpartita);
 		return $dati;
 	}
 	
@@ -109,16 +94,6 @@ class ECommento {
 	public function getPartitaIDpartita()
 	{
 		return $this->partitaIDpartita;
-	}
-	
-	/**
-	 * @access public
-	 * @return int Intero contenente il voto alla partita.
-	 *
-	 */
-	public function getVoto()
-	{
-		return $this->voto;
 	}
 }
 ?>
