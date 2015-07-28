@@ -59,6 +59,15 @@ class CHome {
 		return $classifica;
     }
     
+    /**
+     * Imposta la pagina cookie_policy.
+     * @access public
+     */
+    public function cookie_policy(){
+    	$view=USingleton::getInstance('VHome');
+    	return $view->processaTemplatecookie();
+    }
+    
     
     
      /**
@@ -92,6 +101,8 @@ class CHome {
 			case 'annuncio':
                	$CAnnunci=USingleton::getInstance('CAnnunci');
                	return $CAnnunci->smista();
+            case 'cookie_policy':
+               	return $this->cookie_policy();
             default:
                 $session=USingleton::getInstance('USession');
         		$username=$session->leggi_valore('username');

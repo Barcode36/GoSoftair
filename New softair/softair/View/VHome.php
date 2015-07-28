@@ -155,6 +155,16 @@ class VHome extends View {
     public function impostaDati($key,$valore){
     	$this->assign($key,$valore);
     }
+    
+
+    /**
+     * Processa il layout scelto nella variabile _layout
+     * @access public
+     * @return string
+     */
+    public function processaTemplatecookie() {
+    	return $this->fetch('cookie_policy.tpl');
+    }
 }
 
 ?>

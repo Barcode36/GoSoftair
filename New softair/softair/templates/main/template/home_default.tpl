@@ -17,6 +17,7 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_reset.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_grid.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
+  <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery.cookiebar.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
 
   
@@ -28,6 +29,8 @@
 {literal}<!--[if IE]><style type="text/css"> body {word-wrap: break-word;}</style><![endif]-->{/literal}
 
 <body>
+<script type="text/javascript" src="JS/cookiechoices.js"></script>
+<script type="text/javascript" src="JS/cookiemessage.js"></script>
   <!-- CONTAINER FOR ENTIRE PAGE -->
   <div class="container">
 

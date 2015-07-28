@@ -1,0 +1,31 @@
+#cookieChoiceInfo {           /* Imposto le proprietà del banner/dialog box e caratteri del messaggio */
+  background-color: #000000;     /* Lo fondo è di colore nero (#000) */
+				 
+  font-size: 16px;            /* i caratteri devono essere grandi 16 pixel */
+  color: #ffffff;                /* il colore dei caratteri è grigio chiaro (#DDD) */
+  padding: 10px;              /* lo spazio intorno al messaggio (sopra, sotto e di lato) quindi il bordo dista 10 pixel */  
+  /*opacity: 1; */               /* questa proprietà modifica la trasparenza del banner/dialogbox */
+}
+#cookieInfoLink {                      
+  color: #ff0000;                /* il testo del link che aprire la pagina della cookie policy è rosso (#E00)  */
+  text-decoration: underline; /* questa proprietà indica che il testo del link è sottolineato  */
+}
+#cookieInfoLink:hover {       /* la parola hover, vicino al selettore, indica che le proprietà seguenti verranno applicate... */
+                              /* ... al link che conduce alla cookie policy solo quando il mouse ci passa sopra  */
+  color: #ff8080;                /* il testo del link in questo caso diventa di un rosso più chiaro al passaggio del mouse...  */
+  test-decoration:none;       /*   .... e allo stesso tempo il testo non sarà più sottolineato            */
+}
+#cookieChoiceDismiss {        /* Impostiamo per il link "accetto/ok/chiudi" le proprietà per renderlo... */
+			      /* ...visivamente come un pulsante */
+  background: url(../img/rosso.jpg) repeat-x;
+  /*background-color: #0A0; */    /* lo sfondo è verde (#0A0) */
+  color: #FFF;                /* Il colore del testo è bianco (#FFF) */
+  text-decoration: none;      /* Il testo non è sottolineato         */
+  font-weight: 600;           /* Il testo è in grassetto             */
+  font-size: 16px;
+  padding: 3px 10px;          /* Imposto lo spazio tra i caratteri e il bordo del pulsante 2pixel sopra e sotto e 10px ai lati */
+  /*border-radius:  3px;*/        /* Lo sfondo del pulsante ha i bordi arrotondati con un raggio di 3 pixel */
+}
+#cookieChoiceDismiss:hover {  /* Passando il mouse sopra il pulsante, questo cambia colore in verde chiaro. */
+  background: url(../img/rosso2.jpg) repeat-x; 
+}
