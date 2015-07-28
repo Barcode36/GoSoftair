@@ -1,120 +1,98 @@
-function Modulo() {
-/* Validazione della form di registrazione */
-
-
-
-//catturare oggetti del DOM nella form registrazione
-
-var nomeutente = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-var ripetipassword = document.getElementById("password_1").value;
-var nome = document.getElementById("nome").value;
-var cognome = document.getElementById("cognome").value;
-var via = document.getElementById("via").value;
-var cap = document.getElementById("cap").value;
-var citta = document.getElementById("citta").value;
-var email = document.getElementById("email").value;
-var email_reg_exp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
-
-
-
-//var errori=new Array();
-
-//controllo campo Nome utente evitando che sia vuoto o undefined
-	if ((nomeutente == "") || (nomeutente == "undefined")) {
-    alert("Il campo nome è obbligatorio.");
-//  nomeutente.value = ""; //svuota il campo nomeutente
-	document.getElementById("username").focus();
-//	errori[0]=true;
-	return false;
-    }
- 
-
-//controllo campo Password evitando che sia vuoto o undefined
-	else if ((password == "") || (password == "undefined")) {
-    alert("Il campo password è obbligatorio.");
-//	password.value = ""; //svuota il campo password
-	document.getElementById("password").focus();
-//    errori[1]=true;
-	return false;
-    }
-
-//controllo campo ripetipassword evitando che sia vuoto o undefined
-	else if ((ripetipassword == "") || (ripetipassword == "undefined")) {
-    alert("Il campo ripetipassword è obbligatorio.");
-//	ripetipassword.value = ""; //svuota il campo ripetipassword
-	document.getElementById("password_1").focus();
-//    errori[2]=true;
-	return false;
-    }
-
-//controllo se la password è uguale a ripetipassword
-
-    else if (password != ripetipassword) {
-     alert("La password confermata è diversa da quella scelta, reinserire.");
-    document.getElementById("password_1").value = ""; //svuota il campo conferma password 
-	document.getElementById("password_1").focus();
-//	 errori[3]=true;
-	return false;
-	}
-
-//controllo campo nome evitando che sia vuoto o undefined
-	else if ((nome == "") || (nome == "undefined")) {
-    alert("Il campo nome è obbligatorio.");
-//	nome.value = ""; //svuota il campo nome
-	document.getElementById("nome").focus();
-//    errori[4]=true;
-	return false;
-    }
-
-//controllo campo cognome evitando che sia vuoto o undefined
-	else if ((cognome == "") || (cognome == "undefined")) {
-    alert("Il campo cognome è obbligatorio.");
-//	cognome.value = ""; //svuota il campo cognome
-	document.getElementById("cognome").focus();
-//    errori[5]=true;
-	return false;
-    }
-
-//controllo campo via evitando che sia vuoto o undefined
-	else if ((via == "") || (via == "undefined")) {
-    alert("Il campo via è obbligatorio.");
-//	via.value = ""; //svuota il campo via
-	document.getElementById("via").focus();
- //   errori[6]=true;
-	return false;
-    }
-
- //controllo campo cap evitando che sia vuoto o undefined
-	else if ((cap == "") || (cap == "undefined") || (isNaN(cap)) || (String(cap).indexOf(".") != (-1)) || (cap.length!=5))
+$(document).ready(function()
 {
-    alert("Il campo cap è obbligatorio. Inserire un valore valido");
-	document.getElementById("cap").value = ""; //svuota il campo cap
-	document.getElementById("cap").focus();
-//    errori[7]=true;
-	return false;
-  }
+	// metodo per validare username
+	$.validator.addMethod("username_regex", function(value, element) { 
+		return this.optional(element) || /^[a-z0-9\.\-_]{1,30}$/i.test(value); 
+		}, "Caratteri non validi. Sono consentiti solo lettere e numeri!");
+	// metodo per validare i testi
+	$.validator.addMethod("testi_regex", function(value, element) { 
+		return this.optional(element) || /^[a-z]{1,30}$/i.test(value); 
+		}, "Caratteri non validi. Sono consentite solo lettere!");
 
-  //controllo campo citta evitando che sia vuoto o undefined
-	else if ((citta == "") || (citta == "undefined")) {
-    alert("Il campo citta è obbligatorio.");
-//	citta.value = ""; //svuota il campo citta
-	document.getElementById("citta").focus();
-//    errori[8]=true;
-	return false;
-    }
 
-//controllo campo email evitando che il test sia negativo, che sia vuoto o undefined
- 	else if (!email_reg_exp.test(email) || (email == "") || (email == "undefined")) {
-    alert("Inserire un indirizzo email corretto.");
-//   email.value = ""; //svuota il campo via
-	document.getElementById("email").focus();
-//   errori[9]=true;
-	return false;
-}
-else {
+	$("#formreg").validate(
+	{
+        rules:{
+		'username':{
+			required: true,
+			username_regex: true,
+			},
+		'email':{
+			required: true,
+			email: true,
+			},
+		'nome':{
+			required: true,
+			testi_regex: true,
+		},	
+		'cognome':{
+			required: true,
+			testi_regex: true,
+		},	
+		'via':{
+			required: true,
+		},	
+		'CAP':{
+			required: true,
+		   	digits: true,
+			minlength: 5,
+			maxlength: 5
+		},
+		'citta':{
+			required: true,
+			testi_regex: true
+		},	
+		'password':{
+			required: true,
+			minlength: 8
+			},
+		'password_1':{
+			equalTo: '#password_1'
+			},
+		},
+        messages:{
+		'username':{
+			required: "Il campo username &eacute; obbligatorio!",
+			username_regex: "Caratteri non validi. Sono consentiti solo lettere e numeri!",
+			},
+		'email':{
+			required: "Il campo email &eacute; obbligatorio!",
+			email: "Inserisci un valido indirizzo email!",
+			},
+		'nome':{
+			required: "Il campo nome &eacute; obbligatorio!",
+		},
+		'cognome':{
+			required: "Il campo cognome &eacute; obbligatorio!",
+		},
+		'via':{
+			required: "Il campo via &eacute; obbligatorio!",
+		},
+		'CAP':{
+			required: "Il campo cap &eacute; obbligatorio!",
+			minlength:"Inserisci un CAP valido!",
+			maxlength:"Inserisci un CAP valido!",
+			digits:"Inserire solo numeri!"
+		},
+		'citta':{
+			required: "Il campo citt&aacute; &eacute; obbligatorio!",
+		},
+		'password':{
+			required: "Il campo password &eacute; obbligatorio!",
+			minlength: "Inserisci una password di almeno 8 caratteri!"
+			},
+		'password_1':{
+			equalTo: "Le due password non coincidono!"
+			}
+		}
+	});
+	
+	});
+
+function click()
+{
+	if($("#formreg").valid())
+	{
 		document.getElementById("formreg").submit();
-
     }
-
-}
+};

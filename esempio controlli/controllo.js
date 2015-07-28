@@ -3,11 +3,13 @@ $(document).ready(function(){
 
 		
 			rules:{
-				name: "required"
+				name: "required",
+				surname:"required"
 			},
 		
 			messages:{
-				name:"<br>Inserisci il nome!"		
+				name:"Inserisci il nome!",
+				surname:"cog"
 			}
     });
 	
