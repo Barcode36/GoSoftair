@@ -24,6 +24,8 @@ CREATE TABLE `commento` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `partitaIDpartita` varchar(100) NOT NULL,
   `testo` varchar(1024) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `ora` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Commento` (`partitaIDpartita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
@@ -32,9 +34,9 @@ CREATE TABLE `commento` (
 -- Dump dei dati per la tabella `commento`
 --
 
-INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`) VALUES
-('1','2','questo è un commento'),
-('2','2','questo è un commento nuovo');
+INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `data`, `ora`) VALUES
+('1','2','cartman: questo è un commento','2015-06-12','15:50'),
+('2','2','cartman: questo è un commento nuovo','2015-05-20','10:12');
 
 
 -- --------------------------------------------------------
@@ -51,6 +53,7 @@ CREATE TABLE `partita` (
   `ndisponibili` int DEFAULT NULL,
   `autore` varchar(20) NOT NULL,
   `data` date DEFAULT NULL,
+  `ora` varchar(10) DEFAULT NULL,
   `prezzo` float DEFAULT NULL,
   `attrezzatura` varchar(2) DEFAULT NULL,
   `descrizione` varchar(2048) DEFAULT NULL,
@@ -65,14 +68,14 @@ CREATE TABLE `partita` (
 -- Dump dei dati per la tabella `partita`
 --
 
-INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`,`prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`, `votata`) VALUES
-('1', 'Convento', 'via del convento 2', 10, 9, 'Rambittu89','2015-10-15', 0, 'SI' , 'Partita 5 vs 5 in un convento abbandonato. Si gioca dalle 10 alle 17 con pausa pranzo','Deathmatch a squadre', './immagini/partite/Rambittu89/convento.jpg', 'non_votata'),
-('2', 'Quartiere abbandonato', 'via garibaldi 56', 10, 5,'SnAkE','2015-09-18', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
-('3', 'Simulazione ww2', 'Piazza arischia', 20, 18,'viulenza93','2015-10-10', 5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5â‚¬.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
-('4', 'Foresta', 'Bosco di Pizzoli', 8, 7,'micidial','2015-11-02', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
-('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 4, 'terminator','2015-10-11', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
-('6', 'Mezzi utilizzabili', 'via della campagna Arischia', 20, 20,'cartman','2015-08-09', 0,'SI','Un fuggitivo, tutti all inseguimento. Il fuggitivo verra selezionato a caso e avra un ora di vantaggio. Gli altri inseguiranno anche con veicoli. Incontro alle 17','Caccia all uomo', './immagini/partite/cartman/veicoli.jpg', 'non_votata'),
-('7', 'Campo attrezzato', 'Softgun AQ', 6, 4,'Softgun AQ','2016-02-01', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/Softgun AQ/campo.jpg', 'non_votata');
+INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`, `ora`, `prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`, `votata`) VALUES
+('1', 'Convento', 'via del convento 2', 10, 9, 'Rambittu89','2015-10-15','10.30', 0, 'SI' , 'Partita 5 vs 5 in un convento abbandonato. Si gioca dalle 10 alle 17 con pausa pranzo','Deathmatch a squadre', './immagini/partite/Rambittu89/convento.jpg', 'non_votata'),
+('2', 'Quartiere abbandonato', 'via garibaldi 56', 10, 5,'SnAkE','2015-09-18','10.30', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
+('3', 'Simulazione ww2', 'Piazza arischia', 20, 18,'viulenza93','2015-10-10', '10.30',5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5â‚¬.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
+('4', 'Foresta', 'Bosco di Pizzoli', 8, 7,'micidial','2015-11-02','10.30', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
+('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 4, 'terminator','2015-10-11','10.30', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
+('6', 'Mezzi utilizzabili', 'via della campagna Arischia', 20, 20,'cartman','2015-08-09','10.30', 0,'SI','Un fuggitivo, tutti all inseguimento. Il fuggitivo verra selezionato a caso e avra un ora di vantaggio. Gli altri inseguiranno anche con veicoli. Incontro alle 17','Caccia all uomo', './immagini/partite/cartman/veicoli.jpg', 'non_votata'),
+('7', 'Campo attrezzato', 'Softgun AQ', 6, 4,'Softgun AQ','2016-02-01','10.30', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/Softgun AQ/campo.jpg', 'non_votata');
 
 -- --------------------------------------------------------
 

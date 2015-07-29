@@ -68,6 +68,15 @@ class CAmministratore {
 		$FPartita=new FPartita();
 		$partita=$FPartita->load($idpartita);
 		$dati_partita=$partita->getAllArray();
+		
+		list($anno,$mese,$giorno) = explode('-',$dati_partita['data']);
+		$data=array('giorno'=>$giorno,'mese'=>$mese, 'anno'=>$anno);
+		$view->impostaDati('data', $data);
+		
+		list($ora,$minuti) = explode('.',$dati_partita['ora']);
+		$orario=array('ora'=>$ora,'minuti'=>$minuti);
+		$view->impostaDati('ora', $orario);
+		
 		$view->impostaDati('datiPartita', $dati_partita);
 		$nprenotati=$dati_partita['ngiocatori']-$dati_partita['ndisponibili'];
 		$view->impostaDati('nprenotati', $nprenotati);

@@ -39,6 +39,11 @@ class EPartita {
 	 */
 	private $data;
 	/**
+	 * @var $ora Variabile contenente l'ora della partita
+	 * @AttributeType string
+	 */
+	private $ora;
+	/**
 	 * @var $ngiocatori Variabile contenente il numero massimo di giocatori della partita
 	 * @AttributeType int
 	 */
@@ -152,6 +157,15 @@ class EPartita {
     }
     
     /**
+     * Imposta $ora come ora di svolgimento della partita
+     * @access public
+     */
+    public function setOra($ora)
+    {
+    	$this->ora=$ora;
+    }
+    
+    /**
      * Imposta $ngocatori come numero di giocatori massimo per la partita
      * @access public
      * @param int $ngiocatori
@@ -242,6 +256,7 @@ class EPartita {
     			'categoria'=> $this->categoria,
     			'indirizzo'=> $this->indirizzo,
     			'data'=> $this->data,
+    			'ora'=> $this->ora,
     			'ngiocatori'=> $this->ngiocatori,
     			'ndisponibili'=> $this->ndisponibili,
     			'IDpartita'=> $this->IDpartita,
@@ -295,6 +310,15 @@ class EPartita {
      */
     public function getData() {
     	return $this->data;
+    }
+    
+    /**
+     * @access public
+     * @return  contenente l'ora di svolgimento della partita.
+     *
+     */
+    public function getOra() {
+    	return $this->ora;
     }
     
     /**

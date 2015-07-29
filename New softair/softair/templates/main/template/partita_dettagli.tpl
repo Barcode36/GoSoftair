@@ -5,6 +5,7 @@
               <p><img width="140px" src="{$dati.immagine}" alt="{$dati.titolo}" title="{$dati.titolo}"><b>Descrizione:</b>{$dati.descrizione|truncate:240:" [...]"}<br>
               <b>Indirizzo:</b> {$dati.indirizzo}<br>
               <b>Data:</b> {$dati.data}<br>
+              <b>Ora:</b> {$dati.ora}<br>
               <b>NMax giocatori:</b> {$dati.ngiocatori}<br>
               <b>NPosti disponibili:</b> {$dati.ndisponibili}<br>
 			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>

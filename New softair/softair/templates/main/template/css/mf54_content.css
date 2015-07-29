@@ -89,7 +89,7 @@
 .contactform label.left {float:left; width:100px; margin:0 0 0 10px; padding:2px; font-size:100%;}
 .contactform select.combo {width:175px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .contactform input.field {width:275px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
-.contactform textarea {width:275px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
+.contactform textarea {width:600px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .contactform input.button {float:left; width:9.0em; margin-left:115px !important /*Non-IE6*/; margin-left:118px /*IE6*/; padding:3px !important /*Non-IE6*/; padding:2px /*IE6*/; background-image:url(../img/rosso.jpg); border:solid 1px rgb(150,150,150); text-align:center; color:#fff; font-size:100%;}
 .contactform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background-image:url(../img/rosso2.jpg); color:#fff;}
 
@@ -188,7 +188,7 @@
 .subcontent .contactform label.left {float:left; width:85px; margin:0; padding:2px; font-size:100%;}
 .subcontent .contactform select.combo {width:90px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .subcontent .contactform input.field {width:85px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
-.subcontent .contactform textarea {width:178px; padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
+.subcontent .contactform textarea {width:600px;/*178px;*/ padding:2px; border:solid 1px rgb(200,200,200); font-size:100%;}
 .subcontent .contactform input.button {float:left; width:9.0em; margin-left:67px !important /*Non-IE6*/; margin-left:68px /*IE6*/; padding:3px !important /*Non-IE6*/; padding:2px /*IE6*/; background:rgb(230,230,230); border:solid 1px rgb(150,150,150); text-align:center; color:rgb(150,150,150); font-size:100%;}
 .subcontent .contactform input.button:hover {cursor:pointer; border:solid 1px rgb(80,80,80); background:rgb(220,220,220); color:rgb(80,80,80);}
 
@@ -278,3 +278,7 @@
 
 #ut {width:260px;}
 
+
+#anno {width:75px;}
+
+.piccolo {width:50px;}

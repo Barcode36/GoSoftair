@@ -16,7 +16,7 @@
 		      <p><label for="telefono" class="top">Telefono:</label><br />
                     <input type="text" name="telefono" id="telefono" tabindex="4" class="field" value="{$datiAnnuncio.telefono}" /></p>
 		      <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		  			<input type="file" name="Immagine" size="40">
+		  			<input id="button" type="file" name="Immagine" size="40">
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaannuncio" />
                 <p><input type="submit" name="submit" id="submit_1" class="button" value="Salva modifiche" tabindex="15" /></p>

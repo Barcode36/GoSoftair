@@ -52,8 +52,11 @@ class CPartita {
     		$arrayCommenti=array();
     		$dati=$partita->getAllArray() ;
     		if ( is_array( $commenti )  ) {
-    			foreach ($commenti as $commento){
-    				$arrayCommenti[]=$commento->getAllArray() ;
+    			for ($i=0; $i<count($commenti);$i++){
+    				$arrayCommenti[$i]=$commenti[$i]->getAllArray() ;
+    				$tmp = DateTime::createFromFormat('Y-m-d',$arrayCommenti[$i]['data']);
+    				$arrayCommenti[$i]['data']=$tmp->format('d/m/Y');
+    			
     			}
     		}
     		$dati['commento']=$arrayCommenti;
@@ -107,6 +110,12 @@ class CPartita {
     public function moduloCreaPartita() {
     	$VPartita=USingleton::getInstance('VPartita');
     	$session=USingleton::getInstance('USession');
+    	//presetta la data della partita a domani
+    	$date=USingleton::getInstance('UData');
+    	$domani=$date->sommaGiorniYmd(date("Y-m-d"),'-',1);
+    	list($anno,$mese,$giorno) = explode('-',$domani);
+    	$domaniarray=array('giorno'=>$giorno,'mese'=>$mese, 'anno'=>$anno);
+    	$VPartita->impostaDati('domani', $domaniarray);
     	$username=$session->leggi_valore('username');
     	$VPartita->impostaDati('username', $username);
     	return $VPartita->processaTemplate();
@@ -127,11 +136,13 @@ class CPartita {
         $FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
 		$data=$dati_registrazione['Anno'].'-'.$dati_registrazione['Mese'].'-'.$dati_registrazione['Giorno'];
+		$ora=$dati_registrazione['Ora'].'-'.$dati_registrazione['Minuti'];
 		$username=$session->leggi_valore('username');
 		$EPartita->setAutore($username);
 		$EPartita->setTitolo($dati_registrazione['Titolo']);
 		$EPartita->setIndirizzo($dati_registrazione['Indirizzo']);
 		$EPartita->setData($data);
+		$EPartita->setOra($dati_registrazione['Ora']);
 		$EPartita->setDescrizione($dati_registrazione['Descrizione']);
 		$EPartita->setNgiocatori($dati_registrazione['Giocatori']);
 		$EPartita->setNdisponibili($dati_registrazione['Giocatori']);

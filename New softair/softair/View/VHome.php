@@ -165,6 +165,7 @@ class VHome extends View {
     public function processaTemplatecookie() {
     	return $this->fetch('cookie_policy.tpl');
     }
+
 }
 
 ?>

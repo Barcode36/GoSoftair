@@ -24,7 +24,7 @@ class CHome {
         $categorie=$partita->getCategorie();
         $VHome->impostaTastiCategorie($categorie);
         $VHome->impostaContenuto($contenuto);
-        $classifica=$this->classifica();
+        $classifica=$this->classifica(5);
         $VHome->impostaDati('classifica',$classifica);
         $session=USingleton::getInstance('USession');
         $username=$session->leggi_valore('username');
@@ -42,19 +42,20 @@ class CHome {
      * Imposta la classifica dei giocatori.
      * @access public
      */
-    public function classifica() {
+    public function classifica($lim) {
     	$VHome= USingleton::getInstance('VHome');
     	$FUtente=new FUtente();
     	$risultato=$FUtente->getUtentiPunti();
     	if ($risultato!=false) {
-    		foreach ($risultato as $item) {
-    			$username=$item->getUsername();
+    		for ($i=0; $i<count($risultato) && $i<$lim; $i++) {
+    			$username=$risultato[$i]->getUsername();
     			if($username!='AMMINISTRATORE'){
     			$tmpUtente=$FUtente->load($username);
-    			$classifica[]=$tmpUtente->getAllArray();}
+    			$classifica[$i]=$tmpUtente->getAllArray();
+    			$posizione[$i]=$i+1;
+    			}
     		}
     	}
-    	$posizione=[1,2,3,4,5,6,7,8,9];
     	$VHome->impostaDati('posizione',$posizione);
 		return $classifica;
     }
@@ -67,8 +68,6 @@ class CHome {
     	$view=USingleton::getInstance('VHome');
     	return $view->processaTemplatecookie();
     }
-    
-    
     
      /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le

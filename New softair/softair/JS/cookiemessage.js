@@ -5,3 +5,5 @@
          'Ok', 'Maggiori Informazioni',
                   'index.php?controller=cookie_policy');
    });
+ 
+ 

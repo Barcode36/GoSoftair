@@ -19,6 +19,16 @@ class ECommento {
 	 * @AttributeType string
 	 */
 	private $partitaIDpartita;
+		
+	/**
+	 * @var $data Variabile contenente la data di svolgimento della partita
+	 */
+	private $data;
+	/**
+	 * @var $ora Variabile contenente l'ora della partita
+	 * @AttributeType string
+	 */
+	private $ora;
 	
 	/**
 	 * Imposta $id come  l'identificatico del commento
@@ -50,7 +60,24 @@ class ECommento {
 	public function setPartitaIDpartita($partitaIDpartita) {
 		$this->partitaIDpartita= $partitaIDpartita;
 	}
-
+	
+	/**
+	 * Imposta $data come data di svolgimento della partita
+	 * @access public
+	 */
+	public function setData($data)
+	{
+		$this->data=$data;
+	}
+	
+	/**
+	 * Imposta $ora come ora di svolgimento della partita
+	 * @access public
+	 */
+	public function setOra($ora)
+	{
+		$this->ora=$ora;
+	}
 	
 	/**
 	 * restituisce un array contenente tutti gli attributi dell'oggetto
@@ -61,7 +88,10 @@ class ECommento {
 	public function getAllArray() {
 		$dati=array('id'=> $this->id,
 				'testo'=> $this->testo,
-				'partitaIDpartita'=> $this->partitaIDpartita);
+				'partitaIDpartita'=> $this->partitaIDpartita,
+				'data'=> $this->data,
+				'ora'=> $this->ora,
+		);
 		return $dati;
 	}
 	
@@ -94,6 +124,24 @@ class ECommento {
 	public function getPartitaIDpartita()
 	{
 		return $this->partitaIDpartita;
+	}
+	
+	/**
+	 * @access public
+	 * @return  contenente la data di svolgimento della partita.
+	 *
+	 */
+	public function getData() {
+		return $this->data;
+	}
+	
+	/**
+	 * @access public
+	 * @return  contenente l'ora di svolgimento della partita.
+	 *
+	 */
+	public function getOra() {
+		return $this->ora;
 	}
 }
 ?>

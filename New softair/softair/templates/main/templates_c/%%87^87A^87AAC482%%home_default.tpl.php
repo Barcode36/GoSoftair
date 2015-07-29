@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-27 20:07:28
+<?php /* Smarty version 2.6.26, created on 2015-07-29 06:10:49
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -19,9 +19,10 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_reset.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_grid.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
+  <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery.cookiebar.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
+  <script type="text/javascript" src="JS/cancellatesto.js"></script>
 
-  
   <title><?php echo $this->_tpl_vars['title']; ?>
 </title>
 </head>
@@ -32,6 +33,8 @@
 
 
 <body>
+<script type="text/javascript" src="JS/cookiechoices.js"></script>
+<script type="text/javascript" src="JS/cookiemessage.js"></script>
   <!-- CONTAINER FOR ENTIRE PAGE -->
   <div class="container">
 
@@ -55,9 +58,9 @@
       <div class="header-bottom">
         <!-- Search form -->                  
         <div class="searchform">
-          <form action="index.php" method="get">
+          <form  action="index.php" method="get">
             <fieldset>
-              <input name="stringa" class="field"  value="Inserisci una parola da cercare" />
+              <input name="stringa" class="field"  onfocus="clearText(this)" onblur="clearText(this)" value="Inserisci una parola da cercare" />
               <input type="hidden" name="controller" value="ricerca" />
               <input type="submit" name="task" class="button" value="Cerca" />
             </fieldset>
@@ -235,7 +238,13 @@ $this->_sections['k']['index_next'] = $this->_sections['k']['index'] + $this->_s
 $this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
 $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
 ?>
-                	<h4> <?php echo $this->_tpl_vars['posizione'][$this->_sections['k']['index']]; ?>
+                	<tr><?php if ($this->_tpl_vars['posizione'][$this->_sections['k']['index']] == 1): ?>
+                	<img height="30"   src="templates/main/template/img/oro.jpg" ><?php endif; ?>
+               	    <?php if ($this->_tpl_vars['posizione'][$this->_sections['k']['index']] == 2): ?>
+                	<img height="30"   src="templates/main/template/img/argento.jpg" ><?php endif; ?>
+                	<?php if ($this->_tpl_vars['posizione'][$this->_sections['k']['index']] == 3): ?>
+                	<img height="30"   src="templates/main/template/img/bronzo.jpg" ><?php endif; ?> 
+                			<h4> <?php echo $this->_tpl_vars['posizione'][$this->_sections['k']['index']]; ?>
 ) <b><?php echo $this->_tpl_vars['classifica'][$this->_sections['k']['index']]['username']; ?>
 </b>: <?php echo $this->_tpl_vars['classifica'][$this->_sections['k']['index']]['punti']; ?>
  punti</h4> <br>

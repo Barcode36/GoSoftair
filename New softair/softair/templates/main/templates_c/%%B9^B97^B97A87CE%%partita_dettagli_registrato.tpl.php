@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-27 20:23:14
+<?php /* Smarty version 2.6.26, created on 2015-07-29 05:36:04
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 11, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 5, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 12, false),)), $this); ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
               <h1><a href="?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
@@ -17,6 +17,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
               <b>Indirizzo:</b> <?php echo $this->_tpl_vars['dati']['indirizzo']; ?>
 <br>
               <b>Data:</b> <?php echo $this->_tpl_vars['dati']['data']; ?>
+<br>
+              <b>Ora:</b> <?php echo $this->_tpl_vars['dati']['ora']; ?>
 <br>
               <b>NMax giocatori:</b> <?php echo $this->_tpl_vars['dati']['ngiocatori']; ?>
 <br>
@@ -84,14 +86,17 @@ $this->_sections['j']['index_next'] = $this->_sections['j']['index'] + $this->_s
 $this->_sections['j']['first']      = ($this->_sections['j']['iteration'] == 1);
 $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $this->_sections['j']['total']);
 ?>
-            <p><?php echo $this->_tpl_vars['dati']['commento'][$this->_sections['j']['index']]['testo']; ?>
-</p>
+            <p><?php echo $this->_tpl_vars['dati']['commento'][$this->_sections['j']['index']]['data']; ?>
+  <?php echo $this->_tpl_vars['dati']['commento'][$this->_sections['j']['index']]['ora']; ?>
+<br>
+               <b><?php echo $this->_tpl_vars['dati']['commento'][$this->_sections['j']['index']]['testo']; ?>
+</b></p>
           <?php endfor; endif; ?>   
           <div class="contactform">
              <form action="index.php" method="post">
               <br><fieldset><legend>&nbsp;COMMENTA PARTITA&nbsp;</legend>
                 <p><label for="commento" class="left">Commento:</label>
-                   <textarea name="commento" id="commento" cols="10" rows="2" tabindex="5"></textarea></p>
+                   <textarea name="commento" id="commento" cols="80" rows="2" tabindex="5" onfocus="clearText(this)" onblur="clearText(this)">Che ne pensi?</textarea></p>
                    <input type="hidden" name="controller" value="ricerca" />
                    <input type="hidden" name="id_partita" value="<?php echo $this->_tpl_vars['dati']['IDpartita']; ?>
 " />

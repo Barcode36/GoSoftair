@@ -12,11 +12,11 @@
 		<p><label for="Prezzo" class="top">Prezzo:</label><br />
                   <input type="number" name="Prezzo" id="Prezzo" tabindex="2" class="field" value="0" /></p>
 		<p><label for="Descrizione" class="top">Descrizione:</label><br />
-                  <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="45" rows="10" tabindex="3" class="field" value="" /></textarea></p>
+                  <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="80" rows="10" tabindex="3" class="field" onfocus="clearText(this)" onblur="clearText(this)" />Il mio articolo &egrave...</textarea></p>
 		<p><label for="Numero" class="top">Telefono:</label><br />
                   <input type="text" name="Numero" id="Numero" tabindex="4" class="field" value="" /></p>
 		<p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		  <input type="file" id="button" name="Immagine" size="40">
+		  <input id="button" type="file" id="button" name="Immagine" size="40">
 
               <p><input type="submit"  name="task" class="button" value="CREA ANNUNCIO" tabindex="5" /></p>
             </fieldset>

@@ -119,7 +119,7 @@ class CRicerca {
                 	if($giorni>0){
                 		$prenota[$i]='non_prenotabile';
                 	}
-            		$array_risultato[$j]=array_merge($tmpPartita->getAllArray(),array('media_voti'=>$tmpPartita->getMediaVoti()));
+            		$array_risultato[$j]=$tmpPartita->getAllArray();
             		//2 righe sotto ritrasformano la data nel formato voluto
             		$start = DateTime::createFromFormat('Y-m-d',$array_risultato[$j]['data']);
             		$array_risultato[$j]['data']=$start->format('d/m/Y');
@@ -170,6 +170,11 @@ class CRicerca {
             $ECommento = new ECommento();
             $ECommento->setPartitaIDpartita($id_partita);
             $ECommento->setTesto($username." : ".$view->getCommento());
+            $ECommento->setData(date('Y-m-d'));
+            $orario=date("H:i:s");
+            list($ora,$minuti,$secondi) = explode(':',$orario);
+            $now=$ora.'.'.$minuti;
+            $ECommento->setOra($now);
             $FCommento=new FCommento();
             $FCommento->store($ECommento);
             $session->imposta_valore('id_partita',$id_partita);

@@ -19,8 +19,8 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery.cookiebar.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
+  <script type="text/javascript" src="JS/cancellatesto.js"></script>
 
-  
   <title>{$title}</title>
 </head>
 
@@ -54,9 +54,9 @@
       <div class="header-bottom">
         <!-- Search form -->                  
         <div class="searchform">
-          <form action="index.php" method="get">
+          <form  action="index.php" method="get">
             <fieldset>
-              <input name="stringa" class="field"  value="Inserisci una parola da cercare" />
+              <input name="stringa" class="field"  onfocus="clearText(this)" onblur="clearText(this)" value="Inserisci una parola da cercare" />
               <input type="hidden" name="controller" value="ricerca" />
               <input type="submit" name="task" class="button" value="Cerca" />
             </fieldset>
@@ -158,7 +158,13 @@
                 	<li>
                 	<ul>
                 	{section name=k loop=$classifica}
-                	<h4> {$posizione[k]}) <b>{$classifica[k].username}</b>: {$classifica[k].punti} punti</h4> <br>
+                	<tr>{if $posizione[k]==1}
+                	<img height="30"   src="templates/main/template/img/oro.jpg" >{/if}
+               	    {if $posizione[k]==2}
+                	<img height="30"   src="templates/main/template/img/argento.jpg" >{/if}
+                	{if $posizione[k]==3}
+                	<img height="30"   src="templates/main/template/img/bronzo.jpg" >{/if} 
+                			<h4> {$posizione[k]}) <b>{$classifica[k].username}</b>: {$classifica[k].punti} punti</h4> <br>
                 	{/section}
                 	</ul>
                 	</li>

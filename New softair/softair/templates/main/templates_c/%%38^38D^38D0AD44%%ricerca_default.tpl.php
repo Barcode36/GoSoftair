@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-27 20:07:57
+<?php /* Smarty version 2.6.26, created on 2015-07-29 05:01:54
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 18, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 12, false),array('modifier', 'string_format', 'ricerca_default.tpl', 19, false),)), $this); ?>
         <div class="content-1col-box">
           <!-- Subcell LEFT -->
           <div class="content-2col-box-leftcolumn">
@@ -47,6 +47,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
               <b>Indirizzo:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['indirizzo']; ?>
 <br>
               <b>Data:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+<br>
+              <b>Ora:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ora']; ?>
 <br>
               <b>NMax giocatori:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ngiocatori']; ?>
 <br>
@@ -118,6 +120,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 <br>
               <b>Data:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
 <br>
+              <b>Ora:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ora']; ?>
+<br>
               <b>NMax giocatori:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ngiocatori']; ?>
 <br>
               <b>NPosti disponibili:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
@@ -182,4 +186,4 @@ $this->_sections['pages']['last']       = ($this->_sections['pages']['iteration'
            </h2>
         </div>
         <div class="corner-content-1col-bottom"></div>
-        <?php endif; ?>
+        <?php endif; ?>
