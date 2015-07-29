@@ -6,7 +6,8 @@ $(document).ready(function()
 		}, "Caratteri non validi. Sono consentiti solo lettere e numeri!");
 	// metodo per validare i testi
 	$.validator.addMethod("testi_regex", function(value, element) { 
-		return this.optional(element) || /^[a-z]{1,30}$/i.test(value); 
+		return this.optional(element) || /^[a-z\.\-_]{1,30}$/i.test(value); 
+		//return this.optional(element) || /^[a-z]{1,30}$/i.test(value); 
 		}, "Caratteri non validi. Sono consentite solo lettere!");
 
 
@@ -47,7 +48,7 @@ $(document).ready(function()
 			minlength: 8
 			},
 		'password_1':{
-			equalTo: '#password_1'
+			equalTo: '#password'
 			},
 		},
         messages:{

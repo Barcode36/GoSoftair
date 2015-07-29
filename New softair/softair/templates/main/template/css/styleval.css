@@ -19,8 +19,9 @@
 	margin: 2px 0 0 0;
 	font-size: 0.8em;
 	padding-left: 18px;
-	background-image: url('../img/error.gif');
+	background-image: url('../img/error.png');
 	background-repeat: no-repeat;
+    white-space: nowrap;
 	}
 	/*
 	
