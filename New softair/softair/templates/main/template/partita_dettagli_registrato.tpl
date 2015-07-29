@@ -1,16 +1,17 @@
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati.IDpartita}">{$dati.titolo}</a></h1>
-              <h5>Autore:{$dati.autore}</h5>
-              <p><img width="140px" src="{$dati.immagine}" alt="{$dati.titolo}" title="{$dati.titolo}"><b>Descrizione:</b>{$dati.descrizione|truncate:240:" [...]"}<br>
-              <b>Indirizzo:</b> {$dati.indirizzo}<br>
-              <b>Data:</b> {$dati.data}<br>
-              <b>Ora:</b> {$dati.ora}<br>
-              <b>NMax giocatori:</b> {$dati.ngiocatori}<br>
-              <b>NPosti disponibili:</b> {$dati.ndisponibili}<br>
-			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
-              <b>Prezzo:</b> {$dati.prezzo|string_format:"%.2f"} &#8364<br><br>
-          <b>Lista utenti prenotati a questa partita:</b><br>
+<h5>Autore: {$dati.autore}</h5>
+              <p><img width="200px" src="{$dati.immagine}" alt="{$dati.titolo}" title="{$dati.titolo}"><br clear="left">
+              <br><b>Descrizione: </b>{$dati.descrizione|truncate:240:" [...]"}<br>
+              <br><b>Indirizzo: </b> {$dati.indirizzo}<br>
+              <br><b>Data: </b> {$dati.data}<br>
+              <br><b>Ora: </b> {$dati.ora}<br>
+              <br><b>NMax giocatori: </b> {$dati.ngiocatori}<br>
+              <br><b>NPosti disponibili: </b> {$dati.ndisponibili}<br>
+			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
+              <br><b>Prezzo: </b> {$dati.prezzo|string_format:"%.2f"} &#8364<br><br>
+          <b>Lista utenti prenotati a questa partita: </b><br>
           {if $utenti!=FALSE}
           {section name=ii loop=$utenti}
             - {$utenti[ii]}<br>

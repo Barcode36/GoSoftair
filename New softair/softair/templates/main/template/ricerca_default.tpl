@@ -9,7 +9,8 @@
             <div class="content-2col-box">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>Autore:{$dati[i].autore}</h5>
-              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
+              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">
+<b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
               <b>Indirizzo:</b> {$dati[i].indirizzo}<br>
               <b>Data:</b> {$dati[i].data}<br>
               <b>Ora:</b> {$dati[i].ora}<br>
@@ -41,7 +42,8 @@
             <div class="content-2col-box">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>Autore:{$dati[i].autore}</h5>
-              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
+              <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">
+<b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
               <b>Indirizzo:</b> {$dati[i].indirizzo}<br>
               <b>Data:</b> {$dati[i].data}<br>
               <b>Ora:</b> {$dati[i].ora}<br>

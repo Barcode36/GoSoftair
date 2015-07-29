@@ -14,7 +14,7 @@ $config['smarty']['cache_dir'] ='.\templates\main\cache';
 
 $config['debug']=false;
 $config['mysql']['user'] = 'root';
-$config['mysql']['password'] = 'pippo';
+$config['mysql']['password'] = 'pwmysql';
 $config['mysql']['host'] = 'localhost';
 $config['mysql']['database'] = 'softair';
 

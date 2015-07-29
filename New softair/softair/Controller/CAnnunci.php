@@ -155,7 +155,7 @@ class CAnnunci {
     
     /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
-     * dovute procedure affinchè il compito venga eseguito.
+     * dovute procedure affinchï¿½ il compito venga eseguito.
      * @access public
      * @return mixed
      */
@@ -164,7 +164,7 @@ class CAnnunci {
         switch ($view->getTask()){
             case 'vediannunci':
                 return $this->vediAnnunci();
-			case 'CREA ANNUNCIO':
+			case 'Crea annuncio':
                 return $this->creaAnnuncio();
 			case 'moduloannuncio':
                 return $this->moduloCreaAnnuncio();

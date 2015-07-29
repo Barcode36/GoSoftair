@@ -18,7 +18,7 @@
 		<p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
 		  <input id="button" type="file" id="button" name="Immagine" size="40">
 
-              <p><input type="submit"  name="task" class="button" value="CREA ANNUNCIO" tabindex="5" /></p>
+              <p><input type="submit"  name="task" class="button" value="Crea annuncio" tabindex="5" /></p>
             </fieldset>
             </form>
           </div>

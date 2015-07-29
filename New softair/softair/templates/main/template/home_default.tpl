@@ -159,12 +159,12 @@
                 	<ul>
                 	{section name=k loop=$classifica}
                 	<tr>{if $posizione[k]==1}
-                	<img height="30"   src="templates/main/template/img/oro.jpg" >{/if}
+                	<img height="20"   src="templates/main/template/img/oro.jpg" > {/if}
                	    {if $posizione[k]==2}
-                	<img height="30"   src="templates/main/template/img/argento.jpg" >{/if}
+                	<img height="20"   src="templates/main/template/img/argento.jpg" >{/if}
                 	{if $posizione[k]==3}
-                	<img height="30"   src="templates/main/template/img/bronzo.jpg" >{/if} 
-                			<h4> {$posizione[k]}) <b>{$classifica[k].username}</b>: {$classifica[k].punti} punti</h4> <br>
+                	<img height="20"   src="templates/main/template/img/bronzo.jpg" >{/if} 
+                	<h4> {$posizione[k]}) <b>{$classifica[k].username}</b>: {$classifica[k].punti} punti</h4><br>
                 	{/section}
                 	</ul>
                 	</li>

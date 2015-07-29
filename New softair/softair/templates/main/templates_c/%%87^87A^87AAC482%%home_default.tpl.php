@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 06:10:49
+<?php /* Smarty version 2.6.26, created on 2015-07-29 17:41:43
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -239,15 +239,15 @@ $this->_sections['k']['first']      = ($this->_sections['k']['iteration'] == 1);
 $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $this->_sections['k']['total']);
 ?>
                 	<tr><?php if ($this->_tpl_vars['posizione'][$this->_sections['k']['index']] == 1): ?>
-                	<img height="30"   src="templates/main/template/img/oro.jpg" ><?php endif; ?>
+                	<img height="20"   src="templates/main/template/img/oro.jpg" > <?php endif; ?>
                	    <?php if ($this->_tpl_vars['posizione'][$this->_sections['k']['index']] == 2): ?>
-                	<img height="30"   src="templates/main/template/img/argento.jpg" ><?php endif; ?>
+                	<img height="20"   src="templates/main/template/img/argento.jpg" ><?php endif; ?>
                 	<?php if ($this->_tpl_vars['posizione'][$this->_sections['k']['index']] == 3): ?>
-                	<img height="30"   src="templates/main/template/img/bronzo.jpg" ><?php endif; ?> 
-                			<h4> <?php echo $this->_tpl_vars['posizione'][$this->_sections['k']['index']]; ?>
+                	<img height="20"   src="templates/main/template/img/bronzo.jpg" ><?php endif; ?> 
+                	<h4> <?php echo $this->_tpl_vars['posizione'][$this->_sections['k']['index']]; ?>
 ) <b><?php echo $this->_tpl_vars['classifica'][$this->_sections['k']['index']]['username']; ?>
 </b>: <?php echo $this->_tpl_vars['classifica'][$this->_sections['k']['index']]['punti']; ?>
- punti</h4> <br>
+ punti</h4><br>
                 	<?php endfor; endif; ?>
                 	</ul>
                 	</li>
