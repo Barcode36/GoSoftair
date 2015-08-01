@@ -7,8 +7,8 @@
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">utente</th>
                 	<th class="top" scope="col">Attrezzatura</th>
-                	<th class="top" scope="col"></th>
-                	<th class="top" scope="col"></th>
+                	<th class="top" scope="col">Modifica</th>
+                	<th class="top" scope="col">Elimina</th>
           		{section name=i loop=$datiPartite}  
             	<tr><td>{$datiPartite[i].partitaID}</td>
                 	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>

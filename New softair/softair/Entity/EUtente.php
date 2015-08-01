@@ -62,9 +62,21 @@ class EUtente {
     private $foto;
     /**
      * @var $punti Variabile contenente il punteggio cumulativo assegnato all'utente 
-     * @AttributeType string
+     * @AttributeType int
      */
 	private $punti;
+	
+	/**
+	 * @var $giocate Variabile contenente il numero di partire giocate dall'utente
+	 * @AttributeType int
+	 */
+	private $giocate;
+	
+	/**
+	 * @var $vittorie Variabile contenente il numero di partite vinte dall'utente
+	 * @AttributeType int
+	 */
+	private $vittorie;
     
     /**
      * @AssociationType Entity.EPrenotazione
@@ -89,6 +101,8 @@ class EUtente {
     				'cognome'=> $this->cognome, 
     				'foto'=> $this->foto,
     				'punti'=> $this->punti,
+    				'giocate'=> $this->giocate,
+    				'vittorie'=> $this->vittorie,
     				'email'=> $this->email,
     				'citta'=> $this->citta,
     				'via'=> $this->via,
@@ -143,11 +157,29 @@ class EUtente {
     
     /**
      * @access public
-     * @return int Interro contenente il punteggio raggiunto dall'utente.
+     * @return int Intero contenente il punteggio raggiunto dall'utente.
      *
      */
     public function getPunti() {
     	return $this->punti;
+    }
+    
+    /**
+     * @access public
+     * @return int Intero contenente il numero di partite giocate dall'utente.
+     *
+     */
+    public function getGiocate() {
+    	return $this->giocate;
+    }
+    
+    /**
+     * @access public
+     * @return int Intero di vittorie dell'utente.
+     *
+     */
+    public function getVittorie() {
+    	return $this->vittorie;
     }
    
     /**
@@ -314,6 +346,26 @@ class EUtente {
      */
     public function setPunti($punti){
     	$this->punti=$punti;
+    }
+    
+    /**
+     * Imposta $giocate con il numero di  giocate fatte dall'utente
+     * @access public
+     * @param int $giocate
+     *
+     */
+    public function setGiocate($giocate){
+    	$this->giocate=$giocate;
+    }
+    
+    /**
+     * Imposta $vittorie con il numero di vittorie fatte dall'utente
+     * @access public
+     * @param int $vittorie
+     *
+     */
+    public function setVittorie($vittorie){
+    	$this->vittorie=$vittorie;
     }
     
     /**

@@ -158,12 +158,32 @@ class VHome extends View {
     
 
     /**
-     * Processa il layout scelto nella variabile _layout
      * @access public
      * @return string
      */
     public function processaTemplatecookie() {
     	return $this->fetch('cookie_policy.tpl');
+    }
+    
+    /**
+     * @access public
+     * @return string
+     */
+    public function processaTemplateCC() {
+    	return $this->fetch('classifica_completa.tpl');
+    }
+    
+    /**
+     * restituisce il numero della pagina (utilizzato nella visualizzazione della partite)
+     * passato per GET o POST
+     * @access public
+     * @return mixed
+     */
+    public function getPage() {
+    	if (isset($_REQUEST['page'])) {
+    		return $_REQUEST['page'];
+    	} else
+    		return 0;
     }
 
 }

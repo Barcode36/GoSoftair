@@ -66,7 +66,7 @@ class VProfilo extends View{
     public function getVoti($listaUtenti) {
     	for($i=0; $i<count($listaUtenti); $i++){
     		if (isset($_REQUEST[$listaUtenti[$i]]))
-    			 $dati=$_REQUEST[$listaUtenti[$i]];
+    			 $dati[$i]=$_REQUEST[$listaUtenti[$i]];
     	}
     	return $dati;
     }
@@ -106,6 +106,19 @@ class VProfilo extends View{
     public function getUsername() {
     	if (isset($_REQUEST['username']))
     		return $_REQUEST['username'];
+    	else
+    		return false;
+    }
+    
+    /**
+     * Restituisce diritti passato per GET o POST
+     * specifica se l'utente che sta compiendo specifiche operazioni è l'amministratore
+     * @access public
+     * @return mixed
+     */
+    public function getDiritti() {
+    	if (isset($_REQUEST['diritti']))
+    		return $_REQUEST['diritti'];
     	else
     		return false;
     }
@@ -209,6 +222,21 @@ class VProfilo extends View{
      */
     public function getDatiModUtente() {
     	$dati_richiesti=array('password','nome','cognome','via','CAP', 'citta', 'email');
+    	$dati=array();
+    	foreach ($dati_richiesti as $dato) {
+    		if (isset($_REQUEST[$dato]))
+    			$dati[$dato]=$_REQUEST[$dato];
+    	}
+    	return $dati;
+    }
+    
+    /**
+     * recupera i dati necessari per la modifica dell'utente modificabili solo dall'amministratore.
+     * @access public
+     * @return mixed
+     */
+    public function getDatiModUtenteAdmin() {
+    	$dati_richiesti=array('codice_attivazione','stato','punti','giocate','vittorie');
     	$dati=array();
     	foreach ($dati_richiesti as $dato) {
     		if (isset($_REQUEST[$dato]))

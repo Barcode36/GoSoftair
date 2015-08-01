@@ -17,7 +17,7 @@ class FUtente extends Fdb{
      * @return array
      */
     public function getUtentiPunti(){
-    	$query='SELECT * FROM `utente`ORDER BY `utente`.`punti` DESC LIMIT 5 ';
+    	$query='SELECT * FROM `utente`ORDER BY `utente`.`punti` DESC ';
     	$this->query($query);
     	return $this->getObjectArray();
     }

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 05:03:53
+<?php /* Smarty version 2.6.26, created on 2015-08-01 22:01:10
          compiled from amministratore_prenotazioni.tpl */ ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 		    <div class="corner-content-1col-top"></div>
@@ -9,8 +9,8 @@
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">utente</th>
                 	<th class="top" scope="col">Attrezzatura</th>
-                	<th class="top" scope="col"></th>
-                	<th class="top" scope="col"></th>
+                	<th class="top" scope="col">Modifica</th>
+                	<th class="top" scope="col">Elimina</th>
           		<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['datiPartite']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

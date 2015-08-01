@@ -34,7 +34,7 @@
                   <input type="number" class="piccolo" name="Minuti" id="Minuti"  min="0" max="60" value="0"/></p>
 			   <p><label for="Descrizione" class="top">Descrizione:</label><br />
                   <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="80" rows="10"  class="field" onfocus="clearText(this)" onblur="clearText(this)"/>La partita sar&agrave...</textarea>
-			 <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzi senza partecipare?</label>
+			 <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzo senza partecipare</label>
 		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
 		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>
 			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
@@ -53,7 +53,7 @@
                 <form action="index.php"  method="get">
 					<input type="hidden" name="controller" value="registrazione">
     				<input type="hidden" name="task" value="registra">
-    				<p><input type="submit" id="button" value="Iscriviti" title="Iscriviti ></p>
+    				<p><input type="submit" id="button" value="Iscriviti" title="Iscriviti" ></p>
 				</form>
           				<p class="demo"></p>
                     </div>

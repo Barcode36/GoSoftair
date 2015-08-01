@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 05:03:26
+<?php /* Smarty version 2.6.26, created on 2015-08-01 22:00:05
          compiled from amministratore_partite.tpl */ ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 <div class="corner-content-1col-top"></div>

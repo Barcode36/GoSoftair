@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 05:04:24
+<?php /* Smarty version 2.6.26, created on 2015-08-01 22:00:11
          compiled from amministratore_partite_modifica.tpl */ ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
@@ -39,9 +39,9 @@
 		<input type="number" id="anno" name="Anno"  min="2015" max="2050" value="<?php echo $this->_tpl_vars['data']['anno']; ?>
 "/>
 					<p><label for="Ora" class="top">Orario:</label><br />
-                  <input type="number" name="Ora" id="Ora"  min="0" max="24" value="<?php echo $this->_tpl_vars['ora']['ora']; ?>
+                  <input type="number" class="piccolo" name="Ora" id="Ora"  min="0" max="24" value="<?php echo $this->_tpl_vars['ora']['ora']; ?>
 "/>
-                  <input type="number" name="Minuti" id="Minuti"  min="0" max="60" value="<?php echo $this->_tpl_vars['ora']['minuti']; ?>
+                  <input type="number" class="piccolo" name="Minuti" id="Minuti"  min="0" max="60" value="<?php echo $this->_tpl_vars['ora']['minuti']; ?>
 "/></p>
 			   <p><label for="Descrizione" class="top">Descrizione:</label><br />
                   <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="80" rows="10" class="field" /><?php echo $this->_tpl_vars['datiPartita']['descrizione']; ?>

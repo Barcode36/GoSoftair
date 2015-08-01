@@ -59,6 +59,11 @@ class CProfilo {
     		$this->_array_dati_utente=$this->_utente->getAllArray();
     		$view->impostaDati('datiUtente', $this->_array_dati_utente);
     		
+    		//se l'utente che visualizza è l'amministratore vede anche dati di sistema
+    		$diritti=$view->getDiritti();
+    		if($diritti=='admin')
+    			$view->impostaDati('diritti', $diritti);
+    		
     		//in un array vengono caricate tutte le prenotazioni fatte
     		$FPrenotazione=new FPrenotazione();
     		$prenotazione=$FPrenotazione->loadfromuser($username);
@@ -87,7 +92,7 @@ class CProfilo {
 						$view->impostaDati('scadenza',$scadenza);
 					}
 					else{
-						$FAnnuncio->delete($item);
+						$FAnnuncio->delete($annuncio[$i]);
 					}
     			}
         		$view->impostaDati('datiAnnunci', $this->_array_dati_annunci);
@@ -106,12 +111,12 @@ class CProfilo {
     				if($giorni>7){
     					$FPrenotazione=new FPrenotazione();
     					$prenoRelative=$FPrenotazione->loadfrompartita($partita[$i]->getId());
-    					if ($prenoRelative!='')
-    						$FPrenotazione->deleteRel($prenoRelative);
+    					if ($prenoRelative!=''){ 
+    						$FPrenotazione->deleteRel($prenoRelative);}
     					$FCommento=new FCommento();
     					$commRelative=$FCommento->loadCommenti($partita[$i]->getId());
-    					if ($commRelative!='')
-    						$FCommento->deleteRel($commRelative);
+    					if ($commRelative!=''){ 
+    						$FCommento->deleteRel($commRelative);}
     					$FPartita->delete($partita[$i]);
     				}
     				else{
@@ -149,6 +154,11 @@ class CProfilo {
     	if ($this->_utente!=false) {
     		$this->_array_dati_utente=$this->_utente->getAllArray();
     	}
+    	$diritti=$view->getDiritti();
+    	if($diritti=='admin'){
+    		$session->imposta_valore('diritti',$diritti);
+    		$view->impostaDati('diritti', $diritti);
+    	}
     	$session->imposta_valore('utente',$username);
     	$view->setLayout('modifica_utente');
     	$view->impostaDati('datiUtente', $this->_array_dati_utente);
@@ -179,9 +189,10 @@ class CProfilo {
     	}
     	$this->setUtente($username);
     	if ($this->_utente!=false) {
-    		$this->_array_dati_utente=$this->_utente->getAllArray();
+    		$this->_utente->getAllArray();
     	}
-    	$EUtente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato'], $this->_array_dati_utente['foto']);
+    	$this->_utente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato'], $this->_array_dati_utente['foto']);
+    	//aggiungere controllo per amministratore per permettergli di modificare punti, giocate e vittorie
     	$file=$view->getFile();
 		if($file){
             $nomeOriginale=basename($view->getOriginalFile());
@@ -191,11 +202,23 @@ class CProfilo {
                 mkdir($dir,0755,true);
             }
             if(move_uploaded_file($file, $target)){
-                $EUtente->setFoto($target);               
-                unlink($this->_array_dati_utente['foto']);
+            	unlink($this->_utente->getFoto());
+                $this->_utente->setFoto($target);               
             }
         }
-		$FUtente->update($EUtente);
+        //se le modifiche sono fatte dall'amministratore vengono salvati anche i valori aggiuntivi
+        //che può modificare solo l'amministratore
+        $diritti=$session->leggi_valore('diritti');
+        if($diritti=='admin'){
+        	$dati_modifica_admin=$view->getDatiModUtenteAdmin();
+        	$this->_utente->setCodiceattivazione($dati_modifica_admin['codice_attivazione']);
+        	$this->_utente->setStato($dati_modifica_admin['stato']);
+        	$this->_utente->setPunti($dati_modifica_admin['punti']);
+        	$this->_utente->setGiocate($dati_modifica_admin['giocate']);
+        	$this->_utente->setVittorie($dati_modifica_admin['vittorie']);
+        }
+        //aggiorna l'utente con tutte le modifiche fatte
+		$FUtente->update($this->_utente);
 		$username=$session->leggi_valore('username');
 		if($username=='AMMINISTRATORE'){
 			$anam=$session->leggi_valore('profiliamministratore');
@@ -390,24 +413,28 @@ class CProfilo {
     	$session=USingleton::getInstance('USession');
     	$idpartita=$view->getIdPartita();
     	$FPartita = new FPartita();
+    	print $idpartita;
     	$partita=$FPartita->load($idpartita);
     	$votata=$partita->getVotata();
     	if($votata=='non_votata')
     	{
     		$datiPartita=$partita->getAllArray();
     		$giorni=$date->diff_daoggi($datiPartita['data']);
-    		if($giorni>0){
+    		if($giorni>0){print 'giorni>0';
     			$start = DateTime::createFromFormat('Y-m-d',$partita->getData());
    		 		$datiPartita['data']=$start->format('d/m/Y');
     	
     			$FPrenotazione = new FPrenotazione();
     			$prenotazioni=$FPrenotazione->loadfrompartita($idpartita);
     			if($prenotazioni!=''){
+    				print 'pre!=0';
     				for($i=0; $i<count($prenotazioni); $i++){
     					$datiPrenotazioni[$i]=$prenotazioni[$i]->getAllArray();
     					$listaUtenti[$i]=$datiPrenotazioni[$i]['utenteusername'];
     					$numero[$i]=$i;
+    					print $listaUtenti[$i];
     				}
+    				print count($prenotazioni);
     				$session->imposta_valore('idpartita',$idpartita);
     				$session->imposta_valore('nprenotati',count($prenotazioni));
     				$session->imposta_valore('utenti',$listaUtenti);
@@ -434,12 +461,23 @@ class CProfilo {
     	$nprenotati=$session->leggi_valore('nprenotati');
     	$listaUtenti=$session->leggi_valore('utenti');
     	$voti=$view->getVoti($listaUtenti);
+    	print $voti['1'];
     	$FUtente = new FUtente();
     	for($i=0; $i<$nprenotati; $i++){
-    		$utente[$i]=$FUtente->load($listaUtenti[$i]);
-    		$punti=$utente[$i]->getPunti();
-    		$utente[$i]->setPunti($voti[$i]+$punti);
-    		$FUtente->update($utente[$i]);
+    		if($voti[$i]>0)
+    		{
+    			$utente[$i]=$FUtente->load($listaUtenti[$i]);
+    			$punti=$utente[$i]->getPunti();
+    			$giocate=$utente[$i]->getGiocate();
+    			$utente[$i]->setPunti($punti+$voti[$i]);
+    			$utente[$i]->setGiocate($giocate+1);
+    			if($voti[$i]>=2)
+    			{
+    				$vittorie=$utente[$i]->getVittorie();
+    				$utente[$i]->setVittorie($vittorie+1);
+    			}
+    			$FUtente->update($utente[$i]);
+    		}
     	}
     	$FPartita = new FPartita();
     	$idpartita=$session->leggi_valore('idpartita');

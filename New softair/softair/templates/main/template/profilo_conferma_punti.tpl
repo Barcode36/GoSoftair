@@ -9,4 +9,4 @@
 				</form>
           <p class="demo"></p>
 </div>
-<div class="corner-content-1col-bottom"></d
+<div class="corner-content-1col-bottom"></div>

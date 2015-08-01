@@ -16,7 +16,7 @@
               <fieldset>
 		  	{section name=i loop=$utenti}
 		  	<p><label>{$utenti[i]}:</label>
-            <input type="number" name="{$utenti[i]}"  tabindex="4" class="field" min="1" max="5" value="1"/></p>
+            <input type="number" name="{$utenti[i]}"  tabindex="4" class="field" min="0" max="5" value="1"/></p>
 		  	{/section}
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvavoti" />
@@ -50,6 +50,7 @@
 		  	<p>Se il vincitore &egrave l "uomo" assegnare all'utente <b> 5 punti </b>, e agli altri giocatori <b> 1 punto </b>, 
 		  	se il vincitore &egrava il gruppo assegnare all "uomo"  <b> 1 punto </b> e agli altri giocatori <b> 2 punti <b/> </p>
             {/if}
+            <p> Se un utente prenotato, non si presenta effettivamente alla partita assegnare <b> 0 punti <b/>.</p>
             
             </div>
             <div class="corner-content-2col-bottom"></div>

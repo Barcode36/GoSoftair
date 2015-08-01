@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 17:54:26
+<?php /* Smarty version 2.6.26, created on 2015-08-01 19:55:39
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 6, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 13, false),)), $this); ?>
@@ -9,7 +9,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 </a></h1>
 <h5>Autore: <?php echo $this->_tpl_vars['dati']['autore']; ?>
 </h5>
-              <p><img align="center" width="200px" src="<?php echo $this->_tpl_vars['dati']['immagine']; ?>
+              <p><img width="200px" src="<?php echo $this->_tpl_vars['dati']['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati']['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati']['titolo']; ?>
 "><br clear="left">

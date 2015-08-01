@@ -9,6 +9,7 @@
                 <th class="top" scope="col">Apri</th>
                 <th class="top" scope="col">Modifica</th>
                 <th class="top" scope="col">Elimina</th>
+            </tr>
           	{section name=i loop=$datiUtente}  
             <tr><td>{$datiUtente[i].username}</td>
             	<td>{$datiUtente[i].nome}</td>
@@ -18,6 +19,7 @@
     					<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="apri">
     					<input type="hidden" name="utenteusername" value={$datiUtente[i].username}>
+    					<input type="hidden" name="diritti" value="admin">
     					<input type="image" height="20" title="Apri" src="templates/main/template/img/apri.jpg" >
 					</form>
 				</td>
@@ -26,6 +28,7 @@
     					<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="modutente">
     					<input type="hidden" name="utenteusername" value={$datiUtente[i].username}>
+    					<input type="hidden" name="diritti" value="admin">
     					<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
 					</form>
 				</td>

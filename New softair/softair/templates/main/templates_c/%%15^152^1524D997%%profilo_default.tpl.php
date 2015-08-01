@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 05:03:43
+<?php /* Smarty version 2.6.26, created on 2015-08-01 21:56:22
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 83, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 90, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -23,6 +23,10 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 ">
   		Punti: <?php echo $this->_tpl_vars['datiUtente']['punti']; ?>
 <br>
+  		Partite giocate: <?php echo $this->_tpl_vars['datiUtente']['giocate']; ?>
+<br>
+  		Partite vinte: <?php echo $this->_tpl_vars['datiUtente']['vittorie']; ?>
+<br>
 		  e-mail: <?php echo $this->_tpl_vars['datiUtente']['email']; ?>
 <br>
 		  Citta: <?php echo $this->_tpl_vars['datiUtente']['citta']; ?>
@@ -31,6 +35,13 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 <br>
 		  CAP: <?php echo $this->_tpl_vars['datiUtente']['CAP']; ?>
 <br>
+		  <?php if ($this->_tpl_vars['diritti'] == 'admin'): ?>
+  		<br>Dati di sistema:<br>
+  		Codice di attivazione: <?php echo $this->_tpl_vars['datiUtente']['codice_attivazione']; ?>
+<br>
+  		Stato: <?php echo $this->_tpl_vars['datiUtente']['stato']; ?>
+<br>
+  		<?php endif; ?>
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
 		  	<?php if ($this->_tpl_vars['datiPartite'] != false): ?>	

@@ -11,10 +11,17 @@
           <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
           <p><img  id="ut" src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
   		Punti: {$datiUtente.punti}<br>
+  		Partite giocate: {$datiUtente.giocate}<br>
+  		Partite vinte: {$datiUtente.vittorie}<br>
 		  e-mail: {$datiUtente.email}<br>
 		  Citta: {$datiUtente.citta}<br>
 		  Via: {$datiUtente.via}<br>
 		  CAP: {$datiUtente.CAP}<br>
+		  {if $diritti=='admin'}
+  		<br>Dati di sistema:<br>
+  		Codice di attivazione: {$datiUtente.codice_attivazione}<br>
+  		Stato: {$datiUtente.stato}<br>
+  		{/if}
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
 		  	{if $datiPartite!= false}	

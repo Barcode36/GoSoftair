@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 05:03:41
+<?php /* Smarty version 2.6.26, created on 2015-08-01 21:56:18
          compiled from amministratore_profili.tpl */ ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>	
 <div class="corner-content-1col-top"></div>
@@ -11,6 +11,7 @@
                 <th class="top" scope="col">Apri</th>
                 <th class="top" scope="col">Modifica</th>
                 <th class="top" scope="col">Elimina</th>
+            </tr>
           	<?php unset($this->_sections['i']);
 $this->_sections['i']['name'] = 'i';
 $this->_sections['i']['loop'] = is_array($_loop=$this->_tpl_vars['datiUtente']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -47,6 +48,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
     					<input type="hidden" name="task" value="apri">
     					<input type="hidden" name="utenteusername" value=<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
 >
+    					<input type="hidden" name="diritti" value="admin">
     					<input type="image" height="20" title="Apri" src="templates/main/template/img/apri.jpg" >
 					</form>
 				</td>
@@ -56,6 +58,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
     					<input type="hidden" name="task" value="modutente">
     					<input type="hidden" name="utenteusername" value=<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
 >
+    					<input type="hidden" name="diritti" value="admin">
     					<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
 					</form>
 				</td>

@@ -75,7 +75,7 @@ INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponi
 ('4', 'Foresta', 'Bosco di Pizzoli', 8, 7,'micidial','2015-11-02','10.30', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
 ('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 4, 'terminator','2015-10-11','10.30', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
 ('6', 'Mezzi utilizzabili', 'via della campagna Arischia', 20, 20,'cartman','2015-08-09','10.30', 0,'SI','Un fuggitivo, tutti all inseguimento. Il fuggitivo verra selezionato a caso e avra un ora di vantaggio. Gli altri inseguiranno anche con veicoli. Incontro alle 17','Caccia all uomo', './immagini/partite/cartman/veicoli.jpg', 'non_votata'),
-('7', 'Campo attrezzato', 'Softgun AQ', 6, 4,'Softgun AQ','2016-02-01','10.30', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/Softgun AQ/campo.jpg', 'non_votata');
+('7', 'Campo attrezzato', 'SoftgunAQ', 6, 4,'SoftgunAQ','2016-02-01','10.30', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/SoftgunAQ/campo.jpg', 'non_votata');
 
 -- --------------------------------------------------------
 
@@ -134,6 +134,8 @@ CREATE TABLE `utente` (
   `CAP` varchar(5) DEFAULT NULL,
   `foto` varchar(80) DEFAULT NULL,
   `punti` int(11) NOT NULL DEFAULT 0,
+  `giocate` int(11) NOT NULL DEFAULT 0,
+  `vittorie` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -141,15 +143,15 @@ CREATE TABLE `utente` (
 -- Dump dei dati per la tabella `utente`
 --
 
-INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`, `punti`) VALUES
-('AMMINISTRATORE', 'Amministratore', '', 'pwadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0),
-('SnAkE', 'Mario', 'Serpente', 'passsnake', 'snake@hotmail.com', 'via delle vie', 'ciao', 'attivo', 'L Aquila', '67010','./immagini/profili/SnAkE/snake.jpg', 2),
-('terminator', 'John', 'Connor', 'passterminator', 'jc@hotmail.com', 'via delle macchine', '732876922', 'attivo', 'Monticchio (AQ)', '67011','./immagini/profili/terminator/terminator.jpg', 5),
-('cartman', 'Eric', 'Cartman', 'passcartman', 'ec@hotmail.com', 'via southpark 15', '722876922', 'attivo', 'Barete (AQ)', '67012','./immagini/profili/cartman/cartman.jpg', 6),
-('viulenza93', 'Francesco', 'Delle Botte', 'passviulenza93', 'viul93@hotmail.com', 'via dei coppini 37', '712876922', 'attivo', 'Cesaproba (AQ)', '67009','./immagini/profili/viulenza93/viol.jpg', 4),
-('rambittu89', 'John', 'Rambo', 'passrambittu89', 'jr@hotmail.com', 'via delle mitragliatrici gigantesche 9', '702876922', 'attivo', 'Pizzoli (AQ)', '67017','./immagini/profili/rambittu89/rambo.jpg', 11),
-('micidial', 'Enzo', 'Micidiali', 'passmicidial', 'mic@hotmail.com', 'via delle banche 7', '731876922', 'attivo', 'Coppito (AQ)', '67010','./immagini/profili/micidial/maccio.jpg', 9),
-('Softgun AQ', 'Guido', 'Dei Campi', 'passsoftgunaq', 'softgunaq@hotmail.com', 'via dei campi 21', '732876920', 'attivo', 'Bazzano (AQ)', '67010','./immagini/profili/Softgun AQ/campo.jpg', 0);
+INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`, `punti`, `giocate`, `vittorie`) VALUES
+('AMMINISTRATORE', 'Amministratore', '', 'pwadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0, 0, 0),
+('SnAkE', 'Mario', 'Serpente', 'passsnake', 'snake@hotmail.com', 'via delle vie', 'ciao', 'attivo', 'L Aquila', '67010','./immagini/profili/SnAkE/snake.jpg', 2, 2, 0 ),
+('terminator', 'John', 'Connor', 'passterminator', 'jc@hotmail.com', 'via delle macchine', '732876922', 'attivo', 'Monticchio (AQ)', '67011','./immagini/profili/terminator/terminator.jpg', 5, 2, 1),
+('cartman', 'Eric', 'Cartman', 'passcartman', 'ec@hotmail.com', 'via southpark 15', '722876922', 'attivo', 'Barete (AQ)', '67012','./immagini/profili/cartman/cartman.jpg', 6, 2, 2),
+('viulenza93', 'Francesco', 'Delle Botte', 'passviulenza93', 'viul93@hotmail.com', 'via dei coppini 37', '712876922', 'attivo', 'Cesaproba (AQ)', '67009','./immagini/profili/viulenza93/viol.jpg', 4, 3, 2),
+('rambittu89', 'John', 'Rambo', 'passrambittu89', 'jr@hotmail.com', 'via delle mitragliatrici gigantesche 9', '702876922', 'attivo', 'Pizzoli (AQ)', '67017','./immagini/profili/rambittu89/rambo.jpg', 11, 5, 3),
+('micidial', 'Enzo', 'Micidiali', 'passmicidial', 'mic@hotmail.com', 'via delle banche 7', '731876922', 'attivo', 'Coppito (AQ)', '67010','./immagini/profili/micidial/maccio.jpg', 9, 5, 2),
+('SoftgunAQ', 'Guido', 'Dei Campi', 'passsoftgunaq', 'softgunaq@hotmail.com', 'via dei campi 21', '732876920', 'attivo', 'Bazzano (AQ)', '67010','./immagini/profili/SoftgunAQ/campo.jpg', 0, 0, 0);
 -- --------------------------------------------------------
 
 --

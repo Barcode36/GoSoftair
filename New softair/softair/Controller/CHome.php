@@ -50,10 +50,9 @@ class CHome {
     		for ($i=0; $i<count($risultato) && $i<$lim; $i++) {
     			$username=$risultato[$i]->getUsername();
     			if($username!='AMMINISTRATORE'){
-    			$tmpUtente=$FUtente->load($username);
-    			$classifica[$i]=$tmpUtente->getAllArray();
-    			$posizione[$i]=$i+1;
-    			}
+    				$tmpUtente=$FUtente->load($username);
+    				$classifica[$i]=$tmpUtente->getAllArray();
+    				$posizione[$i]=$i+1;}
     		}
     	}
     	$VHome->impostaDati('posizione',$posizione);
@@ -67,6 +66,43 @@ class CHome {
     public function cookie_policy(){
     	$view=USingleton::getInstance('VHome');
     	return $view->processaTemplatecookie();
+    }
+    
+    /**
+     * Imposta la pagina della classifica completa.
+     * @access public
+     */
+    public function classificaCompleta(){
+    	$view=USingleton::getInstance('VHome');
+    	$FUtente=new FUtente();
+    	$utenti_per_pagina=10;
+    	
+    	$limit=$view->getPage()*$utenti_per_pagina.','.$utenti_per_pagina;
+    	$risultato=$FUtente->search(array(), '`utente`.`punti` DESC, `utente`.`giocate` DESC, `utente`.`vittorie` DESC', $limit);
+
+    	if ($risultato!=false) {
+    		$j=$view->getPage()*10;
+    		for ($i=0; $i<count($risultato); $i++) {
+    			$username=$risultato[$i]->getUsername();
+    			if($username!='AMMINISTRATORE'){
+    				$tmpUtente=$FUtente->load($username);
+    				$classifica[$i]=$tmpUtente->getAllArray();
+    				$posizione[$i]=$j+1;
+    				if($classifica[$i]['giocate']==0)
+    					$classifica[$i]['per']=0;
+    				else
+    					$classifica[$i]['per']=($classifica[$i]['vittorie']*100)/$classifica[$i]['giocate'];
+    				$j++; 
+    			}
+    		}
+    	}
+    	
+    	$view->impostaDati('posizione',$posizione);
+    	$view->impostaDati('classifica',$classifica);
+    	$num_risultati=count($FUtente->search())-1;
+    	$pagine = ceil($num_risultati/$utenti_per_pagina);
+    	$view->impostaDati('pagine',$pagine);
+    	return $view->processaTemplateCC();
     }
     
      /**
@@ -102,6 +138,8 @@ class CHome {
                	return $CAnnunci->smista();
             case 'cookie_policy':
                	return $this->cookie_policy();
+            case 'classifica_completa':
+               	return $this->classificaCompleta();
             default:
                 $session=USingleton::getInstance('USession');
         		$username=$session->leggi_valore('username');

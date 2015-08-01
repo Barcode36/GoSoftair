@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-07-29 17:29:25
+<?php /* Smarty version 2.6.26, created on 2015-08-01 19:54:21
          compiled from partita_crea.tpl */ ?>
   <?php if ($this->_tpl_vars['username'] != false): ?>
  <div class="corner-content-1col-top"></div>            
@@ -58,7 +58,7 @@
                 <form action="index.php"  method="get">
 					<input type="hidden" name="controller" value="registrazione">
     				<input type="hidden" name="task" value="registra">
-    				<p><input type="submit" id="button" value="Iscriviti" title="Iscriviti ></p>
+    				<p><input type="submit" id="button" value="Iscriviti" title="Iscriviti" ></p>
 				</form>
           				<p class="demo"></p>
                     </div>
