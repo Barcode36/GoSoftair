@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 22:00:05
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:51:52
          compiled from amministratore_partite.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_partite.tpl', 16, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">
@@ -39,7 +41,7 @@ $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>  
             <tr><td><a  href="index.php?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['IDpartita']; ?>
-"><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['titolo']; ?>
+"><?php echo ((is_array($_tmp=$this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['titolo'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 20, "...") : smarty_modifier_truncate($_tmp, 20, "...")); ?>
 </a></td>
                 <td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['autore']; ?>
 </td>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 19:55:39
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:56:12
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 6, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 13, false),)), $this); ?>
@@ -25,7 +25,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 <br>
               <br><b>NPosti disponibili: </b> <?php echo $this->_tpl_vars['dati']['ndisponibili']; ?>
 <br>
-			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati']['categoria']; ?>
+			  <br><b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati']['categoria']; ?>
 "><?php echo $this->_tpl_vars['dati']['categoria']; ?>
 </a><br>
               <br><b>Prezzo: </b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati']['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
@@ -61,8 +61,8 @@ $this->_sections['ii']['last']       = ($this->_sections['ii']['iteration'] == $
           <?php endfor; endif; ?>
           <h5><b><?php echo $this->_tpl_vars['dati']['ndisponibili']; ?>
 </b> posti ancora disponibili!</h5></p>
-          <?php else: ?>Nessun utente si &egrave ancora prenotato. <h5><b><?php echo $this->_tpl_vars['dati']['ndisponibili']; ?>
-</b> posti disponibili.</h5><?php endif; ?>
+          <?php else: ?>Nessun utente si &egrave ancora prenotato. <h5></br><b><?php echo $this->_tpl_vars['dati']['ndisponibili']; ?>
+</b> posti disponibili.</h5></br></br><?php endif; ?>
           <?php unset($this->_sections['j']);
 $this->_sections['j']['name'] = 'j';
 $this->_sections['j']['loop'] = is_array($_loop=$this->_tpl_vars['dati']['commento']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

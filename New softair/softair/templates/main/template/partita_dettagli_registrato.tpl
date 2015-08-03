@@ -9,7 +9,7 @@
               <br><b>Ora: </b> {$dati.ora}<br>
               <br><b>NMax giocatori: </b> {$dati.ngiocatori}<br>
               <br><b>NPosti disponibili: </b> {$dati.ndisponibili}<br>
-			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
+			  <br><b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati.categoria}">{$dati.categoria}</a><br>
               <br><b>Prezzo: </b> {$dati.prezzo|string_format:"%.2f"} &#8364<br><br>
           <b>Lista utenti prenotati a questa partita: </b><br>
           {if $utenti!=FALSE}
@@ -17,7 +17,7 @@
             - {$utenti[ii]}<br>
           {/section}
           <h5><b>{$dati.ndisponibili}</b> posti ancora disponibili!</h5></p>
-          {else}Nessun utente si &egrave ancora prenotato. <h5><b>{$dati.ndisponibili}</b> posti disponibili.</h5>{/if}
+          {else}Nessun utente si &egrave ancora prenotato. <h5></br><b>{$dati.ndisponibili}</b> posti disponibili.</h5></br></br>{/if}
           {section name=j loop=$dati.commento}
             <p>{$dati.commento[j].data}  {$dati.commento[j].ora}<br>
                <b>{$dati.commento[j].testo}</b></p>

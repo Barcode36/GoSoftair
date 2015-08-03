@@ -8,16 +8,16 @@
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
-              <h5>Autore:{$dati[i].autore}</h5>
+              <h5>Autore: {$dati[i].autore}</h5>
               <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">
-<b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
-              <b>Indirizzo:</b> {$dati[i].indirizzo}<br>
-              <b>Data:</b> {$dati[i].data}<br>
-              <b>Ora:</b> {$dati[i].ora}<br>
-              <b>NMax giocatori:</b> {$dati[i].ngiocatori}<br>
-              <b>NPosti disponibili:</b> {$dati[i].ndisponibili}<br>
-			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
-              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
+<b>Descrizione: </b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
+              <b>Indirizzo: </b> {$dati[i].indirizzo}<br>
+              <b>Data: </b> {$dati[i].data}<br>
+              <b>Ora: </b> {$dati[i].ora}<br>
+              <b>NMax giocatori: </b> {$dati[i].ngiocatori}<br>
+              <b>NPosti disponibili: </b> {$dati[i].ndisponibili}<br>
+			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
+              <b>Prezzo: </b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
                {if $prenota[i]=='prenotabile'}
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">
@@ -41,16 +41,16 @@
             <div class="corner-content-2col-top"></div>
             <div class="content-2col-box">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
-              <h5>Autore:{$dati[i].autore}</h5>
+              <h5>Autore: {$dati[i].autore}</h5>
               <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">
-<b>Descrizione:</b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
-              <b>Indirizzo:</b> {$dati[i].indirizzo}<br>
-              <b>Data:</b> {$dati[i].data}<br>
-              <b>Ora:</b> {$dati[i].ora}<br>
-              <b>NMax giocatori:</b> {$dati[i].ngiocatori}<br>
-              <b>NPosti disponibili:</b> {$dati[i].ndisponibili}<br>
-			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
-              <b>Prezzo:</b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
+<b>Descrizione: </b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
+              <b>Indirizzo: </b> {$dati[i].indirizzo}<br>
+              <b>Data: </b> {$dati[i].data}<br>
+              <b>Ora: </b> {$dati[i].ora}<br>
+              <b>NMax giocatori: </b> {$dati[i].ngiocatori}<br>
+              <b>NPosti disponibili: </b> {$dati[i].ndisponibili}<br>
+			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria={$dati[i].categoria}">{$dati[i].categoria}</a><br>
+              <b>Prezzo: </b> {$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
                {if $prenota[i]=='prenotabile'}
                {if $dati[i].ndisponibili!=0}
               <form action="index.php" method="post">

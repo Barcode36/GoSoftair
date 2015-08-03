@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 21:56:18
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:48:45
          compiled from amministratore_profili.tpl */ ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>	
 <div class="corner-content-1col-top"></div>
@@ -36,8 +36,8 @@ $this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_s
 $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>  
-            <tr><td><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
-</td>
+            <tr><td><b><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
+</b></td>
             	<td><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['nome']; ?>
 </td>
             	<td><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['cognome']; ?>

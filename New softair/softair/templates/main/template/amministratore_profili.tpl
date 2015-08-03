@@ -11,7 +11,7 @@
                 <th class="top" scope="col">Elimina</th>
             </tr>
           	{section name=i loop=$datiUtente}  
-            <tr><td>{$datiUtente[i].username}</td>
+            <tr><td><b>{$datiUtente[i].username}</b></td>
             	<td>{$datiUtente[i].nome}</td>
             	<td>{$datiUtente[i].cognome}</td>
             	<td>

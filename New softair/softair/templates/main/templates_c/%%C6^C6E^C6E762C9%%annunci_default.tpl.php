@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 22:05:03
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:47:22
          compiled from annunci_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'annunci_default.tpl', 12, false),array('modifier', 'string_format', 'annunci_default.tpl', 18, false),)), $this); ?>
@@ -42,17 +42,17 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
               <p><img width="170" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
-"><br clear="left"><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, ' [...]') : smarty_modifier_truncate($_tmp, 240, ' [...]')); ?>
+"><br clear="left"></br><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, ' [...]') : smarty_modifier_truncate($_tmp, 240, ' [...]')); ?>
 </p>
                   <?php $this->assign('somma', "`0`"); ?>
                   <?php $this->assign('max', "`0`"); ?>
-              <p>Data inserimento: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+              <p><b>Data inserimento: </b><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
 </p>
-              <p>Data scadenza: <?php echo $this->_tpl_vars['scadenza'][$this->_sections['i']['index']]; ?>
+              <p><b>Data scadenza: </b><?php echo $this->_tpl_vars['scadenza'][$this->_sections['i']['index']]; ?>
 </p>
-              <p>Telefono: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['telefono']; ?>
+              <p><b>Telefono: </b><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['telefono']; ?>
 </p>
-              <p>Prezzo:<?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
+              <p><b>Prezzo: </b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
 </p>
             </div>
             <div class="corner-content-2col-bottom"></div>
@@ -98,17 +98,17 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
               <p><img width="170" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
-"><br clear="left"><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
+"><br clear="left"></br><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
 </p>
                   <?php $this->assign('somma', "`0`"); ?>
                   <?php $this->assign('max', "`0`"); ?>
-              <p>Data inserimento: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+              <p><b>Data inserimento: </b><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
 </p>
-              <p>Data scadenza: <?php echo $this->_tpl_vars['scadenza'][$this->_sections['i']['index']]; ?>
+              <p><b>Data scadenza: </b><?php echo $this->_tpl_vars['scadenza'][$this->_sections['i']['index']]; ?>
 </p>
-              <p>Telefono: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['telefono']; ?>
+              <p><b>Telefono: </b><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['telefono']; ?>
 </p>
-              <p>Prezzo:<?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
+              <p><b>Prezzo: </b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
 </p>
             </div>
             <div class="corner-content-2col-bottom"></div>

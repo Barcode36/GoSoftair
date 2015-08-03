@@ -82,19 +82,23 @@ class CHome {
 
     	if ($risultato!=false) {
     		$j=$view->getPage()*10;
-    		for ($i=0; $i<count($risultato); $i++) {
+			for ($i=0; $i<count($risultato); $i++) {
     			$username=$risultato[$i]->getUsername();
     			if($username!='AMMINISTRATORE'){
     				$tmpUtente=$FUtente->load($username);
     				$classifica[$i]=$tmpUtente->getAllArray();
     				$posizione[$i]=$j+1;
     				if($classifica[$i]['giocate']==0)
-    					$classifica[$i]['per']=0;
+    					{
+						unset($classifica[$i]);
+						break;
+						}
     				else
-    					$classifica[$i]['per']=($classifica[$i]['vittorie']*100)/$classifica[$i]['giocate'];
+    					{$classifica[$i]['per']=($classifica[$i]['vittorie']*100)/$classifica[$i]['giocate'];}
     				$j++; 
     			}
     		}
+		  
     	}
     	
     	$view->impostaDati('posizione',$posizione);
@@ -107,7 +111,7 @@ class CHome {
     
      /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
-     * dovute procedure affinchè il compito venga eseguito. Inoltre compie 
+     * dovute procedure affinchï¿½ il compito venga eseguito. Inoltre compie 
      * un controllo di sessione.
      * @access public
      * @return mixed

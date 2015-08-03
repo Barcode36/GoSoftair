@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 19:35:07
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:14:14
          compiled from classifica_completa.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_format', 'classifica_completa.tpl', 15, false),)), $this); ?>
@@ -10,8 +10,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_form
                 	<th class="top" scope="col">Posizione</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Punti</th>
-                	<th class="top" scope="col">Partire giocate</th>
-                	<th class="top" scope="col">Partire vinte</th>
+                	<th class="top" scope="col">Partite giocate</th>
+                	<th class="top" scope="col">Partite vinte</th>
                 	<th class="top" scope="col">&#37 vittoria</th>
                 	</tr>
                 	<?php unset($this->_sections['k']);

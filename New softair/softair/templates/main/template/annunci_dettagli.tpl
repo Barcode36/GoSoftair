@@ -5,11 +5,11 @@
           <h5>{$datiAnnuncio.autoreusername}</h5>
           <p><img width="220" src="{$datiAnnuncio.immagine}" alt="{$datiAnnuncio.titolo}" title="{$datiAnnuncio.titolo}"></p><br clear="left">
 <p>
-          <strong>Descrizione:</strong> {$datiAnnuncio.descrizione}<br><br>
-		  Prezzo: {$datiAnnuncio.prezzo}<br><br>
-		  Telefono: {$datiAnnuncio.telefono}<br><br>
-		  Data inserimento annuncio: {$datiAnnuncio.data}<br><br>
-		  Data scadenza: {$scadenza}<br>
+          <b>Descrizione: </b> {$datiAnnuncio.descrizione}<br><br>
+		  <b>Prezzo: </b>{$datiAnnuncio.prezzo}<br><br>
+		  <b>Telefono: </b>{$datiAnnuncio.telefono}<br><br>
+		  <b>Data inserimento annuncio: </b>{$datiAnnuncio.data}<br><br>
+		  <b>Data scadenza: </b>{$scadenza}<br>
 </p>
         </div>
         <div class="corner-content-1col-bottom"></div>

@@ -88,7 +88,7 @@ class EUtente {
     /**
      * restituisce un array contenente tutti gli attributi dell'oggetto
      * @access public
-     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore ï¿½ il suo contenuto
      *
      */
     public function getAllArray() {
@@ -220,7 +220,7 @@ class EUtente {
     
     /**
      * @access public
-     * @return string Stringa contenente se l'utente è attivo.
+     * @return string Stringa contenente se l'utente ï¿½ attivo.
      *
      */
     public function getStato() {
@@ -248,7 +248,7 @@ class EUtente {
     
     /**
      * Imposta i dati dell'utente.
-     * La funzione viene utilizzata quando è necessario apportare un modifica al profilo dell'utente.
+     * La funzione viene utilizzata quando ï¿½ necessario apportare un modifica al profilo dell'utente.
      *
      * @access public
      * @param string $nome

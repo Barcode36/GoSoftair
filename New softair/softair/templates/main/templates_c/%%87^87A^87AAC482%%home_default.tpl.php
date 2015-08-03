@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 19:03:52
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:37:02
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -210,7 +210,7 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
         <div class="corner-subcontent-bottom"></div>
       <div class="corner-subcontent-top"></div>
         <div class="subcontent-box">
-          <h1 class="classifica">Classifica </h1>
+          <h1 class="classifica">Classifica Top 5</h1>
           <div class="sidemenu1">
                 	<li>
                 	<ul>

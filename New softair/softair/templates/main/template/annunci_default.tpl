@@ -9,13 +9,13 @@
             <div class="content-2col-box">
               <h1><a href="?controller=annuncio&task=apriannuncio&id_annuncio={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
               <h5>Inserito da {$dati[i].autoreusername}</h5>
-              <p><img width="170" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">{$dati[i].descrizione|truncate:240:' [...]'}</p>
+              <p><img width="170" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left"></br>{$dati[i].descrizione|truncate:240:' [...]'}</p>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
-              <p>Data inserimento: {$dati[i].data}</p>
-              <p>Data scadenza: {$scadenza[i]}</p>
-              <p>Telefono: {$dati[i].telefono}</p>
-              <p>Prezzo:{$dati[i].prezzo|string_format:"%.2f"}</p>
+              <p><b>Data inserimento: </b>{$dati[i].data}</p>
+              <p><b>Data scadenza: </b>{$scadenza[i]}</p>
+              <p><b>Telefono: </b>{$dati[i].telefono}</p>
+              <p><b>Prezzo: </b>{$dati[i].prezzo|string_format:"%.2f"}</p>
             </div>
             <div class="corner-content-2col-bottom"></div>
             {/if}
@@ -31,13 +31,13 @@
             <div class="content-2col-box">
                <h1><a href="?controller=annuncio&task=apriannuncio&id_annuncio={$dati[i].IDannuncio}">{$dati[i].titolo}</a></h1>
               <h5>Inserito da {$dati[i].autoreusername}</h5>
-              <p><img width="170" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">{$dati[i].descrizione|truncate:240:" [...]"}</p>
+              <p><img width="170" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left"></br>{$dati[i].descrizione|truncate:240:" [...]"}</p>
                   {assign var="somma" value="`0`"}
                   {assign var="max" value="`0`"}
-              <p>Data inserimento: {$dati[i].data}</p>
-              <p>Data scadenza: {$scadenza[i]}</p>
-              <p>Telefono: {$dati[i].telefono}</p>
-              <p>Prezzo:{$dati[i].prezzo|string_format:"%.2f"}</p>
+              <p><b>Data inserimento: </b>{$dati[i].data}</p>
+              <p><b>Data scadenza: </b>{$scadenza[i]}</p>
+              <p><b>Telefono: </b>{$dati[i].telefono}</p>
+              <p><b>Prezzo: </b>{$dati[i].prezzo|string_format:"%.2f"}</p>
             </div>
             <div class="corner-content-2col-bottom"></div>
             {/if}

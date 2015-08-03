@@ -6,8 +6,8 @@
                 	<th class="top" scope="col">Posizione</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Punti</th>
-                	<th class="top" scope="col">Partire giocate</th>
-                	<th class="top" scope="col">Partire vinte</th>
+                	<th class="top" scope="col">Partite giocate</th>
+                	<th class="top" scope="col">Partite vinte</th>
                 	<th class="top" scope="col">&#37 vittoria</th>
                 	</tr>
                 	{section name=k loop=$classifica}

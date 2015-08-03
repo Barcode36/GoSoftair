@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 19:03:52
+<?php /* Smarty version 2.6.26, created on 2015-08-03 16:38:32
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 13, false),array('modifier', 'string_format', 'ricerca_default.tpl', 20, false),)), $this); ?>
@@ -37,28 +37,28 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
               <h1><a href="?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDpartita']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 </a></h1>
-              <h5>Autore:<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autore']; ?>
+              <h5>Autore: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autore']; ?>
 </h5>
               <p><img width="140px" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 "><br clear="left">
-<b>Descrizione:</b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
+<b>Descrizione: </b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
 <br>
-              <b>Indirizzo:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['indirizzo']; ?>
+              <b>Indirizzo: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['indirizzo']; ?>
 <br>
-              <b>Data:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+              <b>Data: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
 <br>
-              <b>Ora:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ora']; ?>
+              <b>Ora: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ora']; ?>
 <br>
-              <b>NMax giocatori:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ngiocatori']; ?>
+              <b>NMax giocatori: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ngiocatori']; ?>
 <br>
-              <b>NPosti disponibili:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
+              <b>NPosti disponibili: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
 <br>
-			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
+			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
-              <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
+              <b>Prezzo: </b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
  &#8364</p>
                <?php if ($this->_tpl_vars['prenota'][$this->_sections['i']['index']] == 'prenotabile'): ?>
                <?php if ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili'] != 0): ?>
@@ -110,28 +110,28 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
               <h1><a href="?controller=partita&task=apripartita&id_partita=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['IDpartita']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 </a></h1>
-              <h5>Autore:<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autore']; ?>
+              <h5>Autore: <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['autore']; ?>
 </h5>
               <p><img width="140px" src="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['immagine']; ?>
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 "><br clear="left">
-<b>Descrizione:</b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
+<b>Descrizione: </b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
 <br>
-              <b>Indirizzo:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['indirizzo']; ?>
+              <b>Indirizzo: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['indirizzo']; ?>
 <br>
-              <b>Data:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
+              <b>Data: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['data']; ?>
 <br>
-              <b>Ora:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ora']; ?>
+              <b>Ora: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ora']; ?>
 <br>
-              <b>NMax giocatori:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ngiocatori']; ?>
+              <b>NMax giocatori: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ngiocatori']; ?>
 <br>
-              <b>NPosti disponibili:</b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
+              <b>NPosti disponibili: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili']; ?>
 <br>
-			  <b>Categoria:</b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
+			  <b>Categoria: </b> <a href="index.php?controller=ricerca&task=lista&categoria=<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 "><?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['categoria']; ?>
 </a><br>
-              <b>Prezzo:</b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
+              <b>Prezzo: </b> <?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['prezzo'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
  &#8364</p>
                <?php if ($this->_tpl_vars['prenota'][$this->_sections['i']['index']] == 'prenotabile'): ?>
                <?php if ($this->_tpl_vars['dati'][$this->_sections['i']['index']]['ndisponibili'] != 0): ?>
