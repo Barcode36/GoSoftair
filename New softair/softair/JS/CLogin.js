@@ -1,32 +1,37 @@
-function ModuloLogin() {
 /* Validazione della form di login */
 
+$(document).ready(function()
+{
+
+	$("#formlog").validate(
+	{
+        rules:{
+		'username':{
+			required: true,
+			},
+		'password':{
+			required: true,
+			minlength: 8
+			},
+		},
+        messages:{
+		'username':{
+			required: "Il campo username &eacute; obbligatorio!",
+			},
+		'password':{
+			required: "Il campo password &eacute; obbligatorio!",
+			minlength: "Inserisci una password di almeno 8 caratteri!"
+			},
+		}
+	});
+	
+	});
 
 
-//catturare oggetti del DOM nella form di login
-
-var nomeutente = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-
-
-//controllo campo Nome utente evitando che sia vuoto o undefined
-	if ((nomeutente == "") || (nomeutente == "undefined")) {
-    alert("Il campo nome è obbligatorio.");
-	document.getElementById("username").focus();
-	return false;
-    }
- 
-
-//controllo campo Password evitando che sia vuoto o undefined
-	else if ((password == "") || (password == "undefined")) {
-    alert("Il campo password è obbligatorio.");
-	document.getElementById("password").focus();
-	return false;
-    }
-
-    else {
+function click()
+{
+	if($("#formlog").valid())
+	{
 		document.getElementById("formlog").submit();
-
     }
-
- }
+};
