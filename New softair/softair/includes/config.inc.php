@@ -25,7 +25,7 @@ $config['smtp']['smtpauth']=true;
 $config['smtp'] ['username']='webmasterachieved@gmail.com';
 $config['smtp']['password']='password';
 $config['email_webmaster']='webmasterachieved@gmail.com';
-$config['url_achieved']='http://localhost/softair';
+$config['url_softair']='http://localhost/softair';
 
 
 function debug($var){

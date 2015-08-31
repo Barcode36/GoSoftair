@@ -245,6 +245,33 @@ class EUtente {
     public function getPrenotazioni() {
     	return $this->_prenotazioni;
     }
+
+    /**
+     * Imposta i dati dell'utente presi dal modulo iniziale di registrazione.
+     *
+     * @access public
+     * @param string $nome
+     * @param string $cognome
+     * @param string $username
+     * @param string $password
+     * @param string $email
+     * @param string $via
+     * @param string $CAP
+     * @param string $citta
+
+     */
+    public function setDatiRegistrazione($nome, $cognome, $username, $password, $email, $via, $CAP, $citta)
+    {
+    	$this->nome=$nome;
+    	$this->cognome=$cognome;
+    	$this->password=$password;
+    	$this->email=$email;
+    	$this->via=$via;
+    	$this->CAP=$CAP;
+    	$this->citta=$citta;
+    	$this->username=$username;
+    }
+    
     
     /**
      * Imposta i dati dell'utente.
