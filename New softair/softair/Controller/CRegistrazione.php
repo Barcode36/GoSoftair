@@ -102,12 +102,6 @@ class CRegistrazione {
             //utente non esiste
             if($dati_registrazione['password_1']==$dati_registrazione['password']) {
                 unset($dati_registrazione['password_1']);
-                /*$keys=array_keys($dati_registrazione);
-                $i=0;
-                foreach ($dati_registrazione as $dato) {
-                    $utente->$keys[$i]=$dato;
-                    $i++;
-                }*/
                 $utente->setDatiRegistrazione($dati_registrazione['nome'], $dati_registrazione['cognome'], $dati_registrazione['username'], $dati_registrazione['password'], $dati_registrazione['email'], $dati_registrazione['via'], $dati_registrazione['CAP'], $dati_registrazione['citta']);
                 $utente->generaCodiceAttivazione();
                 $FUtente->store($utente);
