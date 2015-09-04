@@ -1,9 +1,10 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-03 16:48:45
+<?php /* Smarty version 2.6.26, created on 2015-09-04 18:48:28
          compiled from amministratore_profili.tpl */ ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>	
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">
 		  <h1>Profili</h1>
+		  <div id="dialog-4" title="Cancella profilo">Se cancelli il profilo dell'utente, cancelli automaticamente tutti gli annunci da lui pubblicati, le prenotazioni fatte, le partite create e di conseguenza tutte le prenotazioni associate a quelle partite. Sei sicuro di voler cancellare questo profilo? </div>
 		  <table>
             <tr><th class="top" scope="col">Username</th>
                 <th class="top" scope="col">Nome</th>
@@ -63,13 +64,15 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 					</form>
 				</td>
 				<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elprof<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
+1" method="post">
 						<input type="hidden" name="controller" value="amministratore">
     					<input type="hidden" name="task" value="eliminaprofilo">
     					<input type="hidden" name="utente" value=<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
 >
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>
+					<a class="elprof" id="elprof<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
+" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
 				</td>	
             </tr>
             <?php endfor; endif; ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-03 16:56:12
+<?php /* Smarty version 2.6.26, created on 2015-09-04 18:10:43
          compiled from partita_dettagli_registrato.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'partita_dettagli_registrato.tpl', 6, false),array('modifier', 'string_format', 'partita_dettagli_registrato.tpl', 13, false),)), $this); ?>

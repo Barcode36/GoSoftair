@@ -1,9 +1,10 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 22:01:10
+<?php /* Smarty version 2.6.26, created on 2015-09-04 18:32:54
          compiled from amministratore_prenotazioni.tpl */ ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 		    <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		    	<h1>Prenotazioni</h1>
+		    	<div id="dialog-1" title="Cancella la prenotazione">Se cancelli la tua prenotazione l'utente potrebbe non trovare pi&ugrave posti liberi per questa partita. Sei sicuro di voler cancellare questa prenotazione? </div>
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>
                 	<th class="top" scope="col">Nome Partita</th>
@@ -56,13 +57,15 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 					</form>
 					</td>
 					<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elpre<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+1" method="post">
 						<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="eliminaprenotazione">
     					<input type="hidden" name="id_prenotazione" value=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
 >
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	
+					<a class="elpre" id="elpre<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>
 					</td> 
             	</tr>
             	<?php endfor; endif; ?>

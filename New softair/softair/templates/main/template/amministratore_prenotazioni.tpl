@@ -2,6 +2,7 @@
 		    <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		    	<h1>Prenotazioni</h1>
+		    	<div id="dialog-1" title="Cancella la prenotazione">Se cancelli la tua prenotazione l'utente potrebbe non trovare pi&ugrave posti liberi per questa partita. Sei sicuro di voler cancellare questa prenotazione? </div>
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>
                 	<th class="top" scope="col">Nome Partita</th>
@@ -25,12 +26,12 @@
 					</form>
 					</td>
 					<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elpre{$datiPartite[i].id}1" method="post">
 						<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="eliminaprenotazione">
     					<input type="hidden" name="id_prenotazione" value={$datiPartite[i].id}>
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	
+					<a class="elpre" id="elpre{$datiPartite[i].id}" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>
 					</td> 
             	</tr>
             	{/section}

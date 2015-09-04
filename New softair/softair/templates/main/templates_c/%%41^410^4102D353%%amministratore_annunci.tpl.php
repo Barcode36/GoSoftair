@@ -1,11 +1,12 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 22:01:39
+<?php /* Smarty version 2.6.26, created on 2015-09-04 18:29:39
          compiled from amministratore_annunci.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_annunci.tpl', 19, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_annunci.tpl', 20, false),)), $this); ?>
 	<?php if ($this->_tpl_vars['datiAnnunci'] != false): ?>	
 		   <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		  <h1>Annunci pubblicati</h1>
+		  <div id="dialog-2" title="Cancella l'annuncio">Sei sicuro di voler cancellare l'annuncio? </div>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
                 <th class="top" scope="col">Utente</th>
@@ -64,13 +65,15 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 					</form>
 					</td>
 					<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elann<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+1" method="post">
 						<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="eliminaannuncio">
     					<input type="hidden" name="id_annuncio" value=<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
 >
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	
+					<a class="elann" id="elann<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>
 					</td>	 
             </tr>
             <?php endfor; endif; ?>

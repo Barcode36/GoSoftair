@@ -1,11 +1,12 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-03 16:51:52
+<?php /* Smarty version 2.6.26, created on 2015-09-04 18:38:52
          compiled from amministratore_partite.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_partite.tpl', 16, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_partite.tpl', 17, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">
 		  <h1>Partite</h1>
+		  <div id="dialog-3" title="Cancella la partita">Se cancelli la partita, verranno anche cancellate automaticamente tutte le prenotazioni fatte per questa partita. Sei sicuro di voler cancellare la partita? </div>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
             	<th class="top" scope="col">Autore</th>
@@ -64,13 +65,15 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
             		</form>
             	</td>
             	<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elpar<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['IDpartita']; ?>
+1" method="post">
 						<input type="hidden" name="controller" value="amministratore">
     					<input type="hidden" name="task" value="eliminapartita">
     					<input type="hidden" name="id_partita" value=<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['IDpartita']; ?>
 >
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	 
+					<a class="elpar" id="elpar<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['IDpartita']; ?>
+" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
             	</td>
             </tr>
             <?php endfor; endif; ?>

@@ -21,6 +21,16 @@
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
   <script type="text/javascript" src="JS/cancellatesto.js"></script>
 
+     
+
+
+	  <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
+      <script type="text/javascript" src="JS/confermaelimina/jquery-1.10.2.js"></script>
+      <script type="text/javascript" src="JS/confermaelimina/jquery-ui.js"></script>
+      <script type="text/javascript" src="JS/confermaelimina/conferma.js"></script>
+      
+      
+
   <title>{$title}</title>
 </head>
 

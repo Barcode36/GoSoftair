@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-08-01 21:56:22
+<?php /* Smarty version 2.6.26, created on 2015-09-04 18:10:35
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 90, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 92, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -12,7 +12,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
     		<input type="hidden" name="task" value="modutente">
     		<input type="hidden" name="username" value=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 >
-   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >   			
    		</form>
           <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
  <?php echo $this->_tpl_vars['datiUtente']['cognome']; ?>
@@ -48,6 +48,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 		    <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		    	<h1>Prenotazioni effettuate</h1>
+		    	<div id="dialog-1" title="Cancella la prenotazione">Se cancelli la tua prenotazione potresti non trovare pi&ugrave posti liberi per questa partita. Sei sicuro di voler cancellare la tua prenotazione? </div>
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>
                 	<th class="top" scope="col">Nome Partita</th>
@@ -100,13 +101,15 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 					</form>
 					</td>
 					<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php"  id="elpre<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+1"   method="post">
 						<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="eliminaprenotazione">
     					<input type="hidden" name="id_prenotazione" value="<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
 ">
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	
+					<a class="elpre" id="elpre<?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['id']; ?>
+" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
 					</td>
             	</tr>
             	<?php endfor; endif; ?>
@@ -125,6 +128,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 		   <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		  <h1>Annunci pubblicati</h1>
+		  <div id="dialog-2" title="Cancella l'annuncio">Sei sicuro di voler cancellare l'annuncio? </div>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
                 <th class="top" scope="col">Prezzo</th>
@@ -181,13 +185,15 @@ $this->_sections['j']['last']       = ($this->_sections['j']['iteration'] == $th
 				</form>
 				</td>
 				<td>
-				<form action="index.php" id="form" method="post">
+				<form action="index.php" id="elann<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+1" method="post">
 					<input type="hidden" name="controller" value="profilo">
     				<input type="hidden" name="task" value="eliminaannuncio">
     				<input type="hidden" name="id_annuncio" value="<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
 ">
-    				<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 				</form>
+				<a class="elann" id="elann<?php echo $this->_tpl_vars['datiAnnunci'][$this->_sections['j']['index']]['IDannuncio']; ?>
+" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
 				</td>		
             </tr>
             <?php endfor; endif; ?>

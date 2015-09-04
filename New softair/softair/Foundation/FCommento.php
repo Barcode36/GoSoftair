@@ -31,7 +31,6 @@ class FCommento extends Fdb {
     		$this->delete($commenti[$i]);
     		$i++;
     	}
-    	print 'okcomm';
     }
     
     

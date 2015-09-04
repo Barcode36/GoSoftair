@@ -176,9 +176,9 @@ CREATE TABLE `annuncio` (
 --
 
 INSERT INTO `annuncio` (`IDannuncio`, `autoreusername`, `prezzo`, `descrizione`, `data`, `telefono`, `immagine`, `titolo`) VALUES
-('1', 'SnAkE', 10.00, 'G36k nuovo di zecca, pallini inclusi', '2015-07-15', '08536666', './immagini/annunci/SnAkE/mia.jpg', 'Fa fico'),
-('2', 'micidial', 29.99, 'Una bella accoppiata, gerabox in metallo e accessori vari inclusi', '2015-07-10', '085546536666', './immagini/annunci/micidial/coppia.jpg', '2 is meglio che one '),
-('3', 'cartman', 25.00, 'Come nuova, vendo causa inutilizzo', '2015-06-28', '08536556', './immagini/annunci/cartman/tie.jpg', 'Adottami');
+('1', 'SnAkE', 10.00, 'G36k nuovo di zecca, pallini inclusi', '2015-09-15', '08536666', './immagini/annunci/SnAkE/mia.jpg', 'Fa fico'),
+('2', 'micidial', 29.99, 'Una bella accoppiata, gerabox in metallo e accessori vari inclusi', '2015-09-10', '085546536666', './immagini/annunci/micidial/coppia.jpg', '2 is meglio che one '),
+('3', 'cartman', 25.00, 'Come nuova, vendo causa inutilizzo', '2015-09-28', '08536556', './immagini/annunci/cartman/tie.jpg', 'Adottami');
 -- --------------------------------------------------------
 
 --

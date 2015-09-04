@@ -6,7 +6,7 @@
     		<input type="hidden" name="controller" value="profilo">
     		<input type="hidden" name="task" value="modutente">
     		<input type="hidden" name="username" value={$datiUtente.username}>
-   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >
+   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >   			
    		</form>
           <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
           <p><img  id="ut" src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
@@ -28,6 +28,7 @@
 		    <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		    	<h1>Prenotazioni effettuate</h1>
+		    	<div id="dialog-1" title="Cancella la prenotazione">Se cancelli la tua prenotazione potresti non trovare pi&ugrave posti liberi per questa partita. Sei sicuro di voler cancellare la tua prenotazione? </div>
 		    	<table>
             	<tr><th class="top" scope="col">ID Partita</th>
                 	<th class="top" scope="col">Nome Partita</th>
@@ -51,12 +52,12 @@
 					</form>
 					</td>
 					<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php"  id="elpre{$datiPartite[i].id}1"   method="post">
 						<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="eliminaprenotazione">
     					<input type="hidden" name="id_prenotazione" value="{$datiPartite[i].id}">
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	
+					<a class="elpre" id="elpre{$datiPartite[i].id}" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
 					</td>
             	</tr>
             	{/section}
@@ -75,6 +76,7 @@
 		   <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		  <h1>Annunci pubblicati</h1>
+		  <div id="dialog-2" title="Cancella l'annuncio">Sei sicuro di voler cancellare l'annuncio? </div>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
                 <th class="top" scope="col">Prezzo</th>
@@ -100,12 +102,12 @@
 				</form>
 				</td>
 				<td>
-				<form action="index.php" id="form" method="post">
+				<form action="index.php" id="elann{$datiAnnunci[j].IDannuncio}1" method="post">
 					<input type="hidden" name="controller" value="profilo">
     				<input type="hidden" name="task" value="eliminaannuncio">
     				<input type="hidden" name="id_annuncio" value="{$datiAnnunci[j].IDannuncio}">
-    				<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 				</form>
+				<a class="elann" id="elann{$datiAnnunci[j].IDannuncio}" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
 				</td>		
             </tr>
             {/section}

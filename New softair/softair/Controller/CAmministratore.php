@@ -182,7 +182,7 @@ class CAmministratore {
 					$view->impostaDati('scadenza',$scadenza);
 				}
 				else{
-					$FAnnuncio->delete($item);
+					$FAnnuncio->delete($annuncio[$i]);
 				}
 			}
 			$view->impostaDati('datiAnnunci', $this->_array_dati_annunci);
@@ -285,6 +285,9 @@ class CAmministratore {
 		$FUtente = new FUtente();
 		$utente= $FUtente->load($username);
 		$FUtente->delete($utente);
+		
+		$view->setLayout('amministratore_conferma_profilo_el');
+		return $view->processaTemplate();
 	}
 	
 	/**

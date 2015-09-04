@@ -2,6 +2,7 @@
 		   <div class="corner-content-1col-top"></div>
            <div class="content-1col-nobox">
 		  <h1>Annunci pubblicati</h1>
+		  <div id="dialog-2" title="Cancella l'annuncio">Sei sicuro di voler cancellare l'annuncio? </div>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
                 <th class="top" scope="col">Utente</th>
@@ -29,12 +30,12 @@
 					</form>
 					</td>
 					<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elann{$datiAnnunci[j].IDannuncio}1" method="post">
 						<input type="hidden" name="controller" value="profilo">
     					<input type="hidden" name="task" value="eliminaannuncio">
     					<input type="hidden" name="id_annuncio" value={$datiAnnunci[j].IDannuncio}>
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	
+					<a class="elann" id="elann{$datiAnnunci[j].IDannuncio}" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>
 					</td>	 
             </tr>
             {/section}

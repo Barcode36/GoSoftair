@@ -2,6 +2,7 @@
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">
 		  <h1>Partite</h1>
+		  <div id="dialog-3" title="Cancella la partita">Se cancelli la partita, verranno anche cancellate automaticamente tutte le prenotazioni fatte per questa partita. Sei sicuro di voler cancellare la partita? </div>
 		  <table>
             <tr><th class="top" scope="col">Titolo</th>
             	<th class="top" scope="col">Autore</th>
@@ -29,12 +30,12 @@
             		</form>
             	</td>
             	<td>
-					<form action="index.php" id="form" method="post">
+					<form action="index.php" id="elpar{$datiPartite[i].IDpartita}1" method="post">
 						<input type="hidden" name="controller" value="amministratore">
     					<input type="hidden" name="task" value="eliminapartita">
     					<input type="hidden" name="id_partita" value={$datiPartite[i].IDpartita}>
-    					<input type="image" height="20" title="Elimina" src="templates/main/template/img/el4.jpg" >
 					</form>	 
+					<a class="elpar" id="elpar{$datiPartite[i].IDpartita}" ><img height="20" title="Elimina" src="templates/main/template/img/el4.jpg" ></a>				
             	</td>
             </tr>
             {/section}
