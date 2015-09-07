@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
-	
+
+
 	//controlla dimensioni
 	 $.validator.addMethod("dimFile", function (val, element) {
 
@@ -12,7 +13,7 @@ $(document).ready(function()
                return true;
            }
 
-      }, $.validator.format("max 1 MB"));
+      }, "max 1 MB");
 	
 	// metodo per validare immagini
 	$.validator.addMethod("accept", function(value, element, param) {
@@ -51,7 +52,7 @@ $(document).ready(function()
 	// metodo per validare prezzo
 	$.validator.addMethod("prezzo_regex", function(value, element) { 
 		return this.optional(element) || /^[0-9\.\-_]{1,30}$/i.test(value); 
-		}, "Caratteri non validi. Sono consentiti solo numeri!");
+		}, $.validator.format("Caratteri non validi. Sono consentiti solo numeri!"));
 
 	$("#formreg").validate(
 	{
@@ -65,14 +66,24 @@ $(document).ready(function()
 			prezzo_regex:true,
 		},
 		
-		'Descrizione':{
+		'Giocatori':{
 			required: true,
+			digits:true
 		},
 		
-		'Numero':{
+		'Indirizzo':{
 			required: true,
-			prezzo_regex:true,
+			
 		},	
+		
+		'Descrizione':{
+			required: true,
+			},	
+		
+		'Ora':{
+			required: true,
+				
+			},
 		
 		'Immagine':{
 			required: true,
@@ -90,16 +101,23 @@ $(document).ready(function()
 			required: "Il campo prezzo &eacute; obbligatorio!",
 			
 		},
-		'Numero':{
-			required: "Il campo telefono &eacute; obbligatorio!",
+		'Giocatori':{
+			required: "Inserire il numero di partecipanti",
 			
 		},
 		'Descrizione':{
 			required: "Il campo descrizione &eacute; obbligatorio!",
 		},
 		
+		'Indirizzo':{
+			required: "Il campo indirizzo &eacute; obbligatorio!",
+		},
+		
 		'Immagine':{
 			required: "Carica un immagine!",
+		},
+		'Ora':{
+			required: "Inserisci un orario",
 		},
 		},
 		
