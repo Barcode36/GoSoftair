@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-04 18:03:28
+<?php /* Smarty version 2.6.26, created on 2015-09-07 14:45:39
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -20,17 +20,13 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_grid.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery.cookiebar.css" />
+  <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
   <script type="text/javascript" src="JS/cancellatesto.js"></script>
-
-     
-
-
-	  <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
-      <script type="text/javascript" src="JS/confermaelimina/jquery-1.10.2.js"></script>
-      <script type="text/javascript" src="JS/confermaelimina/jquery-ui.js"></script>
-      <script type="text/javascript" src="JS/confermaelimina/conferma.js"></script>
-      
+  <script type="text/javascript" src="JS/confermaelimina/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="JS/confermaelimina/jquery-ui.js"></script>
+  <script type="text/javascript" src="JS/confermaelimina/conferma.js"></script>
+  <script type="text/javascript" src="JS/ui.datepicker-it.js" ></script>
       
 
   <title><?php echo $this->_tpl_vars['title']; ?>

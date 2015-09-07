@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-04 18:48:28
+<?php /* Smarty version 2.6.26, created on 2015-09-07 13:14:58
          compiled from amministratore_profili.tpl */ ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>	
 <div class="corner-content-1col-top"></div>

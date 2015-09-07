@@ -68,9 +68,11 @@ class CAmministratore {
 		$FPartita=new FPartita();
 		$partita=$FPartita->load($idpartita);
 		$dati_partita=$partita->getAllArray();
+		$session->imposta_valore('autore',$dati_partita['autore']);
 		
-		list($anno,$mese,$giorno) = explode('-',$dati_partita['data']);
-		$data=array('giorno'=>$giorno,'mese'=>$mese, 'anno'=>$anno);
+		$temp=$dati_partita['data'];
+		$start = DateTime::createFromFormat('Y-m-d', $temp);
+		$data=$start->format('d/m/Y');
 		$view->impostaDati('data', $data);
 		
 		list($ora,$minuti) = explode('.',$dati_partita['ora']);
@@ -93,23 +95,34 @@ class CAmministratore {
 	public function salvaPartita(){
 		$view=USingleton::getInstance('VAmministratore');
 		$session=USingleton::getInstance('USession');
+		
 		$EPartita=new EPartita();
 		$FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
-		$data=$dati_registrazione['Anno'].'-'.$dati_registrazione['Mese'].'-'.$dati_registrazione['Giorno'];
-		$username=$session->leggi_valore('username');
-		$EPartita->setAutore($username);
+		
+		$temp=$dati_registrazione['Data'];
+		$start = DateTime::createFromFormat('d/m/Y', $temp);
+		$data=$start->format('Y-m-d');
+		
+		$ora=$dati_registrazione['Ora'].'.'.$dati_registrazione['Minuti'];
+		
+		$autore=$session->leggi_valore('autore');
+		
+		$EPartita->setAutore($autore);
 		$EPartita->setTitolo($dati_registrazione['Titolo']);
 		$EPartita->setIndirizzo($dati_registrazione['Indirizzo']);
 		$EPartita->setData($data);
+		$EPartita->setOra($ora);
 		$EPartita->setDescrizione($dati_registrazione['Descrizione']);
 		$EPartita->setNgiocatori($dati_registrazione['Giocatori']);
 		$EPartita->setNdisponibili($dati_registrazione['Giocatori']);
 		$EPartita->setCategoria($dati_registrazione['Categoria']);
 		$EPartita->setAttrezzatura($dati_registrazione['Attrezzatura']);
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
+		
 		$idpartita=$session->leggi_valore('idpartita');
 		$EPartita->setIDpartita($idpartita);
+		
 		$file=$view->getFile();
 		if($file){
 			$nomeOriginale=basename($view->getOriginalFile());
@@ -123,6 +136,7 @@ class CAmministratore {
 		
 			}
 		}
+		
 		$FPartita->update($EPartita);
 		$view->setLayout('amministratore_conferma_partita_mod');
 		return $view->processaTemplate();

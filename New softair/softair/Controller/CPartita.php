@@ -112,10 +112,10 @@ class CPartita {
     	$session=USingleton::getInstance('USession');
     	//presetta la data della partita a domani
     	$date=USingleton::getInstance('UData');
-    	$domani=$date->sommaGiorniYmd(date("Y-m-d"),'-',1);
-    	list($anno,$mese,$giorno) = explode('-',$domani);
-    	$domaniarray=array('giorno'=>$giorno,'mese'=>$mese, 'anno'=>$anno);
-    	$VPartita->impostaDati('domani', $domaniarray);
+    	$temp=$date->sommaGiorniYmd(date("Y-m-d"),'-',1);
+    	$start = DateTime::createFromFormat('Y-m-d', $temp);
+    	$domani=$start->format('d/m/Y');
+    	$VPartita->impostaDati('domani', $domani);
     	$username=$session->leggi_valore('username');
     	$VPartita->impostaDati('username', $username);
     	return $VPartita->processaTemplate();
@@ -135,14 +135,19 @@ class CPartita {
         $EPartita=new EPartita();
         $FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
-		$data=$dati_registrazione['Anno'].'-'.$dati_registrazione['Mese'].'-'.$dati_registrazione['Giorno'];
-		$ora=$dati_registrazione['Ora'].'-'.$dati_registrazione['Minuti'];
+		
+		$temp=$dati_registrazione['Data'];
+		$start = DateTime::createFromFormat('d/m/Y', $temp);
+		$data=$start->format('Y-m-d');
+		
+		$ora=$dati_registrazione['Ora'].'.'.$dati_registrazione['Minuti'];
+		
 		$username=$session->leggi_valore('username');
 		$EPartita->setAutore($username);
 		$EPartita->setTitolo($dati_registrazione['Titolo']);
 		$EPartita->setIndirizzo($dati_registrazione['Indirizzo']);
 		$EPartita->setData($data);
-		$EPartita->setOra($dati_registrazione['Ora']);
+		$EPartita->setOra($ora);
 		$EPartita->setDescrizione($dati_registrazione['Descrizione']);
 		$EPartita->setNgiocatori($dati_registrazione['Giocatori']);
 		$EPartita->setNdisponibili($dati_registrazione['Giocatori']);

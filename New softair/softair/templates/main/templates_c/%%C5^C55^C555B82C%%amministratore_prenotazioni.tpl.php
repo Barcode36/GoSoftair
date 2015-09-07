@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-04 18:32:54
+<?php /* Smarty version 2.6.26, created on 2015-09-07 13:14:36
          compiled from amministratore_prenotazioni.tpl */ ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 		    <div class="corner-content-1col-top"></div>
