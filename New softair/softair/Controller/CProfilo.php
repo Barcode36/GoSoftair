@@ -191,7 +191,7 @@ class CProfilo {
     	if ($this->_utente!=false) {
     		$this->_utente->getAllArray();
     	}
-    	$this->_utente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato']);
+    	$this->_utente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta']);
     	//aggiungere controllo per amministratore per permettergli di modificare punti, giocate e vittorie
     	$file=$view->getFile();
 		if($file){
@@ -413,28 +413,24 @@ class CProfilo {
     	$session=USingleton::getInstance('USession');
     	$idpartita=$view->getIdPartita();
     	$FPartita = new FPartita();
-    	print $idpartita;
     	$partita=$FPartita->load($idpartita);
     	$votata=$partita->getVotata();
     	if($votata=='non_votata')
     	{
     		$datiPartita=$partita->getAllArray();
     		$giorni=$date->diff_daoggi($datiPartita['data']);
-    		if($giorni>0){print 'giorni>0';
+    		if($giorni>0){
     			$start = DateTime::createFromFormat('Y-m-d',$partita->getData());
    		 		$datiPartita['data']=$start->format('d/m/Y');
     	
     			$FPrenotazione = new FPrenotazione();
     			$prenotazioni=$FPrenotazione->loadfrompartita($idpartita);
     			if($prenotazioni!=''){
-    				print 'pre!=0';
     				for($i=0; $i<count($prenotazioni); $i++){
     					$datiPrenotazioni[$i]=$prenotazioni[$i]->getAllArray();
     					$listaUtenti[$i]=$datiPrenotazioni[$i]['utenteusername'];
     					$numero[$i]=$i;
-    					print $listaUtenti[$i];
     				}
-    				print count($prenotazioni);
     				$session->imposta_valore('idpartita',$idpartita);
     				$session->imposta_valore('nprenotati',count($prenotazioni));
     				$session->imposta_valore('utenti',$listaUtenti);
@@ -461,7 +457,6 @@ class CProfilo {
     	$nprenotati=$session->leggi_valore('nprenotati');
     	$listaUtenti=$session->leggi_valore('utenti');
     	$voti=$view->getVoti($listaUtenti);
-    	print $voti['1'];
     	$FUtente = new FUtente();
     	for($i=0; $i<$nprenotati; $i++){
     		if($voti[$i]>0)

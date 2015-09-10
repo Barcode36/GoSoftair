@@ -193,6 +193,7 @@ class CRegistrazione {
      */
     public function logout() {
         $session=USingleton::getInstance('USession');
+        $session->cancella_valore('diritti');
         $session->cancella_valore('username');
         $session->cancella_valore('nome_cognome');
     }
