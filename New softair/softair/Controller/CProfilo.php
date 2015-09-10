@@ -34,11 +34,11 @@ class CProfilo {
 
     /**
      * La funzione imposta la pagina del profilo dell'utente mostrandogli i suoi dati e un resoconto
-     * delle attività compiute,
+     * delle attivitï¿½ compiute,
      * In particolare prende l'username dell'utente dalla view, e grazie a questa prende da DB e
      * carica in array i dati dell'utente, le partite prenotate, gli annunci postati e le 
      * partite create. I dati negli array sono passati al template 'profilo_default'che li organizza,
-     * principalmente in tabelle in cui è consentito all'utente di fare opportune modifiche.
+     * principalmente in tabelle in cui ï¿½ consentito all'utente di fare opportune modifiche.
      * @access public
      * @return mixed
      */
@@ -59,7 +59,7 @@ class CProfilo {
     		$this->_array_dati_utente=$this->_utente->getAllArray();
     		$view->impostaDati('datiUtente', $this->_array_dati_utente);
     		
-    		//se l'utente che visualizza è l'amministratore vede anche dati di sistema
+    		//se l'utente che visualizza ï¿½ l'amministratore vede anche dati di sistema
     		$diritti=$view->getDiritti();
     		if($diritti=='admin')
     			$view->impostaDati('diritti', $diritti);
@@ -98,7 +98,7 @@ class CProfilo {
         		$view->impostaDati('datiAnnunci', $this->_array_dati_annunci);
     		}
     		
-    		//in un array vengono caricate tutte le partite create non più vecchie di 7 giorni fa
+    		//in un array vengono caricate tutte le partite create non piï¿½ vecchie di 7 giorni fa
     		$FPartita=new FPartita();
     		$partita=$FPartita->loadfromcreatore($username);
     		if ($partita!=false) {
@@ -191,7 +191,7 @@ class CProfilo {
     	if ($this->_utente!=false) {
     		$this->_utente->getAllArray();
     	}
-    	$this->_utente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato'], $this->_array_dati_utente['foto']);
+    	$this->_utente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta'], $this->_array_dati_utente['codice_attivazione'], $this->_array_dati_utente['stato']);
     	//aggiungere controllo per amministratore per permettergli di modificare punti, giocate e vittorie
     	$file=$view->getFile();
 		if($file){
@@ -207,7 +207,7 @@ class CProfilo {
             }
         }
         //se le modifiche sono fatte dall'amministratore vengono salvati anche i valori aggiuntivi
-        //che può modificare solo l'amministratore
+        //che puï¿½ modificare solo l'amministratore
         $diritti=$session->leggi_valore('diritti');
         if($diritti=='admin'){
         	$dati_modifica_admin=$view->getDatiModUtenteAdmin();
@@ -402,7 +402,7 @@ class CProfilo {
      * La funzione viene richiamata dal profilo quando un utente  vuole assegnare 
      * un punteggio ai giocatori che hanno partecipato a una partita da lui creata. 
      * L'operazione viene permessa solo dopo lo svolgimento della partita e solo una volta.
-     * La funzione prepara una form dove per ogni utente prenotato alla partita si può assegnare
+     * La funzione prepara una form dove per ogni utente prenotato alla partita si puï¿½ assegnare
      * un punteggio da 1 a 5.
      * @access public
      * @return mixed
@@ -502,7 +502,7 @@ class CProfilo {
     
     /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
-     * dovute procedure affinchè il compito venga eseguito.
+     * dovute procedure affinchï¿½ il compito venga eseguito.
      * @access public
      * @return mixed
      */

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-07 13:08:56
+<?php /* Smarty version 2.6.26, created on 2015-09-10 16:19:49
          compiled from profilo_modifica_utente.tpl */ ?>
         <a id="anchor-contact-1"></a>
         <div class="corner-content-1col-top"></div>        
@@ -28,8 +28,12 @@
 		</fieldset>	     
 	     <?php endif; ?>
 	     <fieldset><legend>&nbsp;IMMAGINE PROFILO&nbsp;</legend>
-		<p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		   <input id="button" type="file" name="Immagine" size="40">
+ 		<p><img id="ut" src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
+" alt="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
+" title="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
+">
+		<p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
+		   <input id="button" type="file" name="Immagine">
 		</fieldset>
               <fieldset><legend>&nbsp;CREDENZIALI DI ACCESSO&nbsp;</legend>
                 <p><label for="username" class="left">Nome utente:</label>

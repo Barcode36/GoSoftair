@@ -22,8 +22,9 @@
 		</fieldset>	     
 	     {/if}
 	     <fieldset><legend>&nbsp;IMMAGINE PROFILO&nbsp;</legend>
-		<p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		   <input id="button" type="file" name="Immagine" size="40">
+ 		<p><img id="ut" src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
+		<p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
+		   <input id="button" type="file" name="Immagine">
 		</fieldset>
               <fieldset><legend>&nbsp;CREDENZIALI DI ACCESSO&nbsp;</legend>
                 <p><label for="username" class="left">Nome utente:</label>

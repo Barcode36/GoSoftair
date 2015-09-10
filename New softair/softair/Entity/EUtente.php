@@ -290,7 +290,7 @@ class EUtente {
      * @param string $stato
      * @param $foto
      */
-    public function setUtenteMod($nome, $cognome, $username, $password, $email, $via, $CAP, $citta, $codice_attivazione, $stato, $foto )
+    public function setUtenteMod($nome, $cognome, $username, $password, $email, $via, $CAP, $citta, $codice_attivazione, $stato )
     {
     	$this->nome=$nome;
     	$this->cognome=$cognome;
@@ -302,7 +302,7 @@ class EUtente {
     	$this->username=$username;
     	$this->codice_attivazione=$codice_attivazione;
     	$this->stato=$stato;
-    	$this->foto=$foto;
+    	
     }
     
     /**
