@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-07 13:11:26
+<?php /* Smarty version 2.6.26, created on 2015-09-14 17:00:10
          compiled from profilo_modifica_annuncio.tpl */ ?>
         <a id="anchor-contact-1"></a>
         <div class="corner-content-1col-top"></div>        
@@ -23,7 +23,7 @@
                     <input type="text" name="telefono" id="telefono" tabindex="4" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['telefono']; ?>
 " /></p>
 		      <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		  			<input id="button" type="file" name="Immagine" size="40">
+		  			<input id="button" type="file" name="Immagine">
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaannuncio" />
                 <p><input type="submit" name="submit" id="submit_1" class="button" value="Salva modifiche" tabindex="15" /></p>

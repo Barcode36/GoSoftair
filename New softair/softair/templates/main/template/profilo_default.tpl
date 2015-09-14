@@ -2,13 +2,7 @@
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
         <h1>{$datiUtente.username}</h1>
-        <form action="index.php" method="post">
-    		<input type="hidden" name="controller" value="profilo">
-    		<input type="hidden" name="task" value="modutente">
-    		<input type="hidden" name="username" value={$datiUtente.username}>
-   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >   			
-   		</form>
-          <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
+         <h5>{$datiUtente.nome} {$datiUtente.cognome}</h5> 
           <p><img  id="ut" src="{$datiUtente.foto}" alt="{$datiUtente.username}" title="{$datiUtente.username}">
   		Punti: {$datiUtente.punti}<br>
   		Partite giocate: {$datiUtente.giocate}<br>
@@ -16,12 +10,18 @@
 		  e-mail: {$datiUtente.email}<br>
 		  Citta: {$datiUtente.citta}<br>
 		  Via: {$datiUtente.via}<br>
-		  CAP: {$datiUtente.CAP}<br>
+		  CAP: {$datiUtente.CAP}<br><br>
 		  {if $diritti=='admin'}
   		<br>Dati di sistema:<br>
   		Codice di attivazione: {$datiUtente.codice_attivazione}<br>
   		Stato: {$datiUtente.stato}<br>
   		{/if}
+<form action="index.php" method="post">
+    		<input type="hidden" name="controller" value="profilo">
+    		<input type="hidden" name="task" value="modutente">
+    		<input type="hidden" name="username" value={$datiUtente.username}>
+<input type="hidden" name="utenteusername" value={$datiUtente[i].username}>
+   		<h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> </form> 
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
 		  	{if $datiPartite!= false}	

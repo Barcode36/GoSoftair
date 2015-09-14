@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-06 16:24:33
+<?php /* Smarty version 2.6.26, created on 2015-09-14 16:41:30
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 92, false),)), $this); ?>
@@ -7,14 +7,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
         <div class="content-1col-nobox">
         <h1><?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 </h1>
-        <form action="index.php" method="post">
-    		<input type="hidden" name="controller" value="profilo">
-    		<input type="hidden" name="task" value="modutente">
-    		<input type="hidden" name="username" value=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
->
-   			<input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" >   			
-   		</form>
-          <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
+         <h5><?php echo $this->_tpl_vars['datiUtente']['nome']; ?>
  <?php echo $this->_tpl_vars['datiUtente']['cognome']; ?>
 </h5> 
           <p><img  id="ut" src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
@@ -34,7 +27,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 		  Via: <?php echo $this->_tpl_vars['datiUtente']['via']; ?>
 <br>
 		  CAP: <?php echo $this->_tpl_vars['datiUtente']['CAP']; ?>
-<br>
+<br><br>
 		  <?php if ($this->_tpl_vars['diritti'] == 'admin'): ?>
   		<br>Dati di sistema:<br>
   		Codice di attivazione: <?php echo $this->_tpl_vars['datiUtente']['codice_attivazione']; ?>
@@ -42,6 +35,14 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
   		Stato: <?php echo $this->_tpl_vars['datiUtente']['stato']; ?>
 <br>
   		<?php endif; ?>
+<form action="index.php" method="post">
+    		<input type="hidden" name="controller" value="profilo">
+    		<input type="hidden" name="task" value="modutente">
+    		<input type="hidden" name="username" value=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
+>
+<input type="hidden" name="utenteusername" value=<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
+>
+   		<h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> </form> 
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
 		  	<?php if ($this->_tpl_vars['datiPartite'] != false): ?>	

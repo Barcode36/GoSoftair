@@ -1,10 +1,13 @@
-  {if $username!=false}
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
+	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
+	<script type="text/javascript" src="JS/Cpartita.js"></script> 
+{if $username!=false}
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Creazione partita</h1>
           <div >
               <br />
-            <form method="POST" action="index.php" enctype="multipart/form-data">
+            <form method="POST" action="index.php" id="formreg" enctype="multipart/form-data">
               <input type="hidden" name="controller" value="partita" />
               <fieldset>
                 <p><label for="Titolo" class="top">Titolo:</label><br />
@@ -17,7 +20,7 @@
                       <option value="Caccia all uomo">Caccia all uomo</option>
                       <option value="Simulazione storica">Simulazione storica</option>
                    </select></p>  
-              <p><label class="top">Partecipanti:</label><br />
+              <p><label for="Giocatori" class="top">Partecipanti:</label><br />
                   <input type="number" name="Giocatori" id="Giocatori" tabindex="3" class="field" min="1" value="1"/></p>
                <p><input type="hidden"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="1" />
                <input type="checkbox"  id="checkbox2" class="checkbox" name="Attrezzatura" tabindex="3" size="1" value="SI" /><label for="Attrezzatura" class="right">Fornisci attrezzatura?</label></p>
@@ -36,8 +39,9 @@
 		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
 		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>
 			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
-		  <input type="file" id="button" name="Immagine" size="40">
-		  <p><input type="submit" name="task" class="button" value="Crea partita" /></p>
+		  <input type="file" id="button" name="Immagine" size="40"><br clear="left">
+		<input type="hidden" name="task" value="Crea partita" />
+		  <p><input type="submit" class="button" value="Crea partita      " onclick="click()" /></p>
             </fieldset>
             </form>
           </div>

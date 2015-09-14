@@ -2,7 +2,7 @@
 /* Written by Apaella (apaella@gmail.com). */
 
   $(function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({ minDate: 0});
   });
 
 jQuery(function($){
