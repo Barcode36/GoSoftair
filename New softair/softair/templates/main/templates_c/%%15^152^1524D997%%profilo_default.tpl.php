@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-14 16:41:30
+<?php /* Smarty version 2.6.26, created on 2015-09-14 18:22:21
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 92, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 95, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -40,9 +40,11 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
     		<input type="hidden" name="task" value="modutente">
     		<input type="hidden" name="username" value=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 >
-<input type="hidden" name="utenteusername" value=<?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
->
-   		<h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> </form> 
+<?php if ($this->_tpl_vars['diritti'] != 'admin'): ?>   		
+<h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> 
+</form> 
+<?php endif; ?>
+
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
 		  	<?php if ($this->_tpl_vars['datiPartite'] != false): ?>	

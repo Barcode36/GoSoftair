@@ -112,7 +112,7 @@ class VProfilo extends View{
     
     /**
      * Restituisce diritti passato per GET o POST
-     * specifica se l'utente che sta compiendo specifiche operazioni è l'amministratore
+     * specifica se l'utente che sta compiendo specifiche operazioni ï¿½ l'amministratore
      * @access public
      * @return mixed
      */
@@ -206,7 +206,7 @@ class VProfilo extends View{
      * @return mixed
      */
     public function getDatiModAnnuncio() {
-    	$dati_richiesti=array('titolo','prezzo','descrizione', 'telefono', 'autoreusername');
+    	$dati_richiesti=array('Titolo','Prezzo','Descrizione', 'Numero', 'autoreusername');
     	$dati=array();
     	foreach ($dati_richiesti as $dato) {
     		if (isset($_REQUEST[$dato]))

@@ -350,12 +350,12 @@ class CProfilo {
     	$dati_modifica=$view->getDatiModAnnuncio();
     	$IDannuncio=$session->leggi_valore('IDannuncio');
     	$data=$session->leggi_valore('data');
-    	$EAnnuncio->setAnnuncioMod($dati_modifica['titolo'], $dati_modifica['prezzo'], $dati_modifica['descrizione'], $dati_modifica['telefono'], $dati_modifica['autoreusername'], $IDannuncio, $data );
+    	$EAnnuncio->setAnnuncioMod($dati_modifica['Titolo'], $dati_modifica['Prezzo'], $dati_modifica['Descrizione'], $dati_modifica['Numero'], $dati_modifica['autoreusername'], $IDannuncio, $data );
 		$file=$view->getFile();
 		if($file){
             $nomeOriginale=basename($view->getOriginalFile());
             $dir="./immagini/annunci/".$session->leggi_valore('username').'/';
-            $target=$dir.'profilo'.'_'.$nomeOriginale;
+            $target=$dir.'annuncio'.'_'.$nomeOriginale;
             if(!is_dir($dir)){
                 mkdir($dir,0755,true);
             }
@@ -363,8 +363,7 @@ class CProfilo {
                 $EAnnuncio->setImmagine($target); 
                 $immagine=$session->leggi_valore('immagine');
                 unlink($immagine);             
-                
-            }
+             }
         }
     	$FAnnuncio->update($EAnnuncio);
     	$username=$session->leggi_valore('username');

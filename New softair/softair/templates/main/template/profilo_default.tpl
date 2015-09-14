@@ -20,8 +20,11 @@
     		<input type="hidden" name="controller" value="profilo">
     		<input type="hidden" name="task" value="modutente">
     		<input type="hidden" name="username" value={$datiUtente.username}>
-<input type="hidden" name="utenteusername" value={$datiUtente[i].username}>
-   		<h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> </form> 
+{if $diritti!='admin'}   		
+<h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> 
+</form> 
+{/if}
+
 		  </div>
 		  <div class="corner-content-1col-bottom"></div>
 		  	{if $datiPartite!= false}	
