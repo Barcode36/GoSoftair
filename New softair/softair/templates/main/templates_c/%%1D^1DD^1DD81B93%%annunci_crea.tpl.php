@@ -1,8 +1,9 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-07 18:49:22
+<?php /* Smarty version 2.6.26, created on 2015-09-14 19:07:21
          compiled from annunci_crea.tpl */ ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
-	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
+	<script type="text/javascript" 
+src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
 	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
 	<script type="text/javascript" src="JS/Cannuncio.js"></script> 
 <?php if ($this->_tpl_vars['username'] != false): ?>
