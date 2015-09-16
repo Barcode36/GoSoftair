@@ -1,11 +1,14 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-07 15:09:45
+<?php /* Smarty version 2.6.26, created on 2015-09-16 17:02:22
          compiled from amministratore_partite_modifica.tpl */ ?>
- <div class="corner-content-1col-top"></div>            
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
+	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
+	<script type="text/javascript" src="JS/CpartitaMod.js"></script>  
+<div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Modifica partita</h1>
           <div >
               <br />
-            <form method="POST" action="index.php" enctype="multipart/form-data">
+            <form method="POST" action="index.php" id="formreg" enctype="multipart/form-data">
               <input type="hidden" name="controller" value="amministratore" />
               <fieldset>
                 <p><label for="Titolo" class="top" >Titolo:</label><br />
@@ -44,7 +47,8 @@
 </textarea>
 			   <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
 		  <input id="button" type="file" name="Immagine" size="40">
-              <p><input type="submit" name="task" class="button" value="salvapartita" /></p>
+              <input type="hidden" name="task" value="salvapartita" />
+		  <p><input type="submit" class="button" value="Salva modifiche      " onclick="click()" /></p>
             </fieldset>
             </form>
           </div>
