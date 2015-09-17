@@ -40,9 +40,9 @@
                 	<th class="top" scope="col">Modifica</th>
                 	<th class="top" scope="col">Elimina</th>
           		{section name=i loop=$datiPartite}  
-            	<tr><td>{$datiPartite[i].partitaID}</td>
+            	<tr><td>{$datiPartite[i].partitaID|truncate:10:" [...]"}</td>
                 	<td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].partitaID}">{$datiPartite[i].titoloPartita}</a></td>
-                	<td>{$datiPartite[i].utenteusername}</td>
+                	<td>{$datiPartite[i].utenteusername|truncate:10:" [...]"}</td>
                 	{if $datiPartite[i].attrezzatura==''}
                 	<td>NO</td>{else}
             		<td>{$datiPartite[i].attrezzatura}</td>{/if}
@@ -142,7 +142,7 @@
                 <th class="top" scope="col">Posti liberi</th>
                 <th class="top" scope="col">Assegna Punti</th>
           	{section name=k loop=$datiPartiteCreate}  
-            <tr><td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartiteCreate[k].IDpartita}">{$datiPartiteCreate[k].titolo}</a></td>
+            <tr><td><a href="index.php?controller=partita&task=apripartita&id_partita={$datiPartiteCreate[k].IDpartita}">{$datiPartiteCreate[k].titolo|truncate:20:"..."}</a></td>
                 <td>{$datiPartiteCreate[k].categoria}</td>
             	<td>{$datiPartiteCreate[k].prezzo}</td>
  				<td>{$datiPartiteCreate[k].indirizzo}</td>

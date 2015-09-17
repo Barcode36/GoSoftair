@@ -194,7 +194,7 @@ class CPartita {
 			$FPrenotazione->store($EPrenotazione);
 			
 		}
-		
+		$view->impostaDati('username', $username);
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();
      }

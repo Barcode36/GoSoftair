@@ -1,7 +1,7 @@
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati.IDpartita}">{$dati.titolo}</a></h1>
-<h5>Autore: {$dati.autore}</h5>
+			  <h5>Autore: {$dati.autore}</h5>
               <p><img width="200px" src="{$dati.immagine}" alt="{$dati.titolo}" title="{$dati.titolo}"><br clear="left">
               <br><b>Descrizione: </b>{$dati.descrizione|truncate:240:" [...]"}<br>
               <br><b>Indirizzo: </b> {$dati.indirizzo}<br>
@@ -35,7 +35,6 @@
           </div>
         </div>
 		<div class="corner-content-1col-bottom"></div>
-{if $username!='AMMINISTRATORE'}
 	{if $prenota==TRUE}
          <div id="prenotazione" class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -62,4 +61,3 @@
         </div>
 		<div class="corner-content-1col-bottom"></div>
 	{else}<h1>Partita gia svolta</h1>{/if}
-{/if}

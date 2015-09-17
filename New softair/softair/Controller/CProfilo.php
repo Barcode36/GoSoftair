@@ -280,7 +280,9 @@ class CProfilo {
     	$username=$session->leggi_valore('username');
     	if($username=='AMMINISTRATORE'){
     		$anam=$session->leggi_valore('prenotazioniamministratore');
-    		$view->impostaDati('anam', $anam);}
+    		$view->impostaDati('anam', $anam);
+    	}
+    	$view->impostaDati('username', $username);
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();
     }
@@ -374,7 +376,8 @@ class CProfilo {
     	$username=$session->leggi_valore('username');
     	if($username=='AMMINISTRATORE'){
     		$anam=$session->leggi_valore('annunciamministratore');
-    		$view->impostaDati('anam', $anam);}
+    		$view->impostaDati('anam', $anam);
+    	}
     	$view->impostaDati('username', $username);
     	$view->setLayout('conferma_modifica');
     	return $view->processaTemplate();

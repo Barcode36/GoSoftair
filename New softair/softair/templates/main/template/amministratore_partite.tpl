@@ -15,7 +15,7 @@
                 <th class="top" scope="col">Elimina</th>
           	{section name=i loop=$datiPartite}  
             <tr><td><a  href="index.php?controller=partita&task=apripartita&id_partita={$datiPartite[i].IDpartita}">{$datiPartite[i].titolo|truncate:20:"..."}</a></td>
-                <td>{$datiPartite[i].autore}</td>
+                <td>{$datiPartite[i].autore|truncate:20:"..."}</td>
                 <td>{$datiPartite[i].categoria}</td>
             	
             	<td>{$datiPartite[i].data}</td>

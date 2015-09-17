@@ -147,6 +147,7 @@ class CAnnunci {
         }
 		$EAnnuncio->setIDannuncio($session->leggi_valore('username').$dati_an['Titolo']);
         $FAnnuncio->store($EAnnuncio);
+        $view->impostaDati('username', $session->leggi_valore('username'));
 		$view->setLayout('confermacrea');
     	return $view->processaTemplate();
      }

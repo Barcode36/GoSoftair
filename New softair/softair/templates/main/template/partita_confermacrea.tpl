@@ -6,8 +6,9 @@
           	      <form action="index.php"  method="get">
 					<input type="hidden" name="controller" value="profilo">
     				<input type="hidden" name="task" value="apri">
+    				{if $username==AMMINISTRATORE}<input type="hidden" name="profilo" value="mio">{/if}
     				<p><input type="submit" id="button" value="Vai al profilo" title="Vai al profilo" ></p>
 				</form>
           <p class="demo"></p>
         </div>
-        <div class="corner-content-1col-bottom"></div>  
+        <div class="corner-content-1col-bottom"></div> 
