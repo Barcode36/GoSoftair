@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-14 18:44:48
+<?php /* Smarty version 2.6.26, created on 2015-09-14 20:29:45
          compiled from profilo_modifica_annuncio.tpl */ ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
@@ -12,8 +12,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
           <h1 class="contact">Modulo di modifica dati dell'annuncio</h1>
           <div class="contactform">
             <form method="post" action="index.php" id="formreg" enctype="multipart/form-data">
-              <fieldset>
-              <p><label for="titolo" class="top">Titolo:</label><br />
+              <fieldset><legend>&nbsp;DATI ANNUNCIO&nbsp;</legend>
                     <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['autoreusername']; ?>
 " />
               <p><label for="Titolo" class="top">Titolo:</label><br />
@@ -23,12 +22,14 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
                    <input type="number" name="Prezzo" id="Prezzo" tabindex="2" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['prezzo']; ?>
 " /></p>
 		      <p><label for="Descrizione" class="top">Descrizione:</label><br />
-                    <input type="text" name="Descrizione" id="Descrizione" tabindex="3" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['descrizione']; ?>
-" /></p>
+                    <textarea name="Descrizione" id="Descrizione" cols="10" rows="10" tabindex="3" class="field" /><?php echo $this->_tpl_vars['datiAnnuncio']['descrizione']; ?>
+</textarea></p>
 		      <p><label for="Numero" class="top">Telefono:</label><br />
                     <input type="text" name="Numero" id="Numero" tabindex="4" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['telefono']; ?>
 " /></p>
-		      <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
+		      <p><img id="ut" src="<?php echo $this->_tpl_vars['datiAnnuncio']['immagine']; ?>
+"><br/>
+		      <p><label for="Immagine" id="Immagine" class="top">Modifica immagine:</label><br />
 		  			<input id="button" type="file" name="Immagine">
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaannuncio" />

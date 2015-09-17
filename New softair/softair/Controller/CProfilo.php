@@ -51,6 +51,9 @@ class CProfilo {
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
     		}
+    		else{
+    			$session->imposta_valore('mio',$mio);
+    		}
     	}    		
 		$this->setUtente($username);
     	if ($this->_utente!=false) {
@@ -145,9 +148,12 @@ class CProfilo {
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('username');
         if($username=='AMMINISTRATORE'){
-    		$mio=$view->getProfilo();
+    		$mio=$session->leggi_valore('mio');
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
+    		}
+    		else{
+    			$username=$view->getUsername();
     		}
     	}
 		$this->setUtente($username);
@@ -178,11 +184,10 @@ class CProfilo {
     	$FUtente = new FUtente();
     	$EUtente = new EUtente();
     	$dati_modifica=$view->getDatiModUtente();
-    	
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('utente');
+    	$mio=$session->leggi_valore('mio');
         if($username=='AMMINISTRATORE'){
-    		$mio=$view->getProfilo();
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
     		}
@@ -192,7 +197,6 @@ class CProfilo {
     		$this->_utente->getAllArray();
     	}
     	$this->_utente->setUtenteMod($dati_modifica['nome'], $dati_modifica['cognome'], $username, $dati_modifica['password'], $dati_modifica['email'], $dati_modifica['via'], $dati_modifica['CAP'], $dati_modifica['citta']);
-    	//aggiungere controllo per amministratore per permettergli di modificare punti, giocate e vittorie
     	$file=$view->getFile();
 		if($file){
             $nomeOriginale=basename($view->getOriginalFile());
@@ -350,6 +354,7 @@ class CProfilo {
     	$dati_modifica=$view->getDatiModAnnuncio();
     	$IDannuncio=$session->leggi_valore('IDannuncio');
     	$data=$session->leggi_valore('data');
+    	$EAnnuncio=$FAnnuncio->load($IDannuncio);
     	$EAnnuncio->setAnnuncioMod($dati_modifica['Titolo'], $dati_modifica['Prezzo'], $dati_modifica['Descrizione'], $dati_modifica['Numero'], $dati_modifica['autoreusername'], $IDannuncio, $data );
 		$file=$view->getFile();
 		if($file){

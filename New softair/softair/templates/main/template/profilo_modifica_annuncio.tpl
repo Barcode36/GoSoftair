@@ -10,18 +10,18 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
           <h1 class="contact">Modulo di modifica dati dell'annuncio</h1>
           <div class="contactform">
             <form method="post" action="index.php" id="formreg" enctype="multipart/form-data">
-              <fieldset>
-              <p><label for="titolo" class="top">Titolo:</label><br />
+              <fieldset><legend>&nbsp;DATI ANNUNCIO&nbsp;</legend>
                     <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="{$datiAnnuncio.autoreusername}" />
               <p><label for="Titolo" class="top">Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" value="{$datiAnnuncio.titolo}"/></p>           
 			  <p><label for="Prezzo" class="top">Prezzo:</label><br />
                    <input type="number" name="Prezzo" id="Prezzo" tabindex="2" class="field" value="{$datiAnnuncio.prezzo}" /></p>
 		      <p><label for="Descrizione" class="top">Descrizione:</label><br />
-                    <input type="text" name="Descrizione" id="Descrizione" tabindex="3" class="field" value="{$datiAnnuncio.descrizione}" /></p>
+                    <textarea name="Descrizione" id="Descrizione" cols="10" rows="10" tabindex="3" class="field" />{$datiAnnuncio.descrizione}</textarea></p>
 		      <p><label for="Numero" class="top">Telefono:</label><br />
                     <input type="text" name="Numero" id="Numero" tabindex="4" class="field" value="{$datiAnnuncio.telefono}" /></p>
-		      <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
+		      <p><img id="ut" src="{$datiAnnuncio.immagine}"><br/>
+		      <p><label for="Immagine" id="Immagine" class="top">Modifica immagine:</label><br />
 		  			<input id="button" type="file" name="Immagine">
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaannuncio" />

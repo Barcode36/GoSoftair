@@ -1,14 +1,9 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-16 16:50:29
+<?php /* Smarty version 2.6.26, created on 2015-09-06 16:24:23
          compiled from registrazione_default.tpl */ ?>
         <a id="anchor-login-4"></a>
         <div class="corner-subcontent-top"></div>
         <div class="subcontent-box">
           <h1 class="login">Login</h1>
- 
-          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
-          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
-          <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
-          <link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
          <script type="text/javascript" src="JS/CLogin.js"></script>
           <div class="loginform">
             <p id="error"><?php echo $this->_tpl_vars['errore']; ?>
@@ -24,7 +19,8 @@
               <p><label for="password" class="top">Password:</label><br />
                   <input type="password" name="password" id="password" tabindex="2" class="field" value="" /></p>
               <p><input type="checkbox" name="checkbox" id="checkbox" class="checkbox" tabindex="3" size="1" value="" /><label for="checkbox" class="right">Ricordati?</label></p>
-              <p><input type="submit" class="button" value="LOGIN" onClick="click()"/></p>
+
+              <p><input type="button" class="button" value="LOGIN" onClick="ModuloLogin()"/></p>
               <p><a href="?controller=autenticazione&task=password_dimenticata" id="forgotpsswd">Password dimenticata?</a></p>
             </fieldset>
             </form>

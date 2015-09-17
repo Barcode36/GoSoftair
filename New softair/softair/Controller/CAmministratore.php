@@ -99,6 +99,8 @@ class CAmministratore {
 		$EPartita=new EPartita();
 		$FPartita=new FPartita();
 		$dati_registrazione=$view->getDatiCreaPartita();
+		$idpartita=$session->leggi_valore('idpartita');
+		$EPartita=$FPartita->load($idpartita);
 		
 		$temp=$dati_registrazione['Data'];
 		$start = DateTime::createFromFormat('d/m/Y', $temp);
@@ -119,8 +121,6 @@ class CAmministratore {
 		$EPartita->setCategoria($dati_registrazione['Categoria']);
 		$EPartita->setAttrezzatura($dati_registrazione['Attrezzatura']);
 		$EPartita->setPrezzo($dati_registrazione['Prezzo']);
-		
-		$idpartita=$session->leggi_valore('idpartita');
 		$EPartita->setIDpartita($idpartita);
 		
 		$file=$view->getFile();
