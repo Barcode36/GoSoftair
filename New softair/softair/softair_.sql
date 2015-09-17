@@ -35,8 +35,8 @@ CREATE TABLE `commento` (
 --
 
 INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `data`, `ora`) VALUES
-('1','2','cartman: questo è un commento','2015-06-12','15:50'),
-('2','2','cartman: questo è un commento nuovo','2015-05-20','10:12');
+('1','2','cartman: questo ï¿½ un commento','2015-06-12','15:50'),
+('2','2','cartman: questo ï¿½ un commento nuovo','2015-05-20','10:12');
 
 
 -- --------------------------------------------------------
@@ -144,7 +144,7 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`, `punti`, `giocate`, `vittorie`) VALUES
-('AMMINISTRATORE', 'Amministratore', '', 'pwadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0, 0, 0),
+('AMMINISTRATORE', 'Amministratore', '', 'passadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0, 0, 0),
 ('SnAkE', 'Mario', 'Serpente', 'passsnake', 'snake@hotmail.com', 'via delle vie', 'ciao', 'attivo', 'L Aquila', '67010','./immagini/profili/SnAkE/snake.jpg', 2, 2, 0 ),
 ('terminator', 'John', 'Connor', 'passterminator', 'jc@hotmail.com', 'via delle macchine', '732876922', 'attivo', 'Monticchio (AQ)', '67011','./immagini/profili/terminator/terminator.jpg', 5, 2, 1),
 ('cartman', 'Eric', 'Cartman', 'passcartman', 'ec@hotmail.com', 'via southpark 15', '722876922', 'attivo', 'Barete (AQ)', '67012','./immagini/profili/cartman/cartman.jpg', 6, 2, 2),

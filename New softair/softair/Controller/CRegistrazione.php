@@ -24,7 +24,7 @@ class CRegistrazione {
     private $_errore='';
     
     /**
-     * Controlla se l'utente � registrato ed autenticato
+     * Controlla se l'utente � registrato ed autenticato
      * @access public
      * @return boolean
      */
@@ -87,7 +87,7 @@ class CRegistrazione {
     }
     
     /**
-     * Crea un utente sul database controllando che non esista gi�
+     * Crea un utente sul database controllando che non esista gi�
      * @access public
      * @return mixed
      */
@@ -137,7 +137,40 @@ class CRegistrazione {
      * @return boolean
      */
     public function emailAttivazione(EUtente $utente) {
-        global $config;
+ 
+ 	$to=$utente->getEmail();
+ 	$headers = "From: GoSoftair \r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$link1='http://gosoftair.esy.es/index.php?controller=registrazione&task=attivazione&codice_attivazione={'.$utente->getCodiceAttivazione().'}&username={'.$utente->getUsername().'}';
+	$link2='http://gosoftair.esy.es/index.php?controller=registrazione&task=attivazione';
+	$message = 
+	'<html>
+ 	<head>
+ 	<title>Registrazione GoSoftair</title>
+ 	</head>
+ 	<body>
+ 	<h4>Ciao '.$utente->getNome().'</h4>
+ 	<p>Grazie per esserti registrato su Go Softair. Prima di attivare il tuo account è necessario compiere un ultimo passaggio per completare la registrazione!</br>
+	Nota bene:  devi completare questo passaggio per diventare un utente registrato. Sarà  necessario cliccare sul link una sola volta e il tuo account verrà automaticamente attivato.</p>
+ 	<p>Per completare la registrazione, clicca sul collegamento qui sotto:</br>
+	<a href='.$link1.'>Conferma registrazione</a></p>
+	<p>**** Il collegamento non funziona? ****</br>
+	Se il collegamento non dovesse funzionare, visita questo link:</br>
+	<a href='.$link2.'>Conferma registrazione 2</a></p>
+	<p>Assicurati di non aggiungere spazi aggiuntivi. Dovrai scrivere il tuo username e codice di attivazione nella pagina che apparirà.<p>
+	<h4>Il tuo username è: '.$utente->getUsername().'</h4>
+	<h4>Il tuo codice di attivazione è: '.$utente->getCodiceAttivazione().'</h4>
+	<p>In caso di problemi con la registrazione contatta un membro del nostro staff all\'indirizzo: info@gosoftair.com</p>
+	<p>Saluti, lo staff di GoSoftair</p>
+	</body>
+ 	</html>
+ 	';
+
+mail($to, 'Registrazione', $message, $headers);
+
+	  
+	   /* global $config;
         $view=USingleton::getInstance('VRegistrazione');
         $view->setLayout('email_attivazione');
         $view->impostaDati('username',$utente->getUsername());
@@ -147,7 +180,7 @@ class CRegistrazione {
         $view->impostaDati('url',$config['url_softair']);
         $corpo_email=$view->processaTemplate();
         $email=USingleton::getInstance('UEmail');
-        return $email->invia_email($utente->getEmail(),$utente->getNome().' '.$utente->getCognome(),'Attivazione account softair',$corpo_email);
+        return $email->invia_email($utente->getEmail(),$utente->getNome().' '.$utente->getCognome(),'Attivazione account softair',$corpo_email);*/
     }
     
     /**
@@ -200,7 +233,7 @@ class CRegistrazione {
      
      /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
-     * dovute procedure affinch� il compito venga eseguito.
+     * dovute procedure affinch� il compito venga eseguito.
      * @access public
      * @return mixed
      */

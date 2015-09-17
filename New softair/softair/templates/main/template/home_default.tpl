@@ -10,7 +10,7 @@
   <meta http-equiv="expires" content="3600" />
   <meta name="revisit-after" content="2 days" />
   <meta name="robots" content="index,follow" />
-  <meta name="author" content="Designed by www.1234.info / Modified: Alessandro Verzicco" />
+  <meta name="author" content="Designed by Mattia Ciolli, Davide Giancola e Vincenzo Cavallo" />
   <meta name="distribution" content="global" />
   <meta name="description" content="Your container description here" />
   <meta name="keywords" content="Your keywords, keywords, keywords, here" />
