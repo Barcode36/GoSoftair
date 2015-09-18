@@ -18,7 +18,7 @@
               <p><input type="checkbox" name="checkbox" id="checkbox" class="checkbox" tabindex="3" size="1" value="" /><label for="checkbox" class="right">Ricordati?</label></p>
 
               <p><input type="button" class="button" value="LOGIN" onClick="ModuloLogin()"/></p>
-              <p><a href="?controller=autenticazione&task=password_dimenticata" id="forgotpsswd">Password dimenticata?</a></p>
+              <p><a href="?controller=registrazione&task=password_dimenticata" id="forgotpsswd">Password dimenticata?</a></p>
             </fieldset>
             </form>
           </div>

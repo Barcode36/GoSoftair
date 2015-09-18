@@ -137,51 +137,30 @@ class CRegistrazione {
      * @return boolean
      */
     public function emailAttivazione(EUtente $utente) {
- 
- 	$to=$utente->getEmail();
- 	$headers = "From: GoSoftair \r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-	$link1='http://gosoftair.esy.es/index.php?controller=registrazione&task=attivazione&codice_attivazione={'.$utente->getCodiceAttivazione().'}&username={'.$utente->getUsername().'}';
-	$link2='http://gosoftair.esy.es/index.php?controller=registrazione&task=attivazione';
-	$message = 
-	'<html>
- 	<head>
- 	<title>Registrazione GoSoftair</title>
- 	</head>
- 	<body>
- 	<h4>Ciao '.$utente->getNome().'</h4>
- 	<p>Grazie per esserti registrato su Go Softair. Prima di attivare il tuo account è necessario compiere un ultimo passaggio per completare la registrazione!</br>
-	Nota bene:  devi completare questo passaggio per diventare un utente registrato. Sarà  necessario cliccare sul link una sola volta e il tuo account verrà automaticamente attivato.</p>
- 	<p>Per completare la registrazione, clicca sul collegamento qui sotto:</br>
-	<a href='.$link1.'>Conferma registrazione</a></p>
-	<p>**** Il collegamento non funziona? ****</br>
-	Se il collegamento non dovesse funzionare, visita questo link:</br>
-	<a href='.$link2.'>Conferma registrazione 2</a></p>
-	<p>Assicurati di non aggiungere spazi aggiuntivi. Dovrai scrivere il tuo username e codice di attivazione nella pagina che apparirà.<p>
-	<h4>Il tuo username è: '.$utente->getUsername().'</h4>
-	<h4>Il tuo codice di attivazione è: '.$utente->getCodiceAttivazione().'</h4>
-	<p>In caso di problemi con la registrazione contatta un membro del nostro staff all\'indirizzo: info@gosoftair.com</p>
-	<p>Saluti, lo staff di GoSoftair</p>
-	</body>
- 	</html>
- 	';
-
-mail($to, 'Registrazione', $message, $headers);
+    	$VRegistrazione=USingleton::getInstance('VRegistrazione');
+    	$email_webmaster='info@gosoftair.com';
+    	$VRegistrazione->impostaDati('email_webmaster',$email_webmaster);
+    	
+ 		$to=$utente->getEmail();
+ 		$headers = "From: GoSoftair \r\n";
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+		$link1='http://gosoftair.esy.es/index.php?controller=registrazione&task=attivazione&codice_attivazione='.$utente->getCodiceAttivazione().'&username='.$utente->getUsername();
+		$link2='http://gosoftair.esy.es/index.php?controller=registrazione&task=attivazione';
+	
+		$VRegistrazione->setLayout('email_attivazione');
+		$VRegistrazione->impostaDati('nome',$utente->getNome());
+		$VRegistrazione->impostaDati('username',$utente->getUsername());
+		$VRegistrazione->impostaDati('codice_attivazione',$utente->getCodiceattivazione());
+		$VRegistrazione->impostaDati('link1',$link1);
+		$VRegistrazione->impostaDati('link2',$link2);
+	
+		$message=$VRegistrazione->processaTemplate();
+	
+		mail($to, 'Registrazione', $message, $headers);
 
 	  
-	   /* global $config;
-        $view=USingleton::getInstance('VRegistrazione');
-        $view->setLayout('email_attivazione');
-        $view->impostaDati('username',$utente->getUsername());
-        $view->impostaDati('nome_cognome',$utente->getNome().' '.$utente->getCognome());
-        $view->impostaDati('codice_attivazione',$utente->getCodiceAttivazione());
-        $view->impostaDati('email_webmaster',$config['email_webmaster']);
-        $view->impostaDati('url',$config['url_softair']);
-        $corpo_email=$view->processaTemplate();
-        $email=USingleton::getInstance('UEmail');
-        return $email->invia_email($utente->getEmail(),$utente->getNome().' '.$utente->getCognome(),'Attivazione account softair',$corpo_email);*/
-    }
+	}
     
     /**
      * Attiva un utente che inserisce un codice di attivazione valido oppure clicca 
@@ -195,6 +174,7 @@ mail($to, 'Registrazione', $message, $headers);
         $FUtente=new FUtente();
         $utente=$FUtente->load($dati_attivazione['username']);
         if ($dati_attivazione!=false) {
+        	print 'hhh'.$dati_attivazione['codice'].'hhhh';
             if ($utente->getCodiceAttivazione()==$dati_attivazione['codice']) {
                 $utente->setStato('attivo');
                 $FUtente->update($utente);
@@ -230,6 +210,50 @@ mail($to, 'Registrazione', $message, $headers);
         $session->cancella_valore('username');
         $session->cancella_valore('nome_cognome');
     }
+    
+    /**
+     * @access public
+     * Apre una pagina che permette di inserire l'username per recuperare la password
+     * con l'invio di un email all'indirizzo email corrispondente messo in fase di registrazione
+     * se l'utente acconsnte
+     */
+    public function passwordDimenticata() {
+    	$VRegistrazione=USingleton::getInstance('VRegistrazione');
+    	$VRegistrazione->setLayout('ricorda_password');
+    	return $VRegistrazione->processaTemplate();
+    }
+    
+    /**
+     * @access public
+     * Invio effettivo dell'email per recuperare la password dimenticata se viene fornito un
+     * username valido
+     */
+    public function inviaPassword() {
+    	$VRegistrazione=USingleton::getInstance('VRegistrazione');
+    	$email_webmaster='info@gosoftair.com';
+    	$VRegistrazione->impostaDati('email_webmaster',$email_webmaster);
+    	$this->_username=$VRegistrazione->getUsername();
+    	$FUtente=new FUtente();
+    	$utente=$FUtente->load($this->_username);
+    	if ($utente!=false) {
+    		$VRegistrazione->setLayout('email_password');
+    		$to=$utente->getEmail();
+    		$headers = "From: GoSoftair \r\n";
+    		$headers .= "MIME-Version: 1.0\r\n";
+    		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    		$VRegistrazione->impostaDati('nome',$utente->getNome());
+    		$VRegistrazione->impostaDati('username',$utente->getUsername());
+    		$VRegistrazione->impostaDati('password',$utente->getPassword());
+    		$message=$VRegistrazione->processaTemplate();
+    		mail($to, 'Registrazione', $message, $headers);
+    	}
+    	else{
+    		$errore=TRUE;
+    		$VRegistrazione->impostaDati('errore',$errore);
+    	}
+    	$VRegistrazione->setLayout('conferma_inviapassword');
+    	return $VRegistrazione->processaTemplate();
+    }
      
      /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
@@ -240,14 +264,16 @@ mail($to, 'Registrazione', $message, $headers);
     public function smista() {
         $view=USingleton::getInstance('VRegistrazione');
         switch ($view->getTask()) {
-            case 'recupera_password':
-                return $this->recuperaPassword();
             case 'registra':
                 return $this->moduloRegistrazione();
             case 'salva':
                 return $this->creaUtente();
             case 'attivazione':
                 return $this->attivazione();
+            case 'password_dimenticata':
+                return $this->passwordDimenticata();
+            case 'invia_password':
+               	return $this->inviaPassword();
         }
     }
 }

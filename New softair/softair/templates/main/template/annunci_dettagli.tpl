@@ -6,7 +6,7 @@
           <p><img width="220" src="{$datiAnnuncio.immagine}" alt="{$datiAnnuncio.titolo}" title="{$datiAnnuncio.titolo}"></p><br clear="left">
 <p>
           <b>Descrizione: </b> {$datiAnnuncio.descrizione}<br><br>
-		  <b>Prezzo: </b>{$datiAnnuncio.prezzo}<br><br>
+		  <b>Prezzo: </b>{$datiAnnuncio.prezzo|string_format:"%.2f"} &#8364<br>
 		  <b>Telefono: </b>{$datiAnnuncio.telefono}<br><br>
 		  <b>Data inserimento annuncio: </b>{$datiAnnuncio.data}<br><br>
 		  <b>Data scadenza: </b>{$scadenza}<br>

@@ -15,7 +15,7 @@
               <p><b>Data inserimento: </b>{$dati[i].data}</p>
               <p><b>Data scadenza: </b>{$scadenza[i]}</p>
               <p><b>Telefono: </b>{$dati[i].telefono}</p>
-              <p><b>Prezzo: </b>{$dati[i].prezzo|string_format:"%.2f"}</p>
+              <p><b>Prezzo: </b>{$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
             </div>
             <div class="corner-content-2col-bottom"></div>
             {/if}
@@ -37,7 +37,7 @@
               <p><b>Data inserimento: </b>{$dati[i].data}</p>
               <p><b>Data scadenza: </b>{$scadenza[i]}</p>
               <p><b>Telefono: </b>{$dati[i].telefono}</p>
-              <p><b>Prezzo: </b>{$dati[i].prezzo|string_format:"%.2f"}</p>
+              <p><b>Prezzo: </b>{$dati[i].prezzo|string_format:"%.2f"} &#8364</p>
             </div>
             <div class="corner-content-2col-bottom"></div>
             {/if}
