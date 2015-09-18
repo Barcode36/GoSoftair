@@ -1,6 +1,20 @@
 $(document).ready(function()
 {
+	/*$('#button').change(function(){
+	jQuery.validator.addClassRules("Immagine", {
+ 	required: true,
+    accept: "image/*",
+	dimFile:true
+      })
+	});*/
 	
+	$( "#button" ).change(function() {
+	 $("#button").rules("add", {
+         required: true,
+         accept: "image/*",
+			dimFile:true
+	})
+	});
 	//controlla dimensioni
 	 $.validator.addMethod("dimFile", function (val, element) {
 
@@ -73,11 +87,6 @@ $(document).ready(function()
 			required: true,
 			prezzo_regex:true,
 		},	
-		
-		'Immagine':{
-			accept: "image/*",
-			
-		},
 		
 		},
 		

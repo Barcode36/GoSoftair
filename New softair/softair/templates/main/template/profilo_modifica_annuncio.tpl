@@ -11,8 +11,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
           <div class="contactform">
             <form method="post" action="index.php" id="formreg" enctype="multipart/form-data">
               <fieldset>
-              <p><label for="titolo" class="top">Titolo:</label><br />
-                    <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="{$datiAnnuncio.autoreusername}" />
+              <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="{$datiAnnuncio.autoreusername}" />
               <p><label for="Titolo" class="top">Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" value="{$datiAnnuncio.titolo}"/></p>           
 			  <p><label for="Prezzo" class="top">Prezzo:</label><br />
@@ -23,7 +22,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
                     <input type="text" name="Numero" id="Numero" tabindex="4" class="field" value="{$datiAnnuncio.telefono}" /></p>
 <p><img id="ut" src="{$datiAnnuncio.immagine}" alt="{$datiAnnuncio.autoreusername}" title="{$datiAnnuncio.autoreusername}"></p><br clear='left'>		      
 <p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
-		  			<input id="button" type="file" name="Immagine">
+		  			<input id="button" type="file" name="Immagine"></p>
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaannuncio" />
                 <p><input type="submit" class="button" value="Salva modifiche"  onclick="click()"/></p>

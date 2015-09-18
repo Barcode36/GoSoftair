@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:13:01
+<?php /* Smarty version 2.6.26, created on 2015-09-18 16:13:00
          compiled from profilo_modifica_annuncio.tpl */ ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
@@ -13,8 +13,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
           <div class="contactform">
             <form method="post" action="index.php" id="formreg" enctype="multipart/form-data">
               <fieldset>
-              <p><label for="titolo" class="top">Titolo:</label><br />
-                    <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['autoreusername']; ?>
+              <input type="hidden" name="autoreusername" id="autoreusername" tabindex="3" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['autoreusername']; ?>
 " />
               <p><label for="Titolo" class="top">Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" value="<?php echo $this->_tpl_vars['datiAnnuncio']['titolo']; ?>
@@ -33,7 +32,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
 " title="<?php echo $this->_tpl_vars['datiAnnuncio']['autoreusername']; ?>
 "></p><br clear='left'>		      
 <p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
-		  			<input id="button" type="file" name="Immagine">
+		  			<input id="button" type="file" name="Immagine"></p>
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaannuncio" />
                 <p><input type="submit" class="button" value="Salva modifiche"  onclick="click()"/></p>
