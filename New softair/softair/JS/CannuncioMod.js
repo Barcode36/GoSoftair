@@ -1,13 +1,6 @@
 $(document).ready(function()
 {
-	/*$('#button').change(function(){
-	jQuery.validator.addClassRules("Immagine", {
- 	required: true,
-    accept: "image/*",
-	dimFile:true
-      })
-	});*/
-	
+//aggiunge il controllo solo se viene caricata una immagine
 	$( "#button" ).change(function() {
 	 $("#button").rules("add", {
          required: true,
@@ -15,7 +8,8 @@ $(document).ready(function()
 			dimFile:true
 	})
 	});
-	//controlla dimensioni
+	
+//controlla dimensioni
 	 $.validator.addMethod("dimFile", function (val, element) {
 
           var size = element.files[0].size;
@@ -28,7 +22,7 @@ $(document).ready(function()
 
       }, $.validator.format("max 1 MB"));
 	
-	// metodo per validare immagini
+// metodo per validare immagini
 	$.validator.addMethod("accept", function(value, element, param) {
 	// Split mime on commas in case we have multiple types we can accept
 	var typeParam = typeof param === "string" ? param.replace(/\s/g, "").replace(/,/g, "|") : "image/*",
@@ -62,7 +56,7 @@ $(document).ready(function()
 	return true;
 }, $.validator.format("Puoi caricare solo immagini!"));
 
-	// metodo per validare prezzo
+// metodo per validare prezzo
 	$.validator.addMethod("prezzo_regex", function(value, element) { 
 		return this.optional(element) || /^[0-9\.\-_]{1,30}$/i.test(value); 
 		}, "Caratteri non validi. Sono consentiti solo numeri!");
@@ -106,9 +100,7 @@ $(document).ready(function()
 			required: "Il campo descrizione &eacute; obbligatorio!",
 		},
 		
-		},
-		
-			
+		},	
 	});
 	});
 

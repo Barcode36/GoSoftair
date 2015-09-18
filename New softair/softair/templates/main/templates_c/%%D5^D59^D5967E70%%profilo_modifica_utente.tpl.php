@@ -1,11 +1,17 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:09:54
+<?php /* Smarty version 2.6.26, created on 2015-09-18 17:44:22
          compiled from profilo_modifica_utente.tpl */ ?>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
+	<script type="text/javascript" 
+src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
+	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
+	<script type="text/javascript" src="JS/Cmodprofilo.js"></script> 
         <a id="anchor-contact-1"></a>
         <div class="corner-content-1col-top"></div>        
         <div class="content-1col-nobox">
           <h1 class="contact">Modulo di modifica dati del profilo</h1>
           <div class="contactform">
-            <form method="post" action="index.php" enctype="multipart/form-data">
+            <form method="post" action="index.php" id="formreg" enctype="multipart/form-data">
 	     <?php if ($this->_tpl_vars['diritti'] == 'admin'): ?>
 	     <fieldset><legend>&nbspDETTAGLI DI SISTEMA&nbsp;</legend>
 	     <p><label for="codice_attivazione" class="left">Codice attivazione:</label>
@@ -31,19 +37,15 @@
  		<p><img id="ut" src="<?php echo $this->_tpl_vars['datiUtente']['foto']; ?>
 " alt="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " title="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
-">
+"></p><br clear="left">
 		<p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
-		   <input id="button" type="file" name="Immagine">
+		   <input id="button" type="file" name="Immagine"></p>
 		</fieldset>
               <fieldset><legend>&nbsp;CREDENZIALI DI ACCESSO&nbsp;</legend>
                 <p><label for="username" class="left">Nome utente:</label>
                    <input type="text" name="username" id="username" class="field" value="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " tabindex="5" disabled/></p>
-                <p><label for="password" class="left">Password:</label>
-                   <input type="password" name="password" id="password" class="field" value="<?php echo $this->_tpl_vars['datiUtente']['password']; ?>
-" tabindex="6" /></p>
-                <p><label for="password_1" class="left">Ripeti password:</label>
-                   <input type="password" name="password_1" id="password_1" class="field" value="" tabindex="7" /></p>
+                <p><a href="?controller=registrazione&amp;task=password_dimenticata" id="forgotpsswd">Password dimenticata?</a></p>
               </fieldset>
               <fieldset><legend>&nbsp;DETTAGLI ANAGRAFICI&nbsp;</legend>
                 <p><label for="nome" class="left">Nome:</label>

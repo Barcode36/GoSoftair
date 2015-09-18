@@ -1,5 +1,15 @@
 $(document).ready(function()
 {
+	
+	//aggiunge il controllo solo se viene caricata una immagine
+	$( "#button" ).change(function() {
+	 $("#button").rules("add", {
+         required: true,
+         accept: "image/*",
+			dimFile:true
+	})
+	});
+	
 	// metodo per validare username
 	$.validator.addMethod("username_regex", function(value, element) { 
 		return this.optional(element) || /^[a-z0-9\.\-_]{1,30}$/i.test(value); 
@@ -21,7 +31,7 @@ $(document).ready(function()
                return true;
            }
 
-      }, "max 1 MB");
+      }, $.validator.format("max 1 MB"));
 	
 	// metodo per validare immagini
 	$.validator.addMethod("accept", function(value, element, param) {
@@ -61,13 +71,7 @@ $(document).ready(function()
 	$("#formreg").validate(
 	{
         rules:{
-			
-			'Immagine':{
-			accept: "image/*",
-			dimFile:true,
-
-		},
-		
+					
 		'email':{
 			required: true,
 			email: true,
@@ -91,16 +95,7 @@ $(document).ready(function()
 		},
 		'citta':{
 			required: true,
-			testi_regex: true
 		},	
-		'password':{
-			required: true,
-			minlength: 8
-			},
-		'password_1':{
-			required: true,
-			equalTo: '#password'
-			},
 		},
         messages:{
 						
@@ -127,13 +122,7 @@ $(document).ready(function()
 		'citta':{
 			required: "Il campo citt&aacute; &eacute; obbligatorio!",
 		},
-		'password':{
-			required: "Il campo password &eacute; obbligatorio!",
-			minlength: "Inserisci una password di almeno 8 caratteri!"
-			},
-		'password_1':{
-			equalTo: "Le due password non coincidono!"
-			}
+		
 		}
 	});
 	

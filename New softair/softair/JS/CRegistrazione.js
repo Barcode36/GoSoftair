@@ -41,7 +41,6 @@ $(document).ready(function()
 		},
 		'citta':{
 			required: true,
-			testi_regex: true
 		},	
 		'password':{
 			required: true,

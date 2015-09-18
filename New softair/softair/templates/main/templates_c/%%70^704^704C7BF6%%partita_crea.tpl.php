@@ -1,7 +1,9 @@
+<?php /* Smarty version 2.6.26, created on 2015-09-18 17:22:42
+         compiled from partita_crea.tpl */ ?>
 	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
 	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
 	<script type="text/javascript" src="JS/Cpartita.js"></script> 
-{if $username!=false}
+<?php if ($this->_tpl_vars['username'] != false): ?>
  <div class="corner-content-1col-top"></div>            
         <div class="content-1col-nobox">
           <h1 >Creazione partita</h1>
@@ -29,7 +31,8 @@
 			  <p><label for="Indirizzo" class="top">Indirizzo:</label><br />
                   <input type="text" name="Indirizzo" id="Indirizzo" tabindex="5" class="field" value="" /></p>
 			  <p><label for="Data" id="Data" class="top">Data partita:</label><br />
-				  <input type="text" id="datepicker" name="Data" class="data" value="{$domani}">
+				  <input type="text" id="datepicker" name="Data" class="data" value="<?php echo $this->_tpl_vars['domani']; ?>
+">
 			  <p><label for="Ora" class="top">Orario:</label><br />
                   <input type="number" class="piccolo" name="Ora" id="Ora"  min="0" max="24" value="0"/>
                   <input type="number" class="piccolo" name="Minuti" id="Minuti"  min="0" max="60" value="0"/></p>
@@ -46,7 +49,7 @@
             </form>
           </div>
 	</div>
-{else}
+<?php else: ?>
 		  		  	<div class="corner-content-1col-top"></div>
            			<div class="content-1col-nobox">
 		              <h1>Non puoi creare partite, senza autenticarti.</h1>
@@ -60,6 +63,6 @@
           				<p class="demo"></p>
                     </div>
         			<div class="corner-content-1col-bottom"></div>
-{/if} 
+<?php endif; ?> 
     
         

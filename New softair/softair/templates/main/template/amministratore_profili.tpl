@@ -12,9 +12,9 @@
                 <th class="top" scope="col">Elimina</th>
             </tr>
           	{section name=i loop=$datiUtente}  
-            <tr><td><b>{$datiUtente[i].username}</b></td>
-            	<td>{$datiUtente[i].nome}</td>
-            	<td>{$datiUtente[i].cognome}</td>
+            <tr><td><b>{$datiUtente[i].username|truncate:10:"..."}</b></td>
+            	<td>{$datiUtente[i].nome|truncate:10:"..."}</td>
+            	<td>{$datiUtente[i].cognome|truncate:10:"..."}</td>
             	<td>
             		<form action="index.php" method="post">
     					<input type="hidden" name="controller" value="profilo">

@@ -1,6 +1,9 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:13:07
+<?php /* Smarty version 2.6.26, created on 2015-09-18 17:22:58
          compiled from amministratore_partite_modifica.tpl */ ?>
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
+<script type="text/javascript" 
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
+	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
 	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
 	<script type="text/javascript" src="JS/CpartitaMod.js"></script>  
 <div class="corner-content-1col-top"></div>            
@@ -9,8 +12,7 @@
           <div >
               <br />
             <form method="POST" action="index.php" id="formreg" enctype="multipart/form-data">
-              <input type="hidden" name="controller" value="amministratore" />
-              <fieldset>
+                <fieldset>
                 <p><label for="Titolo" class="top" >Titolo:</label><br />
                   <input type="text" id="Titolo" name="Titolo" tabindex="1" class="field" value="<?php echo $this->_tpl_vars['datiPartita']['titolo']; ?>
 " /></p>
@@ -48,10 +50,12 @@
 <p><img id="ut" src="<?php echo $this->_tpl_vars['datiPartita']['immagine']; ?>
 "></p><br clear='left'>			   
 <p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
-		  <input id="button" type="file" name="Immagine" size="40">
+		  <input id="button" type="file" name="Immagine"></p>
+	      <input type="hidden" name="controller" value="amministratore" />
               <input type="hidden" name="task" value="salvapartita" />
 		  <p><input type="submit" class="button" value="Salva modifiche      " onclick="click()" /></p>
             </fieldset>
             </form>
           </div>
 	</div>
+ <div class="corner-content-1col-bottom"></div>

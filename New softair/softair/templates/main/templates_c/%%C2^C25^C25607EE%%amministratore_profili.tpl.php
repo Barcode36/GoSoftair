@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:09:49
+<?php /* Smarty version 2.6.26, created on 2015-09-18 17:36:53
          compiled from amministratore_profili.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_profili.tpl', 15, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente'] != false): ?>	
 <div class="corner-content-1col-top"></div>
 <div class="content-1col-nobox">
@@ -37,11 +39,11 @@ $this->_sections['i']['index_next'] = $this->_sections['i']['index'] + $this->_s
 $this->_sections['i']['first']      = ($this->_sections['i']['iteration'] == 1);
 $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $this->_sections['i']['total']);
 ?>  
-            <tr><td><b><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username']; ?>
+            <tr><td><b><?php echo ((is_array($_tmp=$this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['username'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 10, "...") : smarty_modifier_truncate($_tmp, 10, "...")); ?>
 </b></td>
-            	<td><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['nome']; ?>
+            	<td><?php echo ((is_array($_tmp=$this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['nome'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 10, "...") : smarty_modifier_truncate($_tmp, 10, "...")); ?>
 </td>
-            	<td><?php echo $this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['cognome']; ?>
+            	<td><?php echo ((is_array($_tmp=$this->_tpl_vars['datiUtente'][$this->_sections['i']['index']]['cognome'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 10, "...") : smarty_modifier_truncate($_tmp, 10, "...")); ?>
 </td>
             	<td>
             		<form action="index.php" method="post">
