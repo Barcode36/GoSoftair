@@ -1,7 +1,15 @@
 $(document).ready(function()
 {
 
-
+//aggiunge il controllo solo se viene caricata una immagine
+	$( "#button" ).change(function() {
+	 $("#button").rules("add", {
+         required: true,
+         accept: "image/*",
+			dimFile:true
+	})
+	});
+	
 	//controlla dimensioni
 	 $.validator.addMethod("dimFile", function (val, element) {
 
@@ -13,7 +21,7 @@ $(document).ready(function()
                return true;
            }
 
-      }, "max 1 MB");
+      },  $.validator.format("max 1 MB"));
 	
 	// metodo per validare immagini
 	$.validator.addMethod("accept", function(value, element, param) {
@@ -84,13 +92,7 @@ $(document).ready(function()
 			required: true,
 				
 			},
-		
-		/*'Immagine':{
-			required: false,
-			accept: "image/*",
-			dimFile:true
-		},*/
-		
+				
 		},
 		
 		messages:{
@@ -113,9 +115,6 @@ $(document).ready(function()
 			required: "Il campo indirizzo &eacute; obbligatorio!",
 		},
 		
-		/*'Immagine':{
-			required: "Carica un immagine!",
-		},*/
 		'Ora':{
 			required: "Inserisci un orario",
 		},

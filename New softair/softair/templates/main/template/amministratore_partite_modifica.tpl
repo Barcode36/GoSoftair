@@ -38,7 +38,7 @@ src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
                   <textarea name="Descrizione" id="Descrizione" tabindex="7" cols="80" rows="10" class="field" />{$datiPartita.descrizione}</textarea>
 <p><img id="ut" src="{$datiPartita.immagine}"></p><br clear='left'>			   
 <p><label for="Immagine" id="Immagine" class="top">Cambia immagine:</label><br />
-		  <input id="button" type="file" name="Immagine"></p>
+		  <input id="button" type="file" name="Immagine"></p><br />
 	      <input type="hidden" name="controller" value="amministratore" />
               <input type="hidden" name="task" value="salvapartita" />
 		  <p><input type="submit" class="button" value="Salva modifiche      " onclick="click()" /></p>
