@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:09:46
+<?php /* Smarty version 2.6.26, created on 2015-09-19 14:35:48
          compiled from amministratore_prenotazioni.tpl */ ?>
 <?php if ($this->_tpl_vars['datiPartite'] != false): ?>	
 		    <div class="corner-content-1col-top"></div>
@@ -10,6 +10,7 @@
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">utente</th>
                 	<th class="top" scope="col">Attrezzatura</th>
+                	<th class="top" scope="col">Posti prenotati per terzi</th>
                 	<th class="top" scope="col">Modifica</th>
                 	<th class="top" scope="col">Elimina</th>
           		<?php unset($this->_sections['i']);
@@ -47,6 +48,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
                 	<td>NO</td><?php else: ?>
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
 </td><?php endif; ?>
+					<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['perterzi']; ?>
+</td>
 					<td>
             		<form action="index.php" method="post">
     					<input type="hidden" name="controller" value="profilo">

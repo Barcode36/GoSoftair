@@ -191,7 +191,7 @@ class VProfilo extends View{
      * @return mixed
      */
     public function getDatiModPrenotazione() {
-    	$dati_richiesti=array('attrezzatura');
+    	$dati_richiesti=array('attrezzatura', 'perterzi');
     	$dati=array();
     	foreach ($dati_richiesti as $dato) {
     		if (isset($_REQUEST[$dato]))

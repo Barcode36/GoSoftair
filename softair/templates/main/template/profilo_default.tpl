@@ -37,6 +37,7 @@
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
+                	<th class="top" scope="col">Posti prenotati per terzi</th>
                 	<th class="top" scope="col">Modifica</th>
                 	<th class="top" scope="col">Elimina</th>
           		{section name=i loop=$datiPartite}  
@@ -46,6 +47,7 @@
                 	{if $datiPartite[i].attrezzatura==''}
                 	<td>NO</td>{else}
             		<td>{$datiPartite[i].attrezzatura}</td>{/if}
+            		<td>{$datiPartite[i].perterzi}</td>
             		<td>
             		<form action="index.php" method="post">
     					<input type="hidden" name="controller" value="profilo">

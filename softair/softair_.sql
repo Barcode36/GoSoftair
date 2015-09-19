@@ -69,13 +69,13 @@ CREATE TABLE `partita` (
 --
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`, `ora`, `prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`, `votata`) VALUES
-('1', 'Convento', 'via del convento 2', 10, 9, 'Rambittu89','2015-10-15','10.30', 0, 'SI' , 'Partita 5 vs 5 in un convento abbandonato. Si gioca dalle 10 alle 17 con pausa pranzo','Deathmatch a squadre', './immagini/partite/Rambittu89/convento.jpg', 'non_votata'),
-('2', 'Quartiere abbandonato', 'via garibaldi 56', 10, 5,'SnAkE','2015-11-18','10.30', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
-('3', 'Simulazione ww2', 'Piazza arischia', 20, 18,'viulenza93','2015-10-10', '10.30',5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5€.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
-('4', 'Foresta', 'Bosco di Pizzoli', 8, 7,'micidial','2015-11-02','10.30', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
-('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 4, 'terminator','2015-10-11','10.30', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
+('1', 'Convento', 'via del convento 2', 10, 8, 'Rambittu89','2015-10-15','10.30', 0, 'SI' , 'Partita 5 vs 5 in un convento abbandonato. Si gioca dalle 10 alle 17 con pausa pranzo','Deathmatch a squadre', './immagini/partite/Rambittu89/convento.jpg', 'non_votata'),
+('2', 'Quartiere abbandonato', 'via garibaldi 56', 15, 5,'SnAkE','2015-11-18','10.30', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
+('3', 'Simulazione ww2', 'Piazza arischia', 20, 16,'viulenza93','2015-10-10', '10.30',5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5€.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
+('4', 'Foresta', 'Bosco di Pizzoli', 8, 6,'micidial','2015-11-02','10.30', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
+('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 3, 'terminator','2015-10-11','10.30', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
 ('6', 'Mezzi utilizzabili', 'via della campagna Arischia', 20, 20,'cartman','2015-11-09','10.30', 0,'SI','Un fuggitivo, tutti all inseguimento. Il fuggitivo verra selezionato a caso e avra un ora di vantaggio. Gli altri inseguiranno anche con veicoli. Incontro alle 17','Caccia all uomo', './immagini/partite/cartman/veicoli.jpg', 'non_votata'),
-('7', 'Campo attrezzato', 'SoftgunAQ', 6, 4,'SoftgunAQ','2016-02-01','10.30', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/SoftgunAQ/campo.jpg', 'non_votata');
+('7', 'Campo attrezzato', 'SoftgunAQ', 6, 2,'SoftgunAQ','2016-02-01','10.30', 10, 'SI','Deathmatch 3 v 3 nel nostro campo attrezzato di Bazzano. Attrezzatura disponibile e minibar. Ore 16, vi aspettiamo! ','Deathmatch a squadre', './immagini/partite/SoftgunAQ/campo.jpg', 'non_votata');
 
 -- --------------------------------------------------------
 
@@ -89,6 +89,7 @@ CREATE TABLE `prenotazione` (
   `titoloPartita` varchar(200) NOT NULL,
   `utenteusername` varchar(20) NOT NULL,
   `attrezzatura` varchar(20) NOT NULL,
+  `perterzi` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Prenotazione` (`utenteusername`),
   KEY `Partita` (`partitaID`),
@@ -99,19 +100,19 @@ CREATE TABLE `prenotazione` (
 -- Dump dei dati per la tabella `prenotazione`
 --
 
-INSERT INTO `prenotazione` (`id`, `partitaID`, `titoloPartita` , `utenteusername`, `attrezzatura`) VALUES
-(1, '1', 'Convento','Rambittu89', 'SI'),
-(2, '2', 'Quartiere abbandonato', 'Rambittu89', ''),
-(3, '2', 'Quartiere abbandonato', 'viulenza93', ''),
-(4, '2', 'Quartiere abbandonato', 'terminator', 'SI'),
-(5, '2', 'Quartiere abbandonato', 'SnAkE', ''),
-(6, '2', 'Quartiere abbandonato', 'micidial', ''),
-(7, '5', 'Assalto al forte','micidial', 'SI'),
-(8, '3', 'Simulazione ww2', 'cartman',''),
-(9, '3', 'Simulazione ww2', 'viulenza93',''),
-(10, '4', 'Foresta','micidial', ''),
-(11, '7', 'Campo attrezzato','Rambittu89', 'SI'),
-(12, '7', 'Campo attrezzato','SnAkE', '');
+INSERT INTO `prenotazione` (`id`, `partitaID`, `titoloPartita` , `utenteusername`, `attrezzatura`, `perterzi`) VALUES
+(1, '1', 'Convento','Rambittu89', 'SI', '1'),
+(2, '2', 'Quartiere abbandonato', 'Rambittu89', '', '1'),
+(3, '2', 'Quartiere abbandonato', 'viulenza93', '', '1'),
+(4, '2', 'Quartiere abbandonato', 'terminator', 'SI', '1'),
+(5, '2', 'Quartiere abbandonato', 'SnAkE', '', '1'),
+(6, '2', 'Quartiere abbandonato', 'micidial', '', '1'),
+(7, '5', 'Assalto al forte','micidial', 'SI', '1'),
+(8, '3', 'Simulazione ww2', 'cartman','', '1'),
+(9, '3', 'Simulazione ww2', 'viulenza93','', '1'),
+(10, '4', 'Foresta','micidial', '', '1'),
+(11, '7', 'Campo attrezzato','Rambittu89', 'SI','1'),
+(12, '7', 'Campo attrezzato','SnAkE', '', '1');
 
 
 

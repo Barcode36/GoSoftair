@@ -14,7 +14,7 @@
           <b>Lista utenti prenotati a questa partita: </b><br>
           {if $utenti!=FALSE}
           {section name=ii loop=$utenti}
-            - {$utenti[ii]}<br>
+            - {$utenti[ii]} + {$perterzi[ii]}<br>
           {/section}
           <h5><b>{$dati.ndisponibili}</b> posti ancora disponibili!</h5></p>
           {else}Nessun utente si &egrave ancora prenotato. <h5></br><b>{$dati.ndisponibili}</b> posti disponibili.</h5></br></br>{/if}
@@ -49,6 +49,8 @@
                <p><label for="attrezzatura" class="top">Voglio l'attrezzatura</label><br />          
                <p><input type="checkbox" id="checkbox2" class="checkbox" name="attrezzatura" tabindex="3" size="1" value="SI" /></p>                
                 {/if}
+                <p><label for="prenotaterzi" class="top">Prenota posti anche per i tuoi amici:</label><br />
+                 <input type="number" name="perterzi" tabindex="2" class="field" value="0" min="0" max="{$dati.ndisponibiliterzi}" /></p>
                 <input type="hidden" name="controller" value="prenotazione" />
                 <input type="hidden" name="task" value="salvaprenotazione" />
                 <input type="hidden" name="id_partita" value="{$dati.IDpartita}" />

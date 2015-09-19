@@ -62,6 +62,7 @@ class CPartita {
     		$dati['commento']=$arrayCommenti;
     		$start = DateTime::createFromFormat('Y-m-d',$dati['data']);
     		$dati['data']=$start->format('d/m/Y');
+    		$dati['ndisponibiliterzi']=$dati['ndisponibili']-1;
     		$view->impostaDati('dati',$dati);
     		$username=$session->leggi_valore('username');
     		$FPrenotazione=new FPrenotazione();
@@ -73,9 +74,11 @@ class CPartita {
     			while ($i<count($prenotazioni)) {
     				$_array_dati_partite[$i]=$prenotazioni[$i]->getAllArray() ;
     				$utenti[$i]=$_array_dati_partite[$i]['utenteusername'];
+    				$perterzi[$i]=$_array_dati_partite[$i]['perterzi'];
     				$i++;
     			}
     			$view->impostaDati('utenti', $utenti);
+    			$view->impostaDati('perterzi', $perterzi);
     		}
     	
     		//controlla se l'utente è registrato e se è gia prenotato a questa partita

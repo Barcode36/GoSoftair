@@ -247,6 +247,11 @@ class CProfilo {
     	if ($prenotazione!=false) {
     		$dati_prenotazione=$prenotazione->getAllArray();
     		$view->impostaDati('datiPrenotazione', $dati_prenotazione);
+    		$FPartita = new FPartita();
+    		$partita=$FPartita->load($dati_prenotazione['partitaID']);
+    		$dati_partita=$partita->getAllArray();
+    		$disponibili=$dati_partita['ndisponibili']+$dati_prenotazione['perterzi'];
+    		$view->impostaDati('disponibili', $disponibili);
     		$session->imposta_valore('utenteusername',$dati_prenotazione['utenteusername']);
     		$session->imposta_valore('IDprenotazione',$IDprenotazione);
     		$session->imposta_valore('titolo',$dati_prenotazione['titoloPartita']);
@@ -275,7 +280,7 @@ class CProfilo {
     	$titolo=$session->leggi_valore('titolo');
     	$partitaID=$session->leggi_valore('partitaID');
     	$utente=$session->leggi_valore('utenteusername');
-    	$EPrenotazione->setPrenotazioneMod($IDprenotazione, $partitaID, $titolo, $utente, $dati_modifica['attrezzatura']);
+    	$EPrenotazione->setPrenotazioneMod($IDprenotazione, $partitaID, $titolo, $utente, $dati_modifica['attrezzatura'], $dati_modifica['perterzi']);
     	$FPrenotazione->update($EPrenotazione);
     	$username=$session->leggi_valore('username');
     	if($username=='AMMINISTRATORE'){
@@ -304,9 +309,10 @@ class CProfilo {
     	$FPrenotazione->delete($prenotazione);
     	$FPartita = new FPartita();
     	$PartitaID=$prenotazione->getPartitaID();
+    	$postiperterzi=$prenotazione->getPerterzi();
     	$partita=$FPartita->load($PartitaID);
     	$ndisponibili=$partita->getNdisponibili();
-    	$partita->setNdisponibili($ndisponibili+1);
+    	$partita->setNdisponibili($ndisponibili+$postiperterzi+1);
     	$FPartita->update($partita);
     	$username=$session->leggi_valore('username');
     	if($username=='AMMINISTRATORE'){

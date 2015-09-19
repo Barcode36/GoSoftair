@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:09:50
+<?php /* Smarty version 2.6.26, created on 2015-09-19 14:05:25
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 43, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 44, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -57,6 +57,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
                 	<th class="top" scope="col">Nome Partita</th>
                 	<th class="top" scope="col">Username</th>
                 	<th class="top" scope="col">Attrezzatura</th>
+                	<th class="top" scope="col">Posti prenotati per terzi</th>
                 	<th class="top" scope="col">Modifica</th>
                 	<th class="top" scope="col">Elimina</th>
           		<?php unset($this->_sections['i']);
@@ -94,6 +95,8 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
                 	<td>NO</td><?php else: ?>
             		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['attrezzatura']; ?>
 </td><?php endif; ?>
+            		<td><?php echo $this->_tpl_vars['datiPartite'][$this->_sections['i']['index']]['perterzi']; ?>
+</td>
             		<td>
             		<form action="index.php" method="post">
     					<input type="hidden" name="controller" value="profilo">

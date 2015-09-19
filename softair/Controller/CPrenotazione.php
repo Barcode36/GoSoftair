@@ -37,11 +37,17 @@ class CPrenotazione {
     	
 			$titolopartita=$_array_dati_partita['titolo'];
 			$EPrenotazione->setTitoloPartita($titolopartita);
-			if($dati_prenotazione['attrezzatura']==FALSE){$EPrenotazione->setAttrezzatura('');}
-			else{$EPrenotazione->setAttrezzatura($dati_prenotazione['attrezzatura']);}
+			if($dati_prenotazione['attrezzatura']==FALSE){
+				$EPrenotazione->setAttrezzatura('');
+			}
+			else{
+				$EPrenotazione->setAttrezzatura($dati_prenotazione['attrezzatura']);
+			}
+			$postiperterzi=$dati_prenotazione['perterzi'];
+			$EPrenotazione->setPerterzi($postiperterzi);
 			$EPrenotazione->setId($username.$_array_dati_partita['titolo']);
 		
-			$partita->setNdisponibili($disponibili-1);	
+			$partita->setNdisponibili($disponibili-$postiperterzi-1);	
 			$FPartita->update($partita);
 			$FPrenotazione->store($EPrenotazione);
 			$view->impostaDati('username', $username);

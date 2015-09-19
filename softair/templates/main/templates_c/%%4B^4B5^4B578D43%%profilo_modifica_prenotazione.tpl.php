@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-18 17:22:02
+<?php /* Smarty version 2.6.26, created on 2015-09-19 14:25:34
          compiled from profilo_modifica_prenotazione.tpl */ ?>
         <a id="anchor-contact-1"></a>
         <div class="corner-content-1col-top"></div>        
@@ -12,6 +12,10 @@
                       <option value="SI">SI</option>
                       <option value="">NO</option>
            </select></p>              
+           <p><label for="prenotaterzi" class="top">Prenota posti anche per i tuoi amici:</label><br />
+                 <input type="number" name="perterzi" tabindex="2" class="field" value="<?php echo $this->_tpl_vars['datiPrenotazione']['perterzi']; ?>
+" min="0" max="<?php echo $this->_tpl_vars['disponibili']; ?>
+" /></p>
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvaprenotazione" />
               <p><input type="submit" name="submit" class="button" value="Salva prenotazione" tabindex="5" /></p>

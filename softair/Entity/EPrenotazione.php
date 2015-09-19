@@ -30,6 +30,12 @@ class EPrenotazione {
 	 * @AttributeType boolean
 	 */
     private $attrezzatura=false;
+    /**
+     * @var $perterzi Variabile contenente il nunmero di posti prenotati per non iscritti 
+     * 				  da parte dell'iscritto
+     * @AttributeType int
+     */
+    private $perterzi;
   
     /**
      * Imposta i dati della prenotazione.
@@ -42,12 +48,13 @@ class EPrenotazione {
      * @param string $utenteusername
      * @param boolean $attrezzatura
      */
-    public function setPrenotazioneMod($id, $partitaID, $titoloPartita, $utenteusername, $attrezzatura) {
+    public function setPrenotazioneMod($id, $partitaID, $titoloPartita, $utenteusername, $attrezzatura, $perterzi) {
     	$this->id=$id;
     	$this->partitaID=$partitaID;
     	$this->titoloPartita=$titoloPartita;
     	$this->utenteusername=$utenteusername;
-    	$this->attrezzatura=$attrezzatura;    	
+    	$this->attrezzatura=$attrezzatura;
+    	$this->perterzi=$perterzi;
     }
 
     /**
@@ -101,6 +108,16 @@ class EPrenotazione {
     }
     
     /**
+     * Imposta $perterzi come posti prenotati per utenti non registrati
+     * @access public
+     * @param int $perterzi
+     *
+     */
+    public function setPerterzi($perterzi) {
+    	$this->perterzi = $perterzi;
+    }
+    
+    /**
      * restituisce un array contenente tutti gli attributi dell'oggetto
      * @access public
      * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
@@ -111,7 +128,9 @@ class EPrenotazione {
     				'partitaID'=> $this->partitaID, 
     				'titoloPartita'=> $this->titoloPartita, 
     				'utenteusername'=> $this->utenteusername,
-    				'attrezzatura'=> $this->attrezzatura);
+    				'attrezzatura'=> $this->attrezzatura,
+    				'perterzi'=> $this->perterzi
+    	);
     	return $dati;
     }
     
@@ -159,6 +178,15 @@ class EPrenotazione {
      */
     public function getAttrezzatura() {
     	return $this->attrezzatura;
+    }
+    
+    /**
+     * @access public
+     * @return int Intero contenente il numero di posti prenotati perterzi.
+     *
+     */
+    public function getPerterzi() {
+    	return $this->perterzi;
     }
 }
 ?>
