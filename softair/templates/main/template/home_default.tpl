@@ -21,10 +21,11 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
   <script type="text/javascript" src="JS/cancellatesto.js"></script>
-  <script type="text/javascript" src="JS/confermaelimina/jquery-1.10.2.js"></script>
-  <script type="text/javascript" src="JS/confermaelimina/jquery-ui.js"></script>
-  <script type="text/javascript" src="JS/confermaelimina/conferma.js"></script>
+  <script type="text/javascript" src="JS/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="JS/jquery-ui.js"></script>
+  <script type="text/javascript" src="JS/conferma.js"></script>
   <script type="text/javascript" src="JS/ui.datepicker-it.js" ></script>
+  <script type="text/javascript" src="JS/jquery.validate.js" ></script>
       
 
   <title>{$title}</title>
@@ -90,7 +91,9 @@
         
         {if $username=='AMMINISTRATORE'}
         <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
-        {else}<li><a href="index.php?controller=ricerca&task=lista">Partite</a></li>{/if}
+        {else}<li><a href="index.php?controller=ricerca&task=lista">Partite</a>
+        					<ul><li><a href="index.php?controller=ricerca&task=perdata&cerca=on">Filtra per data</a><li></ul>
+        	  </li>{/if}
         
 		{if $username=='AMMINISTRATORE'}
 		<li><a href="index.php?controller=amministratore&task=vediprenotazioni">Prenotazioni</a></li>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-17 17:15:36
+<?php /* Smarty version 2.6.26, created on 2015-09-19 19:06:19
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -23,10 +23,11 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
   <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
   <script type="text/javascript" src="JS/cancellatesto.js"></script>
-  <script type="text/javascript" src="JS/confermaelimina/jquery-1.10.2.js"></script>
-  <script type="text/javascript" src="JS/confermaelimina/jquery-ui.js"></script>
-  <script type="text/javascript" src="JS/confermaelimina/conferma.js"></script>
+  <script type="text/javascript" src="JS/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="JS/jquery-ui.js"></script>
+  <script type="text/javascript" src="JS/conferma.js"></script>
   <script type="text/javascript" src="JS/ui.datepicker-it.js" ></script>
+  <script type="text/javascript" src="JS/jquery.validate.js" ></script>
       
 
   <title><?php echo $this->_tpl_vars['title']; ?>
@@ -94,7 +95,9 @@
         
         <?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
         <li><a href="index.php?controller=amministratore&task=vedipartite">Partite</a></li>
-        <?php else: ?><li><a href="index.php?controller=ricerca&task=lista">Partite</a></li><?php endif; ?>
+        <?php else: ?><li><a href="index.php?controller=ricerca&task=lista">Partite</a>
+        					<ul><li><a href="index.php?controller=ricerca&task=perdata&cerca=on">Filtra per data</a><li></ul>
+        	  </li><?php endif; ?>
         
 		<?php if ($this->_tpl_vars['username'] == 'AMMINISTRATORE'): ?>
 		<li><a href="index.php?controller=amministratore&task=vediprenotazioni">Prenotazioni</a></li>

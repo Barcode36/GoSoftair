@@ -84,11 +84,21 @@ class CRicerca {
         $parametri=array();
         $categoria=$view->getCategoria();
         $parola=$view->getParola();
+        $data=$view->getData();
+        $cerca=$view->getCerca();
         if ($categoria!=false){
             $parametri[]=array('categoria','=',$categoria);
         }
         if ($parola!=false){
             $parametri[]=array('titolo','LIKE','%'.$parola.'%');
+        }
+        if ($cerca=='on' || $data!=false){
+        	if($data!=false){
+        		$start = DateTime::createFromFormat('d/m/Y',$data);
+        		$data=$start->format('Y-m-d');
+        	}
+        	$parametri[]=array('data','=',$data);
+        	$view->impostaDati('cerca',$cerca);
         }
         $limit=$view->getPage()*$this->_partite_per_pagina.','.$this->_partite_per_pagina;
         $num_risultati=count($FPartita->search($parametri));
@@ -129,13 +139,16 @@ class CRicerca {
             $view->impostaDati('prenota', $prenota);
             $view->impostaDati('dati',$array_risultato);
         }
+        else{ 
+        	$errore='SI';
+        	$view->impostaDati('errore',$errore);
+        }
         $view->impostaDati('pagine',$pagine);
         $view->impostaDati('task','lista');
         $view->impostaDati('parametri','categoria='.$categoria.'&stringa='.$parola);
         return $view->processaTemplate();
     }
     
-
     
     
     
@@ -201,6 +214,8 @@ class CRicerca {
                 return $this->lista();
             case 'Cerca':
                 return $this->lista();
+            case 'perdata':
+               	return $this->lista();
         }
     }
 }

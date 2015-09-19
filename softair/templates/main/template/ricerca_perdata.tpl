@@ -1,28 +1,16 @@
-	{if $cerca=='on'}
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
 		<h1>Filtra per data</h1>
-				 <label for="Titolo" class="top"><h5>Data di interesse:</h5></label><br />
-				<div class="searchform">
 				<form action="index.php" method="post">
-                  	<fieldset>
-                  	<p>
-                  	<input type="text"  id="datepicker"  class="field"  name="data"  value="" />
+                  <p><label for="Titolo" class="top">Data di interesse:</label><br />
+                  	<input type="text" id="Data" name="data" tabindex="1" class="field"  value="" /></p>
                   	<input type="hidden" name="controller" value="ricerca" />
                     <input type="hidden" name="task" value="perdata" />
-                    <input type="hidden" name="cerca" value="on" />
-                    <input type="submit" id="button" value="Cerca" title="Cerca" />
-                	</p>
-                	<fieldset>
+                  <p><input type="submit" id="button" value="Cerca" title="Cerca" ></p>
                 </form>
-                </div>
 		</div>
 		<div class="corner-content-1col-bottom"></div>
-	{/if}
-{if $errore!='SI'}
-		<div class="corner-content-1col-bottom"></div>
         <div class="content-1col-box">
-
           <!-- Subcell LEFT -->
           <div class="content-2col-box-leftcolumn">
             {if $dati != false}
@@ -34,7 +22,7 @@
               <h1><a href="?controller=partita&task=apripartita&id_partita={$dati[i].IDpartita}">{$dati[i].titolo}</a></h1>
               <h5>Autore: {$dati[i].autore}</h5>
               <p><img width="140px" src="{$dati[i].immagine}" alt="{$dati[i].titolo}" title="{$dati[i].titolo}"><br clear="left">
-			  <b>Descrizione: </b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
+<b>Descrizione: </b>{$dati[i].descrizione|truncate:240:" [...]"}<br>
               <b>Indirizzo: </b> {$dati[i].indirizzo}<br>
               <b>Data: </b> {$dati[i].data}<br>
               <b>Ora: </b> {$dati[i].ora}<br>
@@ -102,11 +90,3 @@
         </div>
         <div class="corner-content-1col-bottom"></div>
         {/if}
-{else}
-	     <div class="corner-content-1col-top"></div>
-        <div class="content-1col-nobox">
-		<h1>Nessun risultato</h1>
-		</div>
-		<div class="corner-content-1col-bottom"></div>
-
-{/if}

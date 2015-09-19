@@ -1,32 +1,20 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 18:45:45
-         compiled from ricerca_default.tpl */ ?>
+<?php /* Smarty version 2.6.26, created on 2015-09-19 17:56:15
+         compiled from ricerca_perdata.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 37, false),array('modifier', 'string_format', 'ricerca_default.tpl', 44, false),)), $this); ?>
-	<?php if ($this->_tpl_vars['cerca'] == 'on'): ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_perdata.tpl', 25, false),array('modifier', 'string_format', 'ricerca_perdata.tpl', 32, false),)), $this); ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
 		<h1>Filtra per data</h1>
-				 <label for="Titolo" class="top"><h5>Data di interesse:</h5></label><br />
-				<div class="searchform">
 				<form action="index.php" method="post">
-                  	<fieldset>
-                  	<p>
-                  	<input type="text"  id="datepicker"  class="field"  name="data"  value="" />
+                  <p><label for="Titolo" class="top">Data di interesse:</label><br />
+                  	<input type="text" id="Data" name="data" tabindex="1" class="field"  value="" /></p>
                   	<input type="hidden" name="controller" value="ricerca" />
                     <input type="hidden" name="task" value="perdata" />
-                    <input type="hidden" name="cerca" value="on" />
-                    <input type="submit" id="button" value="Cerca" title="Cerca" />
-                	</p>
-                	<fieldset>
+                  <p><input type="submit" id="button" value="Cerca" title="Cerca" ></p>
                 </form>
-                </div>
 		</div>
 		<div class="corner-content-1col-bottom"></div>
-	<?php endif; ?>
-<?php if ($this->_tpl_vars['errore'] != 'SI'): ?>
-		<div class="corner-content-1col-bottom"></div>
         <div class="content-1col-box">
-
           <!-- Subcell LEFT -->
           <div class="content-2col-box-leftcolumn">
             <?php if ($this->_tpl_vars['dati'] != false): ?>
@@ -67,7 +55,7 @@ $this->_sections['i']['last']       = ($this->_sections['i']['iteration'] == $th
 " alt="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 " title="<?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['titolo']; ?>
 "><br clear="left">
-			  <b>Descrizione: </b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
+<b>Descrizione: </b><?php echo ((is_array($_tmp=$this->_tpl_vars['dati'][$this->_sections['i']['index']]['descrizione'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 240, " [...]") : smarty_modifier_truncate($_tmp, 240, " [...]")); ?>
 <br>
               <b>Indirizzo: </b> <?php echo $this->_tpl_vars['dati'][$this->_sections['i']['index']]['indirizzo']; ?>
 <br>
@@ -213,11 +201,3 @@ $this->_sections['pages']['last']       = ($this->_sections['pages']['iteration'
         </div>
         <div class="corner-content-1col-bottom"></div>
         <?php endif; ?>
-<?php else: ?>
-	     <div class="corner-content-1col-top"></div>
-        <div class="content-1col-nobox">
-		<h1>Nessun risultato</h1>
-		</div>
-		<div class="corner-content-1col-bottom"></div>
-
-<?php endif; ?>

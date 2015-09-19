@@ -221,6 +221,7 @@ class CProfilo {
         	$this->_utente->setGiocate($dati_modifica_admin['giocate']);
         	$this->_utente->setVittorie($dati_modifica_admin['vittorie']);
         }
+        else $session->imposta_valore('nome_cognome',$dati_modifica['nome'].' '.$dati_modifica['cognome']);
         //aggiorna l'utente con tutte le modifiche fatte
 		$FUtente->update($this->_utente);
 		$username=$session->leggi_valore('username');

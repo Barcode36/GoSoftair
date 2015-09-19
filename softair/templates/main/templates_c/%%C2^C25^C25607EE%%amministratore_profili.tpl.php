@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 10:59:27
+<?php /* Smarty version 2.6.26, created on 2015-09-19 18:54:58
          compiled from amministratore_profili.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'amministratore_profili.tpl', 15, false),)), $this); ?>

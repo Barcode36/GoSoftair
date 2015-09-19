@@ -82,6 +82,30 @@ class VRicerca extends View {
     }
     
     /**
+     * Restituisce la data
+     * @access public
+     * @return mixed
+     */
+    public function getData() {
+    	if (isset($_REQUEST['data'])) {
+    		return $_REQUEST['data'];
+    	} else
+    		return false;
+    }
+    
+    /**
+     * Restituisce se si sta facendo una ricerca per data o no
+     * @access public
+     * @return mixed
+     */
+    public function getCerca() {
+    	if (isset($_REQUEST['cerca'])) {
+    		return $_REQUEST['cerca'];
+    	} else
+    		return false;
+    }
+    
+    /**
      * Restituisce categoria
      * @access public
      * @return mixed
