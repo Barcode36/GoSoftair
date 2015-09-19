@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-18 17:44:22
+<?php /* Smarty version 2.6.26, created on 2015-09-19 10:15:34
          compiled from profilo_modifica_utente.tpl */ ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
@@ -45,6 +45,16 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
                 <p><label for="username" class="left">Nome utente:</label>
                    <input type="text" name="username" id="username" class="field" value="<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 " tabindex="5" disabled/></p>
+<p><label for="password" class="left">Password:</label>
+                   <input type="password" class="field" value="<?php echo $this->_tpl_vars['datiUtente']['password']; ?>
+" tabindex="6" disabled/></p>
+                  </fieldset>
+<fieldset><legend>&nbsp;CAMBIA PASSWORD&nbsp;</legend>
+                <p><label for="password" class="left">Nuova password:</label>
+                   <input type="password" name="password" id="password" class="field" value="<?php echo $this->_tpl_vars['datiUtente']['password']; ?>
+" tabindex="6"/></p>
+                <p><label for="password_1" class="left">Ripeti password:</label>
+                   <input type="password" name="password_1" id="password_1" class="field" value="" tabindex="7" /></p>
                 <p><a href="?controller=registrazione&amp;task=password_dimenticata" id="forgotpsswd">Password dimenticata?</a></p>
               </fieldset>
               <fieldset><legend>&nbsp;DETTAGLI ANAGRAFICI&nbsp;</legend>

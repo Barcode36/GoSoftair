@@ -6,7 +6,19 @@ $(document).ready(function()
 	 $("#button").rules("add", {
          required: true,
          accept: "image/*",
-			dimFile:true
+		 dimFile:true
+	})
+	});
+	
+	//aggiunge il controllo solo su pwd1 solo se si cambia la pwd
+	$( "#password" ).change(function() {
+	 $("#password").rules("add", {
+         required: true,
+         minlength: 8
+	}),
+		$("#password_1").rules("add", {
+         required: true,
+         equalTo: '#password'
 	})
 	});
 	
@@ -122,6 +134,14 @@ $(document).ready(function()
 		'citta':{
 			required: "Il campo citt&aacute; &eacute; obbligatorio!",
 		},
+		'password':{
+			required: "Il campo password &eacute; obbligatorio!",
+			minlength: "Inserisci una password di almeno 8 caratteri!"
+			},
+		'password_1':{
+			required: "Ripeti la nuova password!",
+			equalTo: "Le due password non coincidono!"
+			}
 		
 		}
 	});

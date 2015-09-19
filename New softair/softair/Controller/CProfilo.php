@@ -148,7 +148,7 @@ class CProfilo {
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('username');
         if($username=='AMMINISTRATORE'){
-    		$mio=$session->leggi_valore('mio');
+    		$mio=$view->getProfilo();
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
     		}

@@ -35,6 +35,14 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
               <fieldset><legend>&nbsp;CREDENZIALI DI ACCESSO&nbsp;</legend>
                 <p><label for="username" class="left">Nome utente:</label>
                    <input type="text" name="username" id="username" class="field" value="{$datiUtente.username}" tabindex="5" disabled/></p>
+<p><label for="password" class="left">Password:</label>
+                   <input type="password" class="field" value="{$datiUtente.password}" tabindex="6" disabled/></p>
+                  </fieldset>
+<fieldset><legend>&nbsp;CAMBIA PASSWORD&nbsp;</legend>
+                <p><label for="password" class="left">Nuova password:</label>
+                   <input type="password" name="password" id="password" class="field" value="{$datiUtente.password}" tabindex="6"/></p>
+                <p><label for="password_1" class="left">Ripeti password:</label>
+                   <input type="password" name="password_1" id="password_1" class="field" value="" tabindex="7" /></p>
                 <p><a href="?controller=registrazione&amp;task=password_dimenticata" id="forgotpsswd">Password dimenticata?</a></p>
               </fieldset>
               <fieldset><legend>&nbsp;DETTAGLI ANAGRAFICI&nbsp;</legend>
