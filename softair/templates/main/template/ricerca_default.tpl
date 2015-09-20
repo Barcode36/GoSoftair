@@ -6,14 +6,12 @@
 				<div class="searchform">
 				<form action="index.php" method="post">
                   	<fieldset>
-                  	<p>
-                  	<input type="text"  id="datepicker"  class="field"  name="data"  value="" />
+                          <input id="datepicker"  class="field"  name="data"  onfocus="clearText(this)" onblur="clearText(this)" value="gg/mm/aaaa"/><br clear='left'>
                   	<input type="hidden" name="controller" value="ricerca" />
                     <input type="hidden" name="task" value="perdata" />
                     <input type="hidden" name="cerca" value="on" />
-                    <input type="submit" id="button" value="Cerca" title="Cerca" />
-                	</p>
-                	<fieldset>
+                    <input type="submit" id="button" value=" Cerca partita " />
+                	</fieldset>
                 </form>
                 </div>
 		</div>

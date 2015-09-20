@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 18:45:45
+<?php /* Smarty version 2.6.26, created on 2015-09-20 10:31:44
          compiled from ricerca_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 37, false),array('modifier', 'string_format', 'ricerca_default.tpl', 44, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'ricerca_default.tpl', 35, false),array('modifier', 'string_format', 'ricerca_default.tpl', 42, false),)), $this); ?>
 	<?php if ($this->_tpl_vars['cerca'] == 'on'): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -10,14 +10,12 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 				<div class="searchform">
 				<form action="index.php" method="post">
                   	<fieldset>
-                  	<p>
-                  	<input type="text"  id="datepicker"  class="field"  name="data"  value="" />
+                          <input id="datepicker"  class="field"  name="data"  onfocus="clearText(this)" onblur="clearText(this)" value="gg/mm/aaaa"/><br clear='left'>
                   	<input type="hidden" name="controller" value="ricerca" />
                     <input type="hidden" name="task" value="perdata" />
                     <input type="hidden" name="cerca" value="on" />
-                    <input type="submit" id="button" value="Cerca" title="Cerca" />
-                	</p>
-                	<fieldset>
+                    <input type="submit" id="button" value=" Cerca partita " />
+                	</fieldset>
                 </form>
                 </div>
 		</div>
