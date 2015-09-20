@@ -64,8 +64,8 @@ class FPartita extends Fdb {
     public function getCategorie(){
         $query='SELECT DISTINCT `categoria` ' .
                 'FROM `partita` ';
-		$this->db->query($query);
-        return $this->getResultAssoc();
+		$res=$this->db->query($query, PDO::FETCH_ASSOC);
+        return $res;
     }
     
 }

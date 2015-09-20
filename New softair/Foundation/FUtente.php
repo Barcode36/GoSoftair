@@ -20,15 +20,25 @@ class FUtente extends Fdb{
      */
     public function getUtentiPunti(){
     	$query='SELECT * FROM `utente`ORDER BY `utente`.`punti` DESC ';
-        $this->db->query($query);
-		return $this->getObjectArray();
+        $sth=$this->db->query($query);
+		$numero_righe=$sth->rowCount();
+		if ($numero_righe>0) {
+            $return=array();
+            while ($row = $sth->fetch(PDO::FETCH_OBJ)) {
+                $return[]=$row;
+            }
+            return $return;
+        } else
+            return false;
+		
     }
     
     public function loadall() {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` WHERE `username` !='."'AMMINISTRATORE'" ;
-    	$this->db->query($query);
-		return $this->getObjectArray();
+    	$sth=$this->db->query($query);
+		$result = $sth->fetchAll(PDO::FETCH_OBJ);
+		return $result;
     }
     
 }

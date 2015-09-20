@@ -76,6 +76,10 @@ class Fdb {
 public function prepare($z) { 
         return $this->db->prepare($z); 
     }  
+	
+	public function query($z) { 
+        return $this->db->query($z); 
+    }  
 
 
     /**
@@ -97,21 +101,6 @@ public function prepare($z) {
     }
 
 
-/**
-     * Effettua una query al database
-     * @param string $query
-     * @return boolean
-     */
-    public function query($sql) {     
-  		$query=$this->db->prepare($sql);
-		$this->_result=$query->execute();
-		if (!$this->_result)
-        	return false;
-        else
-            return true;
-    }
-	
-	
  /**
      * Effettua una ricerca sul database
      *
