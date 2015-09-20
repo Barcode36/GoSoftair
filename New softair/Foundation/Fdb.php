@@ -277,7 +277,7 @@ public function prepare($z) {
         $query=$this->db->prepare($sql);
        try {
 	 		$query->execute();
-	 		$result=$query->fetchAll(PDO::FETCH_ASSOC);
+	 		$result=$query->fetchObject("EUtente");
 	 	} catch (PDOException $e) {
 	 		echo 'Error: '.$e->getMessage();
 	 	}

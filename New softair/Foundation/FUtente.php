@@ -24,7 +24,7 @@ class FUtente extends Fdb{
 		$numero_righe=$sth->rowCount();
 		if ($numero_righe>0) {
             $return=array();
-            while ($row = $sth->fetch(PDO::FETCH_OBJ)) {
+            while ($row = $sth->fetchObject("EUtente")) {
                 $return[]=$row;
             }
             return $return;
