@@ -1,7 +1,8 @@
 RewriteEngine On
 RewriteRule ^Home$ index.php
-ErrorDocument 403 /denied.html
-ErrorDocument 404 /notfound.html
+ErrorDocument 403 http://localhost/~Davide/softair/softair/index.php?controller=403
+ErrorDocument 404 http://localhost/~Davide/softair/softair/index.php?controller=404
+
 # proc/self/environ? no way!
 RewriteCond %{QUERY_STRING} proc/self/environ [OR]
 
@@ -23,10 +24,20 @@ RewriteCond %{QUERY_STRING} _REQUEST(=|[|\%[0-9A-Z]{0,2})
 # Send all blocked request to homepage with 403 Forbidden error!
 RewriteRule ^(.*)$ index.php [F,L]
 
-# secure directory by disabling script execution
-AddHandler cgi-script .php .pl .py .jsp .asp .htm .shtml .sh .cgi
-Options -ExecCGI
-Options All -Indexes
+
+
+Order Deny,Allow
+deny from all
+allow from 127.0.0.1
+
+<files ~ "index\.php|setup\.php|\.(css|jpg|html|gif|jpeg|js|png)$">
+    Order Deny,Allow
+    
+    allow from all
+</files>
+
+
+
 
 # multiple file types
 <FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">

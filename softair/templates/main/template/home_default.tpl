@@ -19,7 +19,7 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery.cookiebar.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
-  <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
+
   <script type="text/javascript" src="JS/cancellatesto.js"></script>
   <script type="text/javascript" src="JS/jquery-1.10.2.js"></script>
   <script type="text/javascript" src="JS/jquery-ui.js"></script>

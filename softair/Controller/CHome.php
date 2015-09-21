@@ -109,6 +109,30 @@ class CHome {
     	return $view->processaTemplateCC();
     }
     
+    /**
+     * Imposta la pagina dell'errore 403.
+     * @access public
+     */
+    public function error403(){
+    	$view=USingleton::getInstance('VHome');
+    	$web_master='info@softair.com';
+    	$view->impostaDati('web_master',$web_master);
+    	return $view->processaTemplate403();
+    	
+    }
+    
+    /**
+     * Imposta la pagina dell'errore 404.
+     * @access public
+     */
+    public function error404(){
+    	$view=USingleton::getInstance('VHome');
+    	$web_master='info@softair.com';
+    	$view->impostaDati('web_master',$web_master);
+    	return $view->processaTemplate404();
+    	
+    }
+    
      /**
      * Esegue un controllo sul compito che viene richiesto e quindi esegue le
      * dovute procedure affinch� il compito venga eseguito. Inoltre compie 
@@ -144,6 +168,10 @@ class CHome {
                	return $this->cookie_policy();
             case 'classifica_completa':
                	return $this->classificaCompleta();
+            case '403':
+               	return $this->error403();
+           	case '404':
+       			return $this->error404();
             default:
                 $session=USingleton::getInstance('USession');
         		$username=$session->leggi_valore('username');

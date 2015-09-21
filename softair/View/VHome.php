@@ -174,6 +174,22 @@ class VHome extends View {
     }
     
     /**
+     * @access public
+     * @return string
+     */
+    public function processaTemplate403() {
+    	return $this->fetch('403.tpl');
+    }
+    
+    /**
+     * @access public
+     * @return string
+     */
+    public function processaTemplate404() {
+    	return $this->fetch('404.tpl');
+    }
+    
+    /**
      * restituisce il numero della pagina (utilizzato nella visualizzazione della partite)
      * passato per GET o POST
      * @access public

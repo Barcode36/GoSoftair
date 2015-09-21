@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 19:06:19
+<?php /* Smarty version 2.6.26, created on 2015-09-21 13:54:01
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/mf54_content.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery.cookiebar.css" />
   <link rel="stylesheet" type="text/css" media="screen,projection,print" href="templates/main/template/css/jquery-ui.css" />
-  <link rel="icon" type="image/x-icon" href="templates/main/template/img/favicon.ico" />
+
   <script type="text/javascript" src="JS/cancellatesto.js"></script>
   <script type="text/javascript" src="JS/jquery-1.10.2.js"></script>
   <script type="text/javascript" src="JS/jquery-ui.js"></script>
