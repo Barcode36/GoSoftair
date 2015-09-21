@@ -25,7 +25,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
 		  <input id="button" type="file" id="button" name="Immagine" size="40">
 		<input type="hidden" name="controller" value="annuncio" />
                 <input type="hidden" name="task" value="Crea annuncio" /><br clear="left">
-              <p><input type="submit" class="button" value="Crea annuncio      " onclick="click()" /></p>
+              <p><input type="submit" id="button" value="Crea annuncio" onclick="click()" /></p>
             </fieldset>
             </form>
           </div>

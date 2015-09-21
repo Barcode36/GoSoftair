@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-20 10:26:58
+<?php /* Smarty version 2.6.26, created on 2015-09-21 11:32:15
          compiled from annunci_crea.tpl */ ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
@@ -27,7 +27,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
 		  <input id="button" type="file" id="button" name="Immagine" size="40">
 		<input type="hidden" name="controller" value="annuncio" />
                 <input type="hidden" name="task" value="Crea annuncio" /><br clear="left">
-              <p><input type="submit" class="button" value="Crea annuncio      " onclick="click()" /></p>
+              <p><input type="submit" id="button" value="Crea annuncio" onclick="click()" /></p>
             </fieldset>
             </form>
           </div>

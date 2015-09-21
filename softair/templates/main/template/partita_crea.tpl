@@ -38,10 +38,10 @@
 			 <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzo senza partecipare</label>
 		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
 		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>
-			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
+			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br clear='left'>
 		  <input type="file" id="button" name="Immagine" size="40"><br clear="left">
 		<input type="hidden" name="task" value="Crea partita" />
-		  <p><input type="submit" class="button" value="Crea partita      " onclick="click()" /></p>
+		  <p><input type="submit" id="button" value="Crea partita" onclick="click()" /></p>
             </fieldset>
             </form>
           </div>

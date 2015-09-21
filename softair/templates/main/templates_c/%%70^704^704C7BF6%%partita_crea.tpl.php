@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-20 10:26:44
+<?php /* Smarty version 2.6.26, created on 2015-09-21 11:30:05
          compiled from partita_crea.tpl */ ?>
 	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script> 
 	<link rel="stylesheet" href="templates/main/template/css/styleval.css" type="text/css" /> 
@@ -41,10 +41,10 @@
 			 <p><label for="Partecipazione" id="Partecipazione" class="left">Oranizzo senza partecipare</label>
 		<input type="hidden" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="1" />
 		<input type="checkbox" name="Partecipazione" id="Partecipazione" tabindex="8" class="checkbox"  value="0" /></p>
-			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br />
+			  <p><label for="Immagine" id="Immagine" class="top">Immagine:</label><br clear='left'>
 		  <input type="file" id="button" name="Immagine" size="40"><br clear="left">
 		<input type="hidden" name="task" value="Crea partita" />
-		  <p><input type="submit" class="button" value="Crea partita      " onclick="click()" /></p>
+		  <p><input type="submit" id="button" value="Crea partita" onclick="click()" /></p>
             </fieldset>
             </form>
           </div>

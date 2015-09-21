@@ -138,7 +138,7 @@ class CProfilo {
     
     /**
 	 * La funzione viene richiamata da profilo quando l'utente decide di modificare i dati 
-	 * personali di registrazione. Prepara una forma analoga a quella utilizzata 
+	 * personali di registrazione. Prepara una form analoga a quella utilizzata 
 	 * per la registrazione precompilata con i dati premodifica.
      * @access public
      * @return mixed
