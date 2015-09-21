@@ -1,74 +1,104 @@
-<?php
+<?php 
+
+
+
 /**
  * @access public
  * @package Foundation
  */
+
+
+
+
+
+
+
 class Fdb {
+
+
+    /**
+     * @var PDO $db Mantiene la connessione al database
+     */
+     public $db;
     /**
      * @var $_connection Variabile di connessione al database
      */
-    private $_connection;
+    public $_connection;
     /**
      * @var $_result Variabile contenente il risultato dell'ultima query
      */
-    private $_result;
+    public $_result;
     /**
      * @var $_table Variabile contenente il nome della tabella
      */
-    protected $_table;
+    public $_table;
     /**
      * @var $_key Variabile contenente la chiave della tabella
      */
-    protected $_key;
+    public $_key;
     /**
      * @var $_return_class Variabile contenente il tipo di classe da restituire
      */
-    protected $_return_class;
+    public $_return_class;
     /**
      * @var $_auto_increment Variabile booleana tabella con chiave automatica o no
      */
-    protected $_auto_increment=false;
+    public $_auto_increment=false;
     /**
      *
      * @global array $config
      */
-    public function __construct() {
-        global $config;
-        $this->connect($config['mysql']['host'], $config['mysql']['password'], $config['mysql']['user'], $config['mysql']['database']);
-    }
+
+
+
+
     /**
-     * @param string $host
-     * @param string $user
-     * @param string $password
-     * @param string $database
-     * @return boolean
+    * Costruttore di Fdb che attiva la connessione
+    */
+ public function __construct()
+     {  
+            require_once("includes/config.inc.php");
+        try{
+            global $config;
+             $attributi = array(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             // collegamento al database con PDO
+             $col = "mysql:host=".$config['mysql']['host']."; dbname=".$config['mysql']['database']."";
+             // connessione al database con PDO
+             $this->db = new PDO($col , $config['mysql']['user'], $config['mysql']['password'], $attributi);
+             //$this->db=new PDO("mysql:host=localhost;dbname=softair;","root","pwmysql");
+             
+        }
+        catch(PDOException $e) {
+            die("Errore durante la connessione al database!: ".$e->getMessage());
+        }
+     }
+     
+
+    /**
+     * Chiude la connessione al database
      */
-    public function connect($host,$user,$password,$database) {
-        $this->_connection=mysql_connect($host,$password,$user);
-        if (!$this->_connection) {
-            die('Impossibile connettersi al database: ' . mysql_error());
-        }
-        $db_selected = mysql_select_db($database, $this->_connection);
-        if (!$db_selected) {
-            die ("Impossibile utilizzare $database: " . mysql_error());
-        }
-        debug('Connessione al database avvenuta correttamente');
-
-        $this->query('SET names \'utf8\'');
-        return true;
-
+    public function close() {
+        $this->db = null;
+        debug('Connessione al db chiusa');
     }
+
+
     /**
      * Effettua una query al database
      * @param string $query
      * @return boolean
      */
     public function query($query) {
-        $this->_result=mysql_query($query);
+        //$this->db=new PDO("mysql:host=localhost;dbname=softair;","root","pwmysql");
+        $q=$this->db->prepare($query);
+        $q->execute();
+        $this->_result=$q;
+        //$this->_result= $q->fetchAll();
+        //$this->_result=mysql_query($query);
         debug($query);
         debug(mysql_error());
         if (!$this->_result)
-        	return false;
+            return false;
         else
             return true;
     }
@@ -78,12 +108,14 @@ class Fdb {
      * @return array
      */
     public function getResultAssoc() {
-        if ($this->_result != false) {
-            $numero_righe=mysql_num_rows($this->_result);
+        $result=$this->_result;
+        if ($result!= false) {
+            $numero_righe=$result->rowCount();
             debug('Numero risultati:'. $numero_righe);
             if ($numero_righe>0) {
                 $return=array();
-                while ($row = mysql_fetch_assoc($this->_result)) {
+                //while ($row = mysql_fetch_assoc($this->_result)) {
+               while ( $row = $result->fetch(PDO::FETCH_ASSOC)){
                     $return[]=$row;
                 }
                 $this->_result=false;
@@ -98,11 +130,13 @@ class Fdb {
      * @return array
      */
     public function getResult() {
-        if ($this->_result!=false) {
-            $numero_righe=mysql_num_rows($this->_result);
+        $result=$this->_result;
+        if ($result!=false) {
+            $numero_righe=$result->rowCount();
             debug('Numero risultati:'. $numero_righe);
             if ($numero_righe>0) {
-                $row = mysql_fetch_assoc($this->_result);
+                $row = $result->fetch(PDO::FETCH_ASSOC);
+                //$row = mysql_fetch_assoc($this->_result);
                 $this->_result=false;
                 return $row;
             }
@@ -115,10 +149,11 @@ class Fdb {
      * @return mixed
      */
     public function getObject() {
-        $numero_righe=mysql_num_rows($this->_result);
+        $result=$this->_result;
+        $numero_righe=$result->rowCount();
         debug('Numero risultati:'. $numero_righe);
         if ($numero_righe>0) {
-            $row = mysql_fetch_object($this->_result,$this->_return_class);
+            $row = $result->fetchObject($this->_return_class);
             $this->_result=false;
             return $row;
         } else
@@ -130,25 +165,18 @@ class Fdb {
      * @return array
      */
     public function getObjectArray() {
-        $numero_righe=mysql_num_rows($this->_result);
+        $result=$this->_result;
+        $numero_righe=$result->rowCount();
         debug('Numero risultati:'. $numero_righe);
         if ($numero_righe>0) {
             $return=array();
-            while ($row = mysql_fetch_object($this->_result,$this->_return_class)) {
-                $return[]=$row;
-            }
+            $return=$result->fetchAll(PDO::FETCH_CLASS, "$this->_return_class");
             $this->_result=false;
             return $return;
         } else
             return false;
     }
-    /**
-     * Effettua la connessione al database
-     */
-    public function close() {
-        mysql_close($this->_connection);
-        debug('Connessione al db chiusa');
-    }
+
     /**
      * Memorizza sul database lo stato di un oggetto
      *
@@ -157,7 +185,7 @@ class Fdb {
      */
     public function store($object) {
         $object=$object->getAllArray(); 
-    	$i=0;
+        $i=0;
         $values='';
         $fields='';
         foreach ($object as $key=>$value) {
@@ -218,7 +246,7 @@ class Fdb {
      */
     public function update($object) {
         $object=$object->getAllArray(); 
-    	$i=0;
+        $i=0;
         $fields='';
         foreach ($object as $key=>$value) {
             if (!($key == $this->_key) && substr($key, 0, 1)!='_') {

@@ -5,6 +5,8 @@
  */
 class FCommento extends Fdb {
     public function __construct() {
+                parent::__construct();
+
         $this->_table='commento';
         $this->_key='id';
         $this->_auto_increment=true;
@@ -12,11 +14,7 @@ class FCommento extends Fdb {
         USingleton::getInstance('Fdb');
     }
 
-   /* public function store( $object){
-        $id = parent::store($object);
-        $object->id=$id;
-    }
-*/
+
     public function loadCommenti($partitaIDpartita){
         $parametri=array();
         $parametri[]=array('partitaIDpartita','=',$partitaIDpartita);

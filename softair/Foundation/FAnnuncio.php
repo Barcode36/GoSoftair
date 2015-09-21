@@ -5,6 +5,7 @@
  */
 class FAnnuncio extends Fdb {
     public function __construct() {
+        parent::__construct();
         $this->_table='annuncio';
         $this->_key='IDannuncio';
         $this->_return_class='EAnnuncio';
