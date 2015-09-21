@@ -1,8 +1,14 @@
 <?php
 
 /**
+ * Descrizione di EUtente
+ * Entita di Utente
+ *
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Entity
  */
 class EUtente {
 	/**

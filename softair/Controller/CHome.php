@@ -12,8 +12,9 @@
 class CHome {
     
     /**
+	 *Imposta la pagina, controlla l'autenticazione
      * @access public
-     * Imposta la pagina, controlla l'autenticazione
+     * 
      */
     public function impostaPagina () {
         $CRegistrazione=USingleton::getInstance('CRegistrazione');

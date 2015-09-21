@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di ECommento
+ * Entita di Commento
+ * 
  * @package Entity
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class ECommento {
 	/**
@@ -15,7 +21,7 @@ class ECommento {
 	 */
 	private $testo;
 	/**
-	 * @var $partitaIDpartita Variabile contenente l'identificativo della partita dove è inserito il commento
+	 * @var $partitaIDpartita Variabile contenente l'identificativo della partita dove ï¿½ inserito il commento
 	 * @AttributeType string
 	 */
 	private $partitaIDpartita;
@@ -51,7 +57,7 @@ class ECommento {
 	}
 	
 	/**
-	 * Imposta $partitaIDpartita come identificativo della partita dov'è il commento
+	 * Imposta $partitaIDpartita come identificativo della partita dov'ï¿½ il commento
 	 * 
 	 * @access public
 	 * @param string $partitaIDpartita
@@ -82,7 +88,7 @@ class ECommento {
 	/**
 	 * restituisce un array contenente tutti gli attributi dell'oggetto
 	 * @access public
-	 * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+	 * @return array Array associativo dove la chiave e il nome dell'attributo e il valore ï¿½ il suo contenuto
 	 *
 	 */
 	public function getAllArray() {
@@ -118,7 +124,7 @@ class ECommento {
 	
 	/**
 	 * @access public
-	 * @return string Stringa contenente l'dentificativo della partita dov'è il commento.
+	 * @return string Stringa contenente l'dentificativo della partita dov'ï¿½ il commento.
 	 *
 	 */
 	public function getPartitaIDpartita()
