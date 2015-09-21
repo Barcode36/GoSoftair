@@ -1,8 +1,14 @@
 <?php
 
 /**
- * @access public
+ * Descrizione di EPrenotazione
+ * Entita di Prenotazione
+ *
  * @package Entity
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class EPrenotazione {
 	/**
@@ -26,7 +32,7 @@ class EPrenotazione {
      */
     private $utenteusername;
 	/**
-	 * @var $attrezzatura Variabile contenente se è richiesta attrezzatura
+	 * @var $attrezzatura Variabile contenente se ï¿½ richiesta attrezzatura
 	 * @AttributeType boolean
 	 */
     private $attrezzatura=false;
@@ -39,7 +45,7 @@ class EPrenotazione {
   
     /**
      * Imposta i dati della prenotazione.
-     * La funzione viene utilizzata quando è necessario apportare un modifica alla prenotazione.
+     * La funzione viene utilizzata quando ï¿½ necessario apportare un modifica alla prenotazione.
      *
      * @access public
      * @param string $id
@@ -120,7 +126,7 @@ class EPrenotazione {
     /**
      * restituisce un array contenente tutti gli attributi dell'oggetto
      * @access public
-     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore ï¿½ il suo contenuto
      *
      */
     public function getAllArray() {

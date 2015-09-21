@@ -1,7 +1,13 @@
 <?php
 /**
+ * Descrizione di EPartita
+ * Entita di partita
+ * 
+ * @package Control
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
  * @access public
- * @package Entity
  */
 class EPartita {
 	/**
@@ -64,12 +70,12 @@ class EPartita {
 	 */
 	private $immagine;
 	/**
-	 * @var $attrezzatura Variabile che specifica se è disponibile attrezzatuta
+	 * @var $attrezzatura Variabile che specifica se ï¿½ disponibile attrezzatuta
 	 * @AttributeType string
 	 */
 	private $attrezzatura;
 	/**
-	 * @var $titolo Variabile che specifica se è stato assegnato un punteggio ai giocatori
+	 * @var $titolo Variabile che specifica se ï¿½ stato assegnato un punteggio ai giocatori
 	 * che hanno partecipato alla partita 
 	 * @AttributeType string
 	 */
@@ -245,7 +251,7 @@ class EPartita {
     /**
      * restituisce un array contenente tutti gli attributi dell'oggetto
      * @access public
-     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore ï¿½ il suo contenuto
      *
      */
     public function getAllArray() {
@@ -350,7 +356,7 @@ class EPartita {
     
     /**
      * @access public
-     * @return string Stringa contenente se la partita è stata votata.
+     * @return string Stringa contenente se la partita ï¿½ stata votata.
      *
      */
     public function getVotata() {

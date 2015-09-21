@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di EAnnuncio
+ * Entita di Annuncio
+ * 
  * @package Entity
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class EAnnuncio {
 	/**
@@ -46,7 +52,7 @@ class EAnnuncio {
     
     /**
      * Imposta i dati dell'annuncio.
-     * La funzione viene utilizzata quando è necessario apportare un modifica all'annuncio insieme 
+     * La funzione viene utilizzata quando ï¿½ necessario apportare un modifica all'annuncio insieme 
      * alla funzione setImmagine.
      * 
      * @param string $titolo
@@ -151,7 +157,7 @@ class EAnnuncio {
     /**
      * restituisce un array contenente tutti gli attributi dell'oggetto
      * @access public
-     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore è il suo contenuto 
+     * @return array Array associativo dove la chiave e il nome dell'attributo e il valore ï¿½ il suo contenuto 
      *
      */
     public function getAllArray() {
