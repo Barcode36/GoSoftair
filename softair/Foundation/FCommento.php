@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di FCommento
+ * Foundation di Commento
+ * 
  * @package Foundation
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class FCommento extends Fdb {
     public function __construct() {
@@ -13,6 +19,12 @@ class FCommento extends Fdb {
             }
 
 
+	/**
+     * Seleziona sul database i commenti di una partita
+     *
+     * @param string $partitaIDpartita
+     * @return array
+     */
     public function loadCommenti($partitaIDpartita){
         $parametri=array();
         $parametri[]=array('partitaIDpartita','=',$partitaIDpartita);
@@ -20,7 +32,11 @@ class FCommento extends Fdb {
         return $arrayCommenti;
     }
     
-    
+    /**
+     * Elimina dal database i commenti di una partita
+     *
+     * @param array $commenti
+     */
     public function deleteRel($commenti) {
     	$i=0;
     	while ($i<count($commenti)) {

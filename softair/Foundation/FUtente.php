@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di FUtente
+ * Foundation di Annuncio
+ * 
  * @package Foundation
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class FUtente extends Fdb{
     public function __construct() {
@@ -22,6 +28,11 @@ class FUtente extends Fdb{
     	return $this->getObjectArray();
     }
     
+	  /**
+     * Carica tutti gli utenti
+     *
+     * @return array
+     */
     public function loadall() {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` WHERE `username` !='."'AMMINISTRATORE'" ;

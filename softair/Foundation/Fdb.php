@@ -1,18 +1,13 @@
 <?php 
-
-
-
 /**
- * @access public
+ * Classe FDB dalla quale ereditano le altre classi foundation
+ * 
  * @package Foundation
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
-
-
-
-
-
-
-
 class Fdb {
 
 

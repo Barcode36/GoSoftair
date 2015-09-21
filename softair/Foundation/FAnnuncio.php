@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di FAnnuncio
+ * Foundation di Annuncio
+ * 
  * @package Foundation
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class FAnnuncio extends Fdb {
     public function __construct() {
@@ -10,43 +16,12 @@ class FAnnuncio extends Fdb {
         $this->_return_class='EAnnuncio';
         USingleton::getInstance('Fdb');
     }
-    /**
-     * Funzione che fa lo store di un annuncio nella tabella
-     *
-     * @param EAnnuncio $annuncio
-     *
-     */
-    /*public function store( $annuncio) {
-    	parent::store($annuncio);
     
-    }*/
-    /**
-     * Funzione che cancella un annuncio dalla tabella
+     /**
+     * Seleziona sul database gli annunci 
      *
-     * @param string $idannuncio
-     *
-     */
-    /*public function delete( & $idannuncio) {
-    	parent::delete($idannuncio);
-    }*/
-    
-    
-    /**
-     * Seleziona sul database gli annunci di un utente
-     *
-     * @param string $username
      * @return array
      */
-   /* public function getAnnunciUtente($username){
-    	$query='SELECT * ' .
-    			'FROM `annuncio` '
-    			'WHERE `autore=$username`';
-    	$this->query($query);
-    	return $this->getResultAssoc();
-    }*/
-    //c'� qualche errore nella query'
-	
-
     public function loadall() {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ORDER BY `annuncio`.`data` ASC';
@@ -54,6 +29,12 @@ class FAnnuncio extends Fdb {
     	return $this->getObjectArray();
     }
     
+	/**
+     * Seleziona sul database gli annunci di un utente
+     *
+     * @param string $key
+     * @return array
+     */
 	public function loadfromuser($key) {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ' .
@@ -62,6 +43,11 @@ class FAnnuncio extends Fdb {
     	return $this->getObjectArray();
     }
     
+	/**
+     * Elimina sul database gli annunci 
+     *
+     * @param array $annunci
+     */
     public function deleterel($annunci){
     	for($i=0; $i<count($annunci); $i++)
     		$this->delete($annunci[$i]);

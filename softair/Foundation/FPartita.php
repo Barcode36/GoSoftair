@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di FPartita
+ * Foundation di Partita
+ * 
  * @package Foundation
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class FPartita extends Fdb {
     public function __construct() {
@@ -11,6 +17,12 @@ class FPartita extends Fdb {
         USingleton::getInstance('Fdb');
     }
 
+	/**
+     * Seleziona sul database una partita
+     *
+     * @param string $key
+     * @return EPartita
+     */
     public function load ($key) {
         $partita=parent::load($key);
         $FCommento=new FCommento();
@@ -20,7 +32,12 @@ class FPartita extends Fdb {
     }
 
 
-    
+    /**
+     * Seleziona sul database le partite create da un utente
+     *
+     * @param string $key
+     * @return array
+     */
     public function loadfromcreatore($key) {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ' .
@@ -29,6 +46,11 @@ class FPartita extends Fdb {
     	return $this->getObjectArray();
     }
     
+	/**
+     * Seleziona sul database tutte partita
+     *
+     * @return array
+     */
     public function loadall() {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ORDER BY `partita`.`data` ASC';

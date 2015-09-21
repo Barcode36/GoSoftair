@@ -1,7 +1,13 @@
 <?php
 /**
- * @access public
+ * Descrizione di FPrenotazione
+ * Foundation di Prenotazione
+ * 
  * @package Foundation
+ * @author Davide Giancola
+ * @author Mattia Ciolli
+ * @author Vincenzo Cavallo
+ * @access public
  */
 class FPrenotazione extends Fdb{
     
@@ -14,7 +20,12 @@ class FPrenotazione extends Fdb{
     }
     
     
-	//cancella tutte le prenotazioni relative a una partita o un utente passandogli l'array di prenotazioni relative
+	
+	/**
+     * Cancella tutte le prenotazioni relative a una partita o un utente passandogli l'array di prenotazioni relative
+     *
+     * @param array $prenotazioni
+     */
     public function deleteRel($prenotazioni) {
     			$i=0;
     			while ($i<count($prenotazioni)) {
@@ -24,7 +35,11 @@ class FPrenotazione extends Fdb{
     }
 
     
-    
+    /**
+     * Seleziona tutte le prenotazioni 
+     *
+     * @return array
+     */
     public function loadall() {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table;
@@ -32,7 +47,12 @@ class FPrenotazione extends Fdb{
     	return $this->getObjectArray();
     }    
     
-    
+    /**
+     * Seleziona tutte le prenotazioni di un utente
+     *
+	 * @param string $key
+     * @return array
+     */
     public function loadfromuser($key) {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ' .
@@ -41,6 +61,12 @@ class FPrenotazione extends Fdb{
     	return $this->getObjectArray();
     }
     
+	 /**
+     * Seleziona tutte le prenotazioni di una partita
+     *
+	 * @param string $key
+     * @return array
+     */
     public function loadfrompartita($key) {
     	$query='SELECT * ' .
     			'FROM `'.$this->_table.'` ' .
