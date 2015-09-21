@@ -137,9 +137,9 @@ class CRegistrazione {
      * @return boolean
      */
     public function emailAttivazione(EUtente $utente) {
+    	global $config;
     	$VRegistrazione=USingleton::getInstance('VRegistrazione');
-    	$email_webmaster='info@gosoftair.com';
-    	$VRegistrazione->impostaDati('email_webmaster',$email_webmaster);
+    	$VRegistrazione->impostaDati('email_webmaster',$config['email_webmaster']);
     	
  		$to=$utente->getEmail();
  		$headers = "From: GoSoftair \r\n";
@@ -229,9 +229,10 @@ class CRegistrazione {
      * username valido
      */
     public function inviaPassword() {
+    	global $config;
     	$VRegistrazione=USingleton::getInstance('VRegistrazione');
     	$email_webmaster='info@gosoftair.com';
-    	$VRegistrazione->impostaDati('email_webmaster',$email_webmaster);
+    	$VRegistrazione->impostaDati('email_webmaster',$config['email_webmaster']);
     	$this->_username=$VRegistrazione->getUsername();
     	$FUtente=new FUtente();
     	$utente=$FUtente->load($this->_username);

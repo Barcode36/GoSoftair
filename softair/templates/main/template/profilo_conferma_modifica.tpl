@@ -22,28 +22,28 @@
           		<p class="demo"></p>
           	{else}
           		{if $anam=='pa'}
-          		<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
-          		<form action="index.php"  method="get">
-    				{if $username==AMMINISTRATORE}
-    				<input type="hidden" name="controller" value="profilo">
-    				<input type="hidden" name="task" value="apri">
-    				<input type="hidden" name="profilo" value="mio">
+          			<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
+          			<form action="index.php"  method="get">
+    				{if $mio=='mio'}
+    					<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="apri">
+    					<input type="hidden" name="profilo" value="mio">
     				<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
     				{else}
-    				<input type="hidden" name="controller" value="amministratore">
-    				<input type="hidden" name="task" value="vediprofili">
-    				<p><input type="submit" id="button" value="Torna ai profili" title="Torna ai profili" ></p>
+    					<input type="hidden" name="controller" value="amministratore">
+    					<input type="hidden" name="task" value="vediprofili">
+    					<p><input type="submit" id="button" value="Torna ai profili" title="Torna ai profili" ></p>
 					{/if}
-				</form>
-          		<p class="demo"></p>
+					</form>
+          			<p class="demo"></p>
           		{else}
           			<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
-          		<form action="index.php"  method="get">
-					<input type="hidden" name="controller" value="profilo">
-    				<input type="hidden" name="task" value="apri">
-    				<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
-				</form>
-          		<p class="demo"></p>
+          			<form action="index.php"  method="get">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="apri">
+    					<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
+					</form>
+          			<p class="demo"></p>
           	{/if}
         	{/if}
         	

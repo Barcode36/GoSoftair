@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 17:54:21
+<?php /* Smarty version 2.6.26, created on 2015-09-21 19:12:38
          compiled from profilo_default.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 44, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'profilo_default.tpl', 45, false),)), $this); ?>
 <?php if ($this->_tpl_vars['datiUtente']['username'] != false): ?>
         <div class="corner-content-1col-top"></div>
         <div class="content-1col-nobox">
@@ -38,6 +38,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 
 <form action="index.php" method="post">
     		<input type="hidden" name="controller" value="profilo">
     		<input type="hidden" name="task" value="modutente">
+    		<input type="hidden" name="mio" value="<?php echo $this->_tpl_vars['mio']; ?>
+">
     		<input type="hidden" name="username" value=<?php echo $this->_tpl_vars['datiUtente']['username']; ?>
 >
 <?php if ($this->_tpl_vars['diritti'] != 'admin'): ?>   		

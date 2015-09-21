@@ -50,9 +50,11 @@ class CProfilo {
     		$mio=$view->getProfilo();
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
+    			$view->impostaDati('mio', '');
     		}
     		else{
-    			$session->imposta_valore('mio',$mio);
+    			$view->impostaDati('mio', $mio);
+    			$session->imposta_valore('profiliamministratore','pa');
     		}
     	}    		
 		$this->setUtente($username);
@@ -148,12 +150,13 @@ class CProfilo {
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('username');
         if($username=='AMMINISTRATORE'){
-    		$mio=$view->getProfilo();
+        	$mio=$view->getMio();
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
+    			$view->impostaDati('mio', '');
     		}
     		else{
-    			$username=$view->getUsername();
+    			$view->impostaDati('mio', $mio);
     		}
     	}
 		$this->setUtente($username);
@@ -186,10 +189,14 @@ class CProfilo {
     	$dati_modifica=$view->getDatiModUtente();
     	$session=USingleton::getInstance('USession');
     	$username=$session->leggi_valore('utente');
-    	$mio=$session->leggi_valore('mio');
+    	$mio=$view->getMio();
         if($username=='AMMINISTRATORE'){
     		if($mio!='mio'){
     			$username=$view->getUtenteUsername();
+    			$view->impostaDati('mio', '');
+    		}
+    		else{
+    				$view->impostaDati('mio', $mio);
     		}
     	}
     	$this->setUtente($username);
@@ -213,7 +220,8 @@ class CProfilo {
         //se le modifiche sono fatte dall'amministratore vengono salvati anche i valori aggiuntivi
         //che pu� modificare solo l'amministratore
         $diritti=$session->leggi_valore('diritti');
-        if($diritti=='admin'){
+        $session->cancella_valore($diritti);
+        if($diritti=='admin' && $mio!='mio'){
         	$dati_modifica_admin=$view->getDatiModUtenteAdmin();
         	$this->_utente->setCodiceattivazione($dati_modifica_admin['codice_attivazione']);
         	$this->_utente->setStato($dati_modifica_admin['stato']);
@@ -227,6 +235,7 @@ class CProfilo {
 		$username=$session->leggi_valore('username');
 		if($username=='AMMINISTRATORE'){
 			$anam=$session->leggi_valore('profiliamministratore');
+			$session->cancella_valore($anam);
 			$view->impostaDati('anam', $anam);}
 		$view->impostaDati('username', $username);
     	$view->setLayout('conferma_modifica');

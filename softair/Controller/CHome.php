@@ -12,9 +12,8 @@
 class CHome {
     
     /**
-	 *Imposta la pagina, controlla l'autenticazione
+     * Imposta la pagina, controlla l'autenticazione
      * @access public
-     * 
      */
     public function impostaPagina () {
         $CRegistrazione=USingleton::getInstance('CRegistrazione');
@@ -25,6 +24,8 @@ class CHome {
         $categorie=$partita->getCategorie();
         $VHome->impostaTastiCategorie($categorie);
         $VHome->impostaContenuto($contenuto);
+        global $config;
+        $VHome->impostaDati('email_webmaster',$config['email_webmaster']);
         $classifica=$this->classifica(5);
         $VHome->impostaDati('classifica',$classifica);
         $session=USingleton::getInstance('USession');
@@ -115,9 +116,9 @@ class CHome {
      * @access public
      */
     public function error403(){
+    	global $config;
     	$view=USingleton::getInstance('VHome');
-    	$web_master='info@softair.com';
-    	$view->impostaDati('web_master',$web_master);
+    	$view->impostaDati('web_master',$config['email_webmaster']);
     	return $view->processaTemplate403();
     	
     }
@@ -127,9 +128,9 @@ class CHome {
      * @access public
      */
     public function error404(){
+    	global $config;
     	$view=USingleton::getInstance('VHome');
-    	$web_master='info@softair.com';
-    	$view->impostaDati('web_master',$web_master);
+    	$view->impostaDati('web_master',$config['email_webmaster']);
     	return $view->processaTemplate404();
     	
     }

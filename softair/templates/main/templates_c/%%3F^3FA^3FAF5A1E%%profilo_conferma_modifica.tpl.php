@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 18:54:34
+<?php /* Smarty version 2.6.26, created on 2015-09-21 19:35:51
          compiled from profilo_conferma_modifica.tpl */ ?>
         <a id="anchor-heading-noicon-1"></a>
         <div class="corner-content-1col-top"></div>
@@ -24,28 +24,28 @@
           		<p class="demo"></p>
           	<?php else: ?>
           		<?php if ($this->_tpl_vars['anam'] == 'pa'): ?>
-          		<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
-          		<form action="index.php"  method="get">
-    				<?php if ($this->_tpl_vars['username'] == AMMINISTRATORE): ?>
-    				<input type="hidden" name="controller" value="profilo">
-    				<input type="hidden" name="task" value="apri">
-    				<input type="hidden" name="profilo" value="mio">
+          			<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
+          			<form action="index.php"  method="get">
+    				<?php if ($this->_tpl_vars['mio'] == 'mio'): ?>
+    					<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="apri">
+    					<input type="hidden" name="profilo" value="mio">
     				<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
     				<?php else: ?>
-    				<input type="hidden" name="controller" value="amministratore">
-    				<input type="hidden" name="task" value="vediprofili">
-    				<p><input type="submit" id="button" value="Torna ai profili" title="Torna ai profili" ></p>
+    					<input type="hidden" name="controller" value="amministratore">
+    					<input type="hidden" name="task" value="vediprofili">
+    					<p><input type="submit" id="button" value="Torna ai profili" title="Torna ai profili" ></p>
 					<?php endif; ?>
-				</form>
-          		<p class="demo"></p>
+					</form>
+          			<p class="demo"></p>
           		<?php else: ?>
           			<h2 class="noicon">La Modifica al profilo &egrave stata effettuata correttamente </h2>
-          		<form action="index.php"  method="get">
-					<input type="hidden" name="controller" value="profilo">
-    				<input type="hidden" name="task" value="apri">
-    				<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
-				</form>
-          		<p class="demo"></p>
+          			<form action="index.php"  method="get">
+						<input type="hidden" name="controller" value="profilo">
+    					<input type="hidden" name="task" value="apri">
+    					<p><input type="submit" id="button" value="Torna al profilo" title="Torna al profilo" ></p>
+					</form>
+          			<p class="demo"></p>
           	<?php endif; ?>
         	<?php endif; ?>
         	

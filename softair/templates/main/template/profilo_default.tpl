@@ -19,6 +19,7 @@
 <form action="index.php" method="post">
     		<input type="hidden" name="controller" value="profilo">
     		<input type="hidden" name="task" value="modutente">
+    		<input type="hidden" name="mio" value="{$mio}">
     		<input type="hidden" name="username" value={$datiUtente.username}>
 {if $diritti!='admin'}   		
 <h5><input type="image" height="20"  title="Modifica" src="templates/main/template/img/mm.jpg" > Modifica</h5> 

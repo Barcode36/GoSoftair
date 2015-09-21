@@ -60,6 +60,7 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
                    <input type="text" name="email" id="email" class="field" value="{$datiUtente.email}" tabindex="14" /></p>
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvautente" />
+                <input type="hidden" name="mio" value="{$mio}" />
                 <p><input type="submit" name="submit" id="submit_1" class="button" value="Salva modifiche" tabindex="15" /></p>
                </fieldset>
             </form>

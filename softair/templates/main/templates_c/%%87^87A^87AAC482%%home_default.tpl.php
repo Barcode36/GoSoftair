@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-21 13:54:01
+<?php /* Smarty version 2.6.26, created on 2015-09-21 19:07:05
          compiled from home_default.tpl */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -271,7 +271,12 @@ $this->_sections['k']['last']       = ($this->_sections['k']['iteration'] == $th
 <!-- ************************************************************************************************** -->
 <!-- ************************************************************************************************** -->              
     
-    <!-- D. FOOTER -->      
+    <!-- D. FOOTER -->
+     <div class="footer">
+      <p>Copyright &copy; 2015 GoSoftair&nbsp;&nbsp;|&nbsp;&nbsp;All Rights Reserved</p>
+      <p class="credits"> Email webmaster: <?php echo $this->_tpl_vars['email_webmaster']; ?>
+ | <a href="http://validator.w3.org/check?uri=referer" title="Validate XHTML code">XHTML 1.0</a> | <a href="http://jigsaw.w3.org/css-validator/" title="Validate CSS code">CSS 2.0</a></p>
+    </div>      
     <div class="corner-page-bottom"></div>        
   </div> 
   

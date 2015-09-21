@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2015-09-19 18:54:14
+<?php /* Smarty version 2.6.26, created on 2015-09-21 19:12:49
          compiled from profilo_modifica_utente.tpl */ ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script> 
@@ -78,6 +78,8 @@ src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></sc
 " tabindex="14" /></p>
                 <input type="hidden" name="controller" value="profilo" />
                 <input type="hidden" name="task" value="salvautente" />
+                <input type="hidden" name="mio" value="<?php echo $this->_tpl_vars['mio']; ?>
+" />
                 <p><input type="submit" name="submit" id="submit_1" class="button" value="Salva modifiche" tabindex="15" /></p>
                </fieldset>
             </form>
