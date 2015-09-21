@@ -5,8 +5,6 @@
  */
 class FPartita extends Fdb {
     public function __construct() {
-                parent::__construct();
-
         $this->_table='partita';
         $this->_key='IDpartita';
         $this->_return_class='EPartita';

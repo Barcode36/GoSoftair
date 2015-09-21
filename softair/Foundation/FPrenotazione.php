@@ -6,8 +6,6 @@
 class FPrenotazione extends Fdb{
     
 	public function __construct() {
-                parent::__construct();
-
         $this->_table='prenotazione';
         $this->_key='id';
         $this->_auto_increment=true;
