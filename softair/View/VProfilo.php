@@ -123,6 +123,20 @@ class VProfilo extends View{
     		return false;
     }
     
+	    /**
+     * Restituisce mio passato per GET o POST
+     * la variabile serve per specificare nel caso l'amministratore acceda se vuole viditare e 
+     * modificare il suo profilo o quello di un utente semplice
+     * @access public
+     * @return mixed
+     */
+    public function getMio() {
+    	if (isset($_REQUEST['mio']))
+    		return $_REQUEST['mio'];
+    	else
+    		return false;
+    }
+	
     /**
      * Restituisce id_prenotazione passato per GET o POST
      * @access public

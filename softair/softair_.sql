@@ -35,8 +35,8 @@ CREATE TABLE `commento` (
 --
 
 INSERT INTO `commento` (`id`, `partitaIDpartita`, `testo`, `data`, `ora`) VALUES
-('1','2','cartman: questo � un commento','2015-06-12','15:50'),
-('2','2','cartman: questo � un commento nuovo','2015-05-20','10:12');
+('1','2','cartman: questo ï¿½ un commento','2015-06-12','15:50'),
+('2','2','cartman: questo ï¿½ un commento nuovo','2015-05-20','10:12');
 
 
 -- --------------------------------------------------------
@@ -70,8 +70,8 @@ CREATE TABLE `partita` (
 
 INSERT INTO `partita` (`IDpartita`, `titolo`, `indirizzo`,`ngiocatori`,`ndisponibili`,`autore`, `data`, `ora`, `prezzo`, `attrezzatura`, `descrizione`, `categoria`, `immagine`, `votata`) VALUES
 ('1', 'Convento', 'via del convento 2', 10, 8, 'Rambittu89','2015-10-15','10.30', 0, 'SI' , 'Partita 5 vs 5 in un convento abbandonato. Si gioca dalle 10 alle 17 con pausa pranzo','Deathmatch a squadre', './immagini/partite/Rambittu89/convento.jpg', 'non_votata'),
-('2', 'Quartiere abbandonato', 'via garibaldi 56', 15, 5,'SnAkE','2015-11-18','10.30', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
-('3', 'Simulazione ww2', 'Piazza arischia', 20, 16,'viulenza93','2015-10-10', '10.30',5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5€.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
+('2', 'Quartiere abbandonato', 'via garibaldi 56', 15, 5,'SnAkE','2015-09-20','10.30', 0, 'SI', 'Ruba bandiera nel quartiere abbandonato di via garibaldi. Dalle 16 fino a sera','Ruba la bandiera', './immagini/partite/SnAkE/quartiere.jpg', 'non_votata'),
+('3', 'Simulazione ww2', 'Piazza arischia', 20, 16,'viulenza93','2015-10-10', '10.30',5, '', 'Simulazione seconda guerra modiale. Venite vestiti come all epoca e con le armi adeguate. Dalla mattina all 9 fino alle 22. A fine partita arrostata, ecco perche il prezzo di 5â‚¬.','Simulazione storica', './immagini/partite/viulenza93/ww2.gif', 'non_votata'),
 ('4', 'Foresta', 'Bosco di Pizzoli', 8, 6,'micidial','2015-11-02','10.30', 0, '' ,'Tutti vs tutti nel bosco di Pizzoli. Ci vediamo li alle 10!','Tutti contro tutti', './immagini/partite/micidial/foresta.jpg', 'non_votata'),
 ('5', 'Assalto al forte', 'Castello di Ortucchio', 5, 3, 'terminator','2015-10-11','10.30', 0, 'SI', 'Una squadra dentro e l altra fuori che deve conquistare il forte. Poi si scambiano le posizioni. Incontro alle ore 15.30. Si finisce quando ci si stufa ;)','Deathmatch a squadre', './immagini/partite/terminator/castelloortucchio.jpg', 'non_votata'),
 ('6', 'Mezzi utilizzabili', 'via della campagna Arischia', 20, 20,'cartman','2015-11-09','10.30', 0,'SI','Un fuggitivo, tutti all inseguimento. Il fuggitivo verra selezionato a caso e avra un ora di vantaggio. Gli altri inseguiranno anche con veicoli. Incontro alle 17','Caccia all uomo', './immagini/partite/cartman/veicoli.jpg', 'non_votata'),
@@ -145,12 +145,12 @@ CREATE TABLE `utente` (
 --
 
 INSERT INTO `utente` (`username`, `nome`, `cognome`, `password`, `email`, `via`, `codice_attivazione`, `stato`, `citta`, `CAP`, `foto`, `punti`, `giocate`, `vittorie`) VALUES
-('AMMINISTRATORE', 'Amministratore', '', 'passadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0, 0, 0),
+('AMMINISTRATORE', 'Grande', 'Amministratore', 'passadmin', 'admin@super.com', 'via stretta', 'codice_attivazione', 'attivo', 'L Aquila', '67010','./immagini/profili/Amministratore/admin.jpg', 0, 0, 0),
 ('SnAkE', 'Mario', 'Serpente', 'passsnake', 'snake@hotmail.com', 'via delle vie', 'ciao', 'attivo', 'L Aquila', '67010','./immagini/profili/SnAkE/snake.jpg', 2, 2, 0 ),
 ('terminator', 'John', 'Connor', 'passterminator', 'jc@hotmail.com', 'via delle macchine', '732876922', 'attivo', 'Monticchio (AQ)', '67011','./immagini/profili/terminator/terminator.jpg', 5, 2, 1),
 ('cartman', 'Eric', 'Cartman', 'passcartman', 'ec@hotmail.com', 'via southpark 15', '722876922', 'attivo', 'Barete (AQ)', '67012','./immagini/profili/cartman/cartman.jpg', 6, 2, 2),
 ('viulenza93', 'Francesco', 'Delle Botte', 'passviulenza93', 'viul93@hotmail.com', 'via dei coppini 37', '712876922', 'attivo', 'Cesaproba (AQ)', '67009','./immagini/profili/viulenza93/viol.jpg', 4, 3, 2),
-('rambittu89', 'John', 'Rambo', 'passrambittu89', 'jr@hotmail.com', 'via delle mitragliatrici gigantesche 9', '702876922', 'attivo', 'Pizzoli (AQ)', '67017','./immagini/profili/rambittu89/rambo.jpg', 11, 5, 3),
+('rambittu89', 'John', 'Rambo', 'passrambittu89', 'jr@hotmail.com', 'via delle mitragliatrici gigantesche 9', '702876922', 'attivo', 'Pizzoli (AQ)', '67017','./immagini/profili/Rambittu89/rambo.jpg', 11, 5, 3),
 ('micidial', 'Enzo', 'Micidiali', 'passmicidial', 'mic@hotmail.com', 'via delle banche 7', '731876922', 'attivo', 'Coppito (AQ)', '67010','./immagini/profili/micidial/maccio.jpg', 9, 5, 2),
 ('SoftgunAQ', 'Guido', 'Dei Campi', 'passsoftgunaq', 'softgunaq@hotmail.com', 'via dei campi 21', '732876920', 'attivo', 'Bazzano (AQ)', '67010','./immagini/profili/SoftgunAQ/campo.jpg', 0, 0, 0);
 -- --------------------------------------------------------
@@ -210,4 +210,3 @@ ALTER TABLE `annuncio`
 --
 ALTER TABLE `partita`
 	ADD CONSTRAINT `Creatore` FOREIGN KEY (`autore`) REFERENCES `utente` (`username`);
-
