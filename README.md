@@ -9,5 +9,5 @@ All users can edit their profiles and their advertisements. Only the administrat
 Developed with XAMPP. Used Smarty as template engine and PDO to connect to the database. Used Javascript for server side controls with some JQuery plugins like "validator" and "datepicker".
 Uses sessions.
 
-Link: [README link](http://gosoftair.esy.es/index.php)
+Link: [GoSoftair link](http://gosoftair.esy.es/index.php)
 
