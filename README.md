@@ -6,8 +6,8 @@ Registered users can sign up for a game, create a game, comment a game and inser
 Once a match is finished, the next day its creator has to assign points to the participants. There is a general classification based on points gained.
 All users can edit their profiles and their advertisements. Only the administrator can edit matches, in order to not confuse the signed in players.
 
-Developed with XAMPP. Used Smarty as template engine and PDO to connect to the database. Used Javascript for server side controls with some JQuery plugins like "validator" and "datepicker".
-Uses sessions.
+Used XAMPP for test and debug. Developed with PCEF architecture. Used Smarty as template engine and PDO to connect to the database. Used Javascript for client side controls with some JQuery plugins like "validator" and "datepicker".
+Used sessions.
 
-Link: [GoSoftair link](http://gosoftair.esy.es/index.php)
+Link: [GoSoftair](http://gosoftair.esy.es/index.php)
 
